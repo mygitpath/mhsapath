@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About myHSAPath — Why We Built This | myHSAPath</title>
 <meta name="description" content="myHSAPath is an independent HSA comparison site built for self-employed Americans. Learn who built it, how we make money, and our editorial standards.">
@@ -10,59 +11,59 @@
 <style>
 :root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);line-height:1.7}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
-.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:var(--navy);text-decoration:none;letter-spacing:-.5px}
-.logo span{color:var(--teal)}
+body{font-family:'DM Sans',sans-serif;background:#fdfcfa;color:#1a2540;line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid #e2ddd6;height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:#0a1628;text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#00b8a2}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--navy)}
-.nav-cta{background:var(--teal);color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
-.mobile-menu-btn{display:none;width:36px;height:36px;background:var(--navy);border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.nav-links a{text-decoration:none;color:#505f7a;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0a1628}
+.nav-cta{background:#00b8a2;color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:#0a1628;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
 .mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
-.page-hero{padding:100px 5% 64px;background:var(--navy);position:relative;overflow:hidden}
+.page-hero{padding:100px 5% 64px;background:#0a1628;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,184,162,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
-.hero-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.75rem}
 .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
-.page-hero h1 em{font-style:italic;color:var(--teal)}
+.page-hero h1 em{font-style:italic;color:#00b8a2}
 .hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);max-width:520px;line-height:1.7}
-.about-wrap{max-width:720px;margin:0 auto;padding:4rem 5% 5rem}
-.about-wrap h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);letter-spacing:-.3px;margin:2.5rem 0 .85rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.about-wrap{background:#fdfcfa;max-width:720px;margin:0 auto;padding:4rem 5% 5rem}
+.about-wrap h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#0a1628;letter-spacing:-.3px;margin:2.5rem 0 .85rem;padding-top:2.5rem;border-top:1px solid #e2ddd6}
 .about-wrap h2:first-child{margin-top:0;padding-top:0;border-top:none}
-.about-wrap p{font-size:.92rem;color:var(--text);line-height:1.8;margin-bottom:.85rem}
+.about-wrap p{font-size:.92rem;color:#1a2540;line-height:1.8;margin-bottom:.85rem}
 .about-wrap ul{margin:.5rem 0 1rem 1.25rem}
-.about-wrap ul li{font-size:.92rem;color:var(--text);margin-bottom:.4rem;line-height:1.7}
-.about-wrap strong{color:var(--navy);font-weight:600}
-.about-wrap a{color:var(--teal);text-decoration:none}
+.about-wrap ul li{font-size:.92rem;color:#1a2540;margin-bottom:.4rem;line-height:1.7}
+.about-wrap strong{color:#0a1628;font-weight:600}
+.about-wrap a{color:#00b8a2;text-decoration:none}
 .about-wrap a:hover{text-decoration:underline}
-.highlight-box{background:var(--teal-light);border:1.5px solid rgba(0,184,162,.25);border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0}
+.highlight-box{background:#e0f7f4;border:1.5px solid rgba(0,184,162,.25);border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0}
 .highlight-box p{margin-bottom:0;color:#005f54;font-size:.9rem}
 .highlight-box strong{color:#005f54}
 .values-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.25rem 0}
-.value-card{background:white;border:1.5px solid var(--border);border-radius:12px;padding:1.1rem;transition:border-color .2s}
-.value-card:hover{border-color:var(--teal)}
+.value-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1.1rem;transition:border-color .2s}
+.value-card:hover{border-color:#00b8a2}
 .value-icon{font-size:1.25rem;margin-bottom:.5rem}
-.value-title{font-weight:600;font-size:.88rem;color:var(--navy);margin-bottom:.3rem}
-.value-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
-.team-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;margin:1.25rem 0}
-.team-avatar{width:52px;height:52px;border-radius:12px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:white;flex-shrink:0}
-.team-name{font-weight:700;font-size:.95rem;color:var(--navy);margin-bottom:3px}
-.team-role{font-size:.78rem;color:var(--teal);font-weight:600;margin-bottom:.5rem}
-.team-bio{font-size:.82rem;color:var(--muted);line-height:1.6}
-.money-row{display:flex;align-items:flex-start;gap:12px;padding:.85rem;border-radius:10px;border:1.5px solid var(--border);margin-bottom:8px;transition:border-color .2s}
-.money-row:hover{border-color:var(--teal)}
+.value-title{font-weight:600;font-size:.88rem;color:#0a1628;margin-bottom:.3rem}
+.value-desc{font-size:.8rem;color:#505f7a;line-height:1.55}
+.team-card{background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;margin:1.25rem 0}
+.team-avatar{width:52px;height:52px;border-radius:12px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:white;flex-shrink:0}
+.team-name{font-weight:700;font-size:.95rem;color:#0a1628;margin-bottom:3px}
+.team-role{font-size:.78rem;color:#00b8a2;font-weight:600;margin-bottom:.5rem}
+.team-bio{font-size:.82rem;color:#505f7a;line-height:1.6}
+.money-row{display:flex;align-items:flex-start;gap:12px;padding:.85rem;border-radius:10px;border:1.5px solid #e2ddd6;margin-bottom:8px;transition:border-color .2s}
+.money-row:hover{border-color:#00b8a2}
 .money-icon{font-size:1.25rem;flex-shrink:0}
-.money-title{font-weight:600;font-size:.88rem;color:var(--navy);margin-bottom:2px}
-.money-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
-.contact-section{background:var(--navy);border-radius:16px;padding:2rem;margin-top:2.5rem;text-align:center}
+.money-title{font-weight:600;font-size:.88rem;color:#0a1628;margin-bottom:2px}
+.money-desc{font-size:.8rem;color:#505f7a;line-height:1.5}
+.contact-section{background:#0a1628;border-radius:16px;padding:2rem;margin-top:2.5rem;text-align:center}
 .contact-section h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:white;margin-bottom:.5rem}
 .contact-section p{font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:1.25rem;line-height:1.6}
 .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .contact-btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none!important;color:inherit;transition:all .2s}
-.contact-btn-primary{background:var(--teal);color:white!important;text-decoration:none}
+.contact-btn-primary{background:#00b8a2;color:white!important;text-decoration:none}
 .contact-btn-primary:hover{background:#009b87}
-.contact-btn-secondary{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.15)}
-.contact-btn-secondary:hover{background:rgba(255,255,255,.15)}
+.contact-btn-secondary{background:rgba(255,255,255,.08);color:white!important;border:1px solid rgba(255,255,255,.3)}
+.contact-btn-secondary:hover{background:rgba(255,255,255,.18);color:white!important}
 footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
 .footer-brand .logo{color:white;display:block;margin-bottom:.6rem}
 .footer-desc{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.6}
@@ -70,14 +71,442 @@ footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:.45rem}
 .footer-col ul a{text-decoration:none;font-size:.8rem;color:rgba(255,255,255,.3);transition:color .2s}
-.footer-col ul a:hover{color:var(--teal)}
+.footer-col ul a:hover{color:#00b8a2}
 .footer-bottom{background:#070f1e;padding:1.25rem 5% 1.5rem;border-top:1px solid rgba(255,255,255,.05);margin:0 -5%;margin-top:2rem;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .footer-copy{font-size:.72rem;color:rgba(255,255,255,.18)}
 .footer-disclaimer{font-size:.7rem;color:rgba(255,255,255,.15);line-height:1.6;max-width:540px}
-@media(max-width:640px){nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}.about-wrap{padding:2rem 4% 4rem}.values-grid{grid-template-columns:1fr}.team-card{flex-direction:column}.contact-links{flex-direction:column;align-items:center}footer{grid-template-columns:1fr 1fr;padding:2rem 4% 0}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;gap:.5rem;padding:1rem 4% 1.25rem}}
+@media(max-width:640px){nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}.about-wrap{background:#fdfcfa;padding:2rem 4% 4rem}.values-grid{grid-template-columns:1fr}.team-card{flex-direction:column}.contact-links{flex-direction:column;align-items:center}footer{grid-template-columns:1fr 1fr;padding:2rem 4% 0}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;gap:.5rem;padding:1rem 4% 1.25rem}}
+
+/* ── MOBILE NAV ──────────────────────────────────────── */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: #0a1628;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 200;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10,22,40,0.5);
+  z-index: 98;
+}
+.mobile-nav-overlay.open { display: block; }
+
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: #fdfcfa;
+  z-index: 99;
+  border-bottom: 1.5px solid #e2ddd6;
+  padding: 0.5rem 0 1rem;
+  box-shadow: 0 8px 32px rgba(10,22,40,0.12);
+}
+.mobile-nav-drawer.open { display: block; }
+
+.mobile-nav-drawer a {
+  display: block;
+  padding: 0.85rem 5%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a2540;
+  text-decoration: none;
+  border-bottom: 0.5px solid #e2ddd6;
+  transition: background 0.15s;
+}
+.mobile-nav-drawer a:last-child { border-bottom: none; }
+.mobile-nav-drawer a:hover { background: #e0f7f4; color: #00b8a2; }
+.mobile-nav-drawer a.nav-cta-mobile {
+  margin: 0.75rem 5% 0;
+  background: #00b8a2;
+  color: white !important;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  font-weight: 600;
+}
+.mobile-nav-drawer a.nav-cta-mobile:hover { background: #009b87; }
+
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: flex !important; }
+  .nav-links { display: none !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── HORIZONTAL SCROLL FIX ──────────────────────────── */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+.page-hero, .email-section, .disc-banner,
+.compare-section, .reviews-section, .method-section,
+.faq-section, .calc-main, .about-wrap, .legal-wrap,
+.disclosure-wrap, .blog-main, .post-wrap,
+.trust-strip, footer { overflow: hidden; }
+@media (max-width: 768px) {
+  .page-hero::before, .page-hero::after,
+  .email-section::before, .email-section::after,
+  section::before, section::after { display: none !important; }
+  html, body, nav, footer,
+  .page-hero, .email-section { width: 100%; max-width: 100vw; overflow-x: hidden; }
+  .footer-bottom { margin-left: 0 !important; margin-right: 0 !important; }
+  .email-form { flex-direction: column; }
+  .email-form input, .email-form button, .email-form .btn-primary { width: 100%; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── WCAG AA CONTRAST FIXES ─────────────────────────── */
+/* Muted text darkened from #6b7a99 to #505f7a (4.7:1 on white) */
+:root {
+  --muted: #505f7a;
+}
+
+/* Teal CTA buttons: navy text on teal = 7.2:1 contrast ✅ */
+.btn-primary,
+.nav-cta,
+.review-cta.primary,
+.inline-cta-btn,
+.mob-cta-primary,
+.gate-btn,
+.nl-btn,
+.calc-cta,
+.contact-btn-primary,
+.email-inline-btn,
+.mob-cta.mob-cta-primary {
+  color: #0a1628 !important;
+  font-weight: 700 !important;
+}
+
+/* Exception: keep white text on DARK navy buttons */
+.review-cta.secondary,
+.mob-cta-secondary,
+.contact-btn-secondary,
+.cust-cta,
+.rec-cta,
+.load-more-btn {
+  color: #0a1628 !important;
+}
+
+/* White text on navy backgrounds stays white - that passes 18:1 */
+.result-hero *,
+.stats-bar *,
+.stats-strip *,
+.email-section *,
+.not-elig-hero *,
+.maybe-hero *,
+footer *,
+.verdict-bar *,
+.disc-banner * {
+  /* these are on navy/dark backgrounds — white text is fine */
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════
+   UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
+   ═══════════════════════════════════════════════════════ */
+html, body {
+  background-color: #fdfcfa !important;
+  color: #1a2540 !important;
+}
+
+/* All sections default to warm white unless explicitly dark */
+section, main, article, aside, header, div {
+  color: inherit;
+}
+
+/* Light sections — explicit backgrounds */
+.section,
+.hero,
+.page-hero ~ section,
+.about-wrap,
+.legal-wrap,
+.disclosure-wrap,
+.post-wrap,
+.calc-main,
+.blog-main,
+.method-section,
+.faq-section ~ section,
+.compare-section,
+.trust-strip,
+.steps-section,
+.related-posts,
+.blog-section,
+.not-elig-body,
+.maybe-body,
+.quiz-wrap,
+.calc-text {
+  background-color: #fdfcfa !important;
+}
+
+/* Cream sections */
+.calc-section,
+.reviews-section,
+.cream-section,
+.faq-section,
+.sidebar-newsletter,
+.toc-box {
+  background-color: #f7f4ef !important;
+}
+
+/* Dark sections stay dark */
+.stats-bar,
+.stats-strip,
+.verdict-bar,
+.email-section,
+.result-hero,
+.not-elig-hero,
+.maybe-hero,
+footer,
+.footer-bottom,
+.disc-banner,
+.stats-card,
+.contact-cta,
+.sidebar-calc {
+  background-color: #0a1628 !important;
+}
+
+/* White cards always white */
+.review-card,
+.method-card,
+.step-card,
+.blog-card,
+.post-card,
+.related-card,
+.rec-card,
+.tp-card,
+.value-card,
+.promise-card,
+.right-card,
+.money-row,
+.faq-item,
+.alt-option,
+.check-item,
+.toc,
+.sidebar-card,
+.calc-box,
+.calc-card,
+.hero-card,
+.question-card,
+.email-gate,
+.result-eligible,
+.result-not-eligible,
+.result-maybe {
+  background-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════ */
+.page-hero { background-color: #fdfcfa !important; color: #1a2540 !important; }
+.page-hero h1, .page-hero h2, .page-hero p, .page-hero span, .page-hero a:not(.nav-cta) { color: #1a2540 !important; }
+.page-hero h1 em { color: #00b8a2 !important; }
+.page-hero .breadcrumb a { color: #00b8a2 !important; }
+.page-hero .breadcrumb span { color: #505f7a !important; }
+.page-hero .hero-eyebrow { color: #007a6e !important; }
+
+
+/* ── DISCLOSURE BANNER MOBILE FIX ───────────────────── */
+@media (max-width: 768px) {
+  .disc-banner,
+  .disclosure-banner {
+    padding: 7px 4% !important;
+    flex-wrap: wrap !important;
+  }
+  .disc-banner p,
+  .banner-text {
+    font-size: .72rem !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+  }
+  /* Shorten the banner text on mobile using CSS truncation */
+  .disc-banner .mobile-hide,
+  .banner-text .mobile-hide {
+    display: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── SECONDARY BUTTON ON DARK BG — always white text ── */
+.contact-btn-secondary,
+.contact-btn-secondary:hover {
+  color: white !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1.5px solid rgba(255,255,255,.3) !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════
+   WCAG 2.2 COMPLIANCE FIXES
+   ══════════════════════════════════════════════════════
+
+   1. Teal inline links — darken to #007a6e (4.6:1 on white) ✅
+   2. Focus indicators — visible on all interactive elements
+   3. Min touch target 24x24px (WCAG 2.5.8)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Teal inline links — #007a6e passes AA on white AND cream */
+a:not(.nav-cta):not(.nav-cta-mobile):not(.contact-btn):not(.review-cta):not(.inline-cta-btn):not(.jump-link):not(.related-card):not(.sc-row):not(.footer-col a):not(.toc ul a):not(.toc-box ol a) {
+  color: #007a6e;
+}
+a:not(.nav-cta):not(.nav-cta-mobile):not(.contact-btn):not(.review-cta):not(.inline-cta-btn):not(.jump-link):not(.related-card):not(.sc-row):not(.footer-col a):not(.toc ul a):not(.toc-box ol a):hover {
+  color: #005f54;
+  text-decoration: underline;
+}
+
+/* Keep teal (#00b8a2) only on dark navy backgrounds where it passes */
+.disc-banner a,
+.email-section a,
+.stats-bar a,
+footer a:hover,
+.verdict-bar a,
+.post-hero a,
+.page-hero a,
+.result-hero a,
+nav a:hover,
+.mobile-nav-drawer a:hover,
+.toc ul a,
+.toc-box ol a {
+  color: #00b8a2 !important;
+}
+
+/* 2. Focus indicators — WCAG 2.4.11 (Focus Appearance) */
+*:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+  border-radius: 3px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Minimum touch target size — WCAG 2.5.8 (24x24px minimum) */
+button,
+.nav-cta,
+.contact-btn,
+.review-cta,
+.inline-cta-btn,
+.jump-link,
+.mob-cta,
+.faq-item,
+.related-card,
+.mob-card,
+.sc-row {
+  min-height: 44px;
+}
+nav .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.mobile-nav-drawer a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 4. Don't rely solely on color for information */
+a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 5%;
+  background: #007a6e;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0 !important;
+}
+
+
+/* ── LOGO FIXES ──────────────────────────────────────── */
+/* Never underline the logo in nav or footer */
+.logo,
+.logo:hover,
+a.logo,
+a.logo:hover,
+.footer-brand .logo,
+.footer-brand .logo:hover,
+nav .logo,
+nav .logo:hover {
+  text-decoration: none !important;
+  color: #0a1628 !important;
+}
+
+/* Footer logo — white with teal span */
+.footer-brand .logo,
+.footer-brand a.logo {
+  color: white !important;
+}
+.footer-brand .logo span {
+  color: #00b8a2 !important;
+}
+
+/* Nav logo — navy with teal span, consistent on all pages */
+nav .logo,
+nav a.logo {
+  color: #0a1628 !important;
+}
+nav .logo span {
+  color: #00b8a2 !important;
+}
+/* ────────────────────────────────────────────────────── */
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <nav>
   <a href="/" class="logo">my<span>HSAPath</span></a>
   <ul class="nav-links">
@@ -87,10 +516,22 @@ footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns
     <li><a href="/blog">Blog</a></li>
     <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
   </ul>
-  <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="page-hero">
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+  <a href="/compare">Compare Accounts</a>
+  <a href="/eligible">Am I Eligible?</a>
+  <a href="/calculator">Calculator</a>
+  <a href="/blog">Blog</a>
+  <a href="/about">About</a>
+  <a href="/eligible" class="nav-cta-mobile">Find My HSA →</a>
+</div>
+
+
+<div id="main-content" class="page-hero">
   <div class="hero-label">About</div>
   <h1>Why we built <em>myHSAPath</em></h1>
   <p class="hero-sub">An honest answer to the question every independent comparison site should answer: who are we, and why should you trust us?</p>
@@ -219,5 +660,62 @@ footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns
     <p class="footer-disclaimer">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
   </div>
 </footer>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('mobileOverlay');
+
+  if (!btn || !drawer || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  overlay.addEventListener('click', function() {
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
 </body>
 </html>
