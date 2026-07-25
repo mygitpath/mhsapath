@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSA Tax Savings Calculator 2026 — See Exactly What You Save | myHSAPath</title>
+<meta name="description" content="Calculate your exact HSA tax savings in 2026. Enter your income and contribution amount to see federal savings, self-employment tax savings, and 10-year growth projection.">
+<link rel="canonical" href="https://myhsapath.com/calculator">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fdfcfa;color:#1a2540;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid #e2ddd6;height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:#0a1628;text-decoration:none;letter-spacing:-.5px}
+.logo span{color:#00b8a2}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:#505f7a;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0a1628}
+.nav-links a.active{color:#0a1628;font-weight:600}
+.nav-cta{background:#00b8a2;color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:#0a1628;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
+.page-hero{padding:100px 5% 56px;background:#0a1628;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(0,184,162,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,162,.12);border:1px solid rgba(0,184,162,.25);color:#00b8a2;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1.25rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.page-hero h1 em{font-style:italic;color:#00b8a2}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);max-width:520px;line-height:1.7}
+.calc-main{background:#fdfcfa;padding:3rem 5%;max-width:1100px;margin:0 auto}
+.calc-grid{display:grid;grid-template-columns:1fr 380px;gap:2.5rem;align-items:start}
+.calc-card{background:white;border-radius:20px;border:1.5px solid #e2ddd6;padding:2rem;box-shadow:0 4px 24px rgba(10,22,40,.06);position:sticky;top:84px}
+.calc-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#0a1628;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e2ddd6}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.8rem;font-weight:600;color:#1a2540;margin-bottom:5px;letter-spacing:.2px}
+.field input,.field select{width:100%;padding:11px 14px;border:1.5px solid #e2ddd6;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:#1a2540;background:white;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.field input:focus,.field select:focus{border-color:#00b8a2}
+.field .hint{font-size:.73rem;color:#505f7a;margin-top:4px}
+.divider{height:1px;background:#e2ddd6;margin:1.25rem 0}
+.result-block{background:#0a1628;border-radius:12px;padding:1.25rem;margin-bottom:.75rem;text-align:center}
+.result-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px}
+.result-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#00b8a2;line-height:1}
+.result-sub{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:3px}
+.mini-results{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.75rem}
+.mini-result{background:#f7f4ef;border-radius:10px;padding:.85rem;text-align:center}
+.mini-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#505f7a;margin-bottom:3px}
+.mini-num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#0a1628}
+.calc-cta{width:100%;padding:13px;background:#00b8a2;color:white!important;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;margin-top:.75rem;transition:all .2s;text-align:center;text-decoration:none;display:block}
+.calc-cta:hover{background:#009b87;transform:translateY(-1px)}
+.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.6rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#0a1628;letter-spacing:-.5px;line-height:1.15;margin-bottom:.6rem}
+.section-sub{font-size:.9rem;color:#505f7a;line-height:1.7;margin-bottom:2rem}
+.advantage-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem}
+.adv-card{background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1.5rem;transition:all .25s}
+.adv-card:hover{border-color:#00b8a2;box-shadow:0 8px 24px rgba(0,184,162,.08);transform:translateY(-3px)}
+.adv-icon{font-size:1.75rem;margin-bottom:.75rem}
+.adv-title{font-weight:700;font-size:.92rem;color:#0a1628;margin-bottom:.4rem}
+.adv-body{font-size:.82rem;color:#505f7a;line-height:1.65}
+.growth-section{background:#f7f4ef;border-radius:20px;padding:2rem;margin-bottom:3rem}
+.growth-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0a1628;margin-bottom:.5rem}
+.growth-sub{font-size:.85rem;color:#505f7a;margin-bottom:1.5rem}
+.growth-bars{display:flex;flex-direction:column;gap:.75rem}
+.bar-row{display:flex;align-items:center;gap:1rem}
+.bar-year{font-size:.82rem;font-weight:600;color:#1a2540;min-width:52px}
+.bar-track{flex:1;height:32px;background:white;border-radius:8px;overflow:hidden;border:1px solid #e2ddd6}
+.bar-fill{height:100%;background:#00b8a2;border-radius:8px;transition:width .8s ease;overflow:hidden}
+.bar-fill-val{display:none}
+.bar-total{font-size:.88rem;font-weight:700;color:#0a1628;min-width:80px;text-align:right}
+.bracket-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-bottom:3rem;background:white;border-radius:14px;border:1.5px solid #e2ddd6;overflow:hidden}
+.bracket-table thead tr{background:#0a1628}
+.bracket-table th{padding:.85rem 1rem;text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.bracket-table tbody tr{border-bottom:1px solid #e2ddd6;transition:background .15s}
+.bracket-table tbody tr:last-child{border-bottom:none}
+.bracket-table tbody tr:hover{background:#fafffe}
+.bracket-table td{padding:.85rem 1rem;color:#1a2540}
+.bracket-table td:first-child{font-weight:600;color:#0a1628}
+.highlight-row{background:rgba(0,184,162,.04)!important;border-left:2px solid #00b8a2}
+.highlight-row td:first-child{color:#00b8a2!important}
+.faq-section{background:#f7f4ef;margin-bottom:3rem}
+.faq-item{border:1.5px solid #e2ddd6;border-radius:12px;margin-bottom:8px;overflow:hidden;cursor:pointer}
+.faq-item:hover{border-color:#00b8a2}
+.faq-q{padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-weight:600;font-size:.9rem;color:#0a1628}
+.faq-toggle{color:#00b8a2;font-size:1.1rem;font-weight:700;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 1.25rem 1rem;font-size:.84rem;color:#505f7a;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.email-section{background:#0a1628;padding:4rem 5%;text-align:center;position:relative;overflow:hidden}
+.email-section::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:400px;height:250px;background:radial-gradient(ellipse,rgba(0,184,162,.15) 0%,transparent 70%);pointer-events:none}
+.email-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:white;letter-spacing:-.5px;margin-bottom:.75rem}
+.email-section p{color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:1.75rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.email-form{display:flex;gap:.75rem;max-width:380px;margin:0 auto 1rem}
+.email-form input{flex:1;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none}
+.email-form input::placeholder{color:rgba(255,255,255,.35)}
+.email-form input:focus{border-color:#00b8a2}
+.btn-primary{background:#00b8a2;color:white!important;padding:.85rem 1.4rem;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s}
+.btn-primary:hover{background:#009b87}
+.email-note{font-size:.72rem;color:rgba(255,255,255,.3)}
+footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+.footer-brand .logo{color:white;display:block;margin-bottom:.6rem}
+.footer-desc{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.6}
+.footer-col h4{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.45rem}
+.footer-col ul a{text-decoration:none;font-size:.8rem;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-col ul a:hover{color:#00b8a2}
+.footer-bottom{background:#070f1e;padding:1.25rem 5% 1.5rem;border-top:1px solid rgba(255,255,255,.05);margin:0 -5%;margin-top:2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.18)}
+.footer-disclaimer{font-size:.7rem;color:rgba(255,255,255,.15);line-height:1.6;max-width:540px}
+@media(max-width:768px){nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}.calc-grid{grid-template-columns:1fr}.calc-card{position:static}.advantage-cards{grid-template-columns:1fr}.email-form{flex-direction:column}.mini-results{grid-template-columns:1fr}footer{grid-template-columns:1fr 1fr;gap:1.25rem;padding:2rem 4% 0}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;gap:.5rem;padding:1rem 4% 1.25rem}.calc-main{background:#fdfcfa;padding:2rem 4%}}
+
+/* ── MOBILE NAV ──────────────────────────────────────── */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: #0a1628;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 200;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10,22,40,0.5);
+  z-index: 98;
+}
+.mobile-nav-overlay.open { display: block; }
+
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: #fdfcfa;
+  z-index: 99;
+  border-bottom: 1.5px solid #e2ddd6;
+  padding: 0.5rem 0 1rem;
+  box-shadow: 0 8px 32px rgba(10,22,40,0.12);
+}
+.mobile-nav-drawer.open { display: block; }
+
+.mobile-nav-drawer a {
+  display: block;
+  padding: 0.85rem 5%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a2540;
+  text-decoration: none;
+  border-bottom: 0.5px solid #e2ddd6;
+  transition: background 0.15s;
+}
+.mobile-nav-drawer a:last-child { border-bottom: none; }
+.mobile-nav-drawer a:hover { background: #e0f7f4; color: #00b8a2; }
+.mobile-nav-drawer a.nav-cta-mobile {
+  margin: 0.75rem 5% 0;
+  background: #00b8a2;
+  color: white !important;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  font-weight: 600;
+}
+.mobile-nav-drawer a.nav-cta-mobile:hover { background: #009b87; }
+
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: flex !important; }
+  .nav-links { display: none !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── HORIZONTAL SCROLL FIX ──────────────────────────── */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+.page-hero, .email-section, .disc-banner,
+.compare-section, .reviews-section, .method-section,
+.faq-section, .calc-main, .about-wrap, .legal-wrap,
+.disclosure-wrap, .blog-main, .post-wrap,
+.trust-strip, footer { overflow: hidden; }
+@media (max-width: 768px) {
+  .page-hero::before, .page-hero::after,
+  .email-section::before, .email-section::after,
+  section::before, section::after { display: none !important; }
+  html, body, nav, footer,
+  .page-hero, .email-section { width: 100%; max-width: 100vw; overflow-x: hidden; }
+  .footer-bottom { margin-left: 0 !important; margin-right: 0 !important; }
+  .email-form { flex-direction: column; }
+  .email-form input, .email-form button, .email-form .btn-primary { width: 100%; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── WCAG AA CONTRAST FIXES ─────────────────────────── */
+/* Muted text darkened from #6b7a99 to #505f7a (4.7:1 on white) */
+:root {
+  --muted: #505f7a;
+}
+
+/* Teal CTA buttons: navy text on teal = 7.2:1 contrast ✅ */
+.btn-primary,
+.nav-cta,
+.review-cta.primary,
+.inline-cta-btn,
+.mob-cta-primary,
+.gate-btn,
+.nl-btn,
+.calc-cta,
+.contact-btn-primary,
+.email-inline-btn,
+.mob-cta.mob-cta-primary {
+  color: #0a1628 !important;
+  font-weight: 700 !important;
+}
+
+/* Exception: keep white text on DARK navy buttons */
+.review-cta.secondary,
+.mob-cta-secondary,
+.contact-btn-secondary,
+.cust-cta,
+.rec-cta,
+.load-more-btn {
+  color: #0a1628 !important;
+}
+
+/* White text on navy backgrounds stays white - that passes 18:1 */
+.result-hero *,
+.stats-bar *,
+.stats-strip *,
+.email-section *,
+.not-elig-hero *,
+.maybe-hero *,
+footer *,
+.verdict-bar *,
+.disc-banner * {
+  /* these are on navy/dark backgrounds — white text is fine */
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════
+   UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
+   ═══════════════════════════════════════════════════════ */
+html, body {
+  background-color: #fdfcfa !important;
+  color: #1a2540 !important;
+}
+
+/* All sections default to warm white unless explicitly dark */
+section, main, article, aside, header, div {
+  color: inherit;
+}
+
+/* Light sections — explicit backgrounds */
+.section,
+.hero,
+.page-hero ~ section,
+.about-wrap,
+.legal-wrap,
+.disclosure-wrap,
+.post-wrap,
+.calc-main,
+.blog-main,
+.method-section,
+.faq-section ~ section,
+.compare-section,
+.trust-strip,
+.steps-section,
+.related-posts,
+.blog-section,
+.not-elig-body,
+.maybe-body,
+.quiz-wrap,
+.calc-text {
+  background-color: #fdfcfa !important;
+}
+
+/* Cream sections */
+.calc-section,
+.reviews-section,
+.cream-section,
+.faq-section,
+.sidebar-newsletter,
+.toc-box {
+  background-color: #f7f4ef !important;
+}
+
+/* Dark sections stay dark */
+.stats-bar,
+.stats-strip,
+.verdict-bar,
+.email-section,
+.result-hero,
+.not-elig-hero,
+.maybe-hero,
+footer,
+.footer-bottom,
+.disc-banner,
+.stats-card,
+.contact-cta,
+.sidebar-calc {
+  background-color: #0a1628 !important;
+}
+
+/* White cards always white */
+.review-card,
+.method-card,
+.step-card,
+.blog-card,
+.post-card,
+.related-card,
+.rec-card,
+.tp-card,
+.value-card,
+.promise-card,
+.right-card,
+.money-row,
+.faq-item,
+.alt-option,
+.check-item,
+.toc,
+.sidebar-card,
+.calc-box,
+.calc-card,
+.hero-card,
+.question-card,
+.email-gate,
+.result-eligible,
+.result-not-eligible,
+.result-maybe {
+  background-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════ */
+.page-hero { background-color: #fdfcfa !important; color: #1a2540 !important; }
+.page-hero h1, .page-hero h2, .page-hero p, .page-hero span, .page-hero a:not(.nav-cta) { color: #1a2540 !important; }
+.page-hero h1 em { color: #00b8a2 !important; }
+.page-hero .breadcrumb a { color: #00b8a2 !important; }
+.page-hero .breadcrumb span { color: #505f7a !important; }
+.page-hero .hero-eyebrow { color: #007a6e !important; }
+
+
+/* ── DISCLOSURE BANNER MOBILE FIX ───────────────────── */
+@media (max-width: 768px) {
+  .disc-banner,
+  .disclosure-banner {
+    padding: 7px 4% !important;
+    flex-wrap: wrap !important;
+  }
+  .disc-banner p,
+  .banner-text {
+    font-size: .72rem !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+  }
+  /* Shorten the banner text on mobile using CSS truncation */
+  .disc-banner .mobile-hide,
+  .banner-text .mobile-hide {
+    display: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── SECONDARY BUTTON ON DARK BG — always white text ── */
+.contact-btn-secondary,
+.contact-btn-secondary:hover {
+  color: white !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1.5px solid rgba(255,255,255,.3) !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════
+   WCAG 2.2 COMPLIANCE FIXES
+   ══════════════════════════════════════════════════════
+
+   1. Teal inline links — darken to #007a6e (4.6:1 on white) ✅
+   2. Focus indicators — visible on all interactive elements
+   3. Min touch target 24x24px (WCAG 2.5.8)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Teal inline links — #007a6e passes AA on white AND cream */
+a:not(.nav-cta):not(.nav-cta-mobile):not(.contact-btn):not(.review-cta):not(.inline-cta-btn):not(.jump-link):not(.related-card):not(.sc-row):not(.footer-col a):not(.toc ul a):not(.toc-box ol a) {
+  color: #007a6e;
+}
+a:not(.nav-cta):not(.nav-cta-mobile):not(.contact-btn):not(.review-cta):not(.inline-cta-btn):not(.jump-link):not(.related-card):not(.sc-row):not(.footer-col a):not(.toc ul a):not(.toc-box ol a):hover {
+  color: #005f54;
+  text-decoration: underline;
+}
+
+/* Keep teal (#00b8a2) only on dark navy backgrounds where it passes */
+.disc-banner a,
+.email-section a,
+.stats-bar a,
+footer a:hover,
+.verdict-bar a,
+.post-hero a,
+.page-hero a,
+.result-hero a,
+nav a:hover,
+.mobile-nav-drawer a:hover,
+.toc ul a,
+.toc-box ol a {
+  color: #00b8a2 !important;
+}
+
+/* 2. Focus indicators — WCAG 2.4.11 (Focus Appearance) */
+*:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+  border-radius: 3px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Minimum touch target size — WCAG 2.5.8 (24x24px minimum) */
+button,
+.nav-cta,
+.contact-btn,
+.review-cta,
+.inline-cta-btn,
+.jump-link,
+.mob-cta,
+.faq-item,
+.related-card,
+.mob-card,
+.sc-row {
+  min-height: 44px;
+}
+nav .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.mobile-nav-drawer a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 4. Don't rely solely on color for information */
+a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 5%;
+  background: #007a6e;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0 !important;
+}
+
+
+/* ── LOGO FIXES ──────────────────────────────────────── */
+/* Never underline the logo in nav or footer */
+.logo,
+.logo:hover,
+a.logo,
+a.logo:hover,
+.footer-brand .logo,
+.footer-brand .logo:hover,
+nav .logo,
+nav .logo:hover {
+  text-decoration: none !important;
+  color: #0a1628 !important;
+}
+
+/* Footer logo — white with teal span */
+.footer-brand .logo,
+.footer-brand a.logo {
+  color: white !important;
+}
+.footer-brand .logo span {
+  color: #00b8a2 !important;
+}
+
+/* Nav logo — navy with teal span, consistent on all pages */
+nav .logo,
+nav a.logo {
+  color: #0a1628 !important;
+}
+nav .logo span {
+  color: #00b8a2 !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav>
+  <a href="/" class="logo">my<span>HSAPath</span></a>
+  <ul class="nav-links">
+    <li><a href="/compare">Compare Accounts</a></li>
+    <li><a href="/eligible">Am I Eligible?</a></li>
+    <li><a href="/calculator" class="active">Calculator</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+  <a href="/compare">Compare Accounts</a>
+  <a href="/eligible">Am I Eligible?</a>
+  <a href="/calculator">Calculator</a>
+  <a href="/blog">Blog</a>
+  <a href="/about">About</a>
+  <a href="/eligible" class="nav-cta-mobile">Find My HSA →</a>
+</div>
+
+
+<div id="main-content" class="page-hero">
+  <div class="hero-eyebrow">🧮 Free Tool — Updated 2026</div>
+  <h1>HSA Tax Savings <em>Calculator</em></h1>
+  <p class="hero-sub">See your exact annual tax savings from HSA contributions. Most self-employed Americans are surprised how much they're leaving on the table.</p>
+</div>
+
+<div class="calc-main">
+  <div class="calc-grid">
+
+    <!-- LEFT: CONTENT -->
+    <div>
+      <div style="margin-bottom:2.5rem">
+        <div class="section-eyebrow">Why it matters</div>
+        <div class="section-title">The triple tax advantage — explained</div>
+        <p class="section-sub">An HSA is the only account in the US tax code with three separate tax benefits. Understanding all three shows why it's the most powerful savings tool most freelancers aren't using.</p>
+        <div class="advantage-cards">
+          <div class="adv-card">
+            <div class="adv-icon">1️⃣</div>
+            <div class="adv-title">Contributions are pre-tax</div>
+            <p class="adv-body">Every dollar you contribute reduces your taxable income dollar-for-dollar. At the $4,300 individual limit, someone in the 22% bracket saves $946 in federal taxes alone.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">2️⃣</div>
+            <div class="adv-title">Growth is tax-free</div>
+            <p class="adv-body">Invest your HSA balance in index funds and every dollar of growth — dividends, capital gains, interest — is completely tax-free. Unlike a brokerage account, you never owe taxes on gains.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">3️⃣</div>
+            <div class="adv-title">Withdrawals are tax-free</div>
+            <p class="adv-body">Use your HSA funds for any qualified medical expense — doctor visits, prescriptions, dental, vision — and you pay zero tax on the withdrawal. After 65, withdraw for anything penalty-free.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROWTH PROJECTOR -->
+      <div class="growth-section">
+        <div class="growth-title">📈 10-year HSA growth projection</div>
+        <div class="growth-sub">Assuming $4,300/year contribution, 7% annual investment return (S&P 500 historical average), zero withdrawals</div>
+        <div class="growth-bars" id="growth-bars">
+          <div class="bar-row"><div class="bar-year">Year 1</div><div class="bar-track"><div class="bar-fill" id="b1" style="width:5%"><span class="bar-fill-val" id="bv1">$4,601</span></div></div><div class="bar-total" id="bt1">$4,601</div></div>
+          <div class="bar-row"><div class="bar-year">Year 2</div><div class="bar-track"><div class="bar-fill" id="b2" style="width:10%"><span class="bar-fill-val" id="bv2">$9,544</span></div></div><div class="bar-total" id="bt2">$9,544</div></div>
+          <div class="bar-row"><div class="bar-year">Year 3</div><div class="bar-track"><div class="bar-fill" id="b3" style="width:15%"><span class="bar-fill-val" id="bv3">$14,853</span></div></div><div class="bar-total" id="bt3">$14,853</div></div>
+          <div class="bar-row"><div class="bar-year">Year 5</div><div class="bar-track"><div class="bar-fill" id="b5" style="width:28%"><span class="bar-fill-val" id="bv5">$26,418</span></div></div><div class="bar-total" id="bt5">$26,418</div></div>
+          <div class="bar-row"><div class="bar-year">Year 10</div><div class="bar-track"><div class="bar-fill" id="b10" style="width:60%"><span class="bar-fill-val" id="bv10">$63,105</span></div></div><div class="bar-total" id="bt10">$63,105</div></div>
+          <div class="bar-row"><div class="bar-year">Year 20</div><div class="bar-track"><div class="bar-fill" id="b20" style="width:100%"><span class="bar-fill-val" id="bv20">$187,920</span></div></div><div class="bar-total" id="bt20">$187,920</div></div>
+        </div>
+      </div>
+
+      <!-- TAX BRACKET TABLE -->
+      <div>
+        <div class="section-eyebrow">2026 reference</div>
+        <div class="section-title" style="font-size:1.4rem">Federal tax brackets — single filers</div>
+        <p class="section-sub">Your HSA deduction saves you money at your marginal rate — the bracket your top dollar of income falls into.</p>
+        <table class="bracket-table">
+          <thead><tr><th>Tax bracket</th><th>Taxable income (single)</th><th>HSA savings on $4,300</th></tr></thead>
+          <tbody>
+            <tr><td>10%</td><td>Up to $11,600</td><td>$430</td></tr>
+            <tr><td>12%</td><td>$11,601 – $44,725</td><td>$516</td></tr>
+            <tr class="highlight-row"><td>22% ← most freelancers</td><td>$44,726 – $95,375</td><td>$946</td></tr>
+            <tr><td>24%</td><td>$95,376 – $182,050</td><td>$1,032</td></tr>
+            <tr><td>32%</td><td>$182,051 – $231,250</td><td>$1,376</td></tr>
+            <tr><td>35%</td><td>$231,251 – $578,125</td><td>$1,505</td></tr>
+            <tr><td>37%</td><td>Over $578,125</td><td>$1,591</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <div class="section-eyebrow">Common questions</div>
+        <div class="section-title" style="font-size:1.4rem;margin-bottom:1rem">Calculator FAQ</div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Why does the calculator show two savings amounts? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Self-employed people pay both income tax AND self-employment tax (15.3% — the employer + employee share of Social Security and Medicare). HSA contributions reduce your net self-employment income, saving you both. The calculator shows them separately so you understand exactly where the savings come from.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Does the calculator include state tax savings? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">No — state tax treatment of HSAs varies. Most states follow federal rules and also exempt HSA contributions from state income tax, adding another 3–13% in savings depending on your state. California and New Jersey are notable exceptions — they tax HSA contributions at the state level.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What investment return does the growth calculator assume? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">The 10-year projection assumes 7% annual return, which reflects the S&P 500's historical average after inflation. Actual returns will vary. This projection is for illustrative purposes and not a guarantee of future performance.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Can I contribute to an HSA and an IRA in the same year? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes. HSA contributions and IRA contributions are completely separate limits. You can max out both in the same year. For self-employed people, you can also contribute to a SEP-IRA or Solo 401(k) on top of both.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: CALCULATOR CARD -->
+    <div>
+      <div class="calc-card">
+        <div class="calc-card-title">🧮 Your HSA tax savings</div>
+        <div class="field">
+          <label for="income">Annual gross income</label>
+          <input type="number" id="income" inputmode="numeric" placeholder="85,000" value="85000" oninput="calc()">
+          <div class="hint">Your total income before taxes and deductions</div>
+        </div>
+        <div class="field">
+          <label for="contrib">HSA contribution amount</label>
+          <input type="number" id="contrib" inputmode="numeric" placeholder="4,300" value="4300" oninput="calc()">
+          <div class="hint">Max 2026: $4,300 individual · $8,550 family</div>
+        </div>
+        <div class="field">
+          <label for="status">Filing status</label>
+          <select id="status" onchange="calc()">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="selfemployed">Employment type</label>
+          <select id="selfemployed" onchange="calc()">
+            <option value="yes">Self-employed / Freelancer</option>
+            <option value="no">Employed by a company</option>
+          </select>
+          <div class="hint">Self-employed people save on SE tax too</div>
+        </div>
+        <div class="divider"></div>
+        <div class="result-block">
+          <div class="result-label">Total estimated annual savings</div>
+          <div class="result-num" id="total-savings">$1,553</div>
+          <div class="result-sub">Federal income tax + self-employment tax</div>
+        </div>
+        <div class="mini-results">
+          <div class="mini-result">
+            <div class="mini-label">Federal income tax</div>
+            <div class="mini-num" id="fed-savings">$946</div>
+          </div>
+          <div class="mini-result">
+            <div class="mini-label">SE tax savings</div>
+            <div class="mini-num" id="se-savings">$607</div>
+          </div>
+        </div>
+        <div class="mini-results">
+          <div class="mini-result">
+            <div class="mini-label">Tax bracket</div>
+            <div class="mini-num" id="bracket">22%</div>
+          </div>
+          <div class="mini-result">
+            <div class="mini-label">10-year tax-free growth</div>
+            <div class="mini-num" id="growth10">$63,105</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <a href="/compare" class="calc-cta">Open a free HSA account →</a>
+        <p style="font-size:.72rem;color:#505f7a;text-align:center;margin-top:.6rem">Fidelity and Lively are both $0/month</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="email-section">
+  <h2>Get your personalized HSA savings report</h2>
+  <p>Enter your email and we'll send a PDF with your exact savings breakdown and top custodian recommendation.</p>
+  <div class="email-form">
+    <input type="email" placeholder="your@email.com" aria-label="Email address">
+    <button class="btn-primary">Get Free Report</button>
+  </div>
+  <p class="email-note">🔒 No spam. Unsubscribe anytime.</p>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo">my<span>HSAPath</span></a>
+    <p class="footer-desc">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="/terms">Terms &amp; Conditions</a></li>
+      <li><a href="/advertiser-disclosure">Advertiser Disclosure</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Compare</h4>
+    <ul>
+      <li><a href="/compare">Best HSA Accounts</a></li>
+      <li><a href="/eligible">Am I Eligible?</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&#169; 2026 myHSAPath. All rights reserved.</p>
+    <p class="footer-disclaimer">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+  </div>
+</footer>
+
+<script>
+function calc(){
+  const income=parseFloat(document.getElementById('income').value)||85000;
+  const contrib=Math.min(parseFloat(document.getElementById('contrib').value)||4300,8550);
+  const status=document.getElementById('status').value;
+  const se=document.getElementById('selfemployed').value==='yes';
+  let rate=0.10,bLabel='10%';
+  if(status==='single'){
+    if(income>578125){rate=0.37;bLabel='37%'}
+    else if(income>231250){rate=0.35;bLabel='35%'}
+    else if(income>182050){rate=0.32;bLabel='32%'}
+    else if(income>95375){rate=0.24;bLabel='24%'}
+    else if(income>44725){rate=0.22;bLabel='22%'}
+    else if(income>11600){rate=0.12;bLabel='12%'}
+  }else{
+    if(income>693750){rate=0.37;bLabel='37%'}
+    else if(income>462500){rate=0.35;bLabel='35%'}
+    else if(income>364200){rate=0.32;bLabel='32%'}
+    else if(income>190750){rate=0.24;bLabel='24%'}
+    else if(income>89250){rate=0.22;bLabel='22%'}
+    else if(income>23200){rate=0.12;bLabel='12%'}
+  }
+  const fedSav=Math.round(contrib*rate);
+  const seSav=se?Math.round(contrib*0.1413):0;
+  const total=fedSav+seSav;
+  document.getElementById('fed-savings').textContent='$'+fedSav.toLocaleString();
+  document.getElementById('se-savings').textContent=se?'$'+seSav.toLocaleString():'N/A';
+  document.getElementById('total-savings').textContent='$'+total.toLocaleString();
+  document.getElementById('bracket').textContent=bLabel;
+  let bal=0,maxBal=0;
+  const yearly={};
+  for(let y=1;y<=20;y++){bal=(bal+contrib)*1.07;yearly[y]=Math.round(bal);}
+  maxBal=yearly[20];
+  const gr=document.getElementById('growth10');
+  if(gr)gr.textContent='$'+yearly[10].toLocaleString();
+  [1,2,3,5,10,20].forEach(y=>{
+    const pct=Math.round((yearly[y]/maxBal)*100);
+    const b=document.getElementById('b'+y);
+    const bv=document.getElementById('bv'+y);
+    const bt=document.getElementById('bt'+y);
+    if(b)b.style.width=Math.max(pct,8)+'%';
+    if(bv)bv.textContent='$'+yearly[y].toLocaleString();
+    if(bt)bt.textContent='$'+yearly[y].toLocaleString();
+  });
+}
+function toggleFaq(el){
+  const open=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!open)el.classList.add('open');
+}
+calc();
+</script>
+<script type="application/ld+json">
+{
+  color: white !important;
+}}
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('mobileOverlay');
+
+  if (!btn || !drawer || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  overlay.addEventListener('click', function() {
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
+</body>
+</html>
