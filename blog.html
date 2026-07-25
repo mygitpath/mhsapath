@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSA Blog — Guides, Tips & 2026 Updates | myHSAPath</title>
+<meta name="description" content="Free HSA guides for self-employed Americans. Compare accounts, understand 2026 ACA changes, calculate tax savings, and learn how to invest your HSA.">
+<link rel="canonical" href="https://myhsapath.com/blog">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:var(--navy);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);font-weight:600}
+.nav-cta{background:var(--teal);color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:var(--navy);border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
+
+/* HERO */
+.page-hero{padding:100px 5% 56px;background:var(--navy);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,184,162,.08) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,162,.12);border:1px solid rgba(0,184,162,.25);color:var(--teal);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1.25rem}
+.live-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.page-hero h1 em{font-style:italic;color:var(--teal)}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);max-width:500px;line-height:1.7}
+
+/* CATEGORY FILTERS */
+.filter-bar{background:white;border-bottom:1px solid var(--border);padding:0 5%;position:sticky;top:64px;z-index:50}
+.filter-inner{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{padding:.9rem 1.25rem;border:none;background:none;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;flex-shrink:0}
+.filter-btn:hover{color:var(--navy)}
+.filter-btn.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:600}
+
+/* MAIN LAYOUT */
+.blog-main{max-width:1200px;margin:0 auto;padding:3rem 5%;display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start}
+
+/* FEATURED POST */
+.featured-post{background:white;border-radius:20px;border:1.5px solid var(--border);overflow:hidden;margin-bottom:2rem;cursor:pointer;transition:all .25s;text-decoration:none;display:block}
+.featured-post:hover{border-color:var(--teal);box-shadow:0 12px 40px rgba(0,184,162,.08);transform:translateY(-3px)}
+.featured-img{height:240px;background:linear-gradient(135deg,var(--navy) 0%,#0d2a3e 100%);display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+.featured-badge{position:absolute;top:16px;left:16px;background:var(--teal);color:white;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase}
+.featured-body{padding:1.75rem}
+.post-cat{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+.featured-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:.6rem;letter-spacing:-.3px}
+.post-excerpt{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.post-meta{display:flex;align-items:center;gap:1rem;font-size:.78rem;color:var(--muted)}
+.post-meta strong{color:var(--text);font-weight:600}
+.read-time{display:flex;align-items:center;gap:4px}
+
+/* POST GRID */
+.posts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:2rem}
+.post-card{background:white;border-radius:14px;border:1.5px solid var(--border);overflow:hidden;cursor:pointer;transition:all .25s;text-decoration:none;display:block}
+.post-card:hover{border-color:var(--teal);box-shadow:0 8px 24px rgba(0,184,162,.07);transform:translateY(-2px)}
+.post-card[data-hidden="true"]{display:none}
+.card-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.card-body{padding:1rem 1.1rem}
+.card-cat{font-size:.63rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.card-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:.4rem}
+.card-meta{font-size:.73rem;color:var(--muted)}
+.no-posts{display:none;text-align:center;padding:3rem;color:var(--muted);font-size:.9rem;grid-column:1/-1}
+.no-posts.show{display:block}
+
+/* LOAD MORE */
+.load-more-wrap{text-align:center;margin-bottom:2rem}
+.load-more-btn{background:white;border:1.5px solid var(--border);color:var(--text);padding:.85rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s}
+.load-more-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+/* EMAIL IN FEED */
+.email-card{background:var(--navy);border-radius:14px;padding:1.5rem;text-align:center;grid-column:1/-1;margin:.5rem 0}
+.email-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;margin-bottom:.4rem}
+.email-card p{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:1rem;line-height:1.6}
+.email-inline-form{display:flex;gap:8px;max-width:340px;margin:0 auto}
+.email-inline-form input{flex:1;padding:.75rem 1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none}
+.email-inline-form input::placeholder{color:rgba(255,255,255,.35)}
+.email-inline-form input:focus{border-color:var(--teal)}
+.email-inline-btn{background:var(--teal);color:white;padding:.75rem 1rem;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s}
+.email-inline-btn:hover{background:#009b87}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1.25rem}
+.sidebar-card{background:white;border:1.5px solid var(--border);border-radius:14px;padding:1.25rem}
+.sidebar-title{font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:1rem}
+.quick-links{list-style:none;display:flex;flex-direction:column;gap:6px}
+.quick-links a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:.85rem;color:var(--text);padding:.6rem .75rem;border-radius:8px;transition:all .2s;border:1px solid transparent;font-weight:500}
+.quick-links a:hover{background:var(--teal-light);border-color:rgba(0,184,162,.2);color:var(--teal)}
+.quick-links a span{font-size:.9rem}
+.stats-card{background:var(--navy);border-radius:14px;padding:1.25rem}
+.stats-card .sidebar-title{color:rgba(255,255,255,.45)}
+.stat-item{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.stat-item:last-child{border-bottom:none}
+.stat-item-label{font-size:.8rem;color:rgba(255,255,255,.5)}
+.stat-item-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--teal)}
+.top-posts{list-style:none;display:flex;flex-direction:column;gap:8px}
+.top-post-item{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:.5rem .25rem;border-radius:8px;transition:background .15s}
+.top-post-item:hover{background:var(--cream)}
+.tp-num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--border);flex-shrink:0;line-height:1;width:20px}
+.tp-title{font-size:.8rem;font-weight:600;color:var(--navy);line-height:1.4}
+.tp-cat{font-size:.7rem;color:var(--teal);margin-top:2px}
+
+/* PAGINATION */
+.pagination{display:flex;gap:6px;justify-content:center;margin-top:1rem}
+.page-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.page-btn:hover,.page-btn.active{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+
+/* FOOTER */
+footer{background:#070f1e;padding:2.5rem 5% 0;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+.footer-brand .logo{color:white;display:block;margin-bottom:.6rem}
+.footer-desc{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.6}
+.footer-col h4{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.45rem}
+.footer-col ul a{text-decoration:none;font-size:.8rem;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-col ul a:hover{color:var(--teal)}
+.footer-bottom{background:#070f1e;padding:1.25rem 5% 1.5rem;border-top:1px solid rgba(255,255,255,.05);margin:0 -5%;margin-top:2rem;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.18)}
+.footer-disclaimer{font-size:.7rem;color:rgba(255,255,255,.15);line-height:1.6;max-width:540px}
+
+@media(max-width:900px){
+  .blog-main{grid-template-columns:1fr;gap:2rem}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+}
+@media(max-width:640px){
+  nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}
+  .blog-main{padding:2rem 4%}
+  .posts-grid{grid-template-columns:1fr}
+  .sidebar{grid-template-columns:1fr}
+  .email-inline-form{flex-direction:column}
+  footer{grid-template-columns:1fr 1fr;padding:2rem 4% 0}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{flex-direction:column;gap:.5rem;padding:1rem 4% 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">my<span>HSAPath</span></a>
+  <ul class="nav-links">
+    <li><a href="/compare">Compare Accounts</a></li>
+    <li><a href="/eligible">Am I Eligible?</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-eyebrow"><div class="live-dot"></div>Biweekly — Updated for 2026</div>
+  <h1>HSA Guides &amp; <em>Insights</em></h1>
+  <p class="hero-sub">Clear, practical HSA content for self-employed Americans. No jargon, no outdated advice — just what you need to save more money.</p>
+</section>
+
+<!-- CATEGORY FILTERS -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All posts</button>
+    <button class="filter-btn" onclick="filterPosts('comparisons', this)">Comparisons</button>
+    <button class="filter-btn" onclick="filterPosts('tax-tips', this)">Tax tips</button>
+    <button class="filter-btn" onclick="filterPosts('eligibility', this)">Eligibility</button>
+    <button class="filter-btn" onclick="filterPosts('investing', this)">Investing</button>
+    <button class="filter-btn" onclick="filterPosts('2026', this)">2026 updates</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="blog-main">
+  <main>
+
+    <!-- FEATURED POST -->
+    <a href="/blog/best-hsa-accounts-2026" class="featured-post" data-cat="comparisons 2026">
+      <div class="featured-img">
+        <div class="featured-badge">⭐ Featured</div>
+        📋
+      </div>
+      <div class="featured-body">
+        <div class="post-cat">Comparisons · 2026 update</div>
+        <div class="featured-title">Best HSA Accounts of 2026 — Ranked and Compared After the ACA Changes</div>
+        <p class="post-excerpt">Fidelity, Lively, HealthEquity, and HSA Bank all compared on fees, investment options, and user experience. With all Bronze plans now HSA-eligible, more Americans can open one than ever before. Here's exactly where to do it.</p>
+        <div class="post-meta">
+          <span class="read-time">⏱ 8 min read</span>
+          <span>·</span>
+          <strong>July 2026</strong>
+          <span>·</span>
+          <span>Updated monthly</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST GRID -->
+    <div class="posts-grid" id="posts-grid">
+
+      <a href="/blog" data-future-post="/blog/aca-bronze-hsa-eligible-2026" class="post-card" data-cat="eligibility 2026">
+        <div class="card-img" style="background:linear-gradient(135deg,#e0f7f4,#b2ece4)">🏥</div>
+        <div class="card-body">
+          <div class="card-cat">Eligibility · 2026</div>
+          <div class="card-title">All ACA Bronze Plans Are Now HSA-Eligible — What It Means for You</div>
+          <div class="card-meta">6 min · July 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-vs-fsa-2026" class="post-card" data-cat="comparisons">
+        <div class="card-img" style="background:linear-gradient(135deg,#e8f0fe,#c5d8fc)">⚖️</div>
+        <div class="card-body">
+          <div class="card-cat">Comparisons</div>
+          <div class="card-title">HSA vs FSA in 2026 — Which Is Better for Self-Employed Workers?</div>
+          <div class="card-meta">7 min · July 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-freelancer-guide" class="post-card" data-cat="tax-tips eligibility">
+        <div class="card-img" style="background:linear-gradient(135deg,#fef9e8,#fde7a0)">💻</div>
+        <div class="card-body">
+          <div class="card-cat">Tax tips</div>
+          <div class="card-title">HSA for Freelancers — The Complete 2026 Guide to Tax-Free Healthcare Savings</div>
+          <div class="card-meta">10 min · June 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-investment-guide" class="post-card" data-cat="investing">
+        <div class="card-img" style="background:linear-gradient(135deg,#e8fdf0,#a8edc4)">📈</div>
+        <div class="card-body">
+          <div class="card-cat">Investing</div>
+          <div class="card-title">How to Invest Your HSA — Turn It Into a Stealth Retirement Account</div>
+          <div class="card-meta">8 min · June 2026</div>
+        </div>
+      </a>
+
+      <!-- EMAIL IN-FEED CARD -->
+      <div class="email-card" data-type="email">
+        <h3>Get biweekly HSA tips</h3>
+        <p>Join 4,200+ freelancers. Free, no spam, unsubscribe anytime.</p>
+        <div class="email-inline-form">
+          <input type="email" placeholder="your@email.com">
+          <button class="email-inline-btn">Subscribe</button>
+        </div>
+      </div>
+
+      <a href="/blog" data-future-post="/blog/fidelity-vs-lively-2026" class="post-card" data-cat="comparisons">
+        <div class="card-img" style="background:linear-gradient(135deg,#eeedfe,#cbc8f8)">🔍</div>
+        <div class="card-body">
+          <div class="card-cat">Comparisons</div>
+          <div class="card-title">Fidelity HSA vs Lively — Which Is Better in 2026?</div>
+          <div class="card-meta">6 min · June 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-contribution-limits-2026" class="post-card" data-cat="tax-tips 2026">
+        <div class="card-img" style="background:linear-gradient(135deg,#faeeda,#f8cc80)">📊</div>
+        <div class="card-body">
+          <div class="card-cat">Tax tips · 2026</div>
+          <div class="card-title">2026 HSA Contribution Limits — Everything You Need to Know</div>
+          <div class="card-meta">4 min · May 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-eligible-expenses-2026" class="post-card" data-cat="tax-tips 2026">
+        <div class="card-img" style="background:linear-gradient(135deg,#faece7,#f5b89a)">🧾</div>
+        <div class="card-body">
+          <div class="card-cat">Tax tips · 2026</div>
+          <div class="card-title">What Can You Buy With an HSA in 2026? Complete Eligible Expenses List</div>
+          <div class="card-meta">9 min · May 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-triple-tax-advantage" class="post-card" data-cat="investing tax-tips">
+        <div class="card-img" style="background:linear-gradient(135deg,#e0f7f4,#80ddd0)">🏦</div>
+        <div class="card-body">
+          <div class="card-cat">Investing</div>
+          <div class="card-title">The HSA Triple Tax Advantage — Why It Beats Every Other Savings Account</div>
+          <div class="card-meta">5 min · May 2026</div>
+        </div>
+      </a>
+
+      <a href="/blog" data-future-post="/blog/hsa-after-65" class="post-card" data-cat="investing">
+        <div class="card-img" style="background:linear-gradient(135deg,#e8f0fe,#93b8f8)">🎯</div>
+        <div class="card-body">
+          <div class="card-cat">Investing</div>
+          <div class="card-title">What Happens to Your HSA After 65? The Rules That Make It a Retirement Account</div>
+          <div class="card-meta">6 min · April 2026</div>
+        </div>
+      </a>
+
+      <div class="no-posts" id="no-posts">No posts in this category yet — check back soon.</div>
+
+    </div>
+
+    <!-- LOAD MORE -->
+    <div class="load-more-wrap">
+      <button class="load-more-btn">Load more articles</button>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card stats-card">
+      <div class="sidebar-title">2026 key numbers</div>
+      <div class="stat-item"><span class="stat-item-label">Individual limit</span><span class="stat-item-val">$4,300</span></div>
+      <div class="stat-item"><span class="stat-item-label">Family limit</span><span class="stat-item-val">$8,550</span></div>
+      <div class="stat-item"><span class="stat-item-label">Catch-up (55+)</span><span class="stat-item-val">+$1,000</span></div>
+      <div class="stat-item"><span class="stat-item-label">ACA plans eligible</span><span class="stat-item-val">35%</span></div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Quick tools</div>
+      <ul class="quick-links">
+        <li><a href="/eligible"><span>✅</span> Am I HSA eligible?</a></li>
+        <li><a href="/calculator"><span>🧮</span> Calculate my savings</a></li>
+        <li><a href="/compare"><span>⚖️</span> Compare custodians</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Most read</div>
+      <ul class="top-posts">
+        <li class="top-post-item">
+          <div class="tp-num">1</div>
+          <div><div class="tp-title">Best HSA Accounts 2026 — Ranked</div><div class="tp-cat">Comparisons</div></div>
+        </li>
+        <li class="top-post-item">
+          <div class="tp-num">2</div>
+          <div><div class="tp-title">HSA for Freelancers — Complete Guide</div><div class="tp-cat">Tax tips</div></div>
+        </li>
+        <li class="top-post-item">
+          <div class="tp-num">3</div>
+          <div><div class="tp-title">What Can You Buy With an HSA?</div><div class="tp-cat">Tax tips</div></div>
+        </li>
+        <li class="top-post-item">
+          <div class="tp-num">4</div>
+          <div><div class="tp-title">Fidelity HSA vs Lively 2026</div><div class="tp-cat">Comparisons</div></div>
+        </li>
+        <li class="top-post-item">
+          <div class="tp-num">5</div>
+          <div><div class="tp-title">The HSA Triple Tax Advantage</div><div class="tp-cat">Investing</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card" style="background:var(--navy);border-color:var(--navy)">
+      <div class="sidebar-title" style="color:rgba(255,255,255,.45)">Newsletter</div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:1rem;line-height:1.6">Biweekly HSA tips for self-employed Americans. Free forever.</p>
+      <input type="email" placeholder="your@email.com" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;margin-bottom:8px">
+      <button style="width:100%;padding:10px;background:var(--teal);color:white;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer">Subscribe free →</button>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-top:.5rem;text-align:center">No spam. Unsubscribe anytime.</p>
+    </div>
+
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo">my<span>HSAPath</span></a>
+    <p class="footer-desc">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="/terms">Terms &amp; Conditions</a></li>
+      <li><a href="/advertiser-disclosure">Advertiser Disclosure</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Compare</h4>
+    <ul>
+      <li><a href="/compare">Best HSA Accounts</a></li>
+      <li><a href="/eligible">Am I Eligible?</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&#169; 2026 myHSAPath. All rights reserved.</p>
+    <p class="footer-disclaimer">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+  </div>
+</footer>
+
+<script>
+function filterPosts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.post-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const cats = c.dataset.cat || '';
+    const show = cat === 'all' || cats.includes(cat);
+    c.dataset.hidden = show ? 'false' : 'true';
+    c.style.display = show ? 'block' : 'none';
+    if (show) visible++;
+  });
+  const noP = document.getElementById('no-posts');
+  noP.classList.toggle('show', visible === 0);
+  const emailCard = document.querySelector('.email-card');
+  if (emailCard) emailCard.style.display = cat === 'all' ? 'block' : 'none';
+}
+</script>
+</body>
+</html>

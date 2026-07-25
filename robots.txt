@@ -1,0 +1,12 @@
+# robots.txt for myhsapath.com
+# Updated: July 2026
+
+User-agent: *
+Allow: /
+
+# Block crawling of any admin or draft paths (add as needed)
+# Disallow: /admin/
+# Disallow: /drafts/
+
+# Sitemap location
+Sitemap: https://myhsapath.com/sitemap.xml

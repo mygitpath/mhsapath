@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Am I HSA Eligible in 2026? Take the 60-Second Quiz | myHSAPath</title>
+<meta name="description" content="Find out if you qualify for an HSA in 2026. With ACA changes making all Bronze plans eligible, millions more Americans now qualify. Take our free 60-second quiz.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   VARIABLES & RESET
+============================================ */
+:root {
+  --navy:       #0a1628;
+  --teal:       #00b8a2;
+  --teal-light: #e0f7f4;
+  --cream:      #f7f4ef;
+  --warm-white: #fdfcfa;
+  --gold:       #e8a020;
+  --text:       #1a2540;
+  --muted:      #6b7a99;
+  --border:     #e2ddd6;
+  --red:        #e05252;
+  --red-light:  #fef2f2;
+  --green:      #00b8a2;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAV
+============================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,252,250,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 5%; justify-content: space-between;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 1.35rem;
+  color: var(--navy); letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--teal); }
+.nav-links {
+  display: flex; align-items: center; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 600; }
+.nav-cta {
+  background: var(--teal); color: white !important;
+  padding: 0.5rem 1.2rem; border-radius: var(--radius-sm);
+  font-weight: 600 !important; transition: all 0.2s !important;
+}
+.nav-cta:hover { background: var(--navy) !important; }
+.mobile-menu-btn {
+  display: none; width: 36px; height: 36px;
+  background: var(--navy); border-radius: 8px;
+  flex-direction: column; justify-content: center;
+  align-items: center; gap: 4px; border: none; cursor: pointer;
+}
+.mobile-menu-btn span { display: block; width: 16px; height: 2px; background: white; border-radius: 2px; }
+
+/* ============================================
+   PAGE HERO
+============================================ */
+.page-hero {
+  padding: 100px 5% 48px;
+  text-align: center;
+  background: var(--warm-white);
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,184,162,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--teal-light);
+  border: 1px solid rgba(0,184,162,0.25);
+  color: #007a6e; font-size: 0.72rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.live-dot {
+  width: 6px; height: 6px; background: var(--teal);
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900; line-height: 1.1;
+  letter-spacing: -1.2px; color: var(--navy);
+  margin-bottom: 1rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--teal); }
+.page-hero p {
+  font-size: 1rem; color: var(--muted);
+  max-width: 500px; margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.hero-stats {
+  display: flex; justify-content: center;
+  gap: 2rem; flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: var(--muted);
+}
+.hero-stat strong { color: var(--text); font-weight: 600; }
+
+/* ============================================
+   QUIZ WRAPPER
+============================================ */
+.quiz-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 5% 5rem;
+}
+
+/* ============================================
+   PROGRESS BAR
+============================================ */
+.progress-wrap {
+  margin-bottom: 2.5rem;
+}
+.progress-top {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 10px;
+}
+.progress-label {
+  font-size: 0.8rem; font-weight: 600; color: var(--muted);
+}
+.progress-count {
+  font-size: 0.8rem; color: var(--muted);
+}
+.progress-count span { color: var(--teal); font-weight: 700; }
+.progress-track {
+  height: 6px; background: var(--border);
+  border-radius: 100px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--teal);
+  border-radius: 100px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.step-dots {
+  display: flex; justify-content: center;
+  gap: 8px; margin-top: 12px;
+}
+.step-dot {
+  width: 8px; height: 8px;
+  border-radius: 100px; background: var(--border);
+  transition: all 0.3s;
+}
+.step-dot.active { background: var(--teal); width: 24px; }
+.step-dot.done { background: var(--teal); opacity: 0.4; }
+
+/* ============================================
+   QUESTION CARD
+============================================ */
+.question-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+  display: none;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.question-card.active { display: block; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideBack {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.question-card.back { animation: slideBack 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.q-number {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.75rem;
+}
+.q-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700; color: var(--navy);
+  line-height: 1.25; margin-bottom: 0.6rem;
+  letter-spacing: -0.3px;
+}
+.q-hint {
+  font-size: 0.85rem; color: var(--muted);
+  line-height: 1.6; margin-bottom: 2rem;
+}
+.q-hint a { color: var(--teal); text-decoration: none; }
+
+/* ============================================
+   ANSWER OPTIONS
+============================================ */
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.option {
+  display: flex; align-items: center; gap: 14px;
+  padding: 1rem 1.25rem;
+  background: white; border: 1.5px solid var(--border);
+  border-radius: var(--radius-md); cursor: pointer;
+  transition: all 0.2s; position: relative;
+  text-align: left; width: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+.option:hover {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  transform: translateX(4px);
+}
+.option.selected {
+  border-color: var(--teal);
+  background: var(--teal-light);
+}
+.option.selected .opt-radio {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.option.selected .opt-radio::after { opacity: 1; }
+
+.opt-radio {
+  width: 20px; height: 20px;
+  border-radius: 50%; border: 2px solid var(--border);
+  background: white; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+}
+.opt-radio::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%; background: white;
+  opacity: 0; transition: opacity 0.2s;
+}
+
+.opt-content { flex: 1; }
+.opt-label {
+  font-weight: 600; font-size: 0.92rem;
+  color: var(--navy); display: block;
+}
+.opt-sub {
+  font-size: 0.78rem; color: var(--muted);
+  margin-top: 2px; display: block;
+}
+
+.opt-icon {
+  font-size: 1.4rem; flex-shrink: 0;
+  width: 36px; text-align: center;
+}
+
+/* ============================================
+   NAV BUTTONS
+============================================ */
+.quiz-nav {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-top: 1.75rem;
+  gap: 12px;
+}
+.btn-back {
+  background: none; border: 1.5px solid var(--border);
+  color: var(--muted); padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-back:hover { border-color: var(--navy); color: var(--navy); }
+.btn-back:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-next {
+  background: var(--teal); color: white;
+  padding: 0.85rem 2rem; border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
+  flex: 1; justify-content: center;
+  max-width: 260px;
+}
+.btn-next:hover:not(:disabled) {
+  background: #009b87;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,184,162,0.3);
+}
+.btn-next:disabled {
+  background: var(--border); color: var(--muted);
+  cursor: not-allowed; transform: none; box-shadow: none;
+}
+
+/* ============================================
+   EMAIL GATE (before results)
+============================================ */
+.email-gate {
+  display: none;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+  text-align: center;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.email-gate.active { display: block; }
+
+.gate-icon { font-size: 3rem; margin-bottom: 1rem; }
+.gate-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--navy); margin-bottom: 0.6rem;
+  letter-spacing: -0.5px;
+}
+.gate-sub {
+  font-size: 0.9rem; color: var(--muted);
+  max-width: 380px; margin: 0 auto 1.75rem;
+  line-height: 1.7;
+}
+.gate-form {
+  display: flex; flex-direction: column;
+  gap: 10px; max-width: 340px; margin: 0 auto;
+}
+.gate-input {
+  width: 100%; padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  outline: none; transition: border-color 0.2s;
+  background: var(--cream);
+}
+.gate-input:focus { border-color: var(--teal); background: white; }
+.gate-btn {
+  width: 100%; padding: 14px;
+  background: var(--teal); color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.gate-btn:hover { background: #009b87; transform: translateY(-1px); }
+.gate-skip {
+  font-size: 0.78rem; color: var(--muted);
+  margin-top: 0.5rem; cursor: pointer;
+  background: none; border: none;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.gate-skip:hover { color: var(--text); }
+.gate-note {
+  font-size: 0.72rem; color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+/* ============================================
+   RESULTS — ELIGIBLE
+============================================ */
+.result-card {
+  display: none;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.result-card.active { display: block; }
+
+/* ELIGIBLE RESULT */
+.result-eligible {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--teal);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--teal), 0 20px 60px rgba(0,184,162,0.12);
+}
+
+.result-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #0d2a3e 100%);
+  padding: 2.5rem 2.5rem 2rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.result-hero::before {
+  content: '';
+  position: absolute; top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 300px; height: 200px;
+  background: radial-gradient(ellipse, rgba(0,184,162,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.result-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,184,162,0.15);
+  border: 1px solid rgba(0,184,162,0.3);
+  color: var(--teal); font-size: 0.8rem; font-weight: 700;
+  padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 1rem; letter-spacing: 0.5px;
+}
+.result-icon { font-size: 3.5rem; margin-bottom: 0.75rem; display: block; }
+.result-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 900; color: white;
+  letter-spacing: -0.75px; margin-bottom: 0.6rem;
+  line-height: 1.15;
+}
+.result-headline em { color: var(--teal); font-style: italic; }
+.result-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.6);
+  line-height: 1.7; max-width: 440px; margin: 0 auto;
+}
+
+.result-savings {
+  background: rgba(0,184,162,0.08);
+  border: 1px solid rgba(0,184,162,0.2);
+  border-radius: 12px; padding: 1rem 1.5rem;
+  margin-top: 1.5rem; display: inline-block;
+}
+.savings-label {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: rgba(255,255,255,0.5); margin-bottom: 4px;
+}
+.savings-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: var(--teal);
+  line-height: 1;
+}
+.savings-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+/* NEXT STEPS */
+.next-steps {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.next-steps-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 1.25rem;
+}
+.step-row {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 1.1rem;
+}
+.step-row:last-child { margin-bottom: 0; }
+.step-num-circle {
+  width: 28px; height: 28px;
+  background: var(--teal); color: white;
+  border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700;
+}
+.step-row-content { flex: 1; }
+.step-row-title { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
+.step-row-sub { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+/* RECOMMENDED CUSTODIANS */
+.recommend-section {
+  padding: 2rem 2.5rem;
+}
+.rec-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 1.25rem;
+}
+.rec-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.rec-card {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s; gap: 12px;
+}
+.rec-card:hover { border-color: var(--teal); background: #fafffe; }
+.rec-card.top-rec { border-color: var(--teal); background: var(--teal-light); }
+
+.rec-left { display: flex; align-items: center; gap: 12px; }
+.rec-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 800; color: white; flex-shrink: 0;
+}
+.rec-name { font-weight: 700; font-size: 0.92rem; color: var(--navy); }
+.rec-reason { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.rec-rating {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--navy); white-space: nowrap;
+}
+.rec-cta {
+  background: var(--navy); color: white;
+  padding: 7px 16px; border-radius: 7px;
+  font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.2s;
+}
+.rec-cta:hover { background: var(--teal); }
+.rec-card.top-rec .rec-cta { background: var(--teal); }
+.rec-card.top-rec .rec-cta:hover { background: #009b87; }
+
+/* NOT ELIGIBLE RESULT */
+.result-not-eligible {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+}
+
+.not-elig-hero {
+  background: var(--cream);
+  padding: 2.5rem; text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.not-elig-icon { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
+.not-elig-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--navy); margin-bottom: 0.6rem;
+}
+.not-elig-sub {
+  font-size: 0.9rem; color: var(--muted);
+  line-height: 1.7; max-width: 420px; margin: 0 auto;
+}
+
+.not-elig-body { padding: 2rem 2.5rem; }
+.not-elig-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 1.25rem;
+}
+
+.alt-option {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 1.1rem; border: 1.5px solid var(--border);
+  border-radius: var(--radius-md); margin-bottom: 10px;
+  transition: all 0.2s; cursor: pointer;
+}
+.alt-option:hover { border-color: var(--teal); background: #fafffe; }
+.alt-icon { font-size: 1.5rem; flex-shrink: 0; }
+.alt-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 3px; }
+.alt-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+.not-elig-cta {
+  margin-top: 1.5rem;
+  background: var(--navy); color: white;
+  padding: 14px; border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; width: 100%;
+  transition: all 0.2s;
+}
+.not-elig-cta:hover { background: var(--teal); transform: translateY(-1px); }
+
+/* MAYBE ELIGIBLE RESULT */
+.result-maybe {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--gold);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--gold), 0 20px 60px rgba(232,160,32,0.08);
+}
+.maybe-hero {
+  background: linear-gradient(135deg, #3d2800, #5a3c00);
+  padding: 2.5rem; text-align: center;
+}
+.maybe-icon { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
+.maybe-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: white; margin-bottom: 0.6rem;
+}
+.maybe-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.65);
+  line-height: 1.7; max-width: 400px; margin: 0 auto;
+}
+.maybe-body { padding: 2rem 2.5rem; }
+.maybe-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 1.25rem;
+}
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 0.85rem; border-radius: 10px;
+  margin-bottom: 8px; transition: background 0.15s;
+}
+.check-item:hover { background: var(--cream); }
+.check-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.check-text { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+.check-text strong { color: var(--navy); }
+.maybe-cta {
+  margin-top: 1.5rem;
+  background: var(--gold); color: white;
+  padding: 14px; border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; width: 100%;
+  transition: all 0.2s;
+}
+.maybe-cta:hover { background: #c88a1a; transform: translateY(-1px); }
+
+/* ============================================
+   RESTART BUTTON
+============================================ */
+.restart-wrap {
+  text-align: center; margin-top: 1.5rem;
+}
+.btn-restart {
+  background: none; border: none;
+  color: var(--muted); font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+  text-decoration: underline; text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.btn-restart:hover { color: var(--navy); }
+
+/* ============================================
+   TRUST STRIP
+============================================ */
+.trust-strip {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  padding: 3rem 5%;
+  margin-top: 3rem;
+}
+.trust-inner {
+  max-width: 680px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; text-align: center;
+}
+.trust-item { }
+.trust-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.trust-title { font-weight: 600; font-size: 0.88rem; color: var(--navy); margin-bottom: 3px; }
+.trust-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  background: #070f1e; padding: 2.5rem 5% 0;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem;
+}
+.footer-brand .logo { color: white; display: block; margin-bottom: 0.6rem; }
+.footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+.footer-col h4 {
+  font-size: 0.7rem; font-weight: 700;
+  color: rgba(255,255,255,0.5); letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.45rem; }
+.footer-col ul a {
+  text-decoration: none; font-size: 0.8rem;
+  color: rgba(255,255,255,0.3); transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--teal); }
+.footer-bottom {
+  background: #070f1e; padding: 1.25rem 5% 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin: 0 -5%; margin-top: 2rem;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 2rem; flex-wrap: wrap;
+}
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.18); white-space: nowrap; }
+.footer-disclaimer {
+  font-size: 0.7rem; color: rgba(255,255,255,0.15);
+  line-height: 1.6; max-width: 540px;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 640px) {
+  nav { padding: 0 4%; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .page-hero { padding: 84px 4% 36px; }
+  .page-hero h1 { font-size: 1.8rem; letter-spacing: -0.5px; }
+  .hero-stats { flex-direction: column; gap: 8px; align-items: center; }
+
+  .quiz-wrap { padding: 1.5rem 4% 4rem; }
+  .question-card { padding: 1.5rem; }
+  .result-hero { padding: 1.75rem 1.5rem 1.5rem; }
+  .next-steps { padding: 1.5rem; }
+  .recommend-section { padding: 1.5rem; }
+  .not-elig-body { padding: 1.5rem; }
+  .maybe-body { padding: 1.5rem; }
+
+  .rec-card { flex-wrap: wrap; }
+  .rec-rating { display: none; }
+
+  .trust-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  footer { grid-template-columns: 1fr 1fr; gap: 1.25rem; padding: 2rem 4% 0; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1rem 4% 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">my<span>HSAPath</span></a>
+  <ul class="nav-links">
+    <li><a href="/compare">Compare Accounts</a></li>
+    <li><a href="/eligible" class="active">Am I Eligible?</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-eyebrow">
+    <div class="live-dot"></div>
+    Updated for 2026 ACA Changes
+  </div>
+  <h1>Am I <em>HSA Eligible</em> in 2026?</h1>
+  <p>Answer 5 quick questions and find out in 60 seconds. With 2026's ACA changes, millions more Americans now qualify than last year.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">⏱ <strong>60 seconds</strong> to complete</div>
+    <div class="hero-stat">✅ <strong>Updated</strong> for 2026 rules</div>
+    <div class="hero-stat">🔒 <strong>Free</strong> — no signup required</div>
+  </div>
+</section>
+
+<!-- QUIZ WRAPPER -->
+<div class="quiz-wrap">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-top">
+      <span class="progress-label">Your eligibility check</span>
+      <span class="progress-count">Question <span id="q-current">1</span> of 5</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:20%"></div>
+    </div>
+    <div class="step-dots" id="step-dots">
+      <div class="step-dot active" data-step="0"></div>
+      <div class="step-dot" data-step="1"></div>
+      <div class="step-dot" data-step="2"></div>
+      <div class="step-dot" data-step="3"></div>
+      <div class="step-dot" data-step="4"></div>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 1 ========== -->
+  <div class="question-card active" id="q1">
+    <div class="q-number">Question 1 of 5</div>
+    <div class="q-text">What type of health insurance do you currently have?</div>
+    <div class="q-hint">To open an HSA, you must be enrolled in a High Deductible Health Plan (HDHP). In 2026, all ACA Bronze and Catastrophic plans automatically qualify.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q1', 'bronze')" data-value="bronze">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Bronze Plan</span>
+          <span class="opt-sub">Bought on HealthCare.gov or your state marketplace — all qualify in 2026</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'catastrophic')" data-value="catastrophic">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Catastrophic Plan</span>
+          <span class="opt-sub">Available to people under 30 or with hardship exemptions — qualifies in 2026</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'hdhp')" data-value="hdhp">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">Employer HDHP (High Deductible Health Plan)</span>
+          <span class="opt-sub">Your employer specifically offers an HDHP option — qualifies</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'silver_gold')" data-value="silver_gold">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Silver or Gold Plan</span>
+          <span class="opt-sub">These don't automatically qualify — check if your specific plan is HDHP-designated</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'medicare')" data-value="medicare">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Medicare</span>
+          <span class="opt-sub">Medicare enrollment makes you ineligible to contribute to an HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'none')" data-value="none">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">No insurance / Medicaid / Other</span>
+          <span class="opt-sub">You need an HSA-eligible plan to contribute</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" disabled>← Back</button>
+      <button class="btn-next" id="q1-next" disabled onclick="nextQuestion(1)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 2 ========== -->
+  <div class="question-card" id="q2">
+    <div class="q-number">Question 2 of 5</div>
+    <div class="q-text">Are you also enrolled in any other health coverage?</div>
+    <div class="q-hint">Having a second health plan — even a spouse's — can disqualify you if it covers medical expenses before your HDHP deductible is met.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q2', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, my HDHP is my only health coverage</span>
+          <span class="opt-sub">Good — this is the most common eligible situation</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'dental_vision')" data-value="dental_vision">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, but only dental and/or vision</span>
+          <span class="opt-sub">Dental and vision-only plans don't disqualify you — you're still eligible</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'spouse_hdhp')" data-value="spouse_hdhp">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I'm also on my spouse's HDHP plan</span>
+          <span class="opt-sub">Being covered by another HDHP is fine — you're still eligible</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'spouse_non_hdhp')" data-value="spouse_non_hdhp">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I'm also on my spouse's non-HDHP plan</span>
+          <span class="opt-sub">This typically disqualifies you — a non-HDHP covering medical expenses is a problem</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'fsa')" data-value="fsa">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I have an FSA (Flexible Spending Account)</span>
+          <span class="opt-sub">A general-purpose FSA typically disqualifies you, but an HSA-compatible "Limited Purpose FSA" is okay</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(2)">← Back</button>
+      <button class="btn-next" id="q2-next" disabled onclick="nextQuestion(2)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 3 ========== -->
+  <div class="question-card" id="q3">
+    <div class="q-number">Question 3 of 5</div>
+    <div class="q-text">Are you currently enrolled in Medicare?</div>
+    <div class="q-hint">Once you enroll in any part of Medicare (Part A, B, C, or D), you can no longer contribute to an HSA. You can still use existing HSA funds.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q3', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, I am not enrolled in Medicare</span>
+          <span class="opt-sub">Great — no issue here</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q3', 'yes')" data-value="yes">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I am enrolled in Medicare</span>
+          <span class="opt-sub">Unfortunately this disqualifies you from contributing to a new HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q3', 'turning65')" data-value="turning65">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">I'm turning 65 this year and considering Medicare</span>
+          <span class="opt-sub">You can contribute until the month you enroll in Medicare — timing matters here</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(3)">← Back</button>
+      <button class="btn-next" id="q3-next" disabled onclick="nextQuestion(3)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 4 ========== -->
+  <div class="question-card" id="q4">
+    <div class="q-number">Question 4 of 5</div>
+    <div class="q-text">Can someone claim you as a dependent on their tax return?</div>
+    <div class="q-hint">If another person — like a parent — can claim you as a dependent on their taxes, you're not eligible to contribute to your own HSA.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q4', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, I file my own taxes independently</span>
+          <span class="opt-sub">No issue here — you're in the clear</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q4', 'yes')" data-value="yes">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, someone else claims me as a dependent</span>
+          <span class="opt-sub">This makes you ineligible to contribute to your own HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q4', 'unsure')" data-value="unsure">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">Not sure</span>
+          <span class="opt-sub">If you're under 26 and on a parent's plan, check before opening an HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(4)">← Back</button>
+      <button class="btn-next" id="q4-next" disabled onclick="nextQuestion(4)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 5 ========== -->
+  <div class="question-card" id="q5">
+    <div class="q-number">Question 5 of 5</div>
+    <div class="q-text">What best describes your employment situation?</div>
+    <div class="q-hint">This helps us recommend the right HSA custodian for your situation. It doesn't affect your eligibility.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q5', 'freelance')" data-value="freelance">
+        <div class="opt-icon">💻</div>
+        <div class="opt-content">
+          <span class="opt-label">Freelancer / Independent contractor</span>
+          <span class="opt-sub">Self-employed, pay your own insurance — our most common user</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'self_employed')" data-value="self_employed">
+        <div class="opt-icon">🏢</div>
+        <div class="opt-content">
+          <span class="opt-label">Self-employed / Small business owner</span>
+          <span class="opt-sub">Run your own business, purchase your own insurance</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'employed')" data-value="employed">
+        <div class="opt-icon">👔</div>
+        <div class="opt-content">
+          <span class="opt-label">Employed — my company offers an HDHP</span>
+          <span class="opt-sub">Your employer may also contribute to your HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'gig')" data-value="gig">
+        <div class="opt-icon">🚗</div>
+        <div class="opt-content">
+          <span class="opt-label">Gig worker (Uber, DoorDash, Fiverr, etc.)</span>
+          <span class="opt-sub">Independent contractor — you buy your own insurance</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(5)">← Back</button>
+      <button class="btn-next" id="q5-next" disabled onclick="showEmailGate()">See My Results →</button>
+    </div>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="email-gate" id="email-gate">
+    <div class="gate-icon">🎯</div>
+    <div class="gate-title">Your results are ready</div>
+    <div class="gate-sub">Enter your email to see your eligibility result and get your personalized HSA recommendation. We'll also send you the 2026 HSA starter checklist.</div>
+    <div class="gate-form">
+      <input class="gate-input" type="email" id="gate-email" placeholder="your@email.com">
+      <button class="gate-btn" onclick="showResults()">Show My Results →</button>
+      <button class="gate-skip" onclick="showResults()">Skip — show results without email</button>
+    </div>
+    <p class="gate-note">🔒 No spam. Unsubscribe anytime.</p>
+  </div>
+
+  <!-- ========== RESULT: ELIGIBLE ========== -->
+  <div class="result-card" id="result-eligible">
+    <div class="result-eligible">
+      <div class="result-hero">
+        <div class="result-badge">✅ Eligibility Confirmed</div>
+        <span class="result-icon">🎉</span>
+        <div class="result-headline">You're <em>HSA Eligible</em> in 2026</div>
+        <p class="result-sub">Based on your answers, you qualify to open and contribute to a Health Savings Account. Here's exactly what to do next.</p>
+        <div class="result-savings">
+          <div class="savings-label">Estimated annual tax savings</div>
+          <div class="savings-num">$1,118 – $2,064</div>
+          <div class="savings-note">At max contribution · Varies by income & filing status</div>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <div class="next-steps-title">Your next 3 steps</div>
+        <div class="step-row">
+          <div class="step-num-circle">1</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Open an HSA account below — it's free</div>
+            <div class="step-row-sub">Fidelity or Lively are the best choices for self-employed Americans. Takes 5–10 minutes online, no minimum balance required.</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-circle">2</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Contribute before the tax deadline</div>
+            <div class="step-row-sub">You can contribute up to $4,300 (individual) or $8,550 (family) for 2026. Contributions made before April 15, 2027 can count toward 2026 taxes.</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-circle">3</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Invest your balance for long-term growth</div>
+            <div class="step-row-sub">Once you have $1,000+ in cash, invest in low-cost index funds. HSA growth is completely tax-free — it's the best retirement savings vehicle most people aren't using.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommend-section">
+        <div class="rec-title">Recommended HSA accounts for you</div>
+        <div class="rec-cards">
+          <div class="rec-card top-rec">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#00b8a2;">F</div>
+              <div>
+                <div class="rec-name">Fidelity HSA <span style="background:var(--teal);color:white;font-size:0.6rem;padding:2px 7px;border-radius:100px;font-weight:700;margin-left:4px;">Best pick</span></div>
+                <div class="rec-reason">$0 fees · Invest from $1 · 1,000+ funds</div>
+              </div>
+            </div>
+            <div class="rec-rating">9.8/10</div>
+            <a href="#affiliate-fidelity" class="rec-cta">Open Free →</a>
+          </div>
+          <div class="rec-card">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#2563eb;">L</div>
+              <div>
+                <div class="rec-name">Lively HSA</div>
+                <div class="rec-reason">$0 fees · Best UX · Built for freelancers</div>
+              </div>
+            </div>
+            <div class="rec-rating">9.4/10</div>
+            <a href="#affiliate-lively" class="rec-cta">Open Free →</a>
+          </div>
+          <div class="rec-card">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#7c3aed;">HE</div>
+              <div>
+                <div class="rec-name">HealthEquity</div>
+                <div class="rec-reason">Best for employer-sponsored HDHPs</div>
+              </div>
+            </div>
+            <div class="rec-rating">8.9/10</div>
+            <a href="#affiliate-healthequity" class="rec-cta">Open →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+  <!-- ========== RESULT: NOT ELIGIBLE ========== -->
+  <div class="result-card" id="result-not-eligible">
+    <div class="result-not-eligible">
+      <div class="not-elig-hero">
+        <span class="not-elig-icon">⚠️</span>
+        <div class="not-elig-headline">You may not be HSA eligible right now</div>
+        <p class="not-elig-sub">Based on your answers, one or more factors currently prevent you from contributing to an HSA. But you have options.</p>
+      </div>
+      <div class="not-elig-body">
+        <div class="not-elig-title">Other tax-advantaged options to consider</div>
+        <div class="alt-option">
+          <div class="alt-icon">💳</div>
+          <div>
+            <div class="alt-name">FSA — Flexible Spending Account</div>
+            <div class="alt-desc">If your employer offers an FSA, you can save up to $3,200 pre-tax for medical expenses in 2026. Unlike an HSA, it doesn't require an HDHP.</div>
+          </div>
+        </div>
+        <div class="alt-option">
+          <div class="alt-icon">📋</div>
+          <div>
+            <div class="alt-name">Switch to an HDHP at next open enrollment</div>
+            <div class="alt-desc">If you're on a Silver or Gold plan, switching to Bronze at your next open enrollment window (November) could make you HSA-eligible in 2027.</div>
+          </div>
+        </div>
+        <div class="alt-option">
+          <div class="alt-icon">🎯</div>
+          <div>
+            <div class="alt-name">IRA contributions</div>
+            <div class="alt-desc">If you can't use an HSA, maximize your IRA instead. You can contribute up to $7,000/year ($8,000 if 50+) to a traditional or Roth IRA in 2026.</div>
+          </div>
+        </div>
+        <button class="not-elig-cta" onclick="window.location.href='/calculator'">Read our guide to alternatives →</button>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+  <!-- ========== RESULT: MAYBE ========== -->
+  <div class="result-card" id="result-maybe">
+    <div class="result-maybe">
+      <div class="maybe-hero">
+        <span class="maybe-icon">🔍</span>
+        <div class="maybe-headline">You might be eligible — but need to verify one thing</div>
+        <p class="maybe-sub">Your answers put you in a gray area. Here's exactly what to check before opening an HSA.</p>
+      </div>
+      <div class="maybe-body">
+        <div class="maybe-title">What to verify before opening an HSA</div>
+        <div class="check-item">
+          <div class="check-icon">📄</div>
+          <div class="check-text"><strong>Check your plan documents.</strong> Look for the words "HDHP" or "High Deductible Health Plan" in your Summary of Benefits. The 2026 minimum individual deductible must be at least $1,650.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">💑</div>
+          <div class="check-text"><strong>Confirm your spouse's plan type.</strong> If you're on your spouse's plan, verify it's also an HDHP. A non-HDHP spousal plan covering medical expenses before your deductible disqualifies you.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">📅</div>
+          <div class="check-text"><strong>Check your Medicare enrollment date.</strong> If you're turning 65 this year, you can contribute to your HSA up until the month you enroll in Medicare — timing your enrollment carefully can save thousands.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">🧾</div>
+          <div class="check-text"><strong>Check with your tax preparer.</strong> If you receive any VA benefits, check whether they cover non-service-related conditions — this can affect eligibility.</div>
+        </div>
+        <button class="maybe-cta" onclick="window.location.href='/compare'">Read our full 2026 eligibility guide →</button>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+</div><!-- end quiz-wrap -->
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">📋</div>
+      <div class="trust-title">Based on IRS rules</div>
+      <div class="trust-desc">Our quiz logic is built on current IRS Publication 969 and 2026 ACA regulatory updates.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-title">Your answers stay private</div>
+      <div class="trust-desc">We don't store your quiz responses. Email is optional and only used to send your results.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚖️</div>
+      <div class="trust-title">Not tax advice</div>
+      <div class="trust-desc">This tool gives general guidance. Consult a tax professional for advice specific to your situation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo">my<span>HSAPath</span></a>
+    <p class="footer-desc">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="/terms">Terms &amp; Conditions</a></li>
+      <li><a href="/advertiser-disclosure">Advertiser Disclosure</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Compare</h4>
+    <ul>
+      <li><a href="/compare">Best HSA Accounts</a></li>
+      <li><a href="/eligible">Am I Eligible?</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&#169; 2026 myHSAPath. All rights reserved.</p>
+    <p class="footer-disclaimer">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+  </div>
+</footer>
+
+<script>
+// ============================================
+//   QUIZ STATE
+// ============================================
+const answers = {};
+let currentQ = 1;
+const TOTAL_Q = 5;
+
+// ============================================
+//   SELECT OPTION
+// ============================================
+function selectOption(btn, qId, value) {
+  // Deselect all in this question
+  btn.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[qId] = value;
+
+  // Enable next button
+  const nextBtn = document.getElementById(qId + '-next');
+  if (nextBtn) nextBtn.disabled = false;
+
+  // Auto-advance after short delay for smooth UX
+  setTimeout(() => {
+    if (nextBtn) nextBtn.click();
+  }, 320);
+}
+
+// ============================================
+//   NAVIGATION
+// ============================================
+function nextQuestion(from) {
+  const nextNum = from + 1;
+  if (nextNum > TOTAL_Q) {
+    showEmailGate();
+    return;
+  }
+  showQuestion(nextNum, 'forward');
+}
+
+function prevQuestion(from) {
+  const prevNum = from - 1;
+  if (prevNum < 1) return;
+  showQuestion(prevNum, 'back');
+}
+
+function showQuestion(num, dir) {
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.remove('active', 'back');
+  });
+  document.getElementById('email-gate').classList.remove('active');
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+
+  currentQ = num;
+  const card = document.getElementById('q' + num);
+  if (dir === 'back') card.classList.add('back');
+  card.classList.add('active');
+  updateProgress(num);
+
+  // Re-apply selected state if answer exists
+  const saved = answers['q' + num];
+  if (saved) {
+    card.querySelectorAll('.option').forEach(o => {
+      if (o.dataset.value === saved) o.classList.add('selected');
+    });
+    const nextBtn = document.getElementById('q' + num + '-next');
+    if (nextBtn) nextBtn.disabled = false;
+  }
+
+  document.getElementById('progress-wrap').style.display = 'block';
+}
+
+// ============================================
+//   PROGRESS
+// ============================================
+function updateProgress(qNum) {
+  const pct = (qNum / TOTAL_Q) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('q-current').textContent = qNum;
+
+  document.querySelectorAll('.step-dot').forEach((dot, i) => {
+    dot.classList.remove('active', 'done');
+    if (i === qNum - 1) dot.classList.add('active');
+    else if (i < qNum - 1) dot.classList.add('done');
+  });
+}
+
+// ============================================
+//   EMAIL GATE
+// ============================================
+function showEmailGate() {
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('email-gate').classList.add('active');
+}
+
+// ============================================
+//   SHOW RESULTS
+// ============================================
+function showResults() {
+  document.getElementById('email-gate').classList.remove('active');
+
+  const result = determineResult();
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+  document.getElementById('result-' + result).classList.add('active');
+
+  // Scroll to results smoothly
+  setTimeout(() => {
+    document.getElementById('result-' + result).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ============================================
+//   ELIGIBILITY LOGIC
+// ============================================
+function determineResult() {
+  const q1 = answers['q1'];
+  const q2 = answers['q2'];
+  const q3 = answers['q3'];
+  const q4 = answers['q4'];
+
+  // Clear disqualifiers
+  if (q1 === 'medicare' || q1 === 'none') return 'not-eligible';
+  if (q2 === 'spouse_non_hdhp') return 'not-eligible';
+  if (q3 === 'yes') return 'not-eligible';
+  if (q4 === 'yes') return 'not-eligible';
+
+  // Gray area — needs verification
+  if (q1 === 'silver_gold') return 'maybe';
+  if (q2 === 'fsa') return 'maybe';
+  if (q3 === 'turning65') return 'maybe';
+  if (q4 === 'unsure') return 'maybe';
+
+  // Eligible
+  if (
+    (q1 === 'bronze' || q1 === 'catastrophic' || q1 === 'hdhp') &&
+    (q2 === 'no' || q2 === 'dental_vision' || q2 === 'spouse_hdhp') &&
+    q3 === 'no' &&
+    q4 === 'no'
+  ) return 'eligible';
+
+  return 'maybe';
+}
+
+// ============================================
+//   RESTART
+// ============================================
+function restartQuiz() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.btn-next').forEach(b => b.disabled = true);
+  document.getElementById('progress-wrap').style.display = 'block';
+  showQuestion(1, 'back');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Who is eligible for an HSA in 2026?","acceptedAnswer":{"@type":"Answer","text":"You are eligible if you are enrolled in an HSA-qualified High Deductible Health Plan (HDHP), not enrolled in Medicare, not claimed as a dependent on someone else's tax return, and have no other disqualifying coverage. In 2026, all ACA Bronze and Catastrophic plans qualify."}},
+    {"@type":"Question","name":"Does having dental or vision insurance disqualify me from an HSA?","acceptedAnswer":{"@type":"Answer","text":"No. Dental-only and vision-only plans do not disqualify you from contributing to an HSA. Only general medical coverage that pays before your HDHP deductible creates an issue."}},
+    {"@type":"Question","name":"Can I open an HSA if I am self-employed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Self-employed individuals and freelancers who purchase their own ACA Bronze plan or other HDHP are fully eligible to open and contribute to an HSA."}},
+    {"@type":"Question","name":"Does Medicare enrollment affect HSA eligibility?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once you enroll in any part of Medicare, you can no longer contribute to an HSA. You can still use existing HSA funds for qualified medical expenses."}},
+    {"@type":"Question","name":"What is the HSA contribution limit for 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 HSA contribution limits are $4,300 for self-only coverage and $8,550 for family coverage. People age 55 and older can contribute an additional $1,000 catch-up contribution."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Am I HSA Eligible in 2026?",
+  "description": "A 5-question quiz to determine your HSA eligibility based on 2026 IRS rules and ACA changes",
+  "url": "https://myhsapath.com/eligible",
+  "educationalUse": "self-assessment",
+  "about": {
+    "@type": "Thing",
+    "name": "Health Savings Account eligibility"
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyHSAPath — Find Your Best HSA Account</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --teal: #00b8a2;
+    --teal-light: #00d4bc;
+    --cream: #f7f4ef;
+    --warm-white: #fdfcfa;
+    --gold: #e8a020;
+    --text: #1a2540;
+    --muted: #6b7a99;
+    --border: #e2ddd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(253,252,250,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-cta {
+    background: var(--navy);
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: var(--teal); color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 60px;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0,184,162,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,184,162,0.1);
+    border: 1px solid rgba(0,184,162,0.3);
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-form input {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    background: white;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .hero-form input:focus { border-color: var(--teal); }
+
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    padding: 0.85rem 1.6rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,184,162,0.3);
+  }
+
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .hero-trust span { display: flex; align-items: center; gap: 0.3rem; }
+
+  /* HERO RIGHT — CARD */
+  .hero-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(10,22,40,0.08), 0 2px 8px rgba(10,22,40,0.04);
+    animation: fadeUp 0.7s 0.2s ease both;
+    position: relative;
+  }
+
+  .hero-card::before {
+    content: '2026 Updated';
+    position: absolute;
+    top: -12px; right: 24px;
+    background: var(--gold);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .custodian-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #f0ede8;
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 8px;
+    padding-left: 0.5rem; padding-right: 0.5rem;
+  }
+
+  .custodian-row:hover { background: var(--cream); }
+  .custodian-row:last-child { border-bottom: none; }
+
+  .custodian-left {
+    display: flex; align-items: center; gap: 0.85rem;
+  }
+
+  .custodian-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.75rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .custodian-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .custodian-tag { font-size: 0.75rem; color: var(--muted); }
+
+  .custodian-right { text-align: right; }
+  .custodian-rating {
+    font-weight: 700; font-size: 0.95rem; color: var(--navy);
+  }
+  .custodian-fee { font-size: 0.75rem; color: var(--muted); }
+
+  .badge-best {
+    font-size: 0.68rem; font-weight: 700;
+    background: rgba(0,184,162,0.1);
+    color: var(--teal);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+  }
+
+  .card-cta {
+    margin-top: 1.25rem;
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .card-cta:hover { background: var(--teal); transform: translateY(-1px); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--navy);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+    color: white;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.3rem;
+  }
+
+  .stat-divider {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* HOW IT WORKS */
+  .section {
+    padding: 6rem 5%;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1.5px solid var(--border);
+    position: relative;
+    transition: all 0.25s;
+  }
+
+  .step-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 12px 40px rgba(0,184,162,0.1);
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+
+  .step-body {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .step-icon {
+    position: absolute;
+    top: 1.75rem; right: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+  /* CALCULATOR SECTION */
+  .calc-section {
+    background: var(--cream);
+    padding: 5rem 5%;
+  }
+
+  .calc-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .calc-box {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(10,22,40,0.06);
+  }
+
+  .calc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-row {
+    margin-bottom: 1.2rem;
+  }
+
+  .calc-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .calc-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .calc-input:focus { border-color: var(--teal); }
+
+  .calc-result {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .calc-result-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.3rem;
+  }
+
+  .calc-result-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  .calc-result-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.2rem;
+  }
+
+  .calc-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .calc-text p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .check {
+    width: 20px; height: 20px;
+    background: rgba(0,184,162,0.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal);
+    font-size: 0.7rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* BLOG SECTION */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 12px 32px rgba(0,184,162,0.08);
+    transform: translateY(-3px);
+  }
+
+  .blog-img {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-card:first-child .blog-img { height: 220px; }
+
+  .blog-content { padding: 1.25rem; }
+
+  .blog-cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-card:first-child .blog-title { font-size: 1.25rem; }
+
+  .blog-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  /* EMAIL CAPTURE */
+  .email-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2142 100%);
+    padding: 5rem 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .email-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(0,184,162,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .email-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+  }
+
+  .email-section p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 420px;
+    margin: 0 auto 1rem;
+  }
+
+  .email-form input {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .email-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .email-form input:focus { border-color: var(--teal); }
+
+  .email-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #070f1e;
+    padding: 3rem 5%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-brand .logo {
+    color: white;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--teal); }
+
+  .footer-bottom {
+    background: #070f1e;
+    padding: 1.25rem 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .disclaimer {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">my<span>HSAPath</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Compare Accounts</a></li>
+    <li><a href="#">Am I Eligible?</a></li>
+    <li><a href="#">Calculator</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      2026 ACA Update — All Bronze Plans Now HSA-Eligible
+    </div>
+    <h1>Find Your <em>Perfect</em> HSA Account in 2 Minutes</h1>
+    <p class="hero-sub">
+      The only comparison tool built for self-employed Americans. Compare top HSA custodians, calculate your exact tax savings, and get matched to the right plan — free.
+    </p>
+    <div class="hero-form">
+      <input type="email" placeholder="Enter your email to get started">
+      <button class="btn-primary">Get Matched →</button>
+    </div>
+    <div class="hero-trust">
+      <span>✓ Free forever</span>
+      <span style="color:var(--border)">|</span>
+      <span>✓ No spam</span>
+      <span style="color:var(--border)">|</span>
+      <span>✓ 2026 data</span>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="card-title">Top HSA Accounts Compared</div>
+
+    <div class="custodian-row">
+      <div class="custodian-left">
+        <div class="custodian-icon" style="background:#00b8a2;">F</div>
+        <div>
+          <div class="custodian-name">Fidelity HSA <span class="badge-best">Editor's Pick</span></div>
+          <div class="custodian-tag">No fees · Best investments</div>
+        </div>
+      </div>
+      <div class="custodian-right">
+        <div class="custodian-rating">9.8 / 10</div>
+        <div class="custodian-fee">$0/mo</div>
+      </div>
+    </div>
+
+    <div class="custodian-row">
+      <div class="custodian-left">
+        <div class="custodian-icon" style="background:#2563eb;">L</div>
+        <div>
+          <div class="custodian-name">Lively HSA</div>
+          <div class="custodian-tag">Best UX · Freelancer friendly</div>
+        </div>
+      </div>
+      <div class="custodian-right">
+        <div class="custodian-rating">9.4 / 10</div>
+        <div class="custodian-fee">$0/mo</div>
+      </div>
+    </div>
+
+    <div class="custodian-row">
+      <div class="custodian-left">
+        <div class="custodian-icon" style="background:#7c3aed;">HE</div>
+        <div>
+          <div class="custodian-name">HealthEquity</div>
+          <div class="custodian-tag">Best employer match support</div>
+        </div>
+      </div>
+      <div class="custodian-right">
+        <div class="custodian-rating">8.9 / 10</div>
+        <div class="custodian-fee">$2.50/mo</div>
+      </div>
+    </div>
+
+    <div class="custodian-row">
+      <div class="custodian-left">
+        <div class="custodian-icon" style="background:#e8a020;">HB</div>
+        <div>
+          <div class="custodian-name">HSA Bank</div>
+          <div class="custodian-tag">Best for large balances</div>
+        </div>
+      </div>
+      <div class="custodian-right">
+        <div class="custodian-rating">8.5 / 10</div>
+        <div class="custodian-fee">$3/mo</div>
+      </div>
+    </div>
+
+    <button class="card-cta">View Full Comparison →</button>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">$4,300</div>
+    <div class="stat-label">2026 Individual Contribution Limit</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">35%</div>
+    <div class="stat-label">of ACA plans now HSA-eligible</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">3x</div>
+    <div class="stat-label">Tax advantages vs regular savings</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <div class="stat-num">$1,400+</div>
+    <div class="stat-label">Avg. annual tax savings for freelancers</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">How It Works</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:end;margin-bottom:3.5rem;">
+    <div>
+      <h2 class="section-title">From confused to covered<br>in three steps</h2>
+    </div>
+    <p class="section-sub" style="margin-bottom:0;">HSAs are the most powerful tax tool most self-employed Americans aren't using. We make it dead simple to start.</p>
+  </div>
+
+  <div class="steps-grid reveal">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">🎯</div>
+      <div class="step-title">Check Your Eligibility</div>
+      <p class="step-body">Answer 5 quick questions about your health plan. With 2026's ACA changes, millions more Americans qualify than last year. Takes 60 seconds.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">⚖️</div>
+      <div class="step-title">Compare Custodians</div>
+      <p class="step-body">Side-by-side comparison of fees, investment options, interest rates, and debit card features. We rank them honestly — no paid placements.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">💰</div>
+      <div class="step-title">Calculate Your Savings</div>
+      <p class="step-body">See your exact annual tax savings based on your income and contribution level. Most freelancers save $1,000–$2,000 per year.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR SECTION -->
+<div class="calc-section">
+  <div class="calc-inner">
+    <div class="calc-text reveal">
+      <h3>See exactly how much you'll save</h3>
+      <p>The HSA triple tax advantage is the most powerful savings tool in the US tax code. Calculate your real savings in seconds — no signup required.</p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> Contributions are pre-tax (reduces taxable income)</li>
+        <li><span class="check">✓</span> Growth is tax-free (invest it like an IRA)</li>
+        <li><span class="check">✓</span> Withdrawals for healthcare are tax-free</li>
+        <li><span class="check">✓</span> After 65, use for anything penalty-free</li>
+      </ul>
+    </div>
+    <div class="calc-box reveal">
+      <div class="calc-title">🧮 HSA Tax Savings Calculator</div>
+      <div class="calc-row">
+        <label class="calc-label">Annual Income</label>
+        <input class="calc-input" type="number" placeholder="$85,000" id="income" oninput="calcSavings()">
+      </div>
+      <div class="calc-row">
+        <label class="calc-label">HSA Contribution</label>
+        <input class="calc-input" type="number" placeholder="$4,300" id="contrib" oninput="calcSavings()">
+      </div>
+      <div class="calc-row">
+        <label class="calc-label">Filing Status</label>
+        <select class="calc-input" id="status" onchange="calcSavings()">
+          <option>Single</option>
+          <option>Married Filing Jointly</option>
+        </select>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-label">Estimated Annual Tax Savings</div>
+        <div class="calc-result-num" id="savings">$1,118</div>
+        <div class="calc-result-sub">Federal income tax savings only · State savings extra</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG SECTION -->
+<section class="section">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;">
+    <div>
+      <div class="section-label">Latest Articles</div>
+      <h2 class="section-title" style="margin-bottom:0;">HSA Guides & Insights</h2>
+    </div>
+    <a href="#" style="color:var(--teal);font-weight:600;font-size:0.9rem;text-decoration:none;">View all articles →</a>
+  </div>
+
+  <div class="blog-grid reveal">
+    <div class="blog-card">
+      <div class="blog-img" style="background:linear-gradient(135deg,#0a1628,#1a3a5c);">
+        <span style="font-size:3rem;">📋</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-cat">Guide · 2026 Update</div>
+        <div class="blog-title">All ACA Bronze Plans Are Now HSA-Eligible — Here's What That Means for You</div>
+        <div class="blog-meta">
+          <span>8 min read</span>
+          <span>·</span>
+          <span>May 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img" style="background:linear-gradient(135deg,#00b8a2,#0a8f7d);">
+        <span>⚖️</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-cat">Comparison</div>
+        <div class="blog-title">Fidelity HSA vs Lively: Which is Better in 2026?</div>
+        <div class="blog-meta"><span>6 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-img" style="background:linear-gradient(135deg,#e8a020,#c4851a);">
+        <span>🧾</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-cat">Tax Strategy</div>
+        <div class="blog-title">The HSA as a Stealth Retirement Account — The Triple Tax Advantage</div>
+        <div class="blog-meta"><span>5 min read</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<div class="email-section">
+  <h2>Get the 2026 HSA Eligible<br>Plan Checklist — Free</h2>
+  <p>Join 4,200+ freelancers getting biweekly HSA tips, tax strategies, and custodian updates. No fluff, unsubscribe anytime.</p>
+  <div class="email-form">
+    <input type="email" placeholder="your@email.com">
+    <button class="btn-primary">Get the Checklist</button>
+  </div>
+  <p class="email-note">🔒 No spam. Unsubscribe with one click.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="/" class="logo">my<span>HSAPath</span></a>
+    <p class="footer-desc">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="/terms">Terms &amp; Conditions</a></li>
+      <li><a href="/advertiser-disclosure">Advertiser Disclosure</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Compare</h4>
+    <ul>
+      <li><a href="/compare">Best HSA Accounts</a></li>
+      <li><a href="/eligible">Am I Eligible?</a></li>
+      <li><a href="/calculator">Calculator</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&#169; 2026 myHSAPath. All rights reserved.</p>
+    <p class="footer-disclaimer">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+  </div>
+</footer>
+
+<script>
+  // Calculator
+  function calcSavings() {
+    const income = parseFloat(document.getElementById('income').value) || 85000;
+    const contrib = parseFloat(document.getElementById('contrib').value) || 4300;
+    const status = document.getElementById('status').value;
+
+    let rate = 0.22;
+    if (income > 89075 && status === 'Single') rate = 0.24;
+    if (income > 178150 && status === 'Single') rate = 0.32;
+    if (income > 170050 && status === 'Married Filing Jointly') rate = 0.24;
+
+    const savings = Math.round(contrib * rate);
+    document.getElementById('savings').textContent = '$' + savings.toLocaleString();
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
