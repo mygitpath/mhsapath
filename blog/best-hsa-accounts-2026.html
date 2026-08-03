@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,
 .disc-banner strong{color:rgba(255,255,255,.8)}
 
 /* POST HERO */
-.post-hero{padding:96px 5% 48px;background:#0a1628;position:relative;overflow:hidden}
+.post-hero{padding:112px 5% 48px;background:#0a1628;position:relative;overflow:hidden}
 .post-hero::before{content:'';position:absolute;top:-100px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,184,162,.09) 0%,transparent 65%);border-radius:50%;pointer-events:none}
 .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:1rem}
 .breadcrumb a{color:#00b8a2;text-decoration:none}
@@ -75,17 +75,6 @@ article a{color:#00b8a2;text-decoration:none}
 article a:hover{text-decoration:underline}
 
 /* INLINE AFFILIATE CTA */
-.inline-cta{background:white;border:1.5px solid #00b8a2;border-radius:14px;padding:1.25rem 1.5rem;margin:1.75rem 0;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
-.inline-cta.secondary{border-color:#e2ddd6}
-.inline-cta-left{flex:1;min-width:200px}
-.inline-cta-icon{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;color:white;flex-shrink:0;margin-bottom:.4rem}
-.inline-cta-name{font-weight:700;font-size:.95rem;color:#0a1628}
-.inline-cta-desc{font-size:.78rem;color:#505f7a;margin-top:2px}
-.inline-cta-btn{background:#00b8a2;color:white!important;padding:.75rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .2s;display:inline-block}
-.inline-cta-btn:hover{background:#009b87;transform:translateY(-1px)}
-.inline-cta.secondary .inline-cta-btn{background:#0a1628}
-.inline-cta.secondary .inline-cta-btn:hover{background:#00b8a2}
-
 /* CALLOUT BOXES */
 .callout{border-radius:10px;padding:1rem 1.25rem;margin:1.25rem 0}
 .callout p{margin-bottom:0;font-size:.88rem;line-height:1.7}
@@ -191,8 +180,7 @@ article a:hover{text-decoration:underline}
   .email-form{flex-direction:column}
   
   
-  .inline-cta{flex-direction:column;align-items:flex-start}
-}
+  }
 
 /* ═══════════════════════════════════════════════════════
    UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
@@ -290,7 +278,6 @@ section, main, article, aside, header, div {
 .page-hero h1, .post-hero h1 { color: #ffffff !important; }
 .page-hero .hero-label, .post-hero .post-cat-badge { color: #00b8a2 !important; }
 
-
 @media (max-width: 768px) {
   .disc-banner,
   .disclosure-banner {
@@ -368,15 +355,6 @@ button,
 .nav-cta,
 .contact-btn,
 .review-cta,
-.inline-cta-btn,
-.jump-link,
-.mob-cta,
-.faq-item,
-.related-card,
-.mob-card,
-.sc-row {
-  min-height: 44px;
-}
 nav .nav-links a {
   min-height: 44px;
   display: inline-flex;
@@ -691,7 +669,6 @@ footer {
 }
 /* ────────────────────────────────────────────────────── */
 
-
 /* ══════════════════════════════════════════════════════
    COMPREHENSIVE FOOTER FIX — all issues resolved
    ══════════════════════════════════════════════════════ */
@@ -835,7 +812,6 @@ footer .logo span {
 }
 /* ══════════════════════════════════════════════════════ */
 
-
 /* ══════════════════════════════════════════════════════
    NAV + GLOBAL LINK FIXES
    ══════════════════════════════════════════════════════ */
@@ -882,19 +858,7 @@ p a:not([class]):not(.logo) {
 a.nav-cta,
 a.contact-btn,
 a.review-cta,
-a.inline-cta-btn,
-a.jump-link,
-a.related-card,
-a.sc-row,
-a.mob-cta,
-a.tp-link,
-a.related-card,
-a.blog-card,
-a.post-card {
-  text-decoration: none !important;
-}
-
-/* Page hero top padding fix — prevent dark banner overlap */
+a/* Page hero top padding fix — prevent dark banner overlap */
 .page-hero {
   padding-top: 100px !important;
 }
@@ -994,15 +958,7 @@ footer a:not(.logo):hover {
 
 /* ── 7. CTA BUTTONS — never underline ────────────────── */
 a.nav-cta, a.contact-btn, a.review-cta,
-a.inline-cta-btn, a.jump-link, a.sc-row,
-a.mob-cta, a.blog-card, a.post-card,
-a.related-card, a.tp-link, a.step-card,
-.toc a, .toc-box a, .breadcrumb a {
-  text-decoration: none !important;
-}
-
-/* ╚══════════════════════════════════════════════════════╝ */
-
+a/* ╚══════════════════════════════════════════════════════╝ */
 
 /* ╔══════════════════════════════════════════════════════╗
    ║  FOOTER GRID — FINAL DEFINITIVE                     ║
@@ -1101,7 +1057,6 @@ footer {
 }
 /* ╚══════════════════════════════════════════════════════╝ */
 
-
 <style>
 @media (max-width: 640px) {
   footer > div:first-child {
@@ -1115,7 +1070,6 @@ footer {
     gap: .4rem !important;
   }
 }
-
 
 @media (max-width: 1100px) and (min-width: 769px) {
   /* Two-col layouts — tighten sidebar */
@@ -1159,7 +1113,6 @@ footer {
   .sidebar-stat { border-bottom: none !important; }
 }
 /* ────────────────────────────────────────────────────── */
-
 
 /* ── BLOG POST FAQ ACCORDION ─────────────────────────── */
 /* ── FAQ ACCORDION — clean minimal style ─────────────── */
@@ -1229,7 +1182,6 @@ footer {
 }
 /* ────────────────────────────────────────────────────── */
 
-
 .disc-banner,
 .disclosure-banner {
   position: sticky !important;
@@ -1244,7 +1196,6 @@ footer {
   width: 100% !important;
   box-sizing: border-box !important;
 }
-
 
 .disc-banner,
 .disclosure-banner {
@@ -1271,7 +1222,6 @@ section.page-hero {
 }
 /* ────────────────────────────────────────────────────── */
 
-
 /* ── MOBILE NAV OVERRIDE ─────────────────────────────── */
 @media (max-width: 1100px) {
   .nav-links { display: none !important; }
@@ -1283,7 +1233,6 @@ section.page-hero {
   .mobile-menu-btn { display: flex !important; }
 }
 /* ────────────────────────────────────────────────────── */
-
 
 /* ── MOBILE NAV DRAWER — inline (fallback if shared.css not loaded) ── */
 .mobile-nav-overlay {
@@ -1327,7 +1276,6 @@ section.page-hero {
   background: white; border-radius: 2px;
 }
 /* ───────────────────────────────────────────────────────── */
-
 
 /* ══ DESKTOP CONSISTENCY FIX ══════════════════════════
    Ensures all pages look correct at ≥1200px
@@ -1374,7 +1322,6 @@ img, table, iframe { max-width: 100%; }
 }
 /* ══════════════════════════════════════════════════════ */
 
-
 /* ══ HERO PADDING — FINAL ══════════════════════════════ */
 .page-hero, .post-hero, section.page-hero {
   padding-top: 80px !important;
@@ -1385,6 +1332,152 @@ img, table, iframe { max-width: 100%; }
 }
 /* ══════════════════════════════════════════════════════ */
 
+/* ── BLOG POST MOBILE FIX ────────────────────────────── */
+.post-wrap {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+article {
+  min-width: 0 !important;
+  width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+.post-hero {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+.post-meta-row {
+  flex-wrap: wrap !important;
+  gap: .5rem !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ── COMPARISON TABLE SCROLL FIX ────────────────────── */
+.mini-table {
+  width: 100% !important;
+  min-width: 480px !important;
+  border-collapse: collapse !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ── POST SIDEBAR MOBILE FIX ─────────────────────────── */
+@media (max-width: 1100px) {
+  .post-wrap {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+  .post-sidebar {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 2rem !important;
+    display: block !important;
+  }
+  .sidebar-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+  }
+  .sidebar-cust {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .sc-row {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+@media (max-width: 640px) {
+  .post-sidebar {
+    padding: 0 !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ── INLINE CTA CARDS ───────────────────────────────── */
+.inline-cta {
+  background: white;
+  border: 1.5px solid #00b8a2;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+.inline-cta.secondary { border-color: #e2ddd6; }
+
+.inline-cta-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+}
+.inline-cta-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.inline-cta-info {
+  flex: 1;
+  min-width: 0;
+}
+.inline-cta-name {
+  font-weight: 700;
+  font-size: .88rem;
+  color: #0a1628;
+  line-height: 1.3;
+}
+.inline-cta-desc {
+  font-size: .72rem;
+  color: #505f7a;
+  margin-top: 2px;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
+}
+.inline-cta-btn {
+  flex-shrink: 0;
+  background: #00b8a2;
+  color: #0a1628 !important;
+  font-weight: 700;
+  padding: .65rem 1rem;
+  border-radius: 8px;
+  font-size: .82rem;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  transition: background .2s;
+}
+.inline-cta.secondary .inline-cta-btn {
+  background: #0a1628;
+  color: white !important;
+}
+.inline-cta-btn:hover { background: #009b87; }
+.inline-cta.secondary .inline-cta-btn:hover {
+  background: #00b8a2;
+  color: #0a1628 !important;
+}
+/* ────────────────────────────────────────────────────── */
 </style>
 
 </style>
@@ -1494,11 +1587,12 @@ img, table, iframe { max-width: 100%; }
       <li><strong>Best overall:</strong> Fidelity HSA — zero fees, invest from $1, 1,000+ fund options</li>
       <li><strong>Best for freelancers:</strong> Lively HSA — best UX, fastest account opening, zero fees</li>
       <li><strong>Best for employer plans:</strong> HealthEquity — largest employer network, fee waived at $2,500</li>
-      <li><strong>Best for large balances:</strong> HSA Bank — established institution, Devenir investment platform</li>
+      <li><strong>Best for large balances:</strong> HSA Bank — established institution, HSA Invest (Choice, Select & Managed)</li>
     </ul>
 
     <!-- COMPARISON TABLE -->
     <h2 id="comparison">Full comparison table</h2>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:2rem;border-radius:12px;width:100%;">
     <table class="mini-table">
       <thead>
         <tr><th>Custodian</th><th>Rating</th><th>Monthly fee</th><th>Invest from</th><th>Fund options</th></tr>
@@ -1516,58 +1610,45 @@ img, table, iframe { max-width: 100%; }
           <td><span class="rating-pill" style="background:#0a1628">9.4/10</span></td>
           <td style="color:#00b8a2;font-weight:700">$0</td>
           <td>$0</td>
-          <td>TD Ameritrade</td>
+          <td>Schwab brokerage + Devenir</td>
         </tr>
         <tr>
           <td>HealthEquity</td>
           <td><span class="rating-pill" style="background:#0a1628">8.9/10</span></td>
           <td>$2.50</td>
-          <td>$1,000</td>
-          <td>Limited</td>
+          <td>$500</td>
+          <td>Vanguard + Schwab</td>
         </tr>
         <tr>
           <td>HSA Bank</td>
           <td><span class="rating-pill" style="background:#0a1628">8.5/10</span></td>
           <td>$3.00</td>
           <td>$1,000</td>
-          <td>Devenir</td>
+          <td>HSA Invest (Choice/Select/Managed)</td>
         </tr>
       </tbody>
     </table>
+    </div>
 
     <!-- FIDELITY -->
     <h2 id="fidelity">1. Fidelity HSA — Best Overall</h2>
     <p>Fidelity's HSA is the rare product that wins on every dimension. Zero monthly fees. Zero investment fees. The ability to invest from your very first dollar with access to over 1,000 mutual funds — including Fidelity's own zero-expense-ratio index funds. For self-employed Americans who want both spending flexibility today and long-term investment growth, nothing else comes close.</p>
 
     <div class="callout callout-navy">
-      <p><strong>The key differentiator:</strong> Most HSA custodians require a $1,000 cash balance before you can invest. Fidelity lets you invest from $1. On a $4,300 annual contribution, that difference in compound growth adds up to thousands of dollars over a decade.</p>
+      <p><strong>The key differentiator:</strong> Most HSA custodians require a $1,000 cash balance before you can invest. Fidelity lets you invest from $1. On a $4,400 annual contribution, that difference in compound growth adds up to thousands of dollars over a decade.</p>
     </div>
 
     <p>The main downside is that Fidelity's HSA interface is part of their broader brokerage platform, not a dedicated HSA experience. If you want a cleaner, HSA-specific dashboard, Lively does that better. But for pure financial performance, Fidelity is unmatched.</p>
 
-    <div class="inline-cta">
-      <div class="inline-cta-icon" style="background:#00b8a2">F</div>
-      <div class="inline-cta-left">
-        <div class="inline-cta-name">Fidelity HSA — Editor's Pick</div>
-        <div class="inline-cta-desc">$0/month · Invest from $1 · 1,000+ funds · FDIC insured</div>
-      </div>
-      <a href="#affiliate-fidelity" class="inline-cta-btn">Open Free Account →</a>
-    </div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #00b8a2;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">F</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Fidelity HSA — Editor's Pick</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · $0 commissions · Invest from $1 · Morningstar #1</span></div><a href="#affiliate-fidelity" style="flex-shrink:0;background:#00b8a2;color:#0a1628!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
 
     <!-- LIVELY -->
     <h2 id="lively">2. Lively HSA — Best for Freelancers</h2>
     <p>Lively was purpose-built for the self-employed experience — and the difference shows. Account opening takes under 5 minutes. The dashboard is the cleanest of any HSA we tested, built specifically for HSA management rather than bolted onto a broader brokerage platform. Zero fees make it instantly competitive with Fidelity on cost.</p>
 
-    <p>Where Lively falls slightly behind is investment depth. Their investment account runs through TD Ameritrade, which requires a separate login — a minor friction point that Fidelity avoids. Interest rates on cash balances are also below average.</p>
+    <p>Where Lively falls slightly behind is investment depth. Their investment account runs through Charles Schwab, which requires a separate login — a minor friction point that Fidelity avoids. Interest rates on cash balances are also below average.</p>
 
-    <div class="inline-cta secondary">
-      <div class="inline-cta-icon" style="background:#2563eb">L</div>
-      <div class="inline-cta-left">
-        <div class="inline-cta-name">Lively HSA</div>
-        <div class="inline-cta-desc">$0/month · Best UX · Built for freelancers · Opens in 5 min</div>
-      </div>
-      <a href="#affiliate-lively" class="inline-cta-btn">Open Free Account →</a>
-    </div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">L</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Lively HSA</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · Schwab brokerage + Devenir guided portfolio</span></div><a href="#affiliate-lively" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
 
     <!-- HEALTHEQUITY -->
     <h2 id="healthequity">3. HealthEquity — Best for Employer Plans</h2>
@@ -1575,27 +1656,13 @@ img, table, iframe { max-width: 100%; }
 
     <p>For purely individual self-employed accounts starting from zero, Fidelity and Lively are more attractive. But HealthEquity earns its third-place ranking for the depth of its compliance tools and employer network.</p>
 
-    <div class="inline-cta secondary">
-      <div class="inline-cta-icon" style="background:#7c3aed">HE</div>
-      <div class="inline-cta-left">
-        <div class="inline-cta-name">HealthEquity</div>
-        <div class="inline-cta-desc">$2.50/month (waived at $2,500) · Best employer integrations</div>
-      </div>
-      <a href="#affiliate-healthequity" class="inline-cta-btn">Open Account →</a>
-    </div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HE</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HealthEquity</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$2.50/mo (employer plans) · 33 Vanguard funds + Schwab brokerage</span></div><a href="#affiliate-healthequity" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
 
     <!-- HSA BANK -->
     <h2 id="hsabank">4. HSA Bank — Best for Large Balances</h2>
-    <p>HSA Bank has been a dedicated HSA provider since 2004 — one of the longest track records in the industry. The $3/month fee and $5,000 minimum to waive it make it a tough sell for accounts just getting started. For people with substantial existing balances who want an established institution with deep HSA expertise, it's a credible option.</p>
+    <p>HSA Bank has been a dedicated HSA provider since 2004 — one of the longest track records in the industry, now a division of Webster Bank (FDIC-insured). Investments run through the HSA Invest program with three tiers: Choice (self-directed brokerage, 0.10%/yr), Select (RIA-curated mutual funds, 0.25%/yr), and Managed (fully RIA-managed, 0.35%/yr). Investment fees are waived when your cash balance stays above $7,500. The $3/month account fee makes it a tough sell for smaller balances. 24/7 customer support via phone and app.</p>
 
-    <div class="inline-cta secondary">
-      <div class="inline-cta-icon" style="background:#e8a020">HB</div>
-      <div class="inline-cta-left">
-        <div class="inline-cta-name">HSA Bank</div>
-        <div class="inline-cta-desc">$3.00/month (waived at $5,000) · Established since 2004</div>
-      </div>
-      <a href="#affiliate-hsabank" class="inline-cta-btn">Open Account →</a>
-    </div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#e8a020;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HB</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HSA Bank</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$3.00/month · HSA Invest: Choice, Select & Managed tiers</span></div><a href="#affiliate-hsabank" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
 
     <!-- HOW TO CHOOSE -->
     <h2 id="how-to-choose">How to choose the right HSA custodian</h2>
@@ -2004,5 +2071,93 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('orientationchange', function(){ setTimeout(fixPostLayout,150); });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixPostLayout() {
+    var w = window.innerWidth;
+    var isTablet = w <= 1100;
+    var isMobile = w <= 640;
+
+    var wrap = document.querySelector('.post-wrap');
+    if (wrap) {
+      if (isTablet) {
+        wrap.style.display = 'block';
+        wrap.style.padding = isMobile ? '1.5rem 5% 3rem' : '2rem 5% 3rem';
+      } else {
+        wrap.style.display = 'grid';
+        wrap.style.gridTemplateColumns = '1fr 300px';
+        wrap.style.gap = '3.5rem';
+        wrap.style.padding = '3rem 5%';
+      }
+    }
+
+    // Post sidebar — show inline on mobile
+    var sidebar = document.querySelector('.post-sidebar');
+    if (sidebar) {
+      if (isTablet) {
+        sidebar.style.position = 'static';
+        sidebar.style.width = '100%';
+        sidebar.style.maxWidth = '100%';
+        sidebar.style.marginTop = '2rem';
+        sidebar.style.display = 'block';
+      } else {
+        sidebar.style.position = 'sticky';
+        sidebar.style.top = '80px';
+        sidebar.style.width = '';
+        sidebar.style.display = '';
+      }
+    }
+
+    // TOC box width
+    var toc = document.querySelector('.toc-box');
+    if (toc && isTablet) {
+      toc.style.maxWidth = '100%';
+      toc.style.width = '100%';
+      toc.style.boxSizing = 'border-box';
+    }
+
+    // Post hero
+    var hero = document.querySelector('.post-hero');
+    if (hero) {
+      hero.style.paddingTop = '112px';
+      if (isMobile) hero.style.paddingBottom = '2rem';
+    }
+
+    // Comparison table — scroll on mobile
+    var compTable = document.querySelector('.comparison-table, .comp-table');
+    if (compTable) {
+      compTable.style.overflowX = 'auto';
+      compTable.style.webkitOverflowScrolling = 'touch';
+    }
+  }
+
+  fixPostLayout();
+  window.addEventListener('resize', fixPostLayout);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(fixPostLayout, 150);
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Wrap all tables not already in a scroll container
+  document.querySelectorAll('table').forEach(function(table) {
+    var parent = table.parentElement;
+    if (parent && parent.style.overflowX !== 'auto') {
+      var wrapper = document.createElement('div');
+      wrapper.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin-bottom:1rem;';
+      parent.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
+  document.body.style.overflowX = 'hidden';
+  document.documentElement.style.overflowX = 'hidden';
+  document.body.style.maxWidth = '100vw';
+});
+</script>
+
 </body>
 </html>
