@@ -1359,8 +1359,8 @@ img, table, iframe { max-width: 100%; }
 </section>
 
 <!-- CATEGORY FILTERS -->
-<div class="filter-bar">
-  <div class="filter-inner">
+<div class="filter-bar" style="display:none;">
+  <div class="filter-inner" style="display:none;">
     <button class="filter-btn active" onclick="filterPosts('all', this)">All posts</button>
     <button class="filter-btn" onclick="filterPosts('comparisons', this)">Comparisons</button>
     <button class="filter-btn" onclick="filterPosts('tax-tips', this)">Tax tips</button>
@@ -1397,7 +1397,7 @@ img, table, iframe { max-width: 100%; }
     <!-- POST GRID -->
     <div class="posts-grid" id="posts-grid">
 
-      <a href="/blog/aca-bronze-plans-hsa-eligible-2026" data-future-post="/blog/aca-bronze-hsa-eligible-2026" class="post-card" data-cat="eligibility 2026">
+      <a style="display:none;" href="/blog/aca-bronze-plans-hsa-eligible-2026" data-future-post="/blog/aca-bronze-hsa-eligible-2026" class="post-card" data-cat="eligibility 2026">
         <div class="card-img" style="background:linear-gradient(135deg,#e0f7f4,#b2ece4)">🏥</div>
         <div class="card-body">
           <div class="card-cat">Eligibility · 2026</div>
@@ -1406,7 +1406,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-vs-fsa-2026" data-future-post="/blog/hsa-vs-fsa-2026" class="post-card" data-cat="comparisons">
+      <a style="display:none;" href="/blog/hsa-vs-fsa-2026" data-future-post="/blog/hsa-vs-fsa-2026" class="post-card" data-cat="comparisons">
         <div class="card-img" style="background:linear-gradient(135deg,#e8f0fe,#c5d8fc)">⚖️</div>
         <div class="card-body">
           <div class="card-cat">Comparisons</div>
@@ -1415,7 +1415,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-for-freelancers-2026" data-future-post="/blog/hsa-freelancer-guide" class="post-card" data-cat="tax-tips eligibility">
+      <a style="display:none;" href="/blog/hsa-for-freelancers-2026" data-future-post="/blog/hsa-freelancer-guide" class="post-card" data-cat="tax-tips eligibility">
         <div class="card-img" style="background:linear-gradient(135deg,#fef9e8,#fde7a0)">💻</div>
         <div class="card-body">
           <div class="card-cat">Tax tips</div>
@@ -1424,7 +1424,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/how-to-invest-hsa" data-future-post="/blog/hsa-investment-guide" class="post-card" data-cat="investing">
+      <a style="display:none;" href="/blog/how-to-invest-hsa" data-future-post="/blog/hsa-investment-guide" class="post-card" data-cat="investing">
         <div class="card-img" style="background:linear-gradient(135deg,#e8fdf0,#a8edc4)">📈</div>
         <div class="card-body">
           <div class="card-cat">Investing</div>
@@ -1443,7 +1443,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </div>
 
-      <a href="/blog/fidelity-hsa-vs-lively-2026" data-future-post="/blog/fidelity-vs-lively-2026" class="post-card" data-cat="comparisons">
+      <a style="display:none;" href="/blog/fidelity-hsa-vs-lively-2026" data-future-post="/blog/fidelity-vs-lively-2026" class="post-card" data-cat="comparisons">
         <div class="card-img" style="background:linear-gradient(135deg,#eeedfe,#cbc8f8)">🔍</div>
         <div class="card-body">
           <div class="card-cat">Comparisons</div>
@@ -1452,7 +1452,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-contribution-limits-2026" data-future-post="/blog/hsa-contribution-limits-2026" class="post-card" data-cat="tax-tips 2026">
+      <a style="display:none;" href="/blog/hsa-contribution-limits-2026" data-future-post="/blog/hsa-contribution-limits-2026" class="post-card" data-cat="tax-tips 2026">
         <div class="card-img" style="background:linear-gradient(135deg,#faeeda,#f8cc80)">📊</div>
         <div class="card-body">
           <div class="card-cat">Tax tips · 2026</div>
@@ -1461,7 +1461,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-eligible-expenses-2026" data-future-post="/blog/hsa-eligible-expenses-2026" class="post-card" data-cat="tax-tips 2026">
+      <a style="display:none;" href="/blog/hsa-eligible-expenses-2026" data-future-post="/blog/hsa-eligible-expenses-2026" class="post-card" data-cat="tax-tips 2026">
         <div class="card-img" style="background:linear-gradient(135deg,#faece7,#f5b89a)">🧾</div>
         <div class="card-body">
           <div class="card-cat">Tax tips · 2026</div>
@@ -1470,7 +1470,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-triple-tax-advantage" data-future-post="/blog/hsa-triple-tax-advantage" class="post-card" data-cat="investing tax-tips">
+      <a style="display:none;" href="/blog/hsa-triple-tax-advantage" data-future-post="/blog/hsa-triple-tax-advantage" class="post-card" data-cat="investing tax-tips">
         <div class="card-img" style="background:linear-gradient(135deg,#e0f7f4,#80ddd0)">🏦</div>
         <div class="card-body">
           <div class="card-cat">Investing</div>
@@ -1479,7 +1479,7 @@ img, table, iframe { max-width: 100%; }
         </div>
       </a>
 
-      <a href="/blog/hsa-after-65" data-future-post="true" class="post-card" data-cat="investing">
+      <a style="display:none;" href="/blog/hsa-after-65" data-future-post="true" class="post-card" data-cat="investing">
         <div class="card-img" style="background:linear-gradient(135deg,#e8f0fe,#93b8f8)">🎯</div>
         <div class="card-body">
           <div class="card-cat">Investing</div>
@@ -1492,8 +1492,8 @@ img, table, iframe { max-width: 100%; }
 
     </div>
 
-    <!-- LOAD MORE -->
-    <div class="load-more-wrap">
+    <!-- LOAD MORE — hidden until more articles are published -->
+    <div class="load-more-wrap" style="display:none;">
       <button class="load-more-btn">Load more articles</button>
     </div>
 
@@ -1506,11 +1506,11 @@ img, table, iframe { max-width: 100%; }
       <p style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.45);margin:0 0 1rem;">2026 Key Numbers</p>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06);">
         <span style="font-size:.8rem;color:rgba(255,255,255,.55);">Individual limit</span>
-        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;color:#00b8a2;">$4,300</span>
+        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;color:#00b8a2;">$4,400</span>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06);">
         <span style="font-size:.8rem;color:rgba(255,255,255,.55);">Family limit</span>
-        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;color:#00b8a2;">$8,550</span>
+        <span style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;color:#00b8a2;">$8,750</span>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06);">
         <span style="font-size:.8rem;color:rgba(255,255,255,.55);">Catch-up (55+)</span>
@@ -1536,23 +1536,9 @@ img, table, iframe { max-width: 100%; }
       <ul class="top-posts">
         <li class="top-post-item">
           <div class="tp-num">1</div>
-          <div><div class="tp-title">Best HSA Accounts 2026 — Ranked</div><div class="tp-cat">Comparisons</div></div>
-        </li>
-        <li class="top-post-item">
-          <div class="tp-num">2</div>
-          <div><div class="tp-title">HSA for Freelancers — Complete Guide</div><div class="tp-cat">Tax tips</div></div>
-        </li>
-        <li class="top-post-item">
-          <div class="tp-num">3</div>
-          <div><div class="tp-title">What Can You Buy With an HSA?</div><div class="tp-cat">Tax tips</div></div>
-        </li>
-        <li class="top-post-item">
-          <div class="tp-num">4</div>
-          <div><div class="tp-title">Fidelity HSA vs Lively 2026</div><div class="tp-cat">Comparisons</div></div>
-        </li>
-        <li class="top-post-item">
-          <div class="tp-num">5</div>
-          <div><div class="tp-title">The HSA Triple Tax Advantage</div><div class="tp-cat">Investing</div></div>
+          <a href="/blog/best-hsa-accounts-2026" style="text-decoration:none;color:inherit;">
+            <div><div class="tp-title">Best HSA Accounts 2026 — Ranked &amp; Compared</div><div class="tp-cat">Comparisons</div></div>
+          </a>
         </li>
       </ul>
     </div>
