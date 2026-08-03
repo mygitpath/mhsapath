@@ -94,10 +94,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,
 .stat-label-sm{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#505f7a;margin-bottom:3px}
 .stat-value{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0a1628}
 .stat-note{font-size:.75rem;color:#505f7a;margin-top:2px}
-.review-cta{display:block;width:100%;padding:13px;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s}
+.review-cta{display:inline-flex;align-items:center;justify-content:center;padding:13px;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s}
 .review-cta.primary{background:#00b8a2;color:white!important}
 .review-cta.primary:hover{background:#009b87}
-.review-cta.secondary{background:white;color:#0a1628;border:1.5px solid #e2ddd6;margin-top:8px}
+.review-cta.secondary{background:white;color:#0a1628;border:1.5px solid #e2ddd6;}
 .review-cta.secondary:hover{border-color:#00b8a2;color:#00b8a2}
 .method-section{background:#fdfcfa;padding:4rem 5%}
 .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem}
@@ -1252,6 +1252,192 @@ img, table, iframe { max-width: 100%; }
 }
 /* ══════════════════════════════════════════════════════ */
 
+
+/* ── REVIEW CARD GRID FIX ───────────────────────────── */
+/* Make pros-cons a 3-col grid: pros | cons | sidebar   */
+.pros-cons {
+  grid-template-columns: 1fr 1fr 280px !important;
+  gap: 0 !important;
+  align-items: start !important;
+}
+.review-sidebar {
+  padding: 1.75rem 1.5rem !important;
+  background: #fafffe !important;
+  border-left: 1px solid #e2ddd6 !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  margin-left: 1rem !important;
+}
+.pros, .cons {
+  padding-right: 1rem !important;
+}
+.cons {
+  border-right: 1px solid #e2ddd6 !important;
+  padding-right: 1rem !important;
+}
+@media (max-width: 1100px) {
+  .pros-cons {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .review-sidebar {
+    grid-column: 1 / -1 !important;
+    border-left: none !important;
+    border-top: 1px solid #e2ddd6 !important;
+    margin-left: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+@media (max-width: 640px) {
+  .pros-cons {
+    grid-template-columns: 1fr !important;
+  }
+  .review-sidebar {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── REVIEW CONTENT OVERFLOW FIX ────────────────────── */
+.review-body {
+  grid-template-columns: 1fr !important;
+}
+.review-content {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border-right: none !important;
+}
+.pros-cons {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+.pros-cons > * {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+.review-summary {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  max-width: 100% !important;
+}
+/* Sidebar: right column via grid on review-content level */
+.review-card .review-sidebar {
+  border-top: 1px solid #e2ddd6 !important;
+  border-left: none !important;
+  background: #fafffe !important;
+}
+/* Desktop: use grid on the review-content to place sidebar */
+@media (min-width: 1101px) {
+  .review-body {
+    grid-template-columns: 1fr !important;
+  }
+  .pros-cons {
+    grid-template-columns: 1fr 1fr 260px !important;
+  }
+  .review-sidebar {
+    margin-left: 0 !important;
+    border-left: 1px solid #e2ddd6 !important;
+    border-top: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── REVIEW CARD LAYOUT — FINAL ─────────────────────── */
+
+/* Each review card is a rounded box */
+.review-card {
+  background: white !important;
+  border-radius: 20px !important;
+  border: 1.5px solid #e2ddd6 !important;
+  overflow: hidden !important;
+  margin-bottom: 1.5rem !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+.review-card.top-pick {
+  border-color: #00b8a2 !important;
+  box-shadow: 0 0 0 1px #00b8a2 !important;
+}
+
+/* review-body: flex column on all screens; row on desktop */
+.review-body {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+@media (min-width: 1101px) {
+  .review-body {
+    flex-direction: row !important;
+  }
+}
+
+/* review-content: prose area — grows to fill space */
+.review-content {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  padding: 1.75rem 2rem !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 1101px) {
+  .review-content {
+    border-right: 1px solid #e2ddd6 !important;
+  }
+}
+
+/* review-summary: always wraps */
+.review-summary {
+  font-size: .92rem !important;
+  color: #1a2540 !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1.5rem !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* pros-cons: 2 cols on desktop, 1 col on mobile */
+.pros-cons {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+@media (min-width: 641px) {
+  .pros-cons {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* review-sidebar: bottom on mobile, right panel on desktop */
+.review-sidebar {
+  flex: 0 0 260px !important;
+  width: 260px !important;
+  min-width: 260px !important;
+  padding: 1.75rem 1.5rem !important;
+  background: #fafffe !important;
+  border-top: 1px solid #e2ddd6 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 1101px) {
+  .review-sidebar {
+    border-top: none !important;
+    border-left: 1px solid #e2ddd6 !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────── */
+
 </style>
 
 </style>
@@ -1301,86 +1487,283 @@ img, table, iframe { max-width: 100%; }
   </div>
 </div>
 
-<div id="main-content" class="disc-banner" style="position:fixed;top:64px;left:0;right:0;z-index:98;background:#0d2040;border-bottom:1px solid rgba(0,184,162,.2);padding:8px 5%;display:flex;align-items:center;gap:8px;box-sizing:border-box;width:100%;"><p><strong>Advertiser Disclosure:</strong> myHSAPath may earn a commission when you open an account through our links. <span class="mobile-hide">This never influences our ratings.</span> <a href="/advertiser-disclosure">Learn more</a></p></div>
-<section class="page-hero">
-  <div class="breadcrumb"><a href="/">Home</a> / <span>Compare HSA Accounts</span></div>
-  <div class="hero-eyebrow"><div class="live-dot"></div>Updated July 2026 · 2026 Contribution Limits</div>
-  <h1>Best HSA Accounts of 2026 — <em>Ranked &amp; Compared</em></h1>
-  <div class="hero-meta">
-    <span class="meta-item">📅 <strong>Last updated:</strong> July 2026</span>
-    <span class="meta-item">🔍 <strong>Accounts reviewed:</strong> 4</span>
-    <span class="meta-item">⏱ <strong>Read time:</strong> 6 min</span>
-    <span class="meta-item">✅ <strong>No paid placements</strong></span>
-  </div>
-  <p class="hero-summary">We compared every major HSA custodian on fees, investment options, interest rates, and user experience. With 2026's ACA changes making all Bronze plans HSA-eligible, millions more Americans can now open one. Here's exactly where to do it.</p>
-  <div class="jump-links">
-    <a href="#comparison-table" class="jump-link">📊 Full Comparison</a>
-    <a href="#fidelity-review" class="jump-link">🥇 Fidelity</a>
-    <a href="#lively-review" class="jump-link">🥈 Lively</a>
-    <a href="#healthequity-review" class="jump-link">🥉 HealthEquity</a>
-    <a href="#hsabank-review" class="jump-link">HSA Bank</a>
-    <a href="#faq" class="jump-link">❓ FAQ</a>
-  </div>
-</section>
-<div class="verdict-bar">
-  <div class="verdict-label">Our Picks</div>
-  <div class="verdict-picks">
-    <div class="verdict-pick"><div class="vp-icon" style="background:#00b8a2">F</div><div class="vp-text"><strong>Fidelity</strong> — Best Overall</div></div>
-    <div class="verdict-pick"><div class="vp-icon" style="background:#2563eb">L</div><div class="vp-text"><strong>Lively</strong> — Best for Freelancers</div></div>
-    <div class="verdict-pick"><div class="vp-icon" style="background:#7c3aed">HE</div><div class="vp-text"><strong>HealthEquity</strong> — Best Employer Support</div></div>
-    <div class="verdict-pick"><div class="vp-icon" style="background:#e8a020">HB</div><div class="vp-text"><strong>HSA Bank</strong> — Best Large Balances</div></div>
-  </div>
-</div>
-<section class="compare-section" id="comparison-table">
+
+<div class="compare-section" id="comparison-table">
   <div class="section-eyebrow">Side by Side</div>
   <div class="section-title">Full Feature Comparison</div>
   <p class="section-sub">Every major feature that matters for self-employed Americans. Updated for 2026 contribution limits.</p>
-  <div class="compare-table-wrap">
-    <table class="compare-table">
-      <thead><tr><th>Feature</th><th class="highlight">Fidelity HSA</th><th>Lively HSA</th><th>HealthEquity</th><th>HSA Bank</th></tr></thead>
-      <tbody>
-        <tr><td class="td-feature">Our Rating</td><td class="td-best"><span class="rating-badge top">9.8 / 10</span></td><td><span class="rating-badge">9.4 / 10</span></td><td><span class="rating-badge">8.9 / 10</span></td><td><span class="rating-badge">8.5 / 10</span></td></tr>
-        <tr><td class="td-feature">Monthly Fee</td><td class="td-best"><strong style="color:#00b8a2">$0</strong></td><td><strong style="color:#00b8a2">$0</strong></td><td>$2.50</td><td>$3.00</td></tr>
-        <tr><td class="td-feature">Fee Waived At</td><td class="td-best">N/A — Always free</td><td>N/A — Always free</td><td>$2,500 balance</td><td>$5,000 balance</td></tr>
-        <tr><td class="td-feature">Invest From</td><td class="td-best"><strong>$1</strong></td><td>$0 (TD Ameritrade)</td><td>$1,000 min</td><td>$1,000 min</td></tr>
-        <tr><td class="td-feature">Investment Options</td><td class="td-best">1,000+ mutual funds</td><td>TD Ameritrade brokerage</td><td>Limited fund menu</td><td>Devenir platform</td></tr>
-        <tr><td class="td-feature">Mobile App</td><td class="td-best">✓ Excellent</td><td>✓ Best in class</td><td>✓ Good</td><td>✓ Basic</td></tr>
-        <tr><td class="td-feature">FDIC Insured</td><td class="td-best"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-        <tr><td class="td-feature">Best For</td><td class="td-best"><div class="best-pick-tag">★ Editor's Pick</div><br><span style="font-size:.8rem">Overall best for most</span></td><td><span style="font-size:.8rem">Freelancers</span></td><td><span style="font-size:.8rem">Employer plans</span></td><td><span style="font-size:.8rem">High balances</span></td></tr>
+  <div class="compare-table-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+    <table class="compare-table" style="width:100%;border-collapse:collapse;min-width:600px;">
+      <thead style="background:#0a1628;color:white;">
         <tr>
-          <td class="td-feature"></td>
-          <td class="td-best"><a href="#affiliate-fidelity" style="display:inline-block;background:#00b8a2;color:white;padding:8px 18px;border-radius:7px;font-weight:600;font-size:.82rem;text-decoration:none">Open Account →</a></td>
-          <td><a href="#affiliate-lively" style="display:inline-block;background:#0a1628;color:white;padding:8px 18px;border-radius:7px;font-weight:600;font-size:.82rem;text-decoration:none">Open Account →</a></td>
-          <td><a href="#affiliate-healthequity" style="display:inline-block;background:#0a1628;color:white;padding:8px 18px;border-radius:7px;font-weight:600;font-size:.82rem;text-decoration:none">Open Account →</a></td>
-          <td><a href="#affiliate-hsabank" style="display:inline-block;background:#0a1628;color:white;padding:8px 18px;border-radius:7px;font-weight:600;font-size:.82rem;text-decoration:none">Open Account →</a></td>
+          <th style="padding:.85rem 1rem;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);">Feature</th>
+          <th style="padding:.85rem 1rem;text-align:left;font-size:.85rem;font-weight:700;color:#00b8a2;">Fidelity HSA</th>
+          <th style="padding:.85rem 1rem;text-align:left;font-size:.85rem;font-weight:700;color:white;">Lively HSA</th>
+          <th style="padding:.85rem 1rem;text-align:left;font-size:.85rem;font-weight:700;color:white;">HealthEquity</th>
+          <th style="padding:.85rem 1rem;text-align:left;font-size:.85rem;font-weight:700;color:white;">HSA Bank</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Our Rating</td>
+          <td style="padding:.85rem 1rem;"><span style="background:#0a1628;color:white;padding:4px 10px;border-radius:20px;font-weight:700;font-size:.85rem;">9.8/10</span></td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">9.4 / 10</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">8.9 / 10</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">8.5 / 10</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Monthly Fee</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.95rem;"><strong>$0</strong></td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.95rem;"><strong>$0</strong></td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$2.50</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$3.00</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Fee Waived At</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.88rem;">Always free</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.88rem;">Always free</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$2,500 balance</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$5,000+</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Invest Minimum</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.95rem;"><strong>$1</strong></td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$0 (Charles Schwab)</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">$500 min</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Balance threshold</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Investment Options</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.88rem;">Stocks, ETFs, mutual funds ($0 commissions)</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Charles Schwab brokerage</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">33 Vanguard funds + brokerage option</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">HSA Invest: Choice (brokerage), Select (funds), Managed</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2ddd6;">
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Mobile App</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.88rem;">✓ Excellent</td>
+          <td style="padding:.85rem 1rem;font-weight:700;color:#00b8a2;font-size:.88rem;">✓ Best-in-class</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">✓ Good</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">✓ Good</td>
+        </tr>
+        <tr>
+          <td style="padding:.85rem 1rem;font-size:.82rem;color:#505f7a;font-weight:600;">Best For</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Overall Best</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Freelancers</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Employers</td>
+          <td style="padding:.85rem 1rem;font-size:.88rem;">Large Balances</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="mobile-cards">
-    <div class="mob-card top"><div class="mob-card-header"><div class="mob-left"><div class="mob-icon" style="background:#00b8a2">F</div><div><div class="mob-name">Fidelity HSA <span style="background:#00b8a2;color:white;font-size:.58rem;padding:2px 7px;border-radius:100px;font-weight:700;margin-left:4px">BEST</span></div><div class="mob-sub">No fees · Best investments</div></div></div><div class="mob-score">9.8<span style="font-size:.72rem;color:rgba(255,255,255,.45)">/10</span></div></div><div class="mob-card-body"><div class="mob-stats"><div><div class="mob-stat-label">Monthly Fee</div><div class="mob-stat-val" style="color:#00b8a2">$0 always</div></div><div><div class="mob-stat-label">Invest From</div><div class="mob-stat-val">$1</div></div></div><div class="mob-pills"><span class="mob-pill pill-green">$0/month</span><span class="mob-pill pill-blue">Invest from $1</span></div><a href="#affiliate-fidelity" class="mob-cta mob-cta-primary">Open Fidelity HSA — Free →</a><a href="#fidelity-review" class="mob-cta mob-cta-secondary">Read full review</a></div></div>
-    <div class="mob-card"><div class="mob-card-header"><div class="mob-left"><div class="mob-icon" style="background:#2563eb">L</div><div><div class="mob-name">Lively HSA</div><div class="mob-sub">Best UX · Freelancer friendly</div></div></div><div class="mob-score">9.4<span style="font-size:.72rem;color:rgba(255,255,255,.45)">/10</span></div></div><div class="mob-card-body"><div class="mob-stats"><div><div class="mob-stat-label">Monthly Fee</div><div class="mob-stat-val" style="color:#00b8a2">$0 always</div></div><div><div class="mob-stat-label">Investments</div><div class="mob-stat-val">TD Ameritrade</div></div></div><div class="mob-pills"><span class="mob-pill pill-green">$0/month</span><span class="mob-pill pill-blue">TD Ameritrade</span></div><a href="#affiliate-lively" class="mob-cta mob-cta-primary">Open Lively HSA — Free →</a><a href="#lively-review" class="mob-cta mob-cta-secondary">Read full review</a></div></div>
-    <div class="mob-card"><div class="mob-card-header"><div class="mob-left"><div class="mob-icon" style="background:#7c3aed">HE</div><div><div class="mob-name">HealthEquity</div><div class="mob-sub">Best employer support</div></div></div><div class="mob-score">8.9<span style="font-size:.72rem;color:rgba(255,255,255,.45)">/10</span></div></div><div class="mob-card-body"><div class="mob-stats"><div><div class="mob-stat-label">Monthly Fee</div><div class="mob-stat-val">$2.50</div></div><div><div class="mob-stat-label">Fee Waived At</div><div class="mob-stat-val">$2,500</div></div></div><div class="mob-pills"><span class="mob-pill pill-gold">$2.50/month</span></div><a href="#affiliate-healthequity" class="mob-cta mob-cta-primary">Open HealthEquity →</a><a href="#healthequity-review" class="mob-cta mob-cta-secondary">Read full review</a></div></div>
-    <div class="mob-card"><div class="mob-card-header"><div class="mob-left"><div class="mob-icon" style="background:#e8a020">HB</div><div><div class="mob-name">HSA Bank</div><div class="mob-sub">Best for large balances</div></div></div><div class="mob-score">8.5<span style="font-size:.72rem;color:rgba(255,255,255,.45)">/10</span></div></div><div class="mob-card-body"><div class="mob-stats"><div><div class="mob-stat-label">Monthly Fee</div><div class="mob-stat-val">$3.00</div></div><div><div class="mob-stat-label">Fee Waived At</div><div class="mob-stat-val">$5,000</div></div></div><div class="mob-pills"><span class="mob-pill pill-gold">$3.00/month</span></div><a href="#affiliate-hsabank" class="mob-cta mob-cta-primary">Open HSA Bank →</a><a href="#hsabank-review" class="mob-cta mob-cta-secondary">Read full review</a></div></div>
+</div>
+
+
+<div class="verdict-bar" style="background:#0a1628;padding:1.5rem 5%;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.85rem;">Our Picks</div>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 14px;">
+        <div style="width:22px;height:22px;border-radius:6px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#0a1628;flex-shrink:0;">F</div>
+        <span style="font-size:.78rem;font-weight:600;color:white;"><strong>Fidelity</strong> — Best Overall</span>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 14px;">
+        <div style="width:22px;height:22px;border-radius:6px;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white;flex-shrink:0;">L</div>
+        <span style="font-size:.78rem;font-weight:600;color:white;"><strong>Lively</strong> — Best for Freelancers</span>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 14px;">
+        <div style="width:22px;height:22px;border-radius:6px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white;flex-shrink:0;">HE</div>
+        <span style="font-size:.78rem;font-weight:600;color:white;"><strong>HealthEquity</strong> — Best Employer Support</span>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 14px;">
+        <div style="width:22px;height:22px;border-radius:6px;background:#e8a020;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white;flex-shrink:0;">HB</div>
+        <span style="font-size:.78rem;font-weight:600;color:white;"><strong>HSA Bank</strong> — Best Large Balances</span>
+      </div>
+    </div>
   </div>
+</div>
+
+<section class="reviews-section" style="padding:2rem 5% 4rem;background:#f7f4ef;">
+  <div style="max-width:1200px;margin:0 auto;">
+  <div class="section-eyebrow">Deep Dives</div>
+  <h2 class="section-title">Individual Account Reviews</h2>
+  <p style="font-size:.9rem;color:#505f7a;margin-bottom:2rem;">We opened and tested each account. Here's what we found.</p>
+<div class="review-card" id="fidelity-review" style="background:white;border-radius:20px;border:1.5px solid #00b8a2;box-shadow:0 0 0 1px #00b8a2;overflow:hidden;margin-bottom:1.5rem;">
+  <!-- HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.75rem;border-bottom:1px solid #f0ede8;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0;">F</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;color:#0a1628;">Fidelity HSA</div>
+        <div style="font-size:.82rem;color:#505f7a;">Best overall HSA for self-employed Americans in 2026</div>
+        <div style="display:inline-block;background:#00b8a2;color:#0a1628;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:100px;margin-top:6px;">★ Editor's Pick — Best Overall</div>
+      </div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
+      <div style="font-size:1.6rem;font-weight:800;color:#0a1628;">9.8<span style="font-size:.9rem;font-weight:400;color:#505f7a;"> / 10</span></div>
+      <div style="color:#f59e0b;font-size:.9rem;">★★★★★</div>
+    </div>
+  </div>
+  <!-- BODY: summary + pros/cons LEFT | stats RIGHT -->
+  <div style="display:flex;flex-direction:row;width:100%;">
+    <!-- LEFT -->
+    <div style="flex:1;min-width:0;padding:1.75rem 2rem;box-sizing:border-box;">
+      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">Fidelity's HSA beats every competitor on every key metric: zero account fees, $0 commissions on US stocks and ETFs, no minimum to invest, and a 3.38% 7-day yield on uninvested cash (as of July 2026) — far above competitors. Morningstar's #1 rated HSA for investing 7 years in a row (2019–2025). Also offers Fidelity Go® HSA — a managed option with $0 fee under $25,000.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00b8a2;margin-bottom:.6rem;">What we love</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Zero account fees — always</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Invest from $0 — no minimum at all</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Stocks, ETFs & thousands of mutual funds — $0 commissions</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>3.38% cash yield (July 2026) — highest in industry</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Morningstar #1 HSA for investing — 7 years running</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#e05252;margin-bottom:.6rem;">Watch out for</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>General brokerage interface — not HSA-specific</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Interface not HSA-specific</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT SIDEBAR -->
+    <div style="flex:0 0 270px;width:270px;padding:1.75rem 1.5rem;background:#fafffe;border-left:1px solid #e2ddd6;box-sizing:border-box;display:flex;flex-direction:column;">
+      <div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Monthly Fee</div><div style="font-size:1.1rem;font-weight:700;color:#00b8a2;">$0</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">Always free</div></div><div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Minimum to Invest</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">$1</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">Lowest in the industry</div></div><div style="padding-bottom:1rem;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Options</div><div style="font-size:.88rem;font-weight:700;color:#0a1628;line-height:1.4;">Stocks, ETFs,<br>mutual funds<br><span style="font-weight:400;font-size:.75rem;color:#00b8a2;">$0 commissions</span></div></div>
+      <div style="padding-bottom:1.1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;">
+        <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Cash Rate</div>
+        <div style="font-size:1.1rem;font-weight:700;color:#00b8a2;">3.38%</div>
+        <div style="font-size:.72rem;color:#505f7a;margin-top:2px;">7-day yield (July 2026)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
+      <a href="#affiliate-fidelity" style="width:100%;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;">Open Fidelity HSA →</a>
+      <a href="#comparison-table" style="display:inline-flex;align-items:center;justify-content:center;background:white;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;padding:11px 10px;border-radius:8px;text-decoration:none;border:1.5px solid #e2ddd6;width:100%;box-sizing:border-box;">↑ Back to comparison</a>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="review-card" id="lively-review" style="background:white;border-radius:20px;border:1.5px solid #e2ddd6;overflow:hidden;margin-bottom:1.5rem;">
+  <!-- HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.75rem;border-bottom:1px solid #f0ede8;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#2563eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0;">L</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;color:#0a1628;">Lively HSA</div>
+        <div style="font-size:.82rem;color:#505f7a;">Best HSA for freelancers and self-employed professionals</div>
+        
+      </div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
+      <div style="font-size:1.6rem;font-weight:800;color:#0a1628;">9.4<span style="font-size:.9rem;font-weight:400;color:#505f7a;"> / 10</span></div>
+      <div style="color:#f59e0b;font-size:.9rem;">★★★★★</div>
+    </div>
+  </div>
+  <!-- BODY: summary + pros/cons LEFT | stats RIGHT -->
+  <div style="display:flex;flex-direction:row;width:100%;">
+    <!-- LEFT -->
+    <div style="flex:1;min-width:0;padding:1.75rem 2rem;box-sizing:border-box;">
+      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">Lively was built specifically for the self-employed experience. The onboarding is fully online with no paperwork, and the dashboard is purpose-built for HSA management. Two invest options: Schwab Health Savings Brokerage Account (self-directed) or HSA Guided Portfolio by Devenir (managed, 0.50%/yr). Zero account fees puts it in the top tier.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00b8a2;margin-bottom:.6rem;">What we love</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Zero monthly fees</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Fastest account opening — under 5 min</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Best-in-class mobile app</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Expense tracking + receipt capture</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#e05252;margin-bottom:.6rem;">Watch out for</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Below-average interest on cash</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Brokerage investing via separate account login</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Support hours: Mon–Fri 6am–6pm PT only</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT SIDEBAR -->
+    <div style="flex:0 0 270px;width:270px;padding:1.75rem 1.5rem;background:#fafffe;border-left:1px solid #e2ddd6;box-sizing:border-box;display:flex;flex-direction:column;">
+      <div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Monthly Fee</div><div style="font-size:1.1rem;font-weight:700;color:#00b8a2;">$0</div></div><div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Options</div><div style="font-size:.78rem;font-weight:600;color:#0a1628;line-height:1.5;">Schwab brokerage<br><span style="color:#505f7a;font-weight:400;">Devenir Guided Portfolio</span></div></div><div style="padding-bottom:1rem;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Account Opening</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">< 5 min</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
+      <a href="#affiliate-lively" style="width:100%;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;">Open Lively HSA →</a>
+      <a href="#comparison-table" style="display:inline-flex;align-items:center;justify-content:center;background:white;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;padding:11px 10px;border-radius:8px;text-decoration:none;border:1.5px solid #e2ddd6;width:100%;box-sizing:border-box;">↑ Back to comparison</a>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="review-card" id="healthequity-review" style="background:white;border-radius:20px;border:1.5px solid #e2ddd6;overflow:hidden;margin-bottom:1.5rem;">
+  <!-- HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.75rem;border-bottom:1px solid #f0ede8;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:.8rem;flex-shrink:0;">HE</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;color:#0a1628;">HealthEquity</div>
+        <div style="font-size:.82rem;color:#505f7a;">Best HSA for employer-sponsored plans</div>
+        
+      </div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
+      <div style="font-size:1.6rem;font-weight:800;color:#0a1628;">8.9<span style="font-size:.9rem;font-weight:400;color:#505f7a;"> / 10</span></div>
+      <div style="color:#f59e0b;font-size:.9rem;">★★★★½</div>
+    </div>
+  </div>
+  <!-- BODY: summary + pros/cons LEFT | stats RIGHT -->
+  <div style="display:flex;flex-direction:row;width:100%;">
+    <!-- LEFT -->
+    <div style="flex:1;min-width:0;padding:1.75rem 2rem;box-sizing:border-box;">
+      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">HealthEquity is the largest HSA provider in the US with 9.9M+ members. Invest via 33 low-cost Vanguard mutual funds (index + target date funds), managed by HealthEquity Advisors, LLC. Also offers a separate Charles Schwab brokerage window. Monthly fee structure varies by plan — $2.50/month is common for employer plans.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00b8a2;margin-bottom:.6rem;">What we love</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Industry-leading employer integrations</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>$25 match for new individual accounts</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Fee waived at $2,500 balance</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Strong compliance tools</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>33 Vanguard mutual funds (index + target date)</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>AutoPilot (managed) + GPS advisory tools</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#e05252;margin-bottom:.6rem;">Watch out for</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>$2.50/month below $2,500</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>0.03%/month invest admin fee (max $10/mo)</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>$2.50/month below $2,500 qualifying balance</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Brokerage investing via separate account login</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Support hours: Mon–Fri 6am–6pm PT only</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT SIDEBAR -->
+    <div style="flex:0 0 270px;width:270px;padding:1.75rem 1.5rem;background:#fafffe;border-left:1px solid #e2ddd6;box-sizing:border-box;display:flex;flex-direction:column;">
+      <div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Monthly Fee</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">$2.50</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">Employer plan rate</div></div><div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Admin Fee</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">0.03%/mo</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">max $10/month</div></div><div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Options</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">33 Vanguard funds<br>+ Schwab brokerage</div></div><div style="padding-bottom:1rem;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Best For</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">Employers</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
+      <a href="#affiliate-healthequity" style="width:100%;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;">Open HealthEquity →</a>
+      <a href="#comparison-table" style="display:inline-flex;align-items:center;justify-content:center;background:white;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;padding:11px 10px;border-radius:8px;text-decoration:none;border:1.5px solid #e2ddd6;width:100%;box-sizing:border-box;">↑ Back to comparison</a>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="review-card" id="hsabank-review" style="background:white;border-radius:20px;border:1.5px solid #e2ddd6;overflow:hidden;margin-bottom:1.5rem;">
+  <!-- HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.75rem;border-bottom:1px solid #f0ede8;">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#e8a020;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:.8rem;flex-shrink:0;">HB</div>
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;color:#0a1628;">HSA Bank</div>
+        <div style="font-size:.82rem;color:#505f7a;">Best HSA for high-balance holders</div>
+        
+      </div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
+      <div style="font-size:1.6rem;font-weight:800;color:#0a1628;">8.5<span style="font-size:.9rem;font-weight:400;color:#505f7a;"> / 10</span></div>
+      <div style="color:#f59e0b;font-size:.9rem;">★★★★</div>
+    </div>
+  </div>
+  <!-- BODY: summary + pros/cons LEFT | stats RIGHT -->
+  <div style="display:flex;flex-direction:row;width:100%;">
+    <!-- LEFT -->
+    <div style="flex:1;min-width:0;padding:1.75rem 2rem;box-sizing:border-box;">
+      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">HSA Bank has been a dedicated HSA provider since 2004, now a division of Webster Bank (FDIC). Invest via HSA Invest — Choice (brokerage, 0.10%/yr), Select (curated funds, 0.25%/yr) or Managed (RIA-run, 0.35%/yr). Invest fees waived when cash balance ≥ $7,500. The $3/month account fee makes it best suited for higher balances.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00b8a2;margin-bottom:.6rem;">What we love</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Long-established HSA specialist</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>HSA Invest: Choice, Select & Managed tiers</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>24/7 customer support (phone, email, app)</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>HSA Benefits Debit Card (Visa)</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#e05252;margin-bottom:.6rem;">Watch out for</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>$3/month — highest on this list</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>$3/month below $5,000 qualifying balance</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#e05252;font-weight:700;flex-shrink:0;">✗</span>Older interface</div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT SIDEBAR -->
+    <div style="flex:0 0 270px;width:270px;padding:1.75rem 1.5rem;background:#fafffe;border-left:1px solid #e2ddd6;box-sizing:border-box;display:flex;flex-direction:column;">
+      <div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Monthly Fee</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">$3.00</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">Waived at $5,000+</div></div><div style="padding-bottom:1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Fees</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">0.10–0.35%/yr</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">waived ≥$7,500</div></div><div style="padding-bottom:1rem;margin-bottom:1rem;"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Invest Tiers</div><div style="font-size:1.1rem;font-weight:700;color:#0a1628;">Choice · Select<br>· Managed</div><div style="font-size:.72rem;color:#505f7a;margin-top:2px;">Choice = brokerage access</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
+      <a href="#affiliate-hsabank" style="width:100%;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;">Open HSA Bank →</a>
+      <a href="#comparison-table" style="display:inline-flex;align-items:center;justify-content:center;background:white;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;padding:11px 10px;border-radius:8px;text-decoration:none;border:1.5px solid #e2ddd6;width:100%;box-sizing:border-box;">↑ Back to comparison</a>
+    </div>
+    </div>
+  </div>
+</div>
 </section>
-<section class="reviews-section">
-  <div style="margin-bottom:2rem"><div class="section-eyebrow">Deep Dives</div><div class="section-title">Individual Account Reviews</div><p class="section-sub">We opened and tested each account. Here's what we found.</p></div>
-  <div class="review-card top-pick" id="fidelity-review">
-    <div class="review-header"><div class="review-left"><div class="review-icon" style="background:#00b8a2">F</div><div><div class="review-name">Fidelity HSA</div><div class="review-tagline">Best overall HSA for self-employed Americans in 2026</div><div class="best-pick-tag" style="margin-top:6px">★ Editor's Pick — Best Overall</div></div></div><div class="review-right"><div class="review-score">9.8<span> / 10</span></div><div class="review-stars">★★★★★</div></div></div>
-    <div class="review-body"><div class="review-content"><p class="review-summary">Fidelity's HSA beats every competitor on every dimension that matters: zero fees, the lowest investment minimums in the industry, and access to over 1,000 mutual funds including zero-expense-ratio index funds.</p><div class="pros-cons"><div class="pros"><h4>What we love</h4><div class="pro-item"><span class="pro-dot">✓</span>Zero fees, ever</div><div class="pro-item"><span class="pro-dot">✓</span>Invest from $1 — no minimum</div><div class="pro-item"><span class="pro-dot">✓</span>1,000+ funds including zero-fee index funds</div><div class="pro-item"><span class="pro-dot">✓</span>Excellent mobile app</div></div><div class="cons"><h4>Watch out for</h4><div class="con-item"><span class="con-dot">✗</span>No dedicated HSA customer service</div><div class="con-item"><span class="con-dot">✗</span>Interface not HSA-specific</div></div></div></div><div class="review-sidebar"><div class="sidebar-stat"><div class="stat-label-sm">Monthly Fee</div><div class="stat-value" style="color:#00b8a2">$0</div><div class="stat-note">Always free</div></div><div class="sidebar-stat"><div class="stat-label-sm">Minimum to Invest</div><div class="stat-value">$1</div><div class="stat-note">Lowest in the industry</div></div><div class="sidebar-stat"><div class="stat-label-sm">Fund Options</div><div class="stat-value">1,000+</div></div><a href="#affiliate-fidelity" class="review-cta primary">Open Fidelity HSA — Free →</a><a href="#comparison-table" class="review-cta secondary">↑ Back to comparison</a></div></div>
-  </div>
-  <div class="review-card" id="lively-review">
-    <div class="review-header"><div class="review-left"><div class="review-icon" style="background:#2563eb">L</div><div><div class="review-name">Lively HSA</div><div class="review-tagline">Best HSA for freelancers and self-employed professionals</div></div></div><div class="review-right"><div class="review-score">9.4<span> / 10</span></div><div class="review-stars">★★★★★</div></div></div>
-    <div class="review-body"><div class="review-content"><p class="review-summary">Lively was built specifically for the self-employed experience. The onboarding takes under 5 minutes and the dashboard is purpose-built for HSA management. Zero fees puts it in the top tier.</p><div class="pros-cons"><div class="pros"><h4>What we love</h4><div class="pro-item"><span class="pro-dot">✓</span>Zero monthly fees</div><div class="pro-item"><span class="pro-dot">✓</span>Fastest account opening — under 5 min</div><div class="pro-item"><span class="pro-dot">✓</span>Best-in-class mobile app</div><div class="pro-item"><span class="pro-dot">✓</span>Receipt storage built in</div></div><div class="cons"><h4>Watch out for</h4><div class="con-item"><span class="con-dot">✗</span>Below-average interest on cash</div><div class="con-item"><span class="con-dot">✗</span>Separate TD Ameritrade login</div></div></div></div><div class="review-sidebar"><div class="sidebar-stat"><div class="stat-label-sm">Monthly Fee</div><div class="stat-value" style="color:#00b8a2">$0</div></div><div class="sidebar-stat"><div class="stat-label-sm">Investment Partner</div><div class="stat-value">TD Ameritrade</div></div><div class="sidebar-stat"><div class="stat-label-sm">Account Opening</div><div class="stat-value">&lt; 5 min</div></div><a href="#affiliate-lively" class="review-cta primary">Open Lively HSA — Free →</a><a href="#comparison-table" class="review-cta secondary">↑ Back to comparison</a></div></div>
-  </div>
-  <div class="review-card" id="healthequity-review">
-    <div class="review-header"><div class="review-left"><div class="review-icon" style="background:#7c3aed">HE</div><div><div class="review-name">HealthEquity</div><div class="review-tagline">Best HSA for employer-sponsored plans</div></div></div><div class="review-right"><div class="review-score">8.9<span> / 10</span></div><div class="review-stars">★★★★½</div></div></div>
-    <div class="review-body"><div class="review-content"><p class="review-summary">HealthEquity is the largest HSA custodian in the US by assets. Its strength is employer integrations. The $2.50/month fee is waived at $2,500 balance.</p><div class="pros-cons"><div class="pros"><h4>What we love</h4><div class="pro-item"><span class="pro-dot">✓</span>Industry-leading employer integrations</div><div class="pro-item"><span class="pro-dot">✓</span>Fee waived at $2,500 balance</div><div class="pro-item"><span class="pro-dot">✓</span>Strong compliance tools</div></div><div class="cons"><h4>Watch out for</h4><div class="con-item"><span class="con-dot">✗</span>$2.50/month below $2,500</div><div class="con-item"><span class="con-dot">✗</span>$1,000 minimum to invest</div></div></div></div><div class="review-sidebar"><div class="sidebar-stat"><div class="stat-label-sm">Monthly Fee</div><div class="stat-value">$2.50</div><div class="stat-note">Waived at $2,500</div></div><div class="sidebar-stat"><div class="stat-label-sm">Minimum to Invest</div><div class="stat-value">$1,000</div></div><div class="sidebar-stat"><div class="stat-label-sm">Best For</div><div class="stat-value" style="font-size:.95rem">Employers</div></div><a href="#affiliate-healthequity" class="review-cta primary">Open HealthEquity →</a><a href="#comparison-table" class="review-cta secondary">↑ Back to comparison</a></div></div>
-  </div>
-  <div class="review-card" id="hsabank-review">
-    <div class="review-header"><div class="review-left"><div class="review-icon" style="background:#e8a020">HB</div><div><div class="review-name">HSA Bank</div><div class="review-tagline">Best HSA for high-balance holders</div></div></div><div class="review-right"><div class="review-score">8.5<span> / 10</span></div><div class="review-stars">★★★★</div></div></div>
-    <div class="review-body"><div class="review-content"><p class="review-summary">HSA Bank has been a dedicated HSA provider since 2004. The $3/month fee and $5,000 minimum to waive it make it a tough sell for accounts just starting out, but a credible choice for large balances.</p><div class="pros-cons"><div class="pros"><h4>What we love</h4><div class="pro-item"><span class="pro-dot">✓</span>Long-established HSA specialist</div><div class="pro-item"><span class="pro-dot">✓</span>Devenir investment platform</div><div class="pro-item"><span class="pro-dot">✓</span>Strong customer service</div></div><div class="cons"><h4>Watch out for</h4><div class="con-item"><span class="con-dot">✗</span>$3/month — highest on this list</div><div class="con-item"><span class="con-dot">✗</span>Needs $5,000 to waive fee</div><div class="con-item"><span class="con-dot">✗</span>Older interface</div></div></div></div><div class="review-sidebar"><div class="sidebar-stat"><div class="stat-label-sm">Monthly Fee</div><div class="stat-value">$3.00</div><div class="stat-note">Waived at $5,000</div></div><div class="sidebar-stat"><div class="stat-label-sm">Minimum to Invest</div><div class="stat-value">$1,000</div></div><div class="sidebar-stat"><div class="stat-label-sm">Founded</div><div class="stat-value">2004</div></div><a href="#affiliate-hsabank" class="review-cta primary">Open HSA Bank →</a><a href="#comparison-table" class="review-cta secondary">↑ Back to comparison</a></div></div>
+
   </div>
 </section>
 <section class="method-section">
@@ -1399,11 +1782,11 @@ img, table, iframe { max-width: 100%; }
   <div class="section-title">HSA Account FAQ</div>
   <div class="faq-grid">
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I have an HSA with an ACA Bronze plan in 2026? <span class="faq-toggle">+</span></div><div class="faq-a">Yes — this is the big change for 2026. All ACA Marketplace Bronze and Catastrophic plans are now HSA-eligible, up from just 4% of plans in 2025.</div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How much can I contribute to an HSA in 2026? <span class="faq-toggle">+</span></div><div class="faq-a">The 2026 HSA contribution limits are $4,300 for individuals and $8,550 for families. If you're 55 or older, you can add an additional $1,000 catch-up contribution.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How much can I contribute to an HSA in 2026? <span class="faq-toggle">+</span></div><div class="faq-a">The 2026 HSA contribution limits are $4,400 for individuals and $8,750 for families. If you're 55 or older, you can add an additional $1,000 catch-up contribution.</div></div>
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I have more than one HSA account? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. You can open HSA accounts at multiple custodians, but your total contributions across all accounts cannot exceed the annual limit.</div></div>
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is Fidelity HSA really free? What's the catch? <span class="faq-toggle">+</span></div><div class="faq-a">Fidelity's HSA genuinely has no monthly fees, no investment fees, and no transaction fees. Fidelity makes money on the cash float of uninvested balances. There's no catch for individual account holders.</div></div>
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What happens to my HSA if I switch jobs? <span class="faq-toggle">+</span></div><div class="faq-a">Your HSA money is yours forever regardless of employment. You can roll the balance to any custodian once per year, tax-free.</div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I invest my HSA in stocks and ETFs? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Fidelity allows investing from $1. Lively offers full brokerage via TD Ameritrade. HealthEquity and HSA Bank require $1,000 in cash before investing.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I invest my HSA in stocks and ETFs? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Fidelity allows investing from $1. Lively offers full brokerage via Charles Schwab. HealthEquity requires $500 minimum to invest (individual accounts), with a 0.03%/month admin fee on invested assets. HSA Bank (HSA Invest: Choice, Select or Managed) requires a qualifying cash balance before investing; fees are 0.10–0.35%/yr and waived when cash ≥ $7,500.</div></div>
   </div>
 </section>
 <div class="email-section">
@@ -1463,7 +1846,7 @@ img, table, iframe { max-width: 100%; }
 function toggleFaq(el){const open=el.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!open)el.classList.add('open')}
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Best HSA Accounts 2026","url":"https://myhsapath.com/compare","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"FinancialProduct","name":"Fidelity HSA","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.8","bestRating":"10","worstRating":"0","ratingCount":"1"}}},{"@type":"ListItem","position":2,"item":{"@type":"FinancialProduct","name":"Lively HSA","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.4","bestRating":"10","worstRating":"0","ratingCount":"1"}}},{"@type":"ListItem","position":3,"item":{"@type":"FinancialProduct","name":"HealthEquity HSA","aggregateRating":{"@type":"AggregateRating","ratingValue":"8.9","bestRating":"10","worstRating":"0","ratingCount":"1"}}},{"@type":"ListItem","position":4,"item":{"@type":"FinancialProduct","name":"HSA Bank","aggregateRating":{"@type":"AggregateRating","ratingValue":"8.5","bestRating":"10","worstRating":"0","ratingCount":"1"}}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I have an HSA with an ACA Bronze plan in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. All ACA Bronze and Catastrophic plans are now HSA-eligible in 2026."}},{"@type":"Question","name":"How much can I contribute to an HSA in 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 HSA contribution limits are $4,300 for individuals and $8,550 for families. Age 55+ can add $1,000 more."}},{"@type":"Question","name":"Is Fidelity HSA really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Fidelity HSA has zero monthly fees, zero investment fees, and lets you invest from $1 with 1,000+ mutual funds."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I have an HSA with an ACA Bronze plan in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. All ACA Bronze and Catastrophic plans are now HSA-eligible in 2026."}},{"@type":"Question","name":"How much can I contribute to an HSA in 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 HSA contribution limits are $4,400 for individuals and $8,750 for families. Age 55+ can add $1,000 more."}},{"@type":"Question","name":"Is Fidelity HSA really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Fidelity HSA has zero monthly fees, zero investment fees, and lets you invest from $1 with 1,000+ mutual funds."}}]}</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1658,5 +2041,212 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixReviewCards() {
+    var w = window.innerWidth;
+    var isTablet = w <= 1100;
+    var isMobile = w <= 640;
+
+    document.querySelectorAll('.review-body').forEach(function(el) {
+      if (isTablet) {
+        el.style.flexDirection = 'column';
+      } else {
+        el.style.flexDirection = 'row';
+      }
+    });
+
+    document.querySelectorAll('.review-content').forEach(function(el) {
+      if (isTablet) {
+        el.style.borderRight = 'none';
+        el.style.borderBottom = '1px solid #e2ddd6';
+      } else {
+        el.style.borderRight = '1px solid #e2ddd6';
+        el.style.borderBottom = 'none';
+      }
+    });
+
+    document.querySelectorAll('.review-sidebar').forEach(function(el) {
+      if (isTablet) {
+        el.style.width = '100%';
+        el.style.minWidth = '0';
+        el.style.flexBasis = 'auto';
+        el.style.borderLeft = 'none';
+        el.style.display = 'grid';
+        el.style.gridTemplateColumns = isMobile ? '1fr 1fr' : 'repeat(3, 1fr)';
+        el.style.flexDirection = '';
+      } else {
+        el.style.width = '260px';
+        el.style.minWidth = '260px';
+        el.style.flexBasis = '260px';
+        el.style.borderLeft = '1px solid #e2ddd6';
+        el.style.display = 'flex';
+        el.style.gridTemplateColumns = '';
+        el.style.flexDirection = 'column';
+      }
+    });
+
+    document.querySelectorAll('.pros-cons').forEach(function(el) {
+      el.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+    });
+  }
+
+  fixReviewCards();
+  window.addEventListener('resize', fixReviewCards);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(fixReviewCards, 150);
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function mobileCompare() {
+    var w = window.innerWidth;
+    var isMobile = w <= 640;
+    var isTablet = w <= 1100;
+
+    // 1. Review card bodies — flex col on mobile
+    document.querySelectorAll('.review-body, [style*="display:flex;flex-direction:row;width:100%"]').forEach(function(el) {
+      if (isMobile) {
+        el.style.flexDirection = 'column';
+      } else if (isTablet) {
+        el.style.flexDirection = 'column';
+      } else {
+        el.style.flexDirection = 'row';
+      }
+    });
+
+    // 2. Review sidebars — full width on mobile
+    document.querySelectorAll('.review-sidebar').forEach(function(el) {
+      if (isTablet) {
+        el.style.width = '100%';
+        el.style.minWidth = '0';
+        el.style.flexBasis = 'auto';
+        el.style.borderLeft = 'none';
+        el.style.borderTop = '1px solid #e2ddd6';
+        el.style.display = 'grid';
+        el.style.gridTemplateColumns = isMobile ? '1fr 1fr' : 'repeat(3,1fr)';
+        el.style.gap = '.75rem';
+        el.style.padding = '1.25rem 1.5rem';
+      } else {
+        el.style.width = '270px';
+        el.style.minWidth = '270px';
+        el.style.flexBasis = '270px';
+        el.style.borderLeft = '1px solid #e2ddd6';
+        el.style.borderTop = 'none';
+        el.style.display = 'flex';
+        el.style.flexDirection = 'column';
+        el.style.gridTemplateColumns = '';
+      }
+    });
+
+    // 3. Review content — full width, remove right border on mobile
+    document.querySelectorAll('.review-content').forEach(function(el) {
+      if (isTablet) {
+        el.style.borderRight = 'none';
+        el.style.borderBottom = '1px solid #e2ddd6';
+        el.style.padding = isMobile ? '1.25rem' : '1.75rem 2rem';
+      } else {
+        el.style.borderRight = '1px solid #e2ddd6';
+        el.style.borderBottom = 'none';
+        el.style.padding = '1.75rem 2rem';
+      }
+    });
+
+    // 4. Comparison table — wrap in scroll container if not already
+    var table = document.querySelector('.compare-table, table.compare-table');
+    if (table && table.parentElement) {
+      var parent = table.parentElement;
+      if (isTablet && parent.style.overflowX !== 'auto') {
+        parent.style.overflowX = 'auto';
+        parent.style.webkitOverflowScrolling = 'touch';
+        parent.style.width = '100%';
+      }
+    }
+
+    // 5. Hero h1 font size
+    var h1 = document.querySelector('.page-hero h1');
+    if (h1) {
+      h1.style.fontSize = isMobile ? 'clamp(1.6rem,6vw,2.2rem)' : '';
+    }
+
+    // 6. Verdict picks — smaller on mobile
+    document.querySelectorAll('.verdict-pick').forEach(function(p) {
+      p.style.fontSize = isMobile ? '.7rem' : '';
+      p.style.padding = isMobile ? '4px 8px' : '';
+    });
+    var vp = document.querySelector('.verdict-picks');
+    if (vp) vp.style.gap = isMobile ? '5px' : '';
+
+    // 7. Jump links font size
+    document.querySelectorAll('.jump-link').forEach(function(jl) {
+      jl.style.fontSize = isMobile ? '.72rem' : '';
+      jl.style.padding = isMobile ? '5px 10px' : '';
+    });
+
+    // 8. Pros-cons grid — single column on mobile
+    document.querySelectorAll('.pros-cons').forEach(function(el) {
+      el.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+    });
+
+    // 9. Review header — wrap on mobile
+    document.querySelectorAll('.review-header').forEach(function(el) {
+      if (isMobile) {
+        el.style.flexWrap = 'wrap';
+        el.style.gap = '.5rem';
+      }
+    });
+
+    // 10. Section padding
+    document.querySelectorAll('.compare-section, .reviews-section, .method-section, .faq-section').forEach(function(el) {
+      el.style.padding = isMobile ? '1.5rem 4%' : isTablet ? '2rem 5%' : '';
+    });
+
+    // 11. Method grid — single col on mobile
+    var methodGrid = document.querySelector('.method-grid');
+    if (methodGrid) {
+      methodGrid.style.gridTemplateColumns = isMobile ? '1fr' : isTablet ? '1fr 1fr' : '';
+    }
+
+    // 12. FAQ grid — single col on tablet+
+    var faqGrid = document.querySelector('.faq-grid');
+    if (faqGrid) {
+      faqGrid.style.gridTemplateColumns = isTablet ? '1fr' : '';
+    }
+  }
+
+  mobileCompare();
+  window.addEventListener('resize', mobileCompare);
+  window.addEventListener('orientationchange', function() { setTimeout(mobileCompare, 150); });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixSidebarMobile() {
+    var w = window.innerWidth;
+    var isMobile = w <= 640;
+    if (!isMobile) return;
+
+    // Reduce sidebar stat padding on mobile
+    document.querySelectorAll('.sidebar-stat').forEach(function(el) {
+      el.style.paddingBottom = '.6rem';
+      el.style.marginBottom = '.6rem';
+    });
+
+    // Reduce stat value font size
+    document.querySelectorAll('.stat-value').forEach(function(el) {
+      el.style.fontSize = '1rem';
+    });
+  }
+  fixSidebarMobile();
+  window.addEventListener('resize', fixSidebarMobile);
+});
+</script>
+
 </body>
 </html>
