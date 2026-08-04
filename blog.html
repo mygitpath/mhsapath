@@ -1725,10 +1725,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Blog main grid
     var blogMain = document.querySelector('.blog-main');
     if (blogMain) blogMain.style.gridTemplateColumns = isTablet ? '1fr' : '1fr 300px';
-    // Sidebar
+    // Sidebar - hide on mobile (not enough content to justify space)
     var sidebar = document.querySelector('.sidebar');
     if (sidebar) {
-      if (isTablet) { sidebar.style.display='grid'; sidebar.style.gridTemplateColumns=isMobile?'1fr':'1fr 1fr'; }
+      if (isMobile) { sidebar.style.display='none'; }
+      else if (isTablet) { sidebar.style.display='grid'; sidebar.style.gridTemplateColumns='1fr 1fr'; }
       else { sidebar.style.display=''; sidebar.style.gridTemplateColumns=''; }
     }
     // Posts grid
