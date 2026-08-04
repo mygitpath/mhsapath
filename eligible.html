@@ -1861,6 +1861,18 @@ img, table, iframe { max-width: 100%; }
 }
 /* ══════════════════════════════════════════════════════ */
 
+
+/* ── FOOTER WHITESPACE FIX ───────────────────────────── */
+html { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; }
+footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+@media (max-width: 640px) {
+  body { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  .email-section { margin-bottom: 0 !important; }
+  .trust-strip, .faq-section, .method-section { margin-bottom: 0 !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
 </style>
 
 </style>
@@ -2381,8 +2393,8 @@ img, table, iframe { max-width: 100%; }
   <p style="color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Join 4,200+ freelancers getting biweekly HSA tips, tax strategies, and custodian updates. No fluff, unsubscribe anytime.</p>
   <div style="display:flex;flex-wrap:wrap;gap:.75rem;max-width:420px;margin:0 auto 1rem;">
     <input type="email" placeholder="your@email.com" aria-label="Email address"
-      style="flex:1;min-width:200px;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;box-sizing:border-box;">
-    <button style="background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;padding:.85rem 1.5rem;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;min-width:160px;">Subscribe Free →</button>
+      style="flex:1;min-width:0;width:100%;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;box-sizing:border-box;">
+    <button style="background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;padding:.85rem 1.5rem;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;min-width:160px;width:100%;box-sizing:border-box;">Subscribe Free →</button>
   </div>
   <p style="font-size:.78rem;color:rgba(255,255,255,.35);">🔒 No spam. Unsubscribe with one click.</p>
 </div>
