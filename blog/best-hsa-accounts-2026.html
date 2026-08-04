@@ -1475,6 +1475,25 @@ article {
   color: #0a1628 !important;
 }
 /* ────────────────────────────────────────────────────── */
+
+/* ── EMAIL FORM MOBILE STACK ─────────────────────────── */
+@media (max-width: 640px) {
+  .email-form {
+    flex-direction: column !important;
+    max-width: 100% !important;
+  }
+  .email-form input[type="email"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .email-form button,
+  .email-form .btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
 </style>
 
 </style>
@@ -1559,10 +1578,10 @@ article {
       <ol>
         <li><a href="#summary">Quick summary — our top picks</a></li>
         <li><a href="#comparison">Full comparison table</a></li>
-        <li><a href="#fidelity">Fidelity HSA review</a></li>
-        <li><a href="#lively">Lively HSA review</a></li>
-        <li><a href="#healthequity">HealthEquity review</a></li>
-        <li><a href="#hsabank">HSA Bank review</a></li>
+        <li><a href="https://digital.fidelity.com/prgw/digital/aom/hsa/eligibility" target="_blank" rel="noopener">Fidelity HSA review</a></li>
+        <li><a href="https://livelyme.com/hsa" target="_blank" rel="noopener">Lively HSA review</a></li>
+        <li><a href="https://www.healthequity.com/open-an-hsa" target="_blank" rel="noopener">HealthEquity review</a></li>
+        <li><a href="https://hsabank.com/Members/Why-Open-HSA" target="_blank" rel="noopener">HSA Bank review</a></li>
         <li><a href="#how-to-choose">How to choose the right one</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ol>
@@ -1640,7 +1659,7 @@ article {
 
     <p>The main downside is that Fidelity's HSA interface is part of their broader brokerage platform, not a dedicated HSA experience. If you want a cleaner, HSA-specific dashboard, Lively does that better. But for pure financial performance, Fidelity is unmatched.</p>
 
-    <div class="inline-cta-card" style="background:white;border:1.5px solid #00b8a2;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">F</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Fidelity HSA — Editor's Pick</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · $0 commissions · Invest from $1 · Morningstar #1</span></div><a href="#affiliate-fidelity" style="flex-shrink:0;background:#00b8a2;color:#0a1628!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #00b8a2;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#00b8a2;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">F</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Fidelity HSA — Editor's Pick</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · $0 commissions · Invest from $1 · Morningstar #1</span></div><a href="https://digital.fidelity.com/prgw/digital/aom/hsa/eligibility" target="_blank" rel="noopener" style="flex-shrink:0;background:#00b8a2;color:#0a1628!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
 
     <!-- LIVELY -->
     <h2 id="lively">2. Lively HSA — Best for Freelancers</h2>
@@ -1648,7 +1667,7 @@ article {
 
     <p>Where Lively falls slightly behind is investment depth. Their investment account runs through Charles Schwab, which requires a separate login — a minor friction point that Fidelity avoids. Interest rates on cash balances are also below average.</p>
 
-    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">L</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Lively HSA</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · Schwab brokerage + Devenir guided portfolio</span></div><a href="#affiliate-lively" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:white;flex-shrink:0;">L</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">Lively HSA</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$0/month · Schwab brokerage + Devenir guided portfolio</span></div><a href="https://livelyme.com/hsa" target="_blank" rel="noopener" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Free Account →</a></div>
 
     <!-- HEALTHEQUITY -->
     <h2 id="healthequity">3. HealthEquity — Best for Employer Plans</h2>
@@ -1656,13 +1675,13 @@ article {
 
     <p>For purely individual self-employed accounts starting from zero, Fidelity and Lively are more attractive. But HealthEquity earns its third-place ranking for the depth of its compliance tools and employer network.</p>
 
-    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HE</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HealthEquity</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$2.50/mo (employer plans) · 33 Vanguard funds + Schwab brokerage</span></div><a href="#affiliate-healthequity" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HE</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HealthEquity</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$2.50/mo (employer plans) · 33 Vanguard funds + Schwab brokerage</span></div><a href="https://www.healthequity.com/open-an-hsa" target="_blank" rel="noopener" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
 
     <!-- HSA BANK -->
     <h2 id="hsabank">4. HSA Bank — Best for Large Balances</h2>
     <p>HSA Bank has been a dedicated HSA provider since 2004 — one of the longest track records in the industry, now a division of Webster Bank (FDIC-insured). Investments run through the HSA Invest program with three tiers: Choice (self-directed brokerage, 0.10%/yr), Select (RIA-curated mutual funds, 0.25%/yr), and Managed (fully RIA-managed, 0.35%/yr). Investment fees are waived when your cash balance stays above $7,500. The $3/month account fee makes it a tough sell for smaller balances. 24/7 customer support via phone and app.</p>
 
-    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#e8a020;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HB</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HSA Bank</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$3.00/month · HSA Invest: Choice, Select & Managed tiers</span></div><a href="#affiliate-hsabank" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
+    <div class="inline-cta-card" style="background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1rem 1.25rem;margin:1.75rem 0;display:flex;flex-direction:row;align-items:center;gap:.85rem;box-sizing:border-box;width:100%;overflow:hidden;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#e8a020;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;color:white;flex-shrink:0;">HB</div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:700;font-size:.9rem;color:#0a1628;line-height:1.2;">HSA Bank</span><span style="font-size:.75rem;color:#505f7a;line-height:1.4;">$3.00/month · HSA Invest: Choice, Select & Managed tiers</span></div><a href="https://hsabank.com/Members/Why-Open-HSA" target="_blank" rel="noopener" style="flex-shrink:0;background:#0a1628;color:white!important;font-family:'DM Sans',sans-serif;font-weight:700;padding:.6rem .9rem;border-radius:8px;font-size:.8rem;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;">Open Account →</a></div>
 
     <!-- HOW TO CHOOSE -->
     <h2 id="how-to-choose">How to choose the right HSA custodian</h2>
@@ -1773,22 +1792,22 @@ article {
     <div class="sidebar-card">
       <div class="sidebar-eyebrow">Top picks</div>
       <div class="sidebar-cust">
-        <a href="#affiliate-fidelity" class="sc-row top">
+        <a href="https://digital.fidelity.com/prgw/digital/aom/hsa/eligibility" target="_blank" rel="noopener" class="sc-row top">
           <div class="sc-icon" style="background:#00b8a2">F</div>
           <div><span class="sc-name">Fidelity HSA</span><span class="sc-fee">$0/mo · Best overall</span></div>
           <div class="sc-rating">9.8</div>
         </a>
-        <a href="#affiliate-lively" class="sc-row">
+        <a href="https://livelyme.com/hsa" target="_blank" rel="noopener" class="sc-row">
           <div class="sc-icon" style="background:#2563eb">L</div>
           <div><span class="sc-name">Lively HSA</span><span class="sc-fee">$0/mo · Best UX</span></div>
           <div class="sc-rating">9.4</div>
         </a>
-        <a href="#affiliate-healthequity" class="sc-row">
+        <a href="https://www.healthequity.com/open-an-hsa" target="_blank" rel="noopener" class="sc-row">
           <div class="sc-icon" style="background:#7c3aed">HE</div>
           <div><span class="sc-name">HealthEquity</span><span class="sc-fee">$2.50/mo</span></div>
           <div class="sc-rating">8.9</div>
         </a>
-        <a href="#affiliate-hsabank" class="sc-row">
+        <a href="https://hsabank.com/Members/Why-Open-HSA" target="_blank" rel="noopener" class="sc-row">
           <div class="sc-icon" style="background:#e8a020">HB</div>
           <div><span class="sc-name">HSA Bank</span><span class="sc-fee">$3.00/mo</span></div>
           <div class="sc-rating">8.5</div>
