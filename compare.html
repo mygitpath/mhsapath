@@ -49,7 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,
 .vp-text{font-size:.78rem;color:rgba(255,255,255,.85)}
 .vp-text strong{color:white;font-weight:600}
 .compare-section{background:#fdfcfa;padding:4rem 5%}
-.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.6rem}
+.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2!important;margin-bottom:.6rem}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#0a1628;letter-spacing:-.75px;line-height:1.15}
 .section-sub{font-size:.92rem;color:#505f7a;margin-top:.6rem;max-width:540px;line-height:1.7;margin-bottom:2.5rem}
 .compare-table-wrap{overflow-x:auto;border-radius:20px;box-shadow:0 20px 60px rgba(10,22,40,.1);border:1.5px solid #e2ddd6}
@@ -1438,6 +1438,21 @@ img, table, iframe { max-width: 100%; }
 
 /* ────────────────────────────────────────────────────── */
 
+
+/* ── COMPARE TABLE MOBILE SCROLL HINT ───────────────── */
+@media (max-width: 640px) {
+  .compare-table-wrap::before {
+    content: "← Scroll to see all →";
+    display: block;
+    font-size: .72rem;
+    color: #9aaabe;
+    text-align: center;
+    padding: .4rem 0 .6rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
 </style>
 
 </style>
@@ -1488,11 +1503,11 @@ img, table, iframe { max-width: 100%; }
 </div>
 
 
-<div class="compare-section" id="comparison-table">
-  <div class="section-eyebrow">Side by Side</div>
+<div class="compare-section" id="comparison-table" style="scroll-margin-top:80px;">
+  <div class="section-eyebrow" style="color:#00b8a2!important;">Side by Side</div>
   <div class="section-title">Full Feature Comparison</div>
   <p class="section-sub">Every major feature that matters for self-employed Americans. Updated for 2026 contribution limits.</p>
-  <div class="compare-table-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+  <div class="compare-table-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;display:block;-webkit-transform:translateZ(0);">
     <table class="compare-table" style="width:100%;border-collapse:collapse;min-width:600px;">
       <thead style="background:#0a1628;color:white;">
         <tr>
@@ -1585,7 +1600,7 @@ img, table, iframe { max-width: 100%; }
 
 <section class="reviews-section" style="padding:2rem 5% 4rem;background:#f7f4ef;">
   <div style="max-width:1200px;margin:0 auto;">
-  <div class="section-eyebrow">Deep Dives</div>
+  <div class="section-eyebrow" style="color:#00b8a2!important;">Deep Dives</div>
   <h2 class="section-title">Individual Account Reviews</h2>
   <p style="font-size:.9rem;color:#505f7a;margin-bottom:2rem;">We opened and tested each account. Here's what we found.</p>
 <div class="review-card" id="fidelity-review" style="background:white;border-radius:20px;border:1.5px solid #00b8a2;box-shadow:0 0 0 1px #00b8a2;overflow:hidden;margin-bottom:1.5rem;">
@@ -1608,11 +1623,11 @@ img, table, iframe { max-width: 100%; }
   <div style="display:flex;flex-direction:row;width:100%;">
     <!-- LEFT -->
     <div style="flex:1;min-width:0;padding:1.75rem 2rem;box-sizing:border-box;">
-      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">Fidelity's HSA beats every competitor on every key metric: zero account fees, $0 commissions on US stocks and ETFs, no minimum to invest, and a 3.38% 7-day yield on uninvested cash (as of July 2026) — far above competitors. Morningstar's #1 rated HSA for investing 7 years in a row (2019–2025). Also offers Fidelity Go® HSA — a managed option with $0 fee under $25,000.</p>
+      <p style="font-size:.92rem;color:#1a2540;line-height:1.75;margin-bottom:1.5rem;overflow-wrap:break-word;word-break:break-word;">Fidelity's HSA beats every competitor on every key metric: zero account fees, $0 commissions on US stocks and ETFs, no minimum to invest, and a 3.38% 7-day yield on uninvested cash (as of August 2026) — far above competitors. Morningstar's #1 rated HSA for investing 7 years in a row (2019–2025). Also offers Fidelity Go® HSA — a managed option with $0 fee under $25,000.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
         <div>
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00b8a2;margin-bottom:.6rem;">What we love</div>
-          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Zero account fees — always</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Invest from $0 — no minimum at all</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Stocks, ETFs & thousands of mutual funds — $0 commissions</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>3.38% cash yield (July 2026) — highest in industry</div>
+          <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Zero account fees — always</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Invest from $0 — no minimum at all</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Stocks, ETFs & thousands of mutual funds — $0 commissions</div><div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>3.38% cash yield (August 2026) — highest in industry</div>
           <div style="display:flex;align-items:flex-start;gap:6px;font-size:.82rem;color:#1a2540;line-height:1.5;margin-bottom:6px;"><span style="color:#00b8a2;font-weight:700;flex-shrink:0;">✓</span>Morningstar #1 HSA for investing — 7 years running</div>
         </div>
         <div>
@@ -1627,7 +1642,7 @@ img, table, iframe { max-width: 100%; }
       <div style="padding-bottom:1.1rem;border-bottom:1px solid #e2ddd6;margin-bottom:1rem;">
         <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9aaabe;margin-bottom:.3rem;">Cash Rate</div>
         <div style="font-size:1.1rem;font-weight:700;color:#00b8a2;">3.38%</div>
-        <div style="font-size:.72rem;color:#505f7a;margin-top:2px;">7-day yield (July 2026)</div>
+        <div style="font-size:.72rem;color:#505f7a;margin-top:2px;">7-day yield (August 2026)</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
       <a href="#affiliate-fidelity" style="width:100%;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:11px 10px;border-radius:8px;text-decoration:none;white-space:nowrap;">Open Fidelity HSA →</a>
@@ -1767,7 +1782,7 @@ img, table, iframe { max-width: 100%; }
   </div>
 </section>
 <section class="method-section">
-  <div class="section-eyebrow">Our Process</div>
+  <div class="section-eyebrow" style="color:#00b8a2!important;">Our Process</div>
   <div class="section-title">How We Rate HSA Accounts</div>
   <p class="section-sub">We opened real accounts and tested each one. Here's how we weight our scores.</p>
   <div class="method-grid">
@@ -1778,7 +1793,7 @@ img, table, iframe { max-width: 100%; }
   </div>
 </section>
 <section class="faq-section" id="faq">
-  <div class="section-eyebrow">Common Questions</div>
+  <div class="section-eyebrow" style="color:#00b8a2!important;">Common Questions</div>
   <div class="section-title">HSA Account FAQ</div>
   <div class="faq-grid">
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I have an HSA with an ACA Bronze plan in 2026? <span class="faq-toggle">+</span></div><div class="faq-a">Yes — this is the big change for 2026. All ACA Marketplace Bronze and Catastrophic plans are now HSA-eligible, up from just 4% of plans in 2025.</div></div>
@@ -1789,11 +1804,15 @@ img, table, iframe { max-width: 100%; }
     <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I invest my HSA in stocks and ETFs? <span class="faq-toggle">+</span></div><div class="faq-a">Yes. Fidelity allows investing from $1. Lively offers full brokerage via Charles Schwab. HealthEquity requires $500 minimum to invest (individual accounts), with a 0.03%/month admin fee on invested assets. HSA Bank (HSA Invest: Choice, Select or Managed) requires a qualifying cash balance before investing; fees are 0.10–0.35%/yr and waived when cash ≥ $7,500.</div></div>
   </div>
 </section>
-<div class="email-section">
-  <h2>Get the 2026 HSA Comparison Cheatsheet</h2>
-  <p>One-page PDF with the full comparison table, contribution limits, and our top picks. Free for subscribers.</p>
-  <div class="email-form"><input type="email" placeholder="your@email.com" aria-label="Email address"><button class="btn-primary">Get Free PDF</button></div>
-  <p class="email-note">🔒 No spam. Unsubscribe anytime.</p>
+<div style="background:linear-gradient(135deg,#0a1628 0%,#0d2142 100%);padding:5rem 5%;text-align:center;position:relative;overflow:hidden;">
+  <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:white;letter-spacing:-.5px;margin-bottom:1rem;">Get Biweekly HSA Tips — Free</h2>
+  <p style="color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Join 4,200+ freelancers getting biweekly HSA tips, tax strategies, and custodian updates. No fluff, unsubscribe anytime.</p>
+  <div style="display:flex;gap:.75rem;max-width:420px;margin:0 auto 1rem;">
+    <input type="email" placeholder="your@email.com" aria-label="Email address"
+      style="flex:1;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;">
+    <button style="background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;padding:.85rem 1.5rem;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Subscribe Free →</button>
+  </div>
+  <p style="font-size:.78rem;color:rgba(255,255,255,.35);">🔒 No spam. Unsubscribe with one click.</p>
 </div>
 <footer style="background:#070f1e;font-family:'DM Sans',Arial,sans-serif;overflow:hidden;">
   <div style="max-width:1200px;margin:0 auto;padding:2.5rem 5% 0;">
@@ -2202,7 +2221,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 10. Section padding
     document.querySelectorAll('.compare-section, .reviews-section, .method-section, .faq-section').forEach(function(el) {
-      el.style.padding = isMobile ? '1.5rem 4%' : isTablet ? '2rem 5%' : '';
+      el.style.padding = isMobile ? '1.25rem 4%' : isTablet ? '2rem 5%' : '';
     });
 
     // 11. Method grid — single col on mobile

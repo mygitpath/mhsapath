@@ -9,239 +9,112 @@
 <link rel="stylesheet" href="/shared.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #0a1628; --teal: #00b8a2; --teal-light: #e0f7f4;
-  --cream: #f7f4ef; --warm-white: #fdfcfa; --gold: #e8a020;
-  --text: #1a2540; --muted: #6b7a99; --border: #e2ddd6;
-  --red: #e05252; --red-light: #fef2f2;
-}
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: #fdfcfa; color: #1a2540; line-height: 1.7; }
+
+:root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fdfcfa;color:#1a2540;line-height:1.7}
 
 /* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(253,252,250,0.95); backdrop-filter: blur(14px);
-  border-bottom: 1px solid #e2ddd6; height: 64px;
-  display: flex; align-items: center; padding: 0 5%; justify-content: space-between;
-}
-.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-.nav-links a { text-decoration: none; color: #505f7a; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-.nav-links a:hover { color: #0a1628; }
-.nav-cta { background: #00b8a2; color: white !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600 !important; }
-.mobile-menu-btn { display: none; width: 36px; height: 36px; background: #0a1628; border-radius: 8px; flex-direction: column; justify-content: center; align-items: center; gap: 4px; border: none; cursor: pointer; }
-.mobile-menu-btn span { display: block; width: 16px; height: 2px; background: white; border-radius: 2px; }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid #e2ddd6;height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:#505f7a;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0a1628}
+.nav-cta{background:#00b8a2;color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:#0a1628;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
 
 /* HERO */
-.page-hero {
-  padding: 88px 5% 48px;
-  background: #0a1628;
-  position: relative; overflow: hidden;
-}
-.page-hero::before {
-  content: ''; position: absolute; top: -120px; right: -80px;
-  width: 450px; height: 450px;
-  background: radial-gradient(circle, rgba(0,184,162,0.1) 0%, transparent 65%);
-  border-radius: 50%; pointer-events: none;
-}
-.hero-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #00b8a2; margin-bottom: 0.75rem; }
-.page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; }
-.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.55); max-width: 560px; line-height: 1.7; }
+.page-hero{padding:100px 5% 56px;background:#0a1628;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(0,184,162,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.75rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.45)}
+.hero-meta strong{color:rgba(255,255,255,.7)}
 
-/* DISCLOSURE BANNER — shown at top of every page */
-.disclosure-banner {
-  background: #0d2040;
-  border-bottom: 1px solid rgba(0,184,162,0.2);
-  padding: 10px 5%;
-  display: flex; align-items: center; gap: 10px;
-}
-.banner-icon { font-size: 0.9rem; flex-shrink: 0; }
-.banner-text { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
-.banner-text a { color: #00b8a2; text-decoration: none; }
-.banner-text a:hover { text-decoration: underline; }
-.banner-text strong { color: rgba(255,255,255,0.85); }
+/* AT A GLANCE STRIP */
+.glance-strip{background:#e0f7f4;border-bottom:1px solid rgba(0,184,162,.2);padding:1rem 5%}
+.glance-inner{max-width:900px;margin:0 auto;display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.glance-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#007a6e;flex-shrink:0}
+.glance-items{display:flex;gap:1.25rem;flex-wrap:wrap}
+.glance-item{display:flex;align-items:center;gap:5px;font-size:.8rem;color:#005f54;font-weight:500}
 
-/* CODE SNIPPET BOX */
-.code-box {
-  background: #0a1628;
-  border-radius: 10px; padding: 1.1rem 1.25rem;
-  margin: 1rem 0;
-  border: 1px solid rgba(0,184,162,0.2);
-}
-.code-box p {
-  font-size: 0.85rem; color: rgba(255,255,255,0.7);
-  line-height: 1.6; margin-bottom: 0;
-  font-family: 'DM Sans', sans-serif;
-}
-.code-box p strong { color: #00b8a2; }
-.code-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; display: block; }
+/* LAYOUT */
+.legal-wrap{background:#fdfcfa;max-width:900px;margin:0 auto;padding:4rem 5% 5rem;display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
 
-/* MAIN LAYOUT */
-.disclosure-wrap {background:#fdfcfa;
-  max-width: 860px; margin: 0 auto;
-  padding: 4rem 5% 5rem;
-  display: grid; grid-template-columns: 220px 1fr; gap: 4rem;
-  align-items: start;
-}
-
-/* SIDEBAR */
-.toc {
-  position: sticky; top: 84px;
-  background: white; border: 1.5px solid #e2ddd6;
-  border-radius: 14px; padding: 1.25rem;
-}
-.toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #505f7a; margin-bottom: 0.85rem; }
-.toc ul { list-style: none; }
-.toc ul li { margin-bottom: 4px; }
-.toc ul a { text-decoration: none; font-size: 0.8rem; color: #505f7a; transition: color 0.2s; display: block; padding: 3px 0 3px 8px; border-left: 2px solid transparent; }
-.toc ul a:hover { color: #00b8a2; border-left-color: #00b8a2; }
-.toc-note { margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid #e2ddd6; font-size: 0.72rem; color: #505f7a; line-height: 1.5; }
+/* TOC */
+.toc{position:sticky;top:84px;background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1.25rem}
+.toc-title{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#505f7a;margin-bottom:.85rem}
+.toc ul{list-style:none}
+.toc ul li{margin-bottom:3px}
+.toc ul a{text-decoration:none;font-size:.79rem;color:#505f7a;transition:color .2s;display:block;padding:3px 0 3px 8px;border-left:2px solid transparent;line-height:1.4}
+.toc ul a:hover{color:#00b8a2;border-left-color:#00b8a2}
+.toc-note{margin-top:1rem;padding-top:.85rem;border-top:1px solid #e2ddd6;font-size:.72rem;color:#505f7a;line-height:1.5}
+.toc-note a{color:#00b8a2;text-decoration:none}
 
 /* CONTENT */
-.disc-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; font-weight: 700;
-  color: #0a1628; letter-spacing: -0.3px;
-  margin: 2.5rem 0 0.85rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid #e2ddd6;
-}
-.disc-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.disc-content h3 { font-size: 1rem; font-weight: 600; color: #0a1628; margin: 1.5rem 0 0.5rem; }
-.disc-content p { font-size: 0.9rem; color: #1a2540; margin-bottom: 0.85rem; line-height: 1.8; }
-.disc-content ul { margin: 0.5rem 0 1rem 1.25rem; }
-.disc-content ul li { font-size: 0.9rem; color: #1a2540; margin-bottom: 0.4rem; line-height: 1.7; }
-.disc-content strong { color: #0a1628; font-weight: 600; }
-.disc-content a { color: #00b8a2; text-decoration: none; }
-.disc-content a:hover { text-decoration: underline; }
+.legal-content h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#0a1628;letter-spacing:-.3px;margin:2.5rem 0 .85rem;padding-top:2.5rem;border-top:1px solid #e2ddd6}
+.legal-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.legal-content h3{font-size:1rem;font-weight:600;color:#0a1628;margin:1.5rem 0 .5rem}
+.legal-content p{font-size:.9rem;color:#1a2540;margin-bottom:.85rem;line-height:1.85}
+.legal-content ul,.legal-content ol{margin:.5rem 0 1rem 1.25rem}
+.legal-content ul li,.legal-content ol li{font-size:.9rem;color:#1a2540;margin-bottom:.4rem;line-height:1.7}
+.legal-content strong{color:#0a1628;font-weight:600}
+.legal-content a{color:#00b8a2;text-decoration:none}
+.legal-content a:hover{text-decoration:underline}
 
-/* HIGHLIGHT BOXES */
-.box-teal {
-  background: #e0f7f4;
-  border: 1.5px solid rgba(0,184,162,0.25);
-  border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1rem 0;
-}
-.box-teal p { margin-bottom: 0; color: #005f54; font-size: 0.88rem; }
-.box-teal strong { color: #005f54; }
+/* BOXES */
+.box-teal{background:#e0f7f4;border:1.5px solid rgba(0,184,162,.25);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-teal p{margin-bottom:0;color:#005f54;font-size:.88rem;line-height:1.7}
+.box-teal strong{color:#005f54}
+.box-gold{background:#fef9e8;border:1.5px solid rgba(232,160,32,.3);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-gold p{margin-bottom:0;color:#6b4c00;font-size:.88rem;line-height:1.7}
+.box-navy{background:#f0f2f7;border:1.5px solid #d0d6e8;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-navy p{margin-bottom:0;color:#0a1628;font-size:.88rem;line-height:1.7}
 
-.box-gold {
-  background: #fef9e8;
-  border: 1.5px solid rgba(232,160,32,0.3);
-  border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1rem 0;
-}
-.box-gold p { margin-bottom: 0; color: #6b4c00; font-size: 0.88rem; }
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.25rem 0;border:1.5px solid #e2ddd6;border-radius:12px;overflow:hidden}
+.data-table thead tr{background:#0a1628}
+.data-table th{padding:.8rem 1rem;text-align:left;font-size:.7rem;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.data-table tbody tr{border-bottom:1px solid #e2ddd6;transition:background .15s}
+.data-table tbody tr:last-child{border-bottom:none}
+.data-table tbody tr:hover{background:#fafffe}
+.data-table td{padding:.8rem 1rem;color:#1a2540;vertical-align:top}
+.data-table td:first-child{font-weight:600;color:#0a1628;white-space:nowrap}
 
-.box-red {
-  background: #fef2f2;
-  border: 1.5px solid rgba(224,82,82,0.25);
-  border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1rem 0;
-}
-.box-red p { margin-bottom: 0; color: #7a1f1f; font-size: 0.88rem; }
+/* THIRD PARTY CARDS */
+.third-party-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.tp-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1rem 1.1rem;transition:border-color .2s}
+.tp-card:hover{border-color:#00b8a2}
+.tp-name{font-weight:700;font-size:.88rem;color:#0a1628;margin-bottom:3px}
+.tp-type{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#00b8a2;margin-bottom:.4rem}
+.tp-desc{font-size:.78rem;color:#505f7a;line-height:1.55}
+.tp-link{font-size:.72rem;color:#00b8a2;text-decoration:none;margin-top:.4rem;display:inline-block}
+.tp-link:hover{text-decoration:underline}
 
-/* METHODOLOGY SCORECARD */
-.methodology-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; margin: 1.25rem 0;
-}
-.method-item {
-  background: white; border: 1.5px solid #e2ddd6;
-  border-radius: 12px; padding: 1rem 1.1rem;
-  transition: border-color 0.2s;
-}
-.method-item:hover { border-color: #00b8a2; }
-.method-pct {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem; font-weight: 700;
-  color: #00b8a2; line-height: 1; margin-bottom: 4px;
-}
-.method-name { font-weight: 600; font-size: 0.88rem; color: #0a1628; margin-bottom: 4px; }
-.method-desc { font-size: 0.78rem; color: #505f7a; line-height: 1.5; }
-
-/* PARTNER TABLE */
-.partner-table {
-  width: 100%; border-collapse: collapse;
-  margin: 1.25rem 0; font-size: 0.85rem;
-  border: 1.5px solid #e2ddd6;
-  border-radius: 12px; overflow: hidden;
-}
-.partner-table thead tr { background: #0a1628; }
-.partner-table th {
-  padding: 0.85rem 1rem; text-align: left;
-  font-size: 0.72rem; font-weight: 600;
-  letter-spacing: 0.5px; color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-}
-.partner-table tbody tr { border-bottom: 1px solid #e2ddd6; transition: background 0.15s; }
-.partner-table tbody tr:last-child { border-bottom: none; }
-.partner-table tbody tr:hover { background: #fafffe; }
-.partner-table td { padding: 0.85rem 1rem; color: #1a2540; }
-.partner-table td:first-child { font-weight: 600; color: #0a1628; }
-.tag {
-  display: inline-block; font-size: 0.68rem; font-weight: 700;
-  padding: 2px 8px; border-radius: 100px;
-}
-.tag-affiliate { background: #e0f7f4; color: #007a6e; }
-.tag-none { background: #f7f4ef; color: #505f7a; }
-.tag-potential { background: #fef9e8; color: #8a6500; }
-
-/* PROMISE CARDS */
-.promise-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; margin: 1.25rem 0;
-}
-.promise-card {
-  background: white; border: 1.5px solid #e2ddd6;
-  border-radius: 12px; padding: 1.1rem;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-.promise-icon { font-size: 1.25rem; flex-shrink: 0; }
-.promise-title { font-weight: 600; font-size: 0.85rem; color: #0a1628; margin-bottom: 3px; }
-.promise-desc { font-size: 0.78rem; color: #505f7a; line-height: 1.55; }
-
-/* YES / NO TABLE */
-.yn-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; }
-.yn-table th {
-  padding: 0.6rem 1rem; font-size: 0.75rem;
-  font-weight: 700; letter-spacing: 0.5px;
-  text-transform: uppercase; text-align: left;
-}
-.yn-table th:first-child { width: 55%; }
-.yn-table th.yes-col { color: #00b8a2; }
-.yn-table th.no-col { color: #e05252; }
-.yn-table tbody tr { border-bottom: 1px solid #e2ddd6; }
-.yn-table tbody tr:last-child { border-bottom: none; }
-.yn-table td { padding: 0.75rem 1rem; font-size: 0.85rem; color: #1a2540; }
-.yn-table td:first-child { font-weight: 500; }
-.yn-yes { color: #00b8a2; font-weight: 700; font-size: 1rem; }
-.yn-no { color: #e05252; font-weight: 700; font-size: 1rem; }
+/* RIGHTS GRID */
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.right-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1rem 1.1rem;display:flex;gap:10px;align-items:flex-start}
+.right-icon{font-size:1.2rem;flex-shrink:0}
+.right-title{font-weight:600;font-size:.85rem;color:#0a1628;margin-bottom:3px}
+.right-desc{font-size:.78rem;color:#505f7a;line-height:1.55}
 
 /* CONTACT CTA */
-.contact-cta {
-  background: #0a1628; border-radius: 16px;
-  padding: 2rem; margin-top: 2rem; text-align: center;
-}
-.contact-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
-.contact-cta p { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 1.25rem; max-width: 360px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-.contact-btn {
-  display: inline-block; background: #00b8a2; color: white;
-  padding: 10px 24px; border-radius: 8px;
-  font-weight: 600; font-size: 0.88rem; text-decoration: none;
-  transition: all 0.2s;
-}
-.contact-btn:hover { background: #009b87; transform: translateY(-1px); }
+.contact-cta{background:#0a1628;border-radius:16px;padding:2rem;margin-top:2rem;text-align:center}
+.contact-cta h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:white;margin-bottom:.5rem}
+.contact-cta p{font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1.25rem;line-height:1.6;max-width:360px;margin-left:auto;margin-right:auto}
+.contact-btn{display:inline-block;background:#00b8a2;color:white!important;padding:10px 24px;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s}
+.contact-btn:hover{background:#009b87;transform:translateY(-1px)}
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  nav { padding: 0 4%; }
-  .nav-links { display: none; }
-  .mobile-menu-btn { display: flex; }
-  .disclosure-wrap {background:#fdfcfa; grid-template-columns: 1fr; gap: 2rem; padding: 2rem 4% 4rem; }
-  .toc { position: static; }
-  .methodology-grid { grid-template-columns: 1fr; }
-  .promise-grid { grid-template-columns: 1fr; }
-  .partner-table { font-size: 0.78rem; }
-  .partner-table th, .partner-table td { padding: 0.65rem 0.75rem; }
+@media(max-width:768px){
+  nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}
+  .legal-wrap{background:#fdfcfa;grid-template-columns:1fr;gap:2rem;padding:2rem 4% 4rem}
+  .toc{position:static}
+  .third-party-grid{grid-template-columns:1fr}
+  .rights-grid{grid-template-columns:1fr}
+  .glance-inner{gap:1rem}
   
   
 }
@@ -337,63 +210,143 @@ section, main, article, aside, header, div {
   background-color: #ffffff !important;
 }
 /* ═══════════════════════════════════════════════════════ */
-.page-hero h1, .page-hero h2, .page-hero p, .page-hero span, .page-hero a:not(.page-hero h1 em { color: #00b8a2 !important; }
-.page-hero .breadcrumb a { color: #00b8a2 !important; }
-.page-hero .breadcrumb span { color: #505f7a !important; }
-.page-hero .hero-eyebrow { color: #007a6e !important; }
+.page-hero, .post-hero { background-color: #0a1628 !important; }
+.page-hero *, .post-hero * { color: rgba(255,255,255,0.85) !important; }
+.page-hero h1, .post-hero h1 { color: #ffffff !important; }
+.page-hero .hero-label, .post-hero .post-cat-badge { color: #00b8a2 !important; }
 
-/* ── LEGAL PAGE MOBILE FIX ───────────────────────────── */
+/* ── PRIVACY PAGE MOBILE FIX ─────────────────────────── */
 @media (max-width: 768px) {
+
+  /* Main layout: TOC sidebar collapses above content */
   .legal-wrap {
     grid-template-columns: 1fr !important;
     padding: 2rem 5% 3rem !important;
     gap: 1.5rem !important;
   }
-  .toc { position: static !important; width: 100% !important; }
-  .legal-content h2 { font-size: 1.2rem !important; margin-top: 2rem !important; padding-top: 1.5rem !important; }
-  .page-hero h1 { font-size: 1.75rem !important; }
-  .hero-meta { flex-direction: column !important; gap: .4rem !important; }
-  .contact-btn { display: block !important; width: 100% !important; text-align: center !important; }
-  .third-party-grid, .rights-grid { grid-template-columns: 1fr !important; }
-  .data-table { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
-  .data-table th, .data-table td { padding: .6rem .75rem !important; font-size: .75rem !important; }
+
+  /* TOC becomes non-sticky inline block */
+  .toc {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  /* Third party grid — single column */
+  .third-party-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Rights grid — single column */
+  .rights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Data tables — allow horizontal scroll within a wrapper */
+  .data-table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    font-size: .78rem !important;
+    white-space: nowrap !important;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: .6rem .75rem !important;
+    font-size: .75rem !important;
+    white-space: normal !important;
+    min-width: 100px !important;
+  }
+
+  /* Legal content headings */
+  .legal-content h2 {
+    font-size: 1.2rem !important;
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  /* Contact CTA button full width */
+  .contact-btn {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Glance strip wraps */
+  .glance-inner {
+    flex-direction: column !important;
+    gap: .6rem !important;
+  }
+
+  .glance-items {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+
+  /* Page hero text */
+  .page-hero h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-meta {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
 }
 /* ────────────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
-  .legal-wrap {
-    max-width: 100vw !important;
+
+  /* Main content wrapper — pad right so nothing touches edge */
+  .legal-content {
+    padding-right: 0 !important;
     overflow: hidden !important;
+    min-width: 0 !important;
+    width: 100% !important;
     box-sizing: border-box !important;
   }
-  .legal-content {
-    overflow: hidden !important;
-  }
+
+  /* Constrain table scroll wrapper to viewport width */
   .legal-content > div[style*="overflow-x"] {
     width: calc(100vw - 10%) !important;
     max-width: calc(100vw - 10%) !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
-  .data-table,
-  .yes-no-table,
-  .partner-table,
-  .method-table {
+
+  /* Tables inside wrapper — set fixed layout so columns don't explode */
+  .data-table {
     table-layout: fixed !important;
     width: 480px !important;
     max-width: none !important;
     white-space: normal !important;
   }
-  .third-party-grid, .rights-grid {
-    grid-template-columns: 1fr !important;
+
+  .data-table th:nth-child(1),
+  .data-table td:nth-child(1) { width: 120px !important; }
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) { width: 180px !important; }
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) { width: 180px !important; }
+
+  /* At-a-glance strip wraps nicely */
+  .glance-strip {
+    padding: .75rem 5% !important;
+    overflow: hidden !important;
   }
+
+  /* Third party and rights cards full width with right padding */
   .tp-card, .right-card {
     box-sizing: border-box !important;
     width: 100% !important;
   }
-  .glance-strip {
-    padding: .75rem 5% !important;
+
+  /* Page wrap respects viewport */
+  .legal-wrap {
+    max-width: 100vw !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 }
 /* ────────────────────────────────────────────────────── */
@@ -1479,6 +1432,31 @@ img, table, iframe { max-width: 100%; }
 }
 /* ══════════════════════════════════════════════════════ */
 
+
+/* ── ADVERTISER DISCLOSURE SPECIFIC ─────────────────── */
+.box-teal{background:#e0f7f4;border:1.5px solid rgba(0,184,162,.25);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-teal p{margin-bottom:0;color:#005f54;font-size:.9rem;line-height:1.7}
+.never-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:1.25rem 0;width:100%;box-sizing:border-box;}
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:1.25rem 0;width:100%;box-sizing:border-box;}
+.promise-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1.1rem 1.25rem;min-width:0}
+.promise-card .pc-icon{font-size:1.2rem;margin-bottom:.4rem}
+.promise-card .pc-title{font-weight:700;font-size:.9rem;color:#0a1628;margin-bottom:.4rem}
+.promise-card .pc-desc{font-size:.82rem;color:#505f7a;line-height:1.6}
+.disc-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.85rem}
+.disc-table th{padding:.75rem 1rem;text-align:left;background:#0a1628;color:rgba(255,255,255,.7);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.disc-table td{padding:.75rem 1rem;border-bottom:1px solid #e2ddd6;color:#1a2540}
+.disc-table tr:last-child td{border-bottom:none}
+.disc-table .badge{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.72rem;font-weight:600}
+.badge-affiliate{background:rgba(0,184,162,.12);color:#007a6e}
+.badge-none{background:#f0ede8;color:#505f7a}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0;width:100%;box-sizing:border-box;}
+.method-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1.25rem}
+.method-pct{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#00b8a2;line-height:1}
+.method-label{font-weight:700;font-size:.9rem;color:#0a1628;margin:.3rem 0 .4rem}
+.method-desc{font-size:.78rem;color:#505f7a;line-height:1.6}
+.box-yellow{background:#fffbeb;border:1.5px solid rgba(232,160,32,.3);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+/* ────────────────────────────────────────────────────── */
+
 </style>
 
 </style>
@@ -1538,10 +1516,10 @@ img, table, iframe { max-width: 100%; }
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="disclosure-wrap" id="disclosureWrap" style="display:grid;grid-template-columns:220px 1fr;gap:4rem;max-width:860px;margin:0 auto;padding:4rem 5% 5rem;box-sizing:border-box;background:#fdfcfa;">
+<div style="background:#fdfcfa;">
+<div class="legal-wrap" id="disclosureWrap" style="display:grid;grid-template-columns:200px 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;padding:4rem 5% 5rem;box-sizing:border-box;align-items:start;">
 
-  <!-- TOC SIDEBAR -->
-  <aside class="toc" id="discToc" style="position:sticky;top:84px;">
+<aside class="toc" id="discToc" style="position:sticky;top:84px;min-width:0;width:220px;">
     <div class="toc-title">On this page</div>
     <ul style="margin:.25rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
       <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#summary">Quick Summary</a></li>
@@ -1555,80 +1533,20 @@ img, table, iframe { max-width: 100%; }
       <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#contact">Questions?</a></li>
     </ul>
     <div class="toc-note">
-      Last updated: July 17, 2026<br><br>
+      Last updated: August 3, 2026<br><br>
       Questions? Email <a href="mailto:editorial@myhsapath.com" style="color:#00b8a2">editorial@myhsapath.com</a>
     </div>
   </aside>
+<div class="legal-content">
 
-  <!-- DISCLOSURE CONTENT -->
-  <div class="disc-content">
+    <h2 id="summary">1. Quick Summary</h2>
+    <p><strong>In plain English:</strong> myHSAPath is free to use because some companies pay us a referral fee when you open an account through our links. This commission comes out of the company's marketing budget — it costs you nothing extra. We only recommend products we'd genuinely recommend to a friend, and our ratings are never for sale.</p>
 
-    <!-- QUICK SUMMARY -->
-    <h2 id="summary">The Short Version</h2>
-    <div class="box-teal">
-      <p><strong>In plain English:</strong> myHSAPath is free to use because some companies pay us a referral fee when you open an account through our links. This commission comes out of the company's marketing budget — it costs you nothing extra. We only recommend products we'd genuinely recommend to a friend, and our ratings are never for sale.</p>
-    </div>
-
-    <table class="yn-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="yes-col">✓ We do this</th>
-          <th class="no-col">✗ We never do this</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Earn commissions on account referrals</td>
-          <td class="yn-yes">✓</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Clearly disclose affiliate relationships</td>
-          <td class="yn-yes">✓</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Test and research products independently</td>
-          <td class="yn-yes">✓</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Accept payment for higher ratings</td>
-          <td></td>
-          <td class="yn-no">✗</td>
-        </tr>
-        <tr>
-          <td>Accept payment for placement in comparison tables</td>
-          <td></td>
-          <td class="yn-no">✗</td>
-        </tr>
-        <tr>
-          <td>Write favorable reviews in exchange for money</td>
-          <td></td>
-          <td class="yn-no">✗</td>
-        </tr>
-        <tr>
-          <td>Exclude products because they don't pay us</td>
-          <td></td>
-          <td class="yn-no">✗</td>
-        </tr>
-        <tr>
-          <td>Sell your personal data to third parties</td>
-          <td></td>
-          <td class="yn-no">✗</td>
-        </tr>
-      </tbody>
-    </table></div>
-
-    <!-- HOW WE EARN -->
-    <h2 id="how-we-earn">How myHSAPath Makes Money</h2>
-    <p>myHSAPath is an independent content website. We keep the site free to use through the following revenue sources:</p>
+    <h2 id="how-we-earn">2. How We Earn Money</h2>
+    <p>myHSAPath is an independent content website. We keep the site free through the following revenue sources:</p>
 
     <h3>1. Affiliate Referral Commissions</h3>
-    <p>Our primary revenue source. When you click a link to an HSA custodian, insurance platform, or financial tool on our site and complete a qualifying action (typically opening an account), we may receive a referral fee from that company.</p>
-    <p>This fee is paid by the company from their marketing budget. <strong>It does not increase the cost of any product or account for you.</strong> Opening a Fidelity HSA through our link costs exactly the same as opening one directly through Fidelity.com.</p>
-    <p>Commissions typically range from $25 to $75 per referred account, depending on the custodian and their current affiliate program terms.</p>
+    <p>Our primary revenue source. When you click a link to an HSA custodian or financial tool on our site and complete a qualifying action (typically opening an account), we may receive a referral fee from that company. This fee is paid by the company from their marketing budget. <strong>It does not increase the cost of any product or account for you.</strong> Opening a Fidelity HSA through our link costs exactly the same as opening one directly through Fidelity.com. Commissions typically range from $25 to $75 per referred account, depending on the custodian and their current affiliate program terms.</p>
 
     <h3>2. Newsletter Sponsorships</h3>
     <p>Our Beehiiv newsletter may include sponsored content from relevant financial companies. Sponsored newsletter content is clearly labeled as "Sponsored" or "Partner Content" at the top of the email section. Sponsors do not influence our editorial newsletter content.</p>
@@ -1639,217 +1557,76 @@ img, table, iframe { max-width: 100%; }
     <h3>4. Paid Tools (Future)</h3>
     <p>We may in future offer premium calculator tools or personalized HSA optimization reports for a one-time or subscription fee. Any paid features will be clearly labeled.</p>
 
-    <!-- WHAT WE NEVER DO -->
     <h2 id="what-we-never-do">What We Never Do</h2>
-    <div class="box-red">
-      <p><strong>Our editorial firewall:</strong> No amount of money can buy a favorable rating, a higher ranking, or inclusion in our "best" lists. If a company offers us payment for placement, we decline — and that refusal has no negative effect on how we cover them.</p>
-    </div>
-
-    <div id="main-content" class="promise-grid">
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No paid rankings</div>
-          <div class="promise-desc">Our comparison table order is determined by our editorial score, never by who pays us more.</div>
-        </div>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No undisclosed relationships</div>
-          <div class="promise-desc">Every commercial relationship is disclosed on this page and in the banner at the top of our comparison pages.</div>
-        </div>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No fake reviews</div>
-          <div class="promise-desc">Our reviews are based on real research, publicly available data, and direct account testing where possible.</div>
-        </div>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No data selling</div>
-          <div class="promise-desc">We do not sell your email address or browsing behavior to advertisers or data brokers.</div>
-        </div>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No exclusion for non-partners</div>
-          <div class="promise-desc">We include products in our comparisons based on their quality and relevance — not whether they pay us.</div>
-        </div>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">🚫</div>
-        <div>
-          <div class="promise-title">No inflated scores</div>
-          <div class="promise-desc">If a product scores poorly on our methodology, we report it accurately regardless of commercial relationships.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CURRENT PARTNERS -->
-    <h2 id="our-partners">Our Current Affiliate Partners</h2>
-    <p>The following table shows our current and potential affiliate relationships. This list is updated when our partnerships change.</p>
-
-    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin:1.25rem 0"><table class="partner-table">
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Category</th>
-          <th>Relationship</th>
-          <th>Influences Rating?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Fidelity Investments</td>
-          <td>HSA Custodian</td>
-          <td><span class="tag tag-affiliate">Affiliate</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>Lively</td>
-          <td>HSA Custodian</td>
-          <td><span class="tag tag-affiliate">Affiliate</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>HealthEquity</td>
-          <td>HSA Custodian</td>
-          <td><span class="tag tag-potential">Pending</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>HSA Bank</td>
-          <td>HSA Custodian</td>
-          <td><span class="tag tag-potential">Pending</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>Stride Health</td>
-          <td>Insurance Platform</td>
-          <td><span class="tag tag-potential">Pending</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>Impact.com network</td>
-          <td>Affiliate Network</td>
-          <td><span class="tag tag-affiliate">Affiliate</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>CJ Affiliate network</td>
-          <td>Affiliate Network</td>
-          <td><span class="tag tag-affiliate">Affiliate</span></td>
-          <td>No</td>
-        </tr>
-        <tr>
-          <td>IRS.gov</td>
-          <td>Government Resource</td>
-          <td><span class="tag tag-none">None</span></td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>HealthCare.gov</td>
-          <td>Government Resource</td>
-          <td><span class="tag tag-none">None</span></td>
-          <td>N/A</td>
-        </tr>
-      </tbody>
-    </table></div>
-
-    <p>Companies marked "Pending" are included in our editorial comparison content without any affiliate relationship. We earn no commission from referrals to those companies at this time.</p>
-
-    <!-- RATING METHODOLOGY -->
-    <h2 id="rating-methodology">How We Rate HSA Accounts</h2>
-    <p>Our ratings are based on a weighted scoring methodology applied consistently across all custodians. The factors and weights are:</p>
-
-    <div class="methodology-grid">
-      <div class="method-item">
-        <div class="method-pct">35%</div>
-        <div class="method-name">Fees & Costs</div>
-        <div class="method-desc">Monthly account fees, investment fees, transaction charges, and fee waiver conditions. Zero-fee custodians score maximum points here.</div>
-      </div>
-      <div class="method-item">
-        <div class="method-pct">30%</div>
-        <div class="method-name">Investment Options</div>
-        <div class="method-desc">Breadth of investment choices, minimum investment thresholds, fund expense ratios, and brokerage platform quality.</div>
-      </div>
-      <div class="method-item">
-        <div class="method-pct">20%</div>
-        <div class="method-name">User Experience</div>
-        <div class="method-desc">Mobile app quality, account opening speed, customer support responsiveness, and ease of use for self-employed users.</div>
-      </div>
-      <div class="method-item">
-        <div class="method-pct">15%</div>
-        <div class="method-name">Trust & Safety</div>
-        <div class="method-desc">FDIC/SIPC insurance coverage, institution history, financial stability, and HSA-specific experience and specialization.</div>
-      </div>
-    </div>
-
-    <p>Scores are assigned on a 10-point scale per factor. The final rating is a weighted average rounded to one decimal place. Scores are reviewed and updated when custodians materially change their products, fees, or features.</p>
-
-    <div class="box-gold">
-      <p><strong>Data sources:</strong> Our ratings draw on publicly available information from each custodian's website, fee schedules, and product documentation, supplemented by direct account testing where conducted. We link to primary sources wherever possible.</p>
-    </div>
-
-    <!-- EDITORIAL INDEPENDENCE -->
-    <h2 id="editorial-independence">Our Editorial Independence Policy</h2>
-    <p>myHSAPath maintains a strict separation between our commercial relationships and our editorial content. This policy governs how we operate:</p>
-
-    <h3>Who decides what we publish?</h3>
-    <p>Editorial decisions — including which products to review, how to rate them, and what to recommend — are made solely by our editorial team based on our methodology and research. Affiliate partners and advertisers have no input into editorial decisions.</p>
-
-    <h3>What happens if we earn more from one company?</h3>
-    <p>Nothing changes editorially. If Lively pays us a higher commission than Fidelity, and Fidelity is the better product for most users, we still rank Fidelity first. Our ratings reflect product quality, not commission rates.</p>
-
-    <h3>What if a company asks us to change a rating?</h3>
-    <p>We decline. If a company believes a factual error exists in our coverage, we welcome that feedback and will investigate and correct genuine errors. We will not change ratings or rankings in response to commercial pressure.</p>
-
-    <h3>What if a company stops their affiliate program?</h3>
-    <p>We continue to cover them editorially. Companies without affiliate relationships are included in our comparisons if they serve our readers. Being outside our affiliate program does not affect whether we cover a product or how we rate it.</p>
-
-    <!-- FTC COMPLIANCE -->
-    <h2 id="ftc-compliance">FTC Compliance Statement</h2>
-    <p>myHSAPath complies with the Federal Trade Commission's guidelines concerning the use of endorsements and testimonials in advertising (16 CFR Part 255) and the FTC's Disclosures guidelines for online advertising.</p>
-    <p style="margin-bottom:.5rem;">Specifically:</p>
-    <ul style="margin:0 0 1.25rem 1.25rem;padding:0;list-style:disc;">
-      <li style="margin-bottom:.6rem;line-height:1.6;">We disclose material connections (affiliate relationships) clearly and conspicuously on every page that contains affiliate links</li>
-      <li style="margin-bottom:.6rem;line-height:1.6;">Our disclosure language appears near the top of comparison pages, not buried in footers</li>
-      <li style="margin-bottom:.6rem;line-height:1.6;">We use clear, plain-English disclosure language that a reasonable consumer can understand</li>
-      <li style="margin-bottom:0;line-height:1.6;">We do not use deceptive formatting to obscure the commercial nature of affiliate links</li>
+    <p><strong>Our editorial firewall:</strong> No amount of money can buy a favorable rating, a higher ranking, or inclusion in our "best" lists. If a company offers us payment for placement, we decline — and that refusal has no negative effect on how we cover them.</p>
+    <ul>
+      <li><strong>No paid rankings</strong> — Our comparison table order is determined by our editorial score, never by who pays us more.</li>
+      <li><strong>No undisclosed relationships</strong> — Every commercial relationship is disclosed on this page and in the banner at the top of our comparison pages.</li>
+      <li><strong>No fake reviews</strong> — Our reviews are based on real research, publicly available data, and direct account testing where possible.</li>
+      <li><strong>No data selling</strong> — We do not sell your email address or browsing behavior to advertisers or data brokers.</li>
+      <li><strong>No exclusion for non-partners</strong> — We include products in our comparisons based on their quality and relevance, not whether they pay us.</li>
+      <li><strong>No inflated scores</strong> — If a product scores poorly on our methodology, we report it accurately regardless of commercial relationships.</li>
     </ul>
 
-    <div class="code-box">
-      <span class="code-label">Our standard disclosure language — appears at top of all comparison pages</span>
-      <p><strong>"Advertiser Disclosure:"</strong> myHSAPath may earn a commission when you open an account through our links. This does not influence our ratings or recommendations. <a href="/advertiser-disclosure" style="color:#00b8a2">Learn more</a></p>
+    <h2 id="our-partners">4. Our Current Partners</h2>
+    <p>The following table shows our current and potential affiliate relationships. This list is updated when our partnerships change.</p>
+        <div style="overflow-x:auto;margin:1rem 0;">
+      <table style="width:100%;border-collapse:collapse;min-width:400px;font-size:.88rem;">
+        <thead>
+          <tr style="background:#0a1628;color:white;">
+            <th style="padding:.65rem 1rem;text-align:left;">Company</th>
+            <th style="padding:.65rem 1rem;text-align:left;">Category</th>
+            <th style="padding:.65rem 1rem;text-align:left;">Relationship</th>
+            <th style="padding:.65rem 1rem;text-align:left;">Influences Rating?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #e2ddd6;"><td style="padding:.6rem 1rem;">Fidelity Investments</td><td style="padding:.6rem 1rem;color:#505f7a;">HSA Custodian</td><td style="padding:.6rem 1rem;color:#505f7a;">Pending</td><td style="padding:.6rem 1rem;">No</td></tr>
+          <tr style="border-bottom:1px solid #e2ddd6;"><td style="padding:.6rem 1rem;">Lively</td><td style="padding:.6rem 1rem;color:#505f7a;">HSA Custodian</td><td style="padding:.6rem 1rem;color:#505f7a;">Pending</td><td style="padding:.6rem 1rem;">No</td></tr>
+          <tr style="border-bottom:1px solid #e2ddd6;"><td style="padding:.6rem 1rem;">HealthEquity</td><td style="padding:.6rem 1rem;color:#505f7a;">HSA Custodian</td><td style="padding:.6rem 1rem;color:#505f7a;">Pending</td><td style="padding:.6rem 1rem;">No</td></tr>
+          <tr><td style="padding:.6rem 1rem;">HSA Bank</td><td style="padding:.6rem 1rem;color:#505f7a;">HSA Custodian</td><td style="padding:.6rem 1rem;color:#505f7a;">Pending</td><td style="padding:.6rem 1rem;">No</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p><em>Companies marked "Pending" are included in our editorial comparison content without any affiliate relationship. We earn no commission from referrals to those companies at this time.</em></p>
 
-    <!-- HOW TO IDENTIFY -->
-    <h2 style="margin-bottom:.75rem;">How to Identify Affiliate Links on Our Site</h2>
-    <p style="margin-bottom:.5rem;">We want you to always know when a link might earn us a commission. Here's how to spot them:</p>
-    <ul style="margin:.25rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Comparison page CTAs:</strong> Buttons labeled "Open Account →" or "Open Free →" on our custodian comparison pages are affiliate links</li>
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>In-content links:</strong> Links to custodian websites within blog posts and review articles are typically affiliate links</li>
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Sidebar recommendations:</strong> "Our Pick" and "Editor's Choice" links in article sidebars are affiliate links</li>
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Non-affiliate links:</strong> Links to IRS.gov, HealthCare.gov, and other government or educational resources are never affiliate links</li>
+    <h2 id="rating-methodology">5. Rating Methodology</h2>
+    <p>Our ratings are based on a weighted scoring methodology applied consistently across all custodians. The factors and weights are:</p>
+    <ul>
+      <li><strong>35% — Fees &amp; Costs:</strong> Monthly account fees, investment fees, transaction charges, and fee waiver conditions. Zero-fee custodians score maximum points here.</li>
+      <li><strong>30% — Investment Options:</strong> Breadth of investment choices, minimum investment thresholds, fund expense ratios, and brokerage platform quality.</li>
+      <li><strong>20% — User Experience:</strong> Mobile app quality, account opening speed, customer support responsiveness, and ease of use for self-employed users.</li>
+      <li><strong>15% — Trust &amp; Safety:</strong> FDIC/SIPC insurance coverage, institution history, financial stability, and HSA-specific experience and specialization.</li>
+    </ul>
+    <p>Scores are assigned on a 10-point scale per factor. The final rating is a weighted average rounded to one decimal place. Scores are reviewed and updated when custodians materially change their products, fees, or features.</p>
+    <p><strong>Data sources:</strong> Our ratings draw on publicly available information from each custodian's website, fee schedules, and product documentation, supplemented by direct account testing where conducted. We link to primary sources wherever possible.</p>
+
+    <h2 id="editorial-independence">6. Editorial Independence</h2>
+    <p>myHSAPath maintains a strict separation between our commercial relationships and our editorial content. This policy governs how we operate:</p>
+    <ul>
+      <li>Affiliate partners receive no advance notice of reviews or ratings before publication.</li>
+      <li>Custodians cannot pay to change, suppress, or delay publication of any review.</li>
+      <li>Our editorial team makes all ranking and recommendation decisions independently.</li>
+      <li>Commercial relationships are never a factor in our editorial scoring methodology.</li>
+      <li>We reserve the right to give any custodian — including paying partners — a low rating or negative review if our research warrants it.</li>
+    </ul>
+
+    <h2 id="ftc-compliance">7. FTC Compliance</h2>
+    <p>myHSAPath complies with the Federal Trade Commission's guidelines concerning the use of endorsements and testimonials in advertising (16 CFR Part 255) and the FTC's Disclosures guidelines for online advertising. Specifically:</p>
+    <ul>
+      <li>We disclose material connections (affiliate relationships) clearly and conspicuously on every page that contains affiliate links.</li>
+      <li>Our disclosure language appears near the top of comparison pages, not buried in footers.</li>
+      <li>We use clear, plain-English disclosure language that a reasonable consumer can understand.</li>
+      <li>We do not use deceptive formatting to obscure the commercial nature of affiliate links.</li>
     </ul>
     <p>If you ever want to verify whether a specific link is an affiliate link, you're welcome to email us at <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a> and we'll tell you directly.</p>
 
-    <!-- CONTACT -->
-    <h2 id="contact">Questions About Our Disclosure?</h2>
-    <p>We take transparency seriously. If you have any questions about our advertiser relationships, rating methodology, or editorial policies, we want to hear from you.</p>
-
-    <div class="contact-cta">
-      <h3>Get in touch with our editorial team</h3>
-      <p>Questions about our ratings, affiliate relationships, or editorial standards? We respond to all editorial inquiries.</p>
-      <a href="mailto:editorial@myhsapath.com" class="contact-btn">editorial@myhsapath.com →</a>
-    </div>
+    <h2 id="contact">8. Questions?</h2>
+    <p>Questions about our ratings, affiliate relationships, or editorial standards? We respond to all editorial inquiries.</p>
+    <p><a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a></p>
 
   </div>
+
 </div>
 
 <!-- FOOTER -->
