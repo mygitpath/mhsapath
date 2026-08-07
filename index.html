@@ -2099,7 +2099,6 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       </div>
       <div class="custodian-right">
         <div class="custodian-rating">9.8 / 10</div>
-        <div class="custodian-fee">$0/mo</div>
       </div>
     </div>
 
@@ -2113,7 +2112,6 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       </div>
       <div class="custodian-right">
         <div class="custodian-rating">9.4 / 10</div>
-        <div class="custodian-fee">$0/mo</div>
       </div>
     </div>
 
@@ -2127,7 +2125,6 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       </div>
       <div class="custodian-right">
         <div class="custodian-rating">8.9 / 10</div>
-        <div class="custodian-fee">$2.50/mo</div>
       </div>
     </div>
 
@@ -2141,7 +2138,6 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       </div>
       <div class="custodian-right">
         <div class="custodian-rating">8.5 / 10</div>
-        <div class="custodian-fee">$3/mo</div>
       </div>
     </div>
 
@@ -2426,181 +2422,80 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
 <script>
 (function() {
-  function applySpacingFixes() {
-    var w = window.innerWidth;
-    var isTablet = w <= 1100;
-    var isMobile = w <= 640;
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
 
-    // --- SECTION PADDING ---
-    document.querySelectorAll('.section').forEach(function(el) {
-      el.style.padding = isMobile ? '2.5rem 5%' : isTablet ? '3rem 5%' : '';
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
     });
-    document.querySelectorAll('.calc-section').forEach(function(el) {
-      el.style.padding = isMobile ? '2rem 5%' : isTablet ? '2.5rem 5%' : '';
-    });
-    document.querySelectorAll('.email-section').forEach(function(el) {
-      el.style.padding = isMobile ? '2.5rem 5%' : isTablet ? '3rem 5%' : '';
-    });
-
-    // --- SECTION-SUB MARGIN ---
-    document.querySelectorAll('.section-sub').forEach(function(el) {
-      el.style.marginBottom = isTablet ? '1.5rem' : '';
-    });
-
-    // --- HOW IT WORKS HEADER (heading + desc side by side) ---
-    var hiw = document.getElementById('sectionHeaderHIW');
-    if (hiw) {
-      hiw.style.gridTemplateColumns = isTablet ? '1fr' : '1fr 1fr';
-      hiw.style.gap = isTablet ? '0.5rem' : '';
-      hiw.style.marginBottom = isTablet ? '2rem' : '3.5rem';
-    }
-
-    // --- BLOG SECTION HEADER (Latest Articles + View all link) ---
-    var blogHeaders = document.querySelectorAll('.section > div[style*="justify-content:space-between"]');
-    blogHeaders.forEach(function(el) {
-      if (isMobile) {
-        el.style.flexDirection = 'column';
-        el.style.gap = '0.5rem';
-        el.style.alignItems = 'flex-start';
-        el.style.marginBottom = '1.5rem';
-      } else if (isTablet) {
-        el.style.flexDirection = 'row';
-        el.style.alignItems = 'flex-end';
-        el.style.marginBottom = '1.5rem';
-      } else {
-        el.style.flexDirection = '';
-        el.style.marginBottom = '';
-      }
-    });
-
-    // --- CALC INNER (2-col → 1-col on tablet) ---
-    var calcInner = document.querySelector('.calc-inner');
-    if (calcInner) {
-      calcInner.style.gridTemplateColumns = isTablet ? '1fr' : '';
-      calcInner.style.gap = isTablet ? '2rem' : '';
-    }
-
-    // --- STEPS GRID ---
-    var stepsGrid = document.querySelector('.steps-grid');
-    if (stepsGrid) {
-      if (isMobile) {
-        stepsGrid.style.gridTemplateColumns = '1fr';
-        stepsGrid.style.gap = '1rem';
-      } else if (isTablet) {
-        stepsGrid.style.gridTemplateColumns = '1fr 1fr 1fr';
-        stepsGrid.style.gap = '1rem';
-      } else {
-        stepsGrid.style.gridTemplateColumns = '';
-        stepsGrid.style.gap = '';
-      }
-    }
-
-    // --- BLOG GRID ---
-    var blogGrid = document.querySelector('.blog-grid');
-    if (blogGrid) {
-      if (isMobile) {
-        blogGrid.style.gridTemplateColumns = '1fr';
-      } else if (isTablet) {
-        blogGrid.style.gridTemplateColumns = '1fr 1fr';
-      } else {
-        blogGrid.style.gridTemplateColumns = '';
-      }
-    }
-
-    // --- HERO ---
-    var hero = document.getElementById('heroSection');
-    var card = document.querySelector('.hero-card');
-    if (hero) {
-      if (isTablet) {
-        hero.style.minHeight = '0';
-        hero.style.height = 'auto';
-        hero.style.display = 'block';
-        hero.style.padding = isMobile ? '84px 5% 2.5rem' : '90px 5% 3rem';
-        if (card) card.style.display = 'none';
-      } else {
-        hero.style.minHeight = '0';
-        hero.style.height = '';
-        hero.style.display = 'grid';
-        hero.style.gridTemplateColumns = '1fr 1fr';
-        hero.style.padding = '100px 5% 60px';
-        hero.style.gap = '4rem';
-        if (card) card.style.display = '';
-      }
-    }
-
-    // --- STATS BAR ---
-    var bar = document.querySelector('.stats-bar');
-    if (bar) {
-      if (isMobile) {
-        bar.style.display = 'grid';
-        bar.style.gridTemplateColumns = '1fr 1fr';
-        bar.style.gap = '1rem';
-        bar.style.padding = '1.5rem 5%';
-      } else if (isTablet) {
-        bar.style.display = 'grid';
-        bar.style.gridTemplateColumns = '1fr 1fr';
-        bar.style.gap = '1.25rem';
-        bar.style.padding = '2rem 5%';
-      } else {
-        bar.style.display = '';
-        bar.style.gridTemplateColumns = '';
-        bar.style.padding = '';
-      }
-      document.querySelectorAll('.stat-divider').forEach(function(d) {
-        d.style.display = isTablet ? 'none' : '';
-      });
-    }
   }
 
-  applySpacingFixes();
-  window.addEventListener('resize', applySpacingFixes);
-  window.addEventListener('orientationchange', function() {
-    setTimeout(applySpacingFixes, 150);
-  });
-  document.addEventListener('DOMContentLoaded', applySpacingFixes);
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
 })();
-</script>
-
-<script src="/shared.js" defer></script>
-<script>
-function toggleMobileMenu(){
-  var drawer=document.getElementById('mobileDrawer');
-  var overlay=document.getElementById('mobileOverlay');
-  var btn=document.getElementById('mobileMenuBtn');
-  if(!drawer)return;
-  var isOpen=drawer.style.right==='0px'||drawer.style.right==='0';
-  if(isOpen){
-    drawer.style.right='-100%';
-    if(overlay)overlay.style.display='none';
-    document.body.style.overflow='';
-    if(btn)btn.setAttribute('aria-expanded','false');
-  }else{
-    drawer.style.right='0';
-    if(overlay)overlay.style.display='block';
-    document.body.style.overflow='hidden';
-    if(btn)btn.setAttribute('aria-expanded','true');
-  }
-}
-document.addEventListener('DOMContentLoaded',function(){
-  var ov=document.getElementById('mobileOverlay');
-  if(ov)ov.addEventListener('click',function(){
-    var d=document.getElementById('mobileDrawer');
-    if(d)d.style.right='-100%';
-    ov.style.display='none';
-    document.body.style.overflow='';
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-      var d=document.getElementById('mobileDrawer');
-      var o=document.getElementById('mobileOverlay');
-      if(d)d.style.right='-100%';
-      if(o)o.style.display='none';
-      document.body.style.overflow='';
-    }
-  });
-});
 </script>
 </body>
 </html>

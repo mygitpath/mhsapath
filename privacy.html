@@ -1801,7 +1801,7 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
     <p style="margin-bottom:.5rem;">If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
     <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
       <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Privacy requests:</strong> <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a></li>
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>General inquiries:</strong> <a href="mailto:hello@myhsapath.com">hello@myhsapath.com</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>General inquiries:</strong> <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a></li>
       <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Response time:</strong> We aim to respond to all privacy inquiries within 30 days</li>
     </ul>
 
@@ -1914,70 +1914,80 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+
 <script>
 (function() {
-  function checkLayout() {
-    var wrap = document.getElementById('legalWrap');
-    if (!wrap) return;
-    var toc = document.getElementById('tocSidebar');
-    if (window.innerWidth <= 1100) {
-      wrap.style.gridTemplateColumns = '1fr';
-      wrap.style.gap = '2rem';
-      wrap.style.padding = '2.5rem 5% 4rem';
-      if (toc) toc.style.position = 'static';
-    } else {
-      wrap.style.gridTemplateColumns = '220px 1fr';
-      wrap.style.gap = '4rem';
-      wrap.style.padding = '4rem 5% 5rem';
-      if (toc) toc.style.position = 'sticky';
-    }
-  }
-  checkLayout();
-  window.addEventListener('resize', checkLayout);
-  window.addEventListener('orientationchange', function() {
-    setTimeout(checkLayout, 100);
-  });
-})();
-</script>
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
 
-<script src="/shared.js" defer></script>
-<script>
-function toggleMobileMenu(){
-  var drawer=document.getElementById('mobileDrawer');
-  var overlay=document.getElementById('mobileOverlay');
-  var btn=document.getElementById('mobileMenuBtn');
-  if(!drawer)return;
-  var isOpen=drawer.style.right==='0px'||drawer.style.right==='0';
-  if(isOpen){
-    drawer.style.right='-100%';
-    if(overlay)overlay.style.display='none';
-    document.body.style.overflow='';
-    if(btn)btn.setAttribute('aria-expanded','false');
-  }else{
-    drawer.style.right='0';
-    if(overlay)overlay.style.display='block';
-    document.body.style.overflow='hidden';
-    if(btn)btn.setAttribute('aria-expanded','true');
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
   }
-}
-document.addEventListener('DOMContentLoaded',function(){
-  var ov=document.getElementById('mobileOverlay');
-  if(ov)ov.addEventListener('click',function(){
-    var d=document.getElementById('mobileDrawer');
-    if(d)d.style.right='-100%';
-    ov.style.display='none';
-    document.body.style.overflow='';
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-      var d=document.getElementById('mobileDrawer');
-      var o=document.getElementById('mobileOverlay');
-      if(d)d.style.right='-100%';
-      if(o)o.style.display='none';
-      document.body.style.overflow='';
-    }
-  });
-});
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
 </script>
 </body>
 </html>

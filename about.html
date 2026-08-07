@@ -1352,7 +1352,7 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
     <h3 style="color:white;font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;margin-bottom:.5rem;">Get in touch</h3>
     <p style="color:rgba(255,255,255,0.5);font-size:.85rem;margin-bottom:1.25rem;line-height:1.6;">Questions about our content, methodology, or affiliate relationships? We read every email.</p>
     <div class="contact-links" style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;align-items:center;margin-top:1.25rem;">
-      <a href="mailto:hello@myhsapath.com" class="contact-btn contact-btn-primary" style="background:#00b8a2!important;color:#0a1628!important;font-weight:700!important;text-decoration:none!important;padding:10px 20px;border-radius:8px;font-size:.88rem;">hello@myhsapath.com</a>
+      <a href="mailto:editorial@myhsapath.com" class="contact-btn contact-btn-primary" style="background:#00b8a2!important;color:#0a1628!important;font-weight:700!important;text-decoration:none!important;padding:10px 20px;border-radius:8px;font-size:.88rem;">editorial@myhsapath.com</a>
       <a href="/advertiser-disclosure" class="contact-btn contact-btn-secondary" style="color:white!important;-webkit-text-fill-color:white!important;background:rgba(255,255,255,0.12)!important;border:2px solid rgba(255,255,255,0.5)!important;text-decoration:none!important;padding:10px 18px!important;border-radius:8px!important;font-size:.88rem!important;font-weight:600!important;"><span style="-webkit-text-fill-color:white!important;color:white!important;">Advertiser Disclosure</span></a>
       <a href="/terms" class="contact-btn contact-btn-secondary" style="color:white!important;-webkit-text-fill-color:white!important;background:rgba(255,255,255,0.12)!important;border:2px solid rgba(255,255,255,0.5)!important;text-decoration:none!important;padding:10px 18px!important;border-radius:8px!important;font-size:.88rem!important;font-weight:600!important;"><span style="-webkit-text-fill-color:white!important;color:white!important;">Terms &amp; Conditions</span></a>
     </div>
@@ -1532,6 +1532,82 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', fixAboutLayout);
   window.addEventListener('orientationchange', function(){ setTimeout(fixAboutLayout,150); });
 });
+</script>
+
+
+
+<script>
+(function() {
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
+
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  }
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
 </script>
 </body>
 </html>

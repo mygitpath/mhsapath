@@ -1529,7 +1529,7 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       <li style="margin-bottom:.5rem;line-height:1.65;">Use our brand name or logo in a way that implies endorsement or partnership</li>
       <li style="margin-bottom:.5rem;line-height:1.65;">Scrape or systematically download content from the Site</li>
     </ul>
-    <p>Brief quotations with attribution for editorial, educational, or journalistic purposes are permitted under fair use principles. For any other use, please contact us at <a href="mailto:legal@myhsapath.com">legal@myhsapath.com</a>.</p>
+    <p>Brief quotations with attribution for editorial, educational, or journalistic purposes are permitted under fair use principles. For any other use, please contact us at <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a>.</p>
     <p><strong>Third-party trademarks:</strong> All company names, logos, and trademarks referenced on this Site (including Fidelity, Lively, HealthEquity, HSA Bank, and others) are the property of their respective owners. Their inclusion is for editorial comparison purposes only and does not imply any affiliation, endorsement, or sponsorship by those companies.</p>
 
     <h2 id="user-conduct">7. Acceptable Use</h2>
@@ -1596,8 +1596,8 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
     <h2 id="contact">15. Contact Us</h2>
     <p style="margin-bottom:.5rem;">If you have questions about these Terms and Conditions, please contact us:</p>
     <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Email:</strong> <a href="mailto:legal@myhsapath.com">legal@myhsapath.com</a></li>
-      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Website:</strong> <a href="mailto:hello@myhsapath.com">hello@myhsapath.com</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Email:</strong> <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Website:</strong> <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a></li>
     </ul>
     <p>We aim to respond to all legal inquiries within 5 business days.</p>
 
@@ -1744,6 +1744,82 @@ document.addEventListener('DOMContentLoaded',function(){
     }
   });
 });
+</script>
+
+
+
+<script>
+(function() {
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
+
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  }
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
 </script>
 </body>
 </html>
