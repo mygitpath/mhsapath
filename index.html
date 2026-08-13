@@ -2536,11 +2536,25 @@ function handleGetMatched() {
     body: body,
     mode: 'no-cors'
   }).then(function() {
-    // Navigate to eligibility page after successful submission
-    window.location.href = '/eligible';
+    setTimeout(function() {
+      if (btn) {
+        btn.textContent = '✅ Subscribed! Redirecting...';
+        btn.style.background = '#059669';
+      }
+      setTimeout(function() {
+        window.location.href = '/eligible';
+      }, 1000);
+    }, 2000);
   }).catch(function() {
-    // Even on error, still navigate (Kit fetch is no-cors so we can't read response)
-    window.location.href = '/eligible';
+    setTimeout(function() {
+      if (btn) {
+        btn.textContent = '✅ Redirecting...';
+        btn.style.background = '#059669';
+      }
+      setTimeout(function() {
+        window.location.href = '/eligible';
+      }, 1000);
+    }, 2000);
   });
 }
 </script>
