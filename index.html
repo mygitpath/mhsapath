@@ -2074,9 +2074,10 @@ footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       The only comparison tool built for self-employed Americans. Compare top HSA custodians, calculate your exact tax savings, and get matched to the right plan — free.
     </p>
     <div class="hero-form">
-      <input type="email" placeholder="Enter your email to get started" aria-label="Email address">
-      <button class="btn-primary">Get Matched →</button>
+      <input type="email" id="heroEmail" placeholder="Enter your email to get started" aria-label="Email address">
+      <button class="btn-primary" id="getMatchedBtn" onclick="handleGetMatched()">Get Matched →</button>
     </div>
+    <div id="heroEmailError" style="display:none;color:#e05252;font-size:.82rem;margin-top:.5rem;text-align:center;">⚠️ Please enter your email address first.</div>
     <div id="main-content" class="hero-trust">
       <span>✓ Free forever</span>
       <span style="color:#e2ddd6">|</span>
@@ -2497,5 +2498,52 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })();
 </script>
+
+<script>
+function handleGetMatched() {
+  var input = document.getElementById('heroEmail');
+  var error = document.getElementById('heroEmailError');
+  var email = (input ? input.value : '').trim();
+
+  // Validate email
+  if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+    if (error) {
+      error.style.display = 'block';
+      setTimeout(function() { error.style.display = 'none'; }, 4000);
+    }
+    if (input) {
+      input.style.borderColor = '#e05252';
+      input.focus();
+      setTimeout(function() { input.style.borderColor = ''; }, 4000);
+    }
+    return;
+  }
+
+  // Hide error if visible
+  if (error) error.style.display = 'none';
+
+  // Submit to Kit
+  var btn = document.getElementById('getMatchedBtn');
+  if (btn) {
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+  }
+
+  var body = 'email_address=' + encodeURIComponent(email);
+  fetch('https://app.kit.com/forms/9776276/subscriptions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body,
+    mode: 'no-cors'
+  }).then(function() {
+    // Navigate to eligibility page after successful submission
+    window.location.href = '/eligible';
+  }).catch(function() {
+    // Even on error, still navigate (Kit fetch is no-cors so we can't read response)
+    window.location.href = '/eligible';
+  });
+}
+</script>
+
 </body>
 </html>
