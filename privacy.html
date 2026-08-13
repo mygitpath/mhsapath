@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | myHSAPath</title>
+<meta name="description" content="Privacy Policy for myHSAPath.com — how we collect, use, and protect your personal information.">
+<link rel="canonical" href="https://myhsapath.com/privacy">
+<link rel="stylesheet" href="/shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fdfcfa;color:#1a2540;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid #e2ddd6;height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:#505f7a;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0a1628}
+.nav-cta{background:#00b8a2;color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:#0a1628;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
+
+/* HERO */
+.page-hero{padding:100px 5% 56px;background:#0a1628;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(0,184,162,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.75rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.45)}
+.hero-meta strong{color:rgba(255,255,255,.7)}
+
+/* AT A GLANCE STRIP */
+.glance-strip{background:#e0f7f4;border-bottom:1px solid rgba(0,184,162,.2);padding:1rem 5%}
+.glance-inner{max-width:900px;margin:0 auto;display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.glance-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#007a6e;flex-shrink:0}
+.glance-items{display:flex;gap:1.25rem;flex-wrap:wrap}
+.glance-item{display:flex;align-items:center;gap:5px;font-size:.8rem;color:#005f54;font-weight:500}
+
+/* LAYOUT */
+.legal-wrap{background:#fdfcfa;max-width:900px;margin:0 auto;padding:4rem 5% 5rem;display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
+
+/* TOC */
+.toc{position:sticky;top:84px;background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1.25rem}
+.toc-title{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#505f7a;margin-bottom:.85rem}
+.toc ul{list-style:none}
+.toc ul li{margin-bottom:3px}
+.toc ul a{text-decoration:none;font-size:.79rem;color:#505f7a;transition:color .2s;display:block;padding:3px 0 3px 8px;border-left:2px solid transparent;line-height:1.4}
+.toc ul a:hover{color:#00b8a2;border-left-color:#00b8a2}
+.toc-note{margin-top:1rem;padding-top:.85rem;border-top:1px solid #e2ddd6;font-size:.72rem;color:#505f7a;line-height:1.5}
+.toc-note a{color:#00b8a2;text-decoration:none}
+
+/* CONTENT */
+.legal-content h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#0a1628;letter-spacing:-.3px;margin:2.5rem 0 .85rem;padding-top:2.5rem;border-top:1px solid #e2ddd6}
+.legal-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.legal-content h3{font-size:1rem;font-weight:600;color:#0a1628;margin:1.5rem 0 .5rem}
+.legal-content p{font-size:.9rem;color:#1a2540;margin-bottom:.85rem;line-height:1.85}
+.legal-content ul,.legal-content ol{margin:.5rem 0 1rem 1.25rem}
+.legal-content ul li,.legal-content ol li{font-size:.9rem;color:#1a2540;margin-bottom:.4rem;line-height:1.7}
+.legal-content strong{color:#0a1628;font-weight:600}
+.legal-content a{color:#00b8a2;text-decoration:none}
+.legal-content a:hover{text-decoration:underline}
+
+/* BOXES */
+.box-teal{background:#e0f7f4;border:1.5px solid rgba(0,184,162,.25);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-teal p{margin-bottom:0;color:#005f54;font-size:.88rem;line-height:1.7}
+.box-teal strong{color:#005f54}
+.box-gold{background:#fef9e8;border:1.5px solid rgba(232,160,32,.3);border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-gold p{margin-bottom:0;color:#6b4c00;font-size:.88rem;line-height:1.7}
+.box-navy{background:#f0f2f7;border:1.5px solid #d0d6e8;border-radius:10px;padding:1.1rem 1.25rem;margin:1rem 0}
+.box-navy p{margin-bottom:0;color:#0a1628;font-size:.88rem;line-height:1.7}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.25rem 0;border:1.5px solid #e2ddd6;border-radius:12px;overflow:hidden}
+.data-table thead tr{background:#0a1628}
+.data-table th{padding:.8rem 1rem;text-align:left;font-size:.7rem;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.data-table tbody tr{border-bottom:1px solid #e2ddd6;transition:background .15s}
+.data-table tbody tr:last-child{border-bottom:none}
+.data-table tbody tr:hover{background:#fafffe}
+.data-table td{padding:.8rem 1rem;color:#1a2540;vertical-align:top}
+.data-table td:first-child{font-weight:600;color:#0a1628;white-space:nowrap}
+
+/* THIRD PARTY CARDS */
+.third-party-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.tp-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1rem 1.1rem;transition:border-color .2s}
+.tp-card:hover{border-color:#00b8a2}
+.tp-name{font-weight:700;font-size:.88rem;color:#0a1628;margin-bottom:3px}
+.tp-type{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#00b8a2;margin-bottom:.4rem}
+.tp-desc{font-size:.78rem;color:#505f7a;line-height:1.55}
+.tp-link{font-size:.72rem;color:#00b8a2;text-decoration:none;margin-top:.4rem;display:inline-block}
+.tp-link:hover{text-decoration:underline}
+
+/* RIGHTS GRID */
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.right-card{background:white;border:1.5px solid #e2ddd6;border-radius:12px;padding:1rem 1.1rem;display:flex;gap:10px;align-items:flex-start}
+.right-icon{font-size:1.2rem;flex-shrink:0}
+.right-title{font-weight:600;font-size:.85rem;color:#0a1628;margin-bottom:3px}
+.right-desc{font-size:.78rem;color:#505f7a;line-height:1.55}
+
+/* CONTACT CTA */
+.contact-cta{background:#0a1628;border-radius:16px;padding:2rem;margin-top:2rem;text-align:center}
+.contact-cta h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:white;margin-bottom:.5rem}
+.contact-cta p{font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1.25rem;line-height:1.6;max-width:360px;margin-left:auto;margin-right:auto}
+.contact-btn{display:inline-block;background:#00b8a2;color:white!important;padding:10px 24px;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s}
+.contact-btn:hover{background:#009b87;transform:translateY(-1px)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}
+  .legal-wrap{background:#fdfcfa;grid-template-columns:1fr;gap:2rem;padding:2rem 4% 4rem}
+  .toc{position:static}
+  .third-party-grid{grid-template-columns:1fr}
+  .rights-grid{grid-template-columns:1fr}
+  .glance-inner{gap:1rem}
+  
+  
+}
+
+/* ═══════════════════════════════════════════════════════
+   UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
+   ═══════════════════════════════════════════════════════ */
+html, body {
+  background-color: #fdfcfa !important;
+  color: #1a2540 !important;
+}
+
+/* All sections default to warm white unless explicitly dark */
+section, main, article, aside, header, div {
+  color: inherit;
+}
+
+/* Light sections — explicit backgrounds */
+.section,
+.hero,
+.page-hero ~ section,
+.about-wrap,
+.legal-wrap,
+.disclosure-wrap,
+.post-wrap,
+.calc-main,
+.blog-main,
+.method-section,
+.faq-section ~ section,
+.compare-section,
+.trust-strip,
+.steps-section,
+.related-posts,
+.blog-section,
+.not-elig-body,
+.maybe-body,
+.quiz-wrap,
+.calc-text {
+  background-color: #fdfcfa !important;
+}
+
+/* Cream sections */
+.calc-section,
+.reviews-section,
+.cream-section,
+.faq-section,
+.sidebar-newsletter,
+.toc-box {
+  background-color: #f7f4ef !important;
+}
+
+/* Dark sections stay dark */
+.stats-bar,
+.stats-strip,
+.verdict-bar,
+.email-section,
+.result-hero,
+.not-elig-hero,
+.maybe-hero,
+.disc-banner,
+.stats-card,
+.contact-cta,
+.sidebar-calc {
+  background-color: #0a1628 !important;
+}
+
+/* White cards always white */
+.review-card,
+.method-card,
+.step-card,
+.blog-card,
+.post-card,
+.related-card,
+.rec-card,
+.tp-card,
+.value-card,
+.promise-card,
+.right-card,
+.money-row,
+.faq-item,
+.alt-option,
+.check-item,
+.toc,
+.sidebar-card,
+.calc-box,
+.calc-card,
+.hero-card,
+.question-card,
+.email-gate,
+.result-eligible,
+.result-not-eligible,
+.result-maybe {
+  background-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════ */
+.page-hero, .post-hero { background-color: #0a1628 !important; }
+.page-hero *, .post-hero * { color: rgba(255,255,255,0.85) !important; }
+.page-hero h1, .post-hero h1 { color: #ffffff !important; }
+.page-hero .hero-label, .post-hero .post-cat-badge { color: #00b8a2 !important; }
+
+/* ── PRIVACY PAGE MOBILE FIX ─────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Main layout: TOC sidebar collapses above content */
+  .legal-wrap {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 5% 3rem !important;
+    gap: 1.5rem !important;
+  }
+
+  /* TOC becomes non-sticky inline block */
+  .toc {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  /* Third party grid — single column */
+  .third-party-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Rights grid — single column */
+  .rights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Data tables — allow horizontal scroll within a wrapper */
+  .data-table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    font-size: .78rem !important;
+    white-space: nowrap !important;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: .6rem .75rem !important;
+    font-size: .75rem !important;
+    white-space: normal !important;
+    min-width: 100px !important;
+  }
+
+  /* Legal content headings */
+  .legal-content h2 {
+    font-size: 1.2rem !important;
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  /* Contact CTA button full width */
+  .contact-btn {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Glance strip wraps */
+  .glance-inner {
+    flex-direction: column !important;
+    gap: .6rem !important;
+  }
+
+  .glance-items {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+
+  /* Page hero text */
+  .page-hero h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-meta {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* Main content wrapper — pad right so nothing touches edge */
+  .legal-content {
+    padding-right: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Constrain table scroll wrapper to viewport width */
+  .legal-content > div[style*="overflow-x"] {
+    width: calc(100vw - 10%) !important;
+    max-width: calc(100vw - 10%) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Tables inside wrapper — set fixed layout so columns don't explode */
+  .data-table {
+    table-layout: fixed !important;
+    width: 480px !important;
+    max-width: none !important;
+    white-space: normal !important;
+  }
+
+  .data-table th:nth-child(1),
+  .data-table td:nth-child(1) { width: 120px !important; }
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) { width: 180px !important; }
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) { width: 180px !important; }
+
+  /* At-a-glance strip wraps nicely */
+  .glance-strip {
+    padding: .75rem 5% !important;
+    overflow: hidden !important;
+  }
+
+  /* Third party and rights cards full width with right padding */
+  .tp-card, .right-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  /* Page wrap respects viewport */
+  .legal-wrap {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+@media (max-width: 768px) {
+  .disc-banner,
+  .disclosure-banner {
+    padding: 7px 4% !important;
+    flex-wrap: wrap !important;
+  }
+  .disc-banner p,
+  .banner-text {
+    font-size: .72rem !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+  }
+  /* Shorten the banner text on mobile using CSS truncation */
+  .disc-banner .mobile-hide,
+  .banner-text .mobile-hide {
+    display: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+.contact-btn-secondary,
+.contact-btn-secondary:hover {
+  color: white !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1.5px solid rgba(255,255,255,.3) !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════
+   WCAG 2.2 COMPLIANCE FIXES
+   ══════════════════════════════════════════════════════
+
+   1. Teal inline links — darken to #007a6e (4.6:1 on white) ✅
+   2. Focus indicators — visible on all interactive elements
+   3. Min touch target 24x24px (WCAG 2.5.8)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Teal inline links — #007a6e passes AA on white AND cream */
+a:not(a:not(/* Keep teal (#00b8a2) only on dark navy backgrounds where it passes */
+.disc-banner a,
+.email-section a,
+.stats-bar a,
+.verdict-bar a,
+.post-hero a,
+.page-hero a,
+.result-hero a,
+nav a:hover,
+.mobile-nav-drawer a:hover,
+.toc ul a,
+.toc-box ol a {
+  color: #00b8a2 !important;
+}
+
+/* 2. Focus indicators — WCAG 2.4.11 (Focus Appearance) */
+*:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+  border-radius: 3px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Minimum touch target size — WCAG 2.5.8 (24x24px minimum) */
+button,
+.nav-cta,
+.contact-btn,
+.review-cta,
+.inline-cta-btn,
+.jump-link,
+.mob-cta,
+.faq-item,
+.related-card,
+.mob-card,
+.sc-row {
+  min-height: 44px;
+}
+nav .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.mobile-nav-drawer a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 4. Don't rely solely on color for information */
+a:not([class]):not(.logo) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 5%;
+  background: #007a6e;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  
+
+  
+
+}
+/* ────────────────────────────────────────────────────── */
+
+nav a.logo,
+nav a.logo:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* Brand col */
+
+/* Nav columns */
+
+/* Copyright strip — spans ALL columns, sits in row 2 */
+
+@media (max-width: 768px) {
+}
+/* ════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+}
+
+/* ═══ FOOTER ═══ */
+.footer-brand .logo,
+footer .logo,
+footer a.logo,
+.footer-brand a.logo,
+.footer-brand .logo:hover,
+footer .logo:hover,
+footer a.logo:hover,
+.footer-brand a.logo:hover {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  display: block !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  margin-bottom: 0.6rem !important;
+}
+footer .logo span,
+.footer-brand .logo span { color: #00b8a2 !important; }
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.3) !important;
+  line-height: 1.6 !important;
+}
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.35) !important;
+  transition: color .2s !important;
+}
+.footer-col ul a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+footer {
+  background-color: #070f1e !important;
+  padding: 3rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  border-top: 3px solid #00b8a2 !important;
+  overflow: hidden !important;
+}
+.footer-brand { grid-column: 1 !important; }
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background-color: #070f1e !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.5rem !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,.2) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,.15) !important;
+  line-height: 1.6 !important;
+  max-width: 560px !important;
+}
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 2rem 5% 0 !important;
+    gap: 1.75rem 1.5rem !important;
+  }
+  .footer-brand { grid-column: 1 / -1 !important; }
+  .footer-bottom {
+    grid-column: 1 / -1 !important;
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.25rem !important;
+  }
+  .footer-copy,
+  .footer-disclaimer {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+/* ═══ END FOOTER ═══ */
+
+/* ═══ LOGO BASE — ALWAYS LAST ═══ */
+/* Covers nav logo on light bg and footer logo on dark bg */
+a.logo,
+a.logo:link,
+a.logo:visited,
+a.logo:hover,
+a.logo:active,
+.logo,
+nav .logo,
+nav a.logo,
+.footer-brand .logo,
+footer a.logo {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  -webkit-text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  cursor: pointer !important;
+}
+
+/* Nav logo — navy on light background */
+nav a.logo,
+nav .logo {
+  color: #0a1628 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Footer logo — white on dark background */
+footer a.logo,
+footer .logo,
+.footer-brand a.logo,
+.footer-brand .logo {
+  color: white !important;
+  display: block !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Teal span inside logo — both contexts */
+a.logo span,
+.logo span {
+  color: #00b8a2 !important;
+}
+/* ═══ END LOGO BASE ═══ */
+
+/* Footer grid — logo spans full width on its own row */
+footer {
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  padding-bottom: 0 !important;
+}
+
+.footer-brand {
+  grid-column: 1 / -1 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Footer bottom — full-width strip, no card, no border, no box */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 1rem 0 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.22) !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+    padding: 1rem 0 1.5rem !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════
+   COMPREHENSIVE FOOTER FIX — all issues resolved
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Footer background — nuclear override */
+footer,
+footer *:not(a):not(span):not(h4) {
+  box-sizing: border-box !important;
+}
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  padding: 2.5rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  color: rgba(255,255,255,0.3) !important;
+}
+
+/* 2. Footer links — white-ish, no underline, no browser blue */
+footer a,
+footer a:link,
+footer a:visited,
+footer a:hover,
+.footer-col a,
+.footer-col a:link,
+.footer-col a:visited {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+  font-size: .8rem !important;
+  transition: color .2s !important;
+}
+footer a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* 3. Footer logo — white, no underline */
+footer .logo,
+footer a.logo,
+footer .logo:hover,
+.footer-brand .logo,
+.footer-brand a.logo {
+  color: white !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: block !important;
+  margin-bottom: .6rem !important;
+}
+.footer-brand .logo span,
+footer .logo span {
+  color: #00b8a2 !important;
+}
+
+/* 4. Footer section headings */
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+
+/* 5. Footer description text */
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.3) !important;
+  line-height: 1.6 !important;
+}
+
+/* 6. Footer list reset */
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li {
+  margin-bottom: .45rem !important;
+}
+
+/* 7. Footer bottom strip — seamless, no card */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 2rem 0 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+  text-decoration: none !important;
+}
+
+/* 8. Mobile footer */
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+    padding-bottom: 1.25rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.5rem !important;
+    margin: 1rem 0 0 !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════
+   NAV + GLOBAL LINK FIXES
+   ══════════════════════════════════════════════════════ */
+
+/* Nav logo — never underline */
+nav .logo,
+nav a.logo,
+nav .logo:hover,
+nav a.logo:hover {
+  text-decoration: none !important;
+  color: #0a1628 !important;
+}
+nav .logo span { color: #00b8a2 !important; }
+
+/* Nav links — never underline, correct color */
+.nav-links a {
+  text-decoration: none !important;
+  color: #505f7a !important;
+}
+.nav-links a:hover { color: #0a1628 !important; }
+.nav-links a.active { color: #0a1628 !important; font-weight: 600 !important; }
+
+/* Mobile drawer links — never underline */
+.mobile-nav-drawer a {
+  text-decoration: none !important;
+  color: #1a2540 !important;
+}
+.mobile-nav-drawer a:hover {
+  color: #00b8a2 !important;
+  background: #e0f7f4 !important;
+}
+
+/* WCAG underline rule — ONLY for inline body text links, NOT nav/footer/buttons */
+article a:not([class]),
+.legal-content a:not([class]),
+.review-summary a:not([class]),
+p a:not([class]):not(.logo) {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* Buttons and CTAs — never underline */
+a.nav-cta,
+a.contact-btn,
+a.review-cta,
+a.inline-cta-btn,
+a.jump-link,
+a.related-card,
+a.sc-row,
+a.mob-cta,
+a.tp-link,
+a.related-card,
+a.blog-card,
+a.post-card {
+  text-decoration: none !important;
+}
+
+/* Page hero top padding fix — prevent dark banner overlap */
+.page-hero {
+  padding-top: 100px !important;
+}
+.post-hero {
+  padding-top: 96px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+/* ── 1. RESET ALL LINKS to no underline by default ───── */
+a { text-decoration: none !important; }
+a:hover { text-decoration: none !important; }
+
+/* ── 2. BODY INLINE LINKS — underline only in prose ──── */
+.legal-content a,
+article a,
+.review-summary a,
+.privacy-body a,
+.post-content a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* ── 3. NAV LOGO — navy, no underline ────────────────── */
+nav a.logo,
+nav .logo,
+nav a.logo:link,
+nav a.logo:visited,
+nav a.logo:hover,
+nav a.logo:active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: inline-block !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-text-fill-color: unset !important;
+}
+nav a.logo span,
+nav .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 4. FOOTER LOGO — white, no underline ────────────── */
+footer a.logo,
+footer .logo,
+.footer-brand a,
+.footer-brand a.logo,
+footer a.logo:link,
+footer a.logo:visited,
+footer a.logo:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  background: none !important;
+  border: none !important;
+}
+footer a.logo span,
+footer .logo span,
+.footer-brand .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 5. FOOTER LINKS — muted white, no underline ─────── */
+footer a:not(.logo),
+.footer-col ul a,
+.footer-col a {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+footer a:not(.logo):hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* ── 6. NAV LINKS ─────────────────────────────────────── */
+.nav-links a {
+  color: #505f7a !important;
+  text-decoration: none !important;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+}
+.nav-links .nav-cta {
+  color: white !important;
+  background: #00b8a2 !important;
+}
+
+/* ── 7. CTA BUTTONS — never underline ────────────────── */
+a.nav-cta, a.contact-btn, a.review-cta,
+a.inline-cta-btn, a.jump-link, a.sc-row,
+a.mob-cta, a.blog-card, a.post-card,
+a.related-card, a.tp-link, a.step-card,
+.toc a, .toc-box a, .breadcrumb a {
+  text-decoration: none !important;
+}
+
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+/* ╔══════════════════════════════════════════════════════╗
+   ║  FOOTER GRID — FINAL DEFINITIVE                     ║
+   ╚══════════════════════════════════════════════════════╝ */
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-areas:
+    "brand brand brand"
+    "legal compare company"
+    "bottom bottom bottom" !important;
+  gap: 0 2.5rem !important;
+  padding: 2.5rem 5% 0 !important;
+  color: rgba(255,255,255,0.35) !important;
+}
+.footer-brand {
+  grid-area: brand !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  margin-bottom: 1.5rem !important;
+}
+.footer-col:nth-of-type(1) { grid-area: legal !important; }
+.footer-col:nth-of-type(2) { grid-area: compare !important; }
+.footer-col:nth-of-type(3) { grid-area: company !important; }
+.footer-bottom {
+  grid-area: bottom !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin-top: 1.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+.footer-col h4 {
+  font-size: .70rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a,
+.footer-col a {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+}
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.30) !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "brand brand"
+      "legal compare"
+      "company company"
+      "bottom bottom" !important;
+    gap: 0 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+<style>
+@media (max-width: 640px) {
+  footer > div:first-child {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  footer > div:first-child > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  footer > div:last-child {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  /* Two-col layouts — tighten sidebar */
+  .post-wrap,
+  .blog-wrap,
+  .compare-wrap {
+    gap: 1.5rem !important;
+    padding: 2rem 4% !important;
+  }
+  .post-sidebar {
+    position: static !important;
+  }
+}
+@media (max-width: 1100px) {
+  /* Single column — covers iPad Pro 11" portrait (834px) */
+  .post-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .post-sidebar {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+  .legal-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .toc {
+    position: static !important;
+  }
+  .review-body {
+    grid-template-columns: 1fr !important;
+  }
+  .review-sidebar {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    padding: 1.25rem !important;
+  }
+  .sidebar-stat { border-bottom: none !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── PRIVACY / LEGAL PAGES — IPAD PRO FIX ──────────────
+   iPad Pro 11" portrait = 834px
+   ──────────────────────────────────────────────────────── */
+
+/* At 1100px and below: collapse TOC sidebar */
+@media (max-width: 1100px) {
+  .legal-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 2.5rem 5% 4rem !important;
+    max-width: 100% !important;
+  }
+  .toc {
+    position: static !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  /* TOC links in 2-column grid on tablet — saves vertical space */
+  .toc ul {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: .25rem .75rem !important;
+  }
+  /* Legal content full width, no overflow */
+  .legal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  /* All content elements constrained */
+  .legal-content h2,
+  .legal-content h3,
+  .legal-content p,
+  .legal-content ul,
+  .legal-content ol {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  /* Grids in content collapse */
+  .third-party-grid,
+  .rights-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Data table scroll containers */
+  .legal-content > div[style*="overflow-x"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Contact CTA full width */
+  .contact-cta {
+    box-sizing: border-box !important;
+  }
+  .contact-btn {
+    display: inline-block !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Page hero — ensure title not hidden behind nav */
+.page-hero {
+  padding-top: 100px !important;
+}
+
+/* At-a-glance strip — wrap on smaller screens */
+@media (max-width: 900px) {
+  .glance-inner {
+    flex-direction: column !important;
+    gap: .5rem !important;
+  }
+  .glance-items {
+    flex-direction: column !important;
+    gap: .35rem !important;
+  }
+  .glance-item {
+    font-size: .82rem !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+.disc-banner,
+.disclosure-banner {
+  position: sticky !important;
+  top: 64px !important;
+  z-index: 99 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 9px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+.disc-banner,
+.disclosure-banner {
+  position: fixed !important;
+  top: 64px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 98 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 8px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+}
+/* Page hero must clear nav(64px) + banner(~37px) = 101px min */
+.page-hero,
+section.page-hero {
+  padding-top: 112px !important;
+}
+.post-hero {
+  padding-top: 112px !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV OVERRIDE ─────────────────────────────── */
+@media (max-width: 1100px) {
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 4% !important; }
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV DRAWER — inline (fallback if shared.css not loaded) ── */
+.mobile-nav-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,22,40,.5); z-index: 199;
+  backdrop-filter: blur(4px);
+}
+.mobile-nav-overlay.active { display: block; }
+.mobile-nav-drawer {
+  position: fixed !important;
+  top: 0 !important; right: -100% !important; bottom: 0 !important;
+  width: min(320px, 85vw) !important;
+  z-index: 200 !important;
+  background: #fdfcfa !important;
+  padding: 1.5rem 0 !important;
+  box-shadow: -8px 0 40px rgba(10,22,40,.15) !important;
+  transition: right .3s cubic-bezier(.4,0,.2,1) !important;
+  overflow-y: auto !important;
+}
+.mobile-nav-drawer.open { right: 0 !important; }
+.mobile-nav-drawer a {
+  display: block !important;
+  padding: .85rem 5% !important;
+  font-size: 1rem !important;
+  color: #1a2540 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #f0ede8 !important;
+}
+.mobile-nav-drawer a:hover { background: #e0f7f4 !important; color: #00b8a2 !important; }
+.mobile-menu-btn {
+  display: none;
+  width: 44px; height: 44px;
+  background: #0a1628; border-radius: 10px;
+  border: none; cursor: pointer;
+  flex-direction: column; justify-content: center;
+  align-items: center; gap: 5px;
+  margin-left: auto; flex-shrink: 0;
+}
+.mobile-menu-btn span {
+  display: block; width: 20px; height: 2px;
+  background: white; border-radius: 2px;
+}
+/* ───────────────────────────────────────────────────────── */
+
+
+/* ══ DESKTOP CONSISTENCY FIX ══════════════════════════
+   Ensures all pages look correct at ≥1200px
+   ══════════════════════════════════════════════════════ */
+
+/* Standardise hero padding — clears fixed nav (64px) + breathing room */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+  padding-bottom: 56px !important;
+}
+
+/* Section padding — desktop gets generous spacing */
+@media (min-width: 1101px) {
+  .section, section.section {
+    padding: 6rem 5% !important;
+  }
+  .calc-section {
+    padding: 5rem 5% !important;
+  }
+  .email-section {
+    padding: 5rem 5% !important;
+  }
+}
+
+/* Fix 100vw causing horizontal scroll on legal pages */
+.legal-wrap, .disclosure-wrap {
+  max-width: 900px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure no element exceeds viewport */
+* { max-width: 100%; box-sizing: border-box; }
+img, table, iframe { max-width: 100%; }
+
+/* Nav links — always visible on desktop */
+@media (min-width: 1101px) {
+  #navLinks {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══ HERO PADDING — FINAL ══════════════════════════════ */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+}
+.has-disc-banner .page-hero,
+.has-disc-banner .post-hero {
+  padding-top: 112px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ── FOOTER WHITESPACE FIX ───────────────────────────── */
+html { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; }
+footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+@media (max-width: 640px) {
+  body { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  .email-section { margin-bottom: 0 !important; }
+  .trust-strip, .faq-section, .method-section { margin-bottom: 0 !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+</style>
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:#0a1628;display:inline-flex;align-items:center;">my<span style="color:#00b8a2;">HSAPath</span></a>
+  <ul class="nav-links" id="navLinks" style="display:none;">
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/compare">Compare Accounts</a></li>
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/eligible">Am I Eligible?</a></li>
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/calculator">Calculator</a></li>
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/blog">Blog</a></li>
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/about">About</a></li>
+    <li style="margin-bottom:.5rem;line-height:1.65;"><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<script>/*NAV_CONTROL*/
+(function(){
+  var nl = document.getElementById('navLinks');
+  var btn = document.getElementById('mobileMenuBtn');
+  function setNav(){
+    var w = window.innerWidth;
+    if(nl) nl.style.display = w > 1100 ? '' : 'none';
+    if(btn) btn.style.display = w <= 1100 ? 'flex' : 'none';
+  }
+  setNav();
+  window.addEventListener('resize', setNav);
+  window.addEventListener('orientationchange', function(){ setTimeout(setNav,50); });
+})();
+</script>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,22,40,.5);z-index:199;"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer" style="position:fixed;top:0;right:-100%;bottom:0;width:min(320px,85vw);z-index:200;background:#fdfcfa;padding:0;box-shadow:-8px 0 40px rgba(10,22,40,.15);transition:right .3s ease;overflow-y:auto;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem 1rem;border-bottom:1px solid #e2ddd6;margin-bottom:.5rem;">
+    <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.2rem;color:#0a1628;">my<span style="color:#00b8a2;">HSAPath</span></span>
+    <button onclick="toggleMobileMenu()" style="background:none;border:none;cursor:pointer;padding:.5rem;color:#505f7a;font-size:1.4rem;line-height:1;" aria-label="Close menu">✕</button>
+  </div>
+  <a href="/compare" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Compare Accounts</a>
+  <a href="/eligible" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Am I Eligible?</a>
+  <a href="/calculator" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Calculator</a>
+  <a href="/blog" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Blog</a>
+  <a href="/about" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">About</a>
+  <div style="padding:1rem 1.5rem;">
+    <a href="/eligible" style="display:block;padding:.85rem 1.25rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:#0a1628;text-decoration:none;background:#00b8a2;border-radius:8px;text-align:center;">Find My HSA →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-label">Legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="hero-meta">
+    <span><strong>Effective date:</strong> August 3, 2026</span>
+    <span><strong>Last updated:</strong> August 3, 2026</span>
+    <span><strong>Applies to:</strong> myhsapath.com</span>
+  </div>
+</div>
+
+<!-- AT A GLANCE STRIP -->
+<div class="glance-strip">
+  <div class="glance-inner">
+    <div class="glance-label">At a glance</div>
+    <div id="main-content" class="glance-items">
+      <span class="glance-item">✅ No cookies used for tracking</span>
+      <span class="glance-item">✅ Email only collected with consent</span>
+      <span class="glance-item">✅ We never sell your data</span>
+      <span class="glance-item">✅ Unsubscribe anytime in one click</span>
+      <span class="glance-item">✅ Analytics are privacy-friendly</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="legal-wrap" id="legalWrap" style="display:grid;grid-template-columns:200px 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;padding:4rem 5% 5rem;box-sizing:border-box;">
+
+  <!-- TOC -->
+  <aside class="toc" id="tocSidebar" style="position:sticky;top:84px;">
+    <div class="toc-title">On this page</div>
+    <ul style="margin:.5rem 0 0;padding:0;list-style:none;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#overview">Overview</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#what-we-collect">What We Collect</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#how-we-use">How We Use It</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#cookies">Cookies &amp; Tracking</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#third-parties">Third-Party Services</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#affiliate-data">Affiliate Link Data</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#data-retention">Data Retention</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#your-rights">Your Rights</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#children">Children's Privacy</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#international">International Users</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#california">California Residents</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#security">Security</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#changes">Policy Changes</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><a href="#contact">Contact Us</a></li>
+    </ul>
+    <div class="toc-note">
+      Questions? Email<br>
+      <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a><br><br>
+      Last updated August 3, 2026
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="legal-content">
+
+    <div class="box-teal">
+      <p><strong>Plain English summary:</strong> We collect your email address only when you voluntarily give it to us. We use privacy-friendly analytics that don't track you across the web. We don't use cookies for advertising. We don't sell your data to anyone. You can unsubscribe or request deletion of your data at any time.</p>
+    </div>
+
+    <!-- 1. OVERVIEW -->
+    <h2 id="overview">1. Overview</h2>
+    <p>myHSAPath.com ("myHSAPath", "we", "us", or "our") is committed to protecting the privacy of our visitors and subscribers. This Privacy Policy explains what information we collect, how we use it, who we share it with, and what rights you have over your data.</p>
+    <p>This policy applies to all information collected through our website at myhsapath.com, including our blog, comparison tools, calculators, eligibility quiz, and newsletter signup forms.</p>
+    <p>By using myHSAPath, you agree to the collection and use of information as described in this policy. If you do not agree, please do not use the Site.</p>
+
+    <!-- 2. WHAT WE COLLECT -->
+    <h2 id="what-we-collect">2. What Information We Collect</h2>
+
+    <h3>Information you provide directly</h3>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin:1.25rem 0"><table class="data-table">
+      <thead><tr><th>Data type</th><th>When collected</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Email address</td><td>Newsletter signup, quiz email gate, lead magnet forms</td><td>To send you our newsletter and HSA content</td></tr>
+        <tr><td>Quiz responses</td><td>Am I Eligible? quiz (5 questions)</td><td>To show you your eligibility result — not stored on our servers</td></tr>
+        <tr><td>Calculator inputs</td><td>HSA Tax Savings Calculator</td><td>To compute your result — processed in your browser, not transmitted to us</td></tr>
+        <tr><td>Contact messages</td><td>If you email us directly</td><td>To respond to your inquiry</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="box-navy">
+      <p><strong>Important:</strong> Quiz answers and calculator inputs are processed entirely in your browser using JavaScript. They are never sent to our servers or stored anywhere. We cannot see what you entered.</p>
+    </div>
+
+    <h3>Information collected automatically</h3>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin:1.25rem 0"><table class="data-table">
+      <thead><tr><th>Data type</th><th>Source</th><th>What it includes</th></tr></thead>
+      <tbody>
+        <tr><td>Page views</td><td>Plausible Analytics</td><td>Which pages were visited, how long, referral source</td></tr>
+        <tr><td>Device type</td><td>Plausible Analytics</td><td>Mobile vs desktop, browser type, country (not city)</td></tr>
+        <tr><td>Referral source</td><td>Plausible Analytics</td><td>Which site or search engine referred you</td></tr>
+        <tr><td>Affiliate clicks</td><td>Affiliate network (Impact.com, CJ)</td><td>Which custodian links you clicked and whether you opened an account</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>We do <strong>not</strong> collect: full IP addresses, device identifiers, precise location data, browsing history across other websites, or any sensitive personal information such as health data, financial account details, or Social Security numbers.</p>
+
+    <!-- 3. HOW WE USE IT -->
+    <h2 id="how-we-use">3. How We Use Your Information</h2>
+    <p style="margin-bottom:.5rem;">We use the information we collect for the following purposes:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Newsletter delivery:</strong> Sending our biweekly HSA newsletter and related educational content to subscribers who opted in</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Site improvement:</strong> Understanding which pages and content are most useful so we can improve the site</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Affiliate tracking:</strong> Confirming when a referred account opening occurred so we can receive the correct commission</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Legal compliance:</strong> Maintaining records required by applicable tax and business laws</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Customer support:</strong> Responding to emails and questions sent to us directly</li>
+    </ul>
+    <p>We do <strong>not</strong> use your information for targeted advertising, sell it to data brokers, share it with insurance companies or financial institutions without your consent, or use it for any automated decision-making that affects you.</p>
+
+    <!-- 4. COOKIES -->
+    <h2 id="cookies">4. Cookies &amp; Tracking Technologies</h2>
+    <div class="box-teal">
+      <p><strong>Good news:</strong> myHSAPath uses Plausible Analytics, which is a privacy-friendly analytics tool that does not use cookies and does not track visitors across websites or devices. We do not use Google Analytics, Facebook Pixel, or any other cookie-based tracking.</p>
+    </div>
+
+    <h3>What we use</h3>
+    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Plausible Analytics:</strong> Cookie-free, GDPR-compliant analytics. Plausible uses a privacy-preserving method to count unique visitors without storing any personal data or using cookies. No consent banner is required.</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Beehiiv newsletter:</strong> When you subscribe to our newsletter, Beehiiv may set a cookie to manage your subscription preferences and track email opens and clicks. You can opt out by unsubscribing.</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Affiliate network cookies:</strong> When you click an affiliate link to a custodian (Fidelity, Lively, etc.), the affiliate network (Impact.com or CJ Affiliate) may set a tracking cookie on the custodian's site to attribute the referral. This is governed by that network's and custodian's own privacy policies.</li>
+    </ul>
+
+    <h3>What we do not use</h3>
+    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;">Google Analytics or any Google tracking products</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Facebook Pixel or Meta tracking</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Advertising cookies or retargeting pixels</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Session recording tools (Hotjar, FullStory, etc.)</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Any first-party cookies for advertising purposes</li>
+    </ul>
+
+    <!-- 5. THIRD PARTIES -->
+    <h2 id="third-parties">5. Third-Party Services</h2>
+    <p>We use the following third-party services to operate myHSAPath. Each has its own privacy policy governing how it handles data:</p>
+
+    <div class="third-party-grid">
+      <div class="tp-card">
+        <div class="tp-type">Analytics</div>
+        <div class="tp-name">Plausible Analytics</div>
+        <p class="tp-desc">Privacy-friendly, cookie-free website analytics. Aggregated data only — no personal information stored. GDPR compliant by design.</p>
+        <a href="https://plausible.io/privacy" class="tp-link" target="_blank">plausible.io/privacy →</a>
+      </div>
+      <div class="tp-card">
+        <div class="tp-type">Email newsletter</div>
+        <div class="tp-name">Beehiiv</div>
+        <p class="tp-desc">Newsletter platform that stores your email address and manages subscriptions and delivery. Based in the US.</p>
+        <a href="https://www.beehiiv.com/privacy" class="tp-link" target="_blank">beehiiv.com/privacy →</a>
+      </div>
+      <div class="tp-card">
+        <div class="tp-type">Affiliate network</div>
+        <div class="tp-name">Impact.com</div>
+        <p class="tp-desc">Affiliate tracking network used to attribute referrals to HSA custodians. Tracks affiliate link clicks and conversions.</p>
+        <a href="https://impact.com/privacy-policy/" class="tp-link" target="_blank">impact.com/privacy-policy →</a>
+      </div>
+      <div class="tp-card">
+        <div class="tp-type">Affiliate network</div>
+        <div class="tp-name">CJ Affiliate (Commission Junction)</div>
+        <p class="tp-desc">Affiliate tracking network for HSA Bank and other partners. Tracks referral clicks and conversions.</p>
+        <a href="https://www.conversantmedia.com/legal/privacy" class="tp-link" target="_blank">CJ privacy policy →</a>
+      </div>
+      <div class="tp-card">
+        <div class="tp-type">Hosting</div>
+        <div class="tp-name">Netlify</div>
+        <p class="tp-desc">Website hosting platform. Netlify may log basic server access data (IP addresses in server logs) as part of standard hosting operations.</p>
+        <a href="https://www.netlify.com/privacy/" class="tp-link" target="_blank">netlify.com/privacy →</a>
+      </div>
+      <div class="tp-card">
+        <div class="tp-type">Domain registrar</div>
+        <div class="tp-name">Namecheap</div>
+        <p class="tp-desc">Domain registration for myhsapath.com. Stores registrant contact information as required by ICANN regulations.</p>
+        <a href="https://www.namecheap.com/legal/general/privacy-policy/" class="tp-link" target="_blank">namecheap.com/privacy →</a>
+      </div>
+    </div>
+
+    <p>We are not responsible for the privacy practices of these third-party services. We encourage you to review their privacy policies before using our site if you have concerns about any of them.</p>
+
+    <!-- 6. AFFILIATE DATA -->
+    <h2 id="affiliate-data">6. Affiliate Link Data</h2>
+    <p style="margin-bottom:.5rem;">myHSAPath participates in affiliate marketing programs. When you click a link to an HSA custodian on our site, the following may occur:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;">The affiliate network (Impact.com or CJ Affiliate) records the click and sets a tracking cookie on the destination site</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">If you open an account within the cookie window (typically 30–90 days), the network attributes the referral to myHSAPath and we receive a commission</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">The custodian (Fidelity, Lively, HealthEquity, etc.) receives your account application data directly — we never see your account details, SSN, financial information, or any data you provide during account opening</li>
+    </ul>
+    <div class="box-gold">
+      <p><strong>We never see your HSA account details.</strong> When you open an account through our links, all account data goes directly to the custodian. We only receive a confirmation that a qualifying referral occurred — not your name, account number, or any financial details.</p>
+    </div>
+
+    <!-- 7. DATA RETENTION -->
+    <h2 id="data-retention">7. Data Retention</h2>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;margin:1.25rem 0"><table class="data-table">
+      <thead><tr><th>Data type</th><th>Retention period</th><th>How to delete</th></tr></thead>
+      <tbody>
+        <tr><td>Email address (newsletter)</td><td>Until you unsubscribe</td><td>Click unsubscribe in any email</td></tr>
+        <tr><td>Analytics data</td><td>Retained by Plausible per their policy</td><td>N/A — anonymized, not personal</td></tr>
+        <tr><td>Affiliate click data</td><td>Per affiliate network policy (typically 24 months)</td><td>Contact the affiliate network</td></tr>
+        <tr><td>Email correspondence</td><td>Up to 3 years for business records</td><td>Email privacy@myhsapath.com</td></tr>
+        <tr><td>Quiz / calculator inputs</td><td>Never stored — browser only</td><td>N/A — nothing to delete</td></tr>
+      </tbody>
+    </table></div>
+
+    <!-- 8. YOUR RIGHTS -->
+    <h2 id="your-rights">8. Your Privacy Rights</h2>
+    <p>Depending on where you live, you may have the following rights regarding your personal data:</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="right-icon">👁️</div>
+        <div>
+          <div class="right-title">Right to access</div>
+          <p class="right-desc">Request a copy of the personal data we hold about you.</p>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-icon">✏️</div>
+        <div>
+          <div class="right-title">Right to correction</div>
+          <p class="right-desc">Request that we correct inaccurate personal data we hold about you.</p>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-icon">🗑️</div>
+        <div>
+          <div class="right-title">Right to deletion</div>
+          <p class="right-desc">Request that we delete your personal data. For newsletter subscribers, unsubscribing handles this automatically.</p>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-icon">📦</div>
+        <div>
+          <div class="right-title">Right to portability</div>
+          <p class="right-desc">Request your personal data in a portable, machine-readable format.</p>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-icon">🚫</div>
+        <div>
+          <div class="right-title">Right to object</div>
+          <p class="right-desc">Object to processing of your personal data for direct marketing purposes.</p>
+        </div>
+      </div>
+      <div class="right-card">
+        <div class="right-icon">📧</div>
+        <div>
+          <div class="right-title">Unsubscribe anytime</div>
+          <p class="right-desc">Every newsletter email contains a one-click unsubscribe link. No confirmation required.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>To exercise any of these rights, email us at <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a> with "Privacy Request" in the subject line. We will respond within 30 days. We may need to verify your identity before processing certain requests.</p>
+
+    <!-- 9. CHILDREN -->
+    <h2 id="children">9. Children's Privacy</h2>
+    <p>myHSAPath is not directed at children under the age of 13, and we do not knowingly collect personal information from children under 13. HSA accounts require adult legal capacity to open, and our content is designed for adults managing their own health and financial decisions.</p>
+    <p>If you believe we have inadvertently collected information from a child under 13, please contact us immediately at <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a> and we will delete it promptly.</p>
+
+    <!-- 10. INTERNATIONAL -->
+    <h2 id="international">10. International Users &amp; Cross-Border Data Transfers</h2>
+    <p>myHSAPath is operated from Canada and primarily serves users in the United States. By using our site, your information may be transferred to, stored, and processed in Canada, the United States, or other countries where our service providers operate.</p>
+
+    <h3>For European Union / EEA users (GDPR)</h3>
+    <p style="margin-bottom:.5rem;">If you are located in the European Union or European Economic Area, you have additional rights under the General Data Protection Regulation (GDPR). Our legal basis for processing your personal data is:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Consent</strong> — for newsletter subscriptions and email communications</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Legitimate interests</strong> — for privacy-friendly analytics to improve our site</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Contract performance</strong> — where we need to process data to fulfill a service you requested</li>
+    </ul>
+    <p>You have the right to lodge a complaint with your local data protection authority if you believe your rights have been violated.</p>
+
+    <h3>For Canadian users (PIPEDA)</h3>
+    <p>As a Canadian-operated site, we comply with the Personal Information Protection and Electronic Documents Act (PIPEDA). We collect only the minimum personal information necessary and obtain meaningful consent before collecting email addresses. You have the right to access and correct your personal information held by us.</p>
+
+    <!-- 11. CALIFORNIA -->
+    <h2 id="california">11. California Residents (CCPA)</h2>
+    <p style="margin-bottom:.5rem;">If you are a California resident, the California Consumer Privacy Act (CCPA) gives you specific rights regarding your personal information:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Right to know:</strong> You can request information about the personal data we collect, use, disclose, and sell (we do not sell personal data)</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Right to delete:</strong> You can request deletion of personal data we have collected from you</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Right to opt-out of sale:</strong> We do not sell personal information — no opt-out is needed</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising your CCPA rights</li>
+    </ul>
+    <p>To exercise your California privacy rights, email <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a> with "California Privacy Request" in the subject line.</p>
+
+    <!-- 12. SECURITY -->
+    <h2 id="security">12. Data Security</h2>
+    <p style="margin-bottom:.5rem;">We take reasonable technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;">HTTPS encryption on all pages of the site (SSL/TLS)</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Secure, reputable third-party processors for email (Beehiiv) and hosting (Netlify)</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">Minimal data collection — we only collect what we need</li>
+      <li style="margin-bottom:.5rem;line-height:1.65;">No storage of financial data, account numbers, or sensitive personal information</li>
+    </ul>
+    <p>However, no method of transmission over the internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+    <p>In the event of a data breach that affects your personal information, we will notify affected users as required by applicable law.</p>
+
+    <!-- 13. CHANGES -->
+    <h2 id="changes">13. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will update the "Last Updated" date at the top of this page.</p>
+    <p>For significant changes, we will notify newsletter subscribers by email. Your continued use of myHSAPath after any changes constitutes your acceptance of the updated policy.</p>
+    <p>We encourage you to review this policy periodically. Previous versions are available upon request.</p>
+
+    <!-- 14. CONTACT -->
+    <h2 id="contact">14. Contact Us</h2>
+    <p style="margin-bottom:.5rem;">If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <ul    <ul style="margin:.5rem 0 1.25rem 1.25rem;padding:0;list-style:disc;">
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Privacy requests:</strong> <a href="mailto:privacy@myhsapath.com">privacy@myhsapath.com</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>General inquiries:</strong> <a href="mailto:editorial@myhsapath.com">editorial@myhsapath.com</a></li>
+      <li style="margin-bottom:.5rem;line-height:1.65;"><strong>Response time:</strong> We aim to respond to all privacy inquiries within 30 days</li>
+    </ul>
+
+
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#070f1e;font-family:'DM Sans',Arial,sans-serif;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;padding:2.5rem 5% 0;">
+
+    <!-- TOP ROW: brand full width -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:white;display:inline-block;margin-bottom:.6rem;">my<span style="color:#00b8a2;">HSAPath</span></a>
+      <p style="font-size:.8rem;color:rgba(255,255,255,0.3);line-height:1.6;margin:0;max-width:320px;">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+    </div>
+
+    <!-- NAV COLS: 3 columns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- Legal -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Legal</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/terms" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Terms &amp; Conditions</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/advertiser-disclosure" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Advertiser Disclosure</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/privacy" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <!-- Compare -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Compare</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/compare" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Best HSA Accounts</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/eligible" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Am I Eligible?</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/calculator" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Calculator</a></li>
+        </ul>
+      </div>
+      <!-- Company -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Company</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/about" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">About</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/blog" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP -->
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.25rem 0 1.75rem;">
+      <p style="font-size:.72rem;color:rgba(255,255,255,0.18);margin:0 0 .4rem;">&#169; 2026 myHSAPath. All rights reserved.</p>
+      <p style="font-size:.70rem;color:rgba(255,255,255,0.14);line-height:1.6;margin:0;">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('mobileOverlay');
+
+  if (!btn || !drawer || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  overlay.addEventListener('click', function() {
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
+
+
+
+<script>
+(function() {
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
+
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  }
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
+</script>
+</body>
+</html>

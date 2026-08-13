@@ -1,0 +1,257 @@
+/*
+ * shared.css — myHSAPath design system
+ * Single source of truth for all shared styles
+ * Generated from page audit — replaces duplicate blocks in all 10 HTML files
+ *
+ * DESIGN TOKENS
+ * --navy:   #0a1628   (dark navy — primary brand)
+ * --teal:   #00b8a2   (teal — accent/CTA)
+ * --cream:  #f7f4ef   (warm cream — section bg)
+ * --warm-white: #fdfcfa (near-white — default bg)
+ * --muted:  #505f7a   (muted text)
+ * --footer: #070f1e   (footer bg)
+ * --nav-h:  64px      (fixed nav height)
+ */
+
+/* ─────────────────────────────────────────────────────────
+   1. RESET & BASE
+   ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { color-scheme: light; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: #fdfcfa;
+  color: #1a2540;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   2. DESIGN TOKENS (CSS custom properties)
+   ───────────────────────────────────────────────────────── */
+:root {
+  --navy:       #0a1628;
+  --teal:       #00b8a2;
+  --teal-dark:  #007a6e;
+  --cream:      #f7f4ef;
+  --warm-white: #fdfcfa;
+  --muted:      #505f7a;
+  --border:     #e2ddd6;
+  --footer-bg:  #070f1e;
+  --nav-h:      64px;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   3. NAV
+   ───────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 5%;
+  background: rgba(253,252,250,.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+nav a.logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900; font-size: 1.35rem;
+  letter-spacing: -.5px;
+  text-decoration: none; color: var(--navy);
+  display: inline-flex; align-items: center;
+}
+nav a.logo span { color: var(--teal); }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; margin-left: auto; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: .88rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--navy); }
+.nav-cta { background: var(--teal) !important; color: var(--navy) !important; padding: .5rem 1.2rem; border-radius: var(--radius-sm); font-weight: 600 !important; }
+.mobile-menu-btn { display: none; }
+
+/* ─────────────────────────────────────────────────────────
+   4. MOBILE NAV DRAWER
+   ───────────────────────────────────────────────────────── */
+.mobile-nav-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,22,40,.5); z-index: 199;
+  backdrop-filter: blur(4px);
+}
+.mobile-nav-overlay.active { display: block; }
+.mobile-nav-drawer {
+  position: fixed; top: 0; right: -100%; bottom: 0;
+  width: min(320px, 85vw); z-index: 200;
+  background: #fdfcfa; padding: 1.5rem 0;
+  box-shadow: -8px 0 40px rgba(10,22,40,.15);
+  transition: right .3s cubic-bezier(.4,0,.2,1);
+  overflow-y: auto;
+}
+.mobile-nav-drawer.open { right: 0; }
+.mobile-nav-drawer a {
+  display: block; padding: .85rem 5%;
+  font-size: 1rem; color: #1a2540;
+  text-decoration: none; transition: background .15s, color .15s;
+}
+.mobile-nav-drawer a:hover { background: #e0f7f4; color: var(--teal); }
+.mobile-menu-btn {
+  display: none; flex-direction: column;
+  justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: .5rem; margin-left: auto;
+  width: 44px; height: 44px;
+}
+.mobile-menu-btn span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+  transition: all .25s;
+}
+
+/* ─────────────────────────────────────────────────────────
+   5. BUTTONS
+   ───────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex; align-items: center;
+  background: var(--teal); color: var(--navy) !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; font-weight: 700;
+  padding: .85rem 1.75rem; border: none;
+  border-radius: var(--radius-sm); cursor: pointer;
+  text-decoration: none; transition: all .2s;
+}
+.btn-primary:hover { background: #00a090; }
+.btn-secondary {
+  display: inline-flex; align-items: center;
+  background: rgba(255,255,255,.1); color: white !important;
+  -webkit-text-fill-color: white !important;
+  border: 1.5px solid rgba(255,255,255,.3);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; font-weight: 600;
+  padding: .85rem 1.75rem;
+  border-radius: var(--radius-sm); cursor: pointer;
+  text-decoration: none; transition: all .2s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,.18); }
+
+/* ─────────────────────────────────────────────────────────
+   6. LOGO (both nav and footer)
+   ───────────────────────────────────────────────────────── */
+a.logo, .logo {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
+  border-bottom: none !important;
+}
+nav a.logo, nav .logo,
+nav a.logo:link, nav a.logo:visited,
+nav a.logo:hover, nav a.logo:active {
+  color: var(--navy) !important;
+  -webkit-text-fill-color: var(--navy) !important;
+}
+footer a.logo, footer .logo,
+footer a.logo:link, footer a.logo:visited,
+footer a.logo:hover {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+a.logo span, .logo span { color: var(--teal) !important; }
+
+/* ─────────────────────────────────────────────────────────
+   7. PAGE HERO (dark — used on most pages)
+   ───────────────────────────────────────────────────────── */
+.page-hero, .post-hero {
+  background: var(--navy);
+  padding: 80px 5% 48px;
+  position: relative; overflow: hidden;
+}
+.page-hero h1, .post-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900; color: white;
+  letter-spacing: -1px; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.page-hero h1 em, .post-hero h1 em { color: var(--teal); font-style: italic; }
+.page-hero p, .post-hero p { color: rgba(255,255,255,.65); }
+.hero-label, .hero-eyebrow, .section-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   8. BACKGROUNDS (section-level)
+   ───────────────────────────────────────────────────────── */
+body, html { background: var(--warm-white); }
+.section { background: var(--warm-white); }
+.cream-section, .calc-section { background: var(--cream); }
+.dark-section, .stats-bar, .email-section,
+.verdict-bar, .contact-cta, .stats-card { background: var(--navy); }
+
+/* ─────────────────────────────────────────────────────────
+   9. LINKS
+   ───────────────────────────────────────────────────────── */
+a { text-decoration: none; color: inherit; }
+/* Inline prose links */
+article a, .legal-content a, .post-content a, .privacy-body a {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Nav and footer links — never underline */
+nav a, footer a, .toc a, .breadcrumb a,
+.jump-link, .blog-card, .post-card { text-decoration: none !important; }
+footer a:not(.logo) { color: rgba(255,255,255,.35); }
+footer a:not(.logo):hover { color: var(--teal); }
+
+/* ─────────────────────────────────────────────────────────
+   10. FOCUS (WCAG 2.2)
+   ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────
+   11. DISCLOSURE BANNER
+   ───────────────────────────────────────────────────────── */
+.disc-banner {
+  background: #0d2040;
+  border-bottom: 1px solid rgba(0,184,162,.2);
+  padding: 8px 5%;
+  display: flex; align-items: center; gap: 8px;
+  font-size: .76rem; color: rgba(255,255,255,.55);
+}
+.disc-banner a { color: var(--teal); text-decoration: none; }
+
+/* ─────────────────────────────────────────────────────────
+   12. RESPONSIVE — MOBILE (≤640px)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  nav { padding: 0 4% !important; }
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+  .page-hero, .post-hero { padding: 80px 5% 2.5rem !important; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   13. RESPONSIVE — TABLET / IPAD PRO (≤1100px)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+  .two-col { grid-template-columns: 1fr !important; }
+  .legal-wrap { grid-template-columns: 1fr !important; }
+  .toc { position: static !important; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   14. HORIZONTAL SCROLL FIX
+   ───────────────────────────────────────────────────────── */
+html, body { max-width: 100vw; overflow-x: hidden; }
+* { max-width: 100%; }
+img, video, iframe, table { max-width: 100%; }

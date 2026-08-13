@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Am I HSA Eligible in 2026? Take the 60-Second Quiz | myHSAPath</title>
+<meta name="description" content="Find out if you qualify for an HSA in 2026. With ACA changes making all Bronze plans eligible, millions more Americans now qualify. Take our free 60-second quiz.">
+<link rel="stylesheet" href="/shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   VARIABLES & RESET
+============================================ */
+:root {
+  --navy:       #0a1628;
+  --teal:       #00b8a2;
+  --teal-light: #e0f7f4;
+  --cream:      #f7f4ef;
+  --warm-white: #fdfcfa;
+  --gold:       #e8a020;
+  --text:       #1a2540;
+  --muted:      #6b7a99;
+  --border:     #e2ddd6;
+  --red:        #e05252;
+  --red-light:  #fef2f2;
+  --green:      #00b8a2;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #fdfcfa;
+  color: #1a2540;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAV
+============================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,252,250,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e2ddd6;
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 5%; justify-content: space-between;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: #505f7a;
+  font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: #0a1628; }
+.nav-links a.active { color: #0a1628; font-weight: 600; }
+.nav-cta {
+  background: #00b8a2; color: white !important;
+  padding: 0.5rem 1.2rem; border-radius: var(--radius-sm);
+  font-weight: 600 !important; transition: all 0.2s !important;
+}
+.nav-cta:hover { background: #0a1628 !important; }
+.mobile-menu-btn {
+  display: none; width: 36px; height: 36px;
+  background: #0a1628; border-radius: 8px;
+  flex-direction: column; justify-content: center;
+  align-items: center; gap: 4px; border: none; cursor: pointer;
+}
+.mobile-menu-btn span { display: block; width: 16px; height: 2px; background: white; border-radius: 2px; }
+
+/* ============================================
+   PAGE HERO
+============================================ */
+.page-hero {
+  padding: 100px 5% 48px;
+  text-align: center;
+  background: #fdfcfa;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,184,162,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #e0f7f4;
+  border: 1px solid rgba(0,184,162,0.25);
+  color: #007a6e; font-size: 0.72rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.live-dot {
+  width: 6px; height: 6px; background: #00b8a2;
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900; line-height: 1.1;
+  letter-spacing: -1.2px; color: #0a1628;
+  margin-bottom: 1rem;
+}
+.page-hero h1 em { font-style: italic; color: #00b8a2; }
+.page-hero p {
+  font-size: 1rem; color: #505f7a;
+  max-width: 500px; margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.hero-stats {
+  display: flex; justify-content: center;
+  gap: 2rem; flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: #505f7a;
+}
+.hero-stat strong { color: #1a2540; font-weight: 600; }
+
+/* ============================================
+   QUIZ WRAPPER
+============================================ */
+.quiz-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 5% 5rem;
+}
+
+/* ============================================
+   PROGRESS BAR
+============================================ */
+.progress-wrap {
+  margin-bottom: 2.5rem;
+}
+.progress-top {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 10px;
+}
+.progress-label {
+  font-size: 0.8rem; font-weight: 600; color: #505f7a;
+}
+.progress-count {
+  font-size: 0.8rem; color: #505f7a;
+}
+.progress-count span { color: #00b8a2; font-weight: 700; }
+.progress-track {
+  height: 6px; background: #e2ddd6;
+  border-radius: 100px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: #00b8a2;
+  border-radius: 100px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.step-dots {
+  display: flex; justify-content: center;
+  gap: 8px; margin-top: 12px;
+}
+.step-dot {
+  width: 8px; height: 8px;
+  border-radius: 100px; background: #e2ddd6;
+  transition: all 0.3s;
+}
+.step-dot.active { background: #00b8a2; width: 24px; }
+.step-dot.done { background: #00b8a2; opacity: 0.4; }
+
+/* ============================================
+   QUESTION CARD
+============================================ */
+.question-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #e2ddd6;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+  display: none;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.question-card.active { display: block; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideBack {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.question-card.back { animation: slideBack 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.q-number {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #00b8a2; margin-bottom: 0.75rem;
+}
+.q-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700; color: #0a1628;
+  line-height: 1.25; margin-bottom: 0.6rem;
+  letter-spacing: -0.3px;
+}
+.q-hint {
+  font-size: 0.85rem; color: #505f7a;
+  line-height: 1.6; margin-bottom: 2rem;
+}
+.q-hint a { color: #00b8a2; text-decoration: none; }
+
+/* ============================================
+   ANSWER OPTIONS
+============================================ */
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.option {
+  display: flex; align-items: center; gap: 14px;
+  padding: 1rem 1.25rem;
+  background: white; border: 1.5px solid #e2ddd6;
+  border-radius: var(--radius-md); cursor: pointer;
+  transition: all 0.2s; position: relative;
+  text-align: left; width: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+.option:hover {
+  border-color: #00b8a2;
+  background: #e0f7f4;
+  transform: translateX(4px);
+}
+.option.selected {
+  border-color: #00b8a2;
+  background: #e0f7f4;
+}
+.option.selected .opt-radio {
+  background: #00b8a2;
+  border-color: #00b8a2;
+}
+.option.selected .opt-radio::after { opacity: 1; }
+
+.opt-radio {
+  width: 20px; height: 20px;
+  border-radius: 50%; border: 2px solid #e2ddd6;
+  background: white; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+}
+.opt-radio::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%; background: white;
+  opacity: 0; transition: opacity 0.2s;
+}
+
+.opt-content { flex: 1; }
+.opt-label {
+  font-weight: 600; font-size: 0.92rem;
+  color: #0a1628; display: block;
+}
+.opt-sub {
+  font-size: 0.78rem; color: #505f7a;
+  margin-top: 2px; display: block;
+}
+
+.opt-icon {
+  font-size: 1.4rem; flex-shrink: 0;
+  width: 36px; text-align: center;
+}
+
+/* ============================================
+   NAV BUTTONS
+============================================ */
+.quiz-nav {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-top: 1.75rem;
+  gap: 12px;
+}
+.btn-back {
+  background: none; border: 1.5px solid #e2ddd6;
+  color: #505f7a; padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-back:hover { border-color: #0a1628; color: #0a1628; }
+.btn-back:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-next {
+  background: #00b8a2; color: white;
+  padding: 0.85rem 2rem; border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
+  flex: 1; justify-content: center;
+  max-width: 260px;
+}
+.btn-next:hover:not(:disabled) {
+  background: #009b87;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,184,162,0.3);
+}
+.btn-next:disabled {
+  background: #e2ddd6; color: #505f7a;
+  cursor: not-allowed; transform: none; box-shadow: none;
+}
+
+/* ============================================
+   EMAIL GATE (before results)
+============================================ */
+.email-gate {
+  display: none;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #e2ddd6;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+  text-align: center;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.email-gate.active { display: block; }
+
+.gate-icon { font-size: 3rem; margin-bottom: 1rem; }
+.gate-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: #0a1628; margin-bottom: 0.6rem;
+  letter-spacing: -0.5px;
+}
+.gate-sub {
+  font-size: 0.9rem; color: #505f7a;
+  max-width: 380px; margin: 0 auto 1.75rem;
+  line-height: 1.7;
+}
+.gate-form {
+  display: flex; flex-direction: column;
+  gap: 10px; max-width: 340px; margin: 0 auto;
+}
+.gate-input {
+  width: 100%; padding: 13px 16px;
+  border: 1.5px solid #e2ddd6;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: #1a2540;
+  outline: none; transition: border-color 0.2s;
+  background: #f7f4ef;
+}
+.gate-input:focus { border-color: #00b8a2; background: white; }
+.gate-btn {
+  width: 100%; padding: 14px;
+  background: #00b8a2; color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.gate-btn:hover { background: #009b87; transform: translateY(-1px); }
+.gate-skip {
+  font-size: 0.78rem; color: #505f7a;
+  margin-top: 0.5rem; cursor: pointer;
+  background: none; border: none;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.gate-skip:hover { color: #1a2540; }
+.gate-note {
+  font-size: 0.72rem; color: #505f7a;
+  margin-top: 0.75rem;
+}
+
+/* ============================================
+   RESULTS — ELIGIBLE
+============================================ */
+.result-card {
+  display: none;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.result-card.active { display: block; }
+
+/* ELIGIBLE RESULT */
+.result-eligible {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid #00b8a2;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #00b8a2, 0 20px 60px rgba(0,184,162,0.12);
+}
+
+.result-hero {
+  background: linear-gradient(135deg, #0a1628 0%, #0d2a3e 100%);
+  padding: 2.5rem 2.5rem 2rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.result-hero::before {
+  content: '';
+  position: absolute; top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 300px; height: 200px;
+  background: radial-gradient(ellipse, rgba(0,184,162,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.result-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,184,162,0.15);
+  border: 1px solid rgba(0,184,162,0.3);
+  color: #00b8a2; font-size: 0.8rem; font-weight: 700;
+  padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 1rem; letter-spacing: 0.5px;
+}
+.result-icon { font-size: 3.5rem; margin-bottom: 0.75rem; display: block; }
+.result-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 900; color: white;
+  letter-spacing: -0.75px; margin-bottom: 0.6rem;
+  line-height: 1.15;
+}
+.result-headline em { color: #00b8a2; font-style: italic; }
+.result-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.6);
+  line-height: 1.7; max-width: 440px; margin: 0 auto;
+}
+
+.result-savings {
+  background: rgba(0,184,162,0.08);
+  border: 1px solid rgba(0,184,162,0.2);
+  border-radius: 12px; padding: 1rem 1.5rem;
+  margin-top: 1.5rem; display: inline-block;
+}
+.savings-label {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: rgba(255,255,255,0.5); margin-bottom: 4px;
+}
+.savings-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: #00b8a2;
+  line-height: 1;
+}
+.savings-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+/* NEXT STEPS */
+.next-steps {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid #e2ddd6;
+}
+.next-steps-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: #505f7a; margin-bottom: 1.25rem;
+}
+.step-row {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 1.1rem;
+}
+.step-row:last-child { margin-bottom: 0; }
+.step-num-circle {
+  width: 28px; height: 28px;
+  background: #00b8a2; color: white;
+  border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700;
+}
+.step-row-content { flex: 1; }
+.step-row-title { font-weight: 600; font-size: 0.9rem; color: #0a1628; margin-bottom: 2px; }
+.step-row-sub { font-size: 0.8rem; color: #505f7a; line-height: 1.5; }
+
+/* RECOMMENDED CUSTODIANS */
+.recommend-section {
+  padding: 2rem 2.5rem;
+}
+.rec-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: #505f7a; margin-bottom: 1.25rem;
+}
+.rec-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.rec-card {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid #e2ddd6;
+  border-radius: var(--radius-md);
+  transition: all 0.2s; gap: 12px;
+}
+.rec-card:hover { border-color: #00b8a2; background: #fafffe; }
+.rec-card.top-rec { border-color: #00b8a2; background: #e0f7f4; }
+
+.rec-left { display: flex; align-items: center; gap: 12px; }
+.rec-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 800; color: white; flex-shrink: 0;
+}
+.rec-name { font-weight: 700; font-size: 0.92rem; color: #0a1628; }
+.rec-reason { font-size: 0.75rem; color: #505f7a; margin-top: 2px; }
+.rec-rating {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: #0a1628; white-space: nowrap;
+}
+.rec-cta {
+  background: #0a1628; color: white;
+  padding: 7px 16px; border-radius: 7px;
+  font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.2s;
+}
+.rec-cta:hover { background: #00b8a2; }
+.rec-card.top-rec .rec-cta { background: #00b8a2; }
+.rec-card.top-rec .rec-cta:hover { background: #009b87; }
+
+/* NOT ELIGIBLE RESULT */
+.result-not-eligible {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid #e2ddd6;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+}
+
+.not-elig-hero {
+  background: #fdfcfa !important;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border-bottom: 1.5px solid #e2ddd6;
+}
+.not-elig-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.not-elig-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0a1628 !important;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.not-elig-sub {
+  font-size: 0.88rem;
+  color: #505f7a !important;
+  line-height: 1.75;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.not-elig-body { padding: 2rem 2.5rem; background: #fdfcfa !important; }
+.not-elig-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: #505f7a; margin-bottom: 1.25rem;
+}
+
+.alt-option {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 1.1rem; border: 1.5px solid #e2ddd6;
+  border-radius: var(--radius-md); margin-bottom: 10px;
+  transition: all 0.2s; cursor: pointer;
+}
+.alt-option:hover { border-color: #00b8a2; background: #fafffe; }
+.alt-icon { font-size: 1.5rem; flex-shrink: 0; }
+.alt-name { font-weight: 600; font-size: 0.9rem; color: #0a1628; margin-bottom: 3px; }
+.alt-desc { font-size: 0.8rem; color: #505f7a; line-height: 1.55; }
+
+.not-elig-cta {
+  margin-top: 1.5rem;
+  background: #0a1628; color: white;
+  padding: 14px; border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; width: 100%;
+  transition: all 0.2s;
+}
+.not-elig-cta:hover { background: #00b8a2; transform: translateY(-1px); }
+
+/* MAYBE ELIGIBLE RESULT */
+.result-maybe {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid #e8a020;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #e8a020, 0 20px 60px rgba(232,160,32,0.08);
+}
+.maybe-hero {
+  background: linear-gradient(135deg, #3d2800, #5a3c00);
+  padding: 2.5rem; text-align: center;
+}
+.maybe-icon { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
+.maybe-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: white; margin-bottom: 0.6rem;
+}
+.maybe-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.65);
+  line-height: 1.7; max-width: 400px; margin: 0 auto;
+}
+.maybe-body { padding: 2rem 2.5rem; }
+.maybe-title {
+  font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: #505f7a; margin-bottom: 1.25rem;
+}
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 0.85rem; border-radius: 10px;
+  margin-bottom: 8px; transition: background 0.15s;
+}
+.check-item:hover { background: #f7f4ef; }
+.check-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.check-text { font-size: 0.85rem; color: #1a2540; line-height: 1.6; }
+.check-text strong { color: #0a1628; }
+.maybe-cta {
+  margin-top: 1.5rem;
+  background: #e8a020; color: white;
+  padding: 14px; border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; width: 100%;
+  transition: all 0.2s;
+}
+.maybe-cta:hover { background: #c88a1a; transform: translateY(-1px); }
+
+/* ============================================
+   RESTART BUTTON
+============================================ */
+.restart-wrap {
+  text-align: center; margin-top: 1.5rem;
+}
+.btn-restart {
+  background: none; border: none;
+  color: #505f7a; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+  text-decoration: underline; text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.btn-restart:hover { color: #0a1628; }
+
+/* ============================================
+   TRUST STRIP
+============================================ */
+.trust-strip {
+  background: #f7f4ef;
+  border-top: 1px solid #e2ddd6;
+  padding: 3rem 5%;
+  margin-top: 3rem;
+}
+.trust-inner {
+  max-width: 680px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; text-align: center;
+}
+.trust-item { }
+.trust-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.trust-title { font-weight: 600; font-size: 0.88rem; color: #0a1628; margin-bottom: 3px; }
+.trust-desc { font-size: 0.78rem; color: #505f7a; line-height: 1.6; }
+
+/* ============================================
+   FOOTER
+============================================ */
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 640px) {
+  nav { padding: 0 4%; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .page-hero {background:#fdfcfa; padding: 84px 4% 36px; }
+  .page-hero h1 { font-size: 1.8rem; letter-spacing: -0.5px; }
+  .hero-stats { flex-direction: column; gap: 8px; align-items: center; }
+
+  .quiz-wrap { padding: 1.5rem 4% 4rem; }
+  .question-card { padding: 1.5rem; }
+  .result-hero { padding: 1.75rem 1.5rem 1.5rem; }
+  .next-steps { padding: 1.5rem; }
+  .recommend-section { padding: 1.5rem; }
+  .not-elig-body { padding: 1.5rem; }
+  .maybe-body { padding: 1.5rem; }
+
+  .rec-card { flex-wrap: wrap; }
+  .rec-rating { display: none; }
+
+  .trust-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  
+  
+}
+
+/* ═══════════════════════════════════════════════════════
+   UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
+   ═══════════════════════════════════════════════════════ */
+html, body {
+  background-color: #fdfcfa !important;
+  color: #1a2540 !important;
+}
+
+/* All sections default to warm white unless explicitly dark */
+section, main, article, aside, header, div {
+  color: inherit;
+}
+
+/* Light sections — explicit backgrounds */
+.section,
+.hero,
+.page-hero ~ section,
+.about-wrap,
+.legal-wrap,
+.disclosure-wrap,
+.post-wrap,
+.calc-main,
+.blog-main,
+.method-section,
+.faq-section ~ section,
+.compare-section,
+.trust-strip,
+.steps-section,
+.related-posts,
+.blog-section,
+.not-elig-body,
+.maybe-body,
+.quiz-wrap,
+.calc-text {
+  background-color: #fdfcfa !important;
+}
+
+/* Cream sections */
+.calc-section,
+.reviews-section,
+.cream-section,
+.faq-section,
+.sidebar-newsletter,
+.toc-box {
+  background-color: #f7f4ef !important;
+}
+
+/* Dark sections stay dark */
+.stats-bar,
+.stats-strip,
+.verdict-bar,
+.email-section,
+.result-hero,
+.disc-banner,
+.stats-card,
+.contact-cta,
+.sidebar-calc {
+  background-color: #0a1628 !important;
+}
+
+/* Not-eligible and maybe results — light, constructive feel */
+.not-elig-hero {
+  background-color: #fdfcfa !important;
+}
+.not-elig-hero .not-elig-headline,
+.not-elig-hero .not-elig-sub {
+  color: #0a1628 !important;
+}
+.maybe-hero {
+  background-color: #fdfcfa !important;
+}
+
+/* White cards always white */
+.review-card,
+.method-card,
+.step-card,
+.blog-card,
+.post-card,
+.related-card,
+.rec-card,
+.tp-card,
+.value-card,
+.promise-card,
+.right-card,
+.money-row,
+.faq-item,
+.alt-option,
+.check-item,
+.toc,
+.sidebar-card,
+.calc-box,
+.calc-card,
+.hero-card,
+.question-card,
+.email-gate,
+.result-eligible,
+.result-not-eligible,
+.result-maybe {
+  background-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════ */
+.page-hero { background-color: #fdfcfa !important; color: #1a2540 !important; }
+
+.page-hero .breadcrumb a { color: #00b8a2 !important; }
+.page-hero .breadcrumb span { color: #505f7a !important; }
+.page-hero .hero-eyebrow { color: #007a6e !important; }
+
+
+@media (max-width: 768px) {
+  .disc-banner,
+  .disclosure-banner {
+    padding: 7px 4% !important;
+    flex-wrap: wrap !important;
+  }
+  .disc-banner p,
+  .banner-text {
+    font-size: .72rem !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+  }
+  /* Shorten the banner text on mobile using CSS truncation */
+  .disc-banner .mobile-hide,
+  .banner-text .mobile-hide {
+    display: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+.contact-btn-secondary,
+.contact-btn-secondary:hover {
+  color: white !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1.5px solid rgba(255,255,255,.3) !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════
+   WCAG 2.2 COMPLIANCE FIXES
+   ══════════════════════════════════════════════════════
+
+   1. Teal inline links — darken to #007a6e (4.6:1 on white) ✅
+   2. Focus indicators — visible on all interactive elements
+   3. Min touch target 24x24px (WCAG 2.5.8)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Teal inline links — #007a6e passes AA on white AND cream */
+a:not(a:not(/* Keep teal (#00b8a2) only on dark navy backgrounds where it passes */
+.disc-banner a,
+.email-section a,
+.stats-bar a,
+.verdict-bar a,
+.post-hero a,
+.page-hero a,
+.result-hero a,
+nav a:hover,
+.mobile-nav-drawer a:hover,
+.toc ul a,
+.toc-box ol a {
+  color: #00b8a2 !important;
+}
+
+/* 2. Focus indicators — WCAG 2.4.11 (Focus Appearance) */
+*:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+  border-radius: 3px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Minimum touch target size — WCAG 2.5.8 (24x24px minimum) */
+button,
+.nav-cta,
+.contact-btn,
+.review-cta,
+.inline-cta-btn,
+.jump-link,
+.mob-cta,
+.faq-item,
+.related-card,
+.mob-card,
+.sc-row {
+  min-height: 44px;
+}
+nav .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.mobile-nav-drawer a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 4. Don't rely solely on color for information */
+a:not([class]):not(.logo) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 5%;
+  background: #007a6e;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0 !important;
+}
+
+/* ── DECORATIVE NUMBERS VISIBILITY FIX ──────────────── */
+.step-num,
+.card-num,
+.step-number,
+.card-number {
+  color: #9aaabe !important;
+  opacity: 1 !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+.trust-strip {
+  background-color: #f7f4ef !important;
+  border-top: 1.5px solid #e2ddd6 !important;
+  border-bottom: none !important;
+}
+.trust-strip * {
+  color: inherit !important;
+}
+.trust-title {
+  color: #0a1628 !important;
+  font-weight: 700 !important;
+}
+.trust-desc {
+  color: #505f7a !important;
+}
+.trust-icon {
+  color: inherit !important;
+}
+
+.email-section {
+  background-color: #0a1628 !important;
+  border-bottom: 3px solid #00b8a2 !important;
+}
+
+/* ────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  
+
+  
+
+}
+/* ────────────────────────────────────────────────────── */
+
+nav a.logo,
+nav a.logo:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* Brand col */
+
+/* Nav columns */
+
+/* Copyright strip — spans ALL columns, sits in row 2 */
+
+@media (max-width: 768px) {
+}
+/* ════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+}
+
+/* ═══ FOOTER ═══ */
+.footer-brand .logo,
+footer .logo,
+footer a.logo,
+.footer-brand a.logo,
+.footer-brand .logo:hover,
+footer .logo:hover,
+footer a.logo:hover,
+.footer-brand a.logo:hover {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  display: block !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  margin-bottom: 0.6rem !important;
+}
+footer .logo span,
+.footer-brand .logo span { color: #00b8a2 !important; }
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.3) !important;
+  line-height: 1.6 !important;
+}
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.35) !important;
+  transition: color .2s !important;
+}
+.footer-col ul a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+footer {
+  background-color: #070f1e !important;
+  padding: 3rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  border-top: 3px solid #00b8a2 !important;
+  overflow: hidden !important;
+}
+.footer-brand { grid-column: 1 !important; }
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background-color: #070f1e !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.5rem !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,.2) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,.15) !important;
+  line-height: 1.6 !important;
+  max-width: 560px !important;
+}
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 2rem 5% 0 !important;
+    gap: 1.75rem 1.5rem !important;
+  }
+  .footer-brand { grid-column: 1 / -1 !important; }
+  .footer-bottom {
+    grid-column: 1 / -1 !important;
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.25rem !important;
+  }
+  .footer-copy,
+  .footer-disclaimer {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+/* ═══ END FOOTER ═══ */
+
+/* ═══ LOGO BASE — ALWAYS LAST ═══ */
+/* Covers nav logo on light bg and footer logo on dark bg */
+a.logo,
+a.logo:link,
+a.logo:visited,
+a.logo:hover,
+a.logo:active,
+.logo,
+nav .logo,
+nav a.logo,
+.footer-brand .logo,
+footer a.logo {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  -webkit-text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  cursor: pointer !important;
+}
+
+/* Nav logo — navy on light background */
+nav a.logo,
+nav .logo {
+  color: #0a1628 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Footer logo — white on dark background */
+footer a.logo,
+footer .logo,
+.footer-brand a.logo,
+.footer-brand .logo {
+  color: white !important;
+  display: block !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Teal span inside logo — both contexts */
+a.logo span,
+.logo span {
+  color: #00b8a2 !important;
+}
+/* ═══ END LOGO BASE ═══ */
+
+/* Footer grid — logo spans full width on its own row */
+footer {
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  padding-bottom: 0 !important;
+}
+
+.footer-brand {
+  grid-column: 1 / -1 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Footer bottom — full-width strip, no card, no border, no box */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 1rem 0 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.22) !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+    padding: 1rem 0 1.5rem !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════
+   COMPREHENSIVE FOOTER FIX — all issues resolved
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Footer background — nuclear override */
+footer,
+footer *:not(a):not(span):not(h4) {
+  box-sizing: border-box !important;
+}
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  padding: 2.5rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  color: rgba(255,255,255,0.3) !important;
+}
+
+/* 2. Footer links — white-ish, no underline, no browser blue */
+footer a,
+footer a:link,
+footer a:visited,
+footer a:hover,
+.footer-col a,
+.footer-col a:link,
+.footer-col a:visited {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+  font-size: .8rem !important;
+  transition: color .2s !important;
+}
+footer a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* 3. Footer logo — white, no underline */
+footer .logo,
+footer a.logo,
+footer .logo:hover,
+.footer-brand .logo,
+.footer-brand a.logo {
+  color: white !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: block !important;
+  margin-bottom: .6rem !important;
+}
+.footer-brand .logo span,
+footer .logo span {
+  color: #00b8a2 !important;
+}
+
+/* 4. Footer section headings */
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+
+/* 5. Footer description text */
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.3) !important;
+  line-height: 1.6 !important;
+}
+
+/* 6. Footer list reset */
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li {
+  margin-bottom: .45rem !important;
+}
+
+/* 7. Footer bottom strip — seamless, no card */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 2rem 0 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+  text-decoration: none !important;
+}
+
+/* 8. Mobile footer */
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+    padding-bottom: 1.25rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.5rem !important;
+    margin: 1rem 0 0 !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════
+   NAV + GLOBAL LINK FIXES
+   ══════════════════════════════════════════════════════ */
+
+/* Nav logo — never underline */
+nav .logo,
+nav a.logo,
+nav .logo:hover,
+nav a.logo:hover {
+  text-decoration: none !important;
+  color: #0a1628 !important;
+}
+nav .logo span { color: #00b8a2 !important; }
+
+/* Nav links — never underline, correct color */
+.nav-links a {
+  text-decoration: none !important;
+  color: #505f7a !important;
+}
+.nav-links a:hover { color: #0a1628 !important; }
+.nav-links a.active { color: #0a1628 !important; font-weight: 600 !important; }
+
+/* Mobile drawer links — never underline */
+.mobile-nav-drawer a {
+  text-decoration: none !important;
+  color: #1a2540 !important;
+}
+.mobile-nav-drawer a:hover {
+  color: #00b8a2 !important;
+  background: #e0f7f4 !important;
+}
+
+/* WCAG underline rule — ONLY for inline body text links, NOT nav/footer/buttons */
+article a:not([class]),
+.legal-content a:not([class]),
+.review-summary a:not([class]),
+p a:not([class]):not(.logo) {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* Buttons and CTAs — never underline */
+a.nav-cta,
+a.contact-btn,
+a.review-cta,
+a.inline-cta-btn,
+a.jump-link,
+a.related-card,
+a.sc-row,
+a.mob-cta,
+a.tp-link,
+a.related-card,
+a.blog-card,
+a.post-card {
+  text-decoration: none !important;
+}
+
+/* Page hero top padding fix — prevent dark banner overlap */
+.page-hero {
+  padding-top: 100px !important;
+}
+.post-hero {
+  padding-top: 96px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+/* ── 1. RESET ALL LINKS to no underline by default ───── */
+a { text-decoration: none !important; }
+a:hover { text-decoration: none !important; }
+
+/* ── 2. BODY INLINE LINKS — underline only in prose ──── */
+.legal-content a,
+article a,
+.review-summary a,
+.privacy-body a,
+.post-content a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* ── 3. NAV LOGO — navy, no underline ────────────────── */
+nav a.logo,
+nav .logo,
+nav a.logo:link,
+nav a.logo:visited,
+nav a.logo:hover,
+nav a.logo:active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: inline-block !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-text-fill-color: unset !important;
+}
+nav a.logo span,
+nav .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 4. FOOTER LOGO — white, no underline ────────────── */
+footer a.logo,
+footer .logo,
+.footer-brand a,
+.footer-brand a.logo,
+footer a.logo:link,
+footer a.logo:visited,
+footer a.logo:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  background: none !important;
+  border: none !important;
+}
+footer a.logo span,
+footer .logo span,
+.footer-brand .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 5. FOOTER LINKS — muted white, no underline ─────── */
+footer a:not(.logo),
+.footer-col ul a,
+.footer-col a {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+footer a:not(.logo):hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* ── 6. NAV LINKS ─────────────────────────────────────── */
+.nav-links a {
+  color: #505f7a !important;
+  text-decoration: none !important;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+}
+.nav-links .nav-cta {
+  color: white !important;
+  background: #00b8a2 !important;
+}
+
+/* ── 7. CTA BUTTONS — never underline ────────────────── */
+a.nav-cta, a.contact-btn, a.review-cta,
+a.inline-cta-btn, a.jump-link, a.sc-row,
+a.mob-cta, a.blog-card, a.post-card,
+a.related-card, a.tp-link, a.step-card,
+.toc a, .toc-box a, .breadcrumb a {
+  text-decoration: none !important;
+}
+
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+/* ╔══════════════════════════════════════════════════════╗
+   ║  FOOTER GRID — FINAL DEFINITIVE                     ║
+   ╚══════════════════════════════════════════════════════╝ */
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-areas:
+    "brand brand brand"
+    "legal compare company"
+    "bottom bottom bottom" !important;
+  gap: 0 2.5rem !important;
+  padding: 2.5rem 5% 0 !important;
+  color: rgba(255,255,255,0.35) !important;
+}
+.footer-brand {
+  grid-area: brand !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  margin-bottom: 1.5rem !important;
+}
+.footer-col:nth-of-type(1) { grid-area: legal !important; }
+.footer-col:nth-of-type(2) { grid-area: compare !important; }
+.footer-col:nth-of-type(3) { grid-area: company !important; }
+.footer-bottom {
+  grid-area: bottom !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin-top: 1.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+.footer-col h4 {
+  font-size: .70rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a,
+.footer-col a {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+}
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.30) !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "brand brand"
+      "legal compare"
+      "company company"
+      "bottom bottom" !important;
+    gap: 0 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+<style>
+@media (max-width: 640px) {
+  footer > div:first-child {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  footer > div:first-child > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  footer > div:last-child {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  /* Two-col layouts — tighten sidebar */
+  .post-wrap,
+  .blog-wrap,
+  .compare-wrap {
+    gap: 1.5rem !important;
+    padding: 2rem 4% !important;
+  }
+  .post-sidebar {
+    position: static !important;
+  }
+}
+@media (max-width: 1100px) {
+  /* Single column — covers iPad Pro 11" portrait (834px) */
+  .post-wrap {
+    grid-template-columns: 1fr !important;
+  }
+  .post-sidebar {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+  .legal-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .toc {
+    position: static !important;
+  }
+  .review-body {
+    grid-template-columns: 1fr !important;
+  }
+  .review-sidebar {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    padding: 1.25rem !important;
+  }
+  .sidebar-stat { border-bottom: none !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+.disc-banner,
+.disclosure-banner {
+  position: sticky !important;
+  top: 64px !important;
+  z-index: 99 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 9px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+.disc-banner,
+.disclosure-banner {
+  position: fixed !important;
+  top: 64px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 98 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 8px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+}
+/* Page hero must clear nav(64px) + banner(~37px) = 101px min */
+.page-hero,
+section.page-hero {
+  padding-top: 112px !important;
+}
+.post-hero {
+  padding-top: 112px !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── HERO TEXT — ALWAYS WHITE ON DARK HERO ───────────── */
+[style*="background:#0a1628"] h1,
+[style*="background:#0a1628"] h2,
+[style*="background:#0a1628"] p,
+[style*="background:#0a1628"] .hero-sub {
+  color: white !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV OVERRIDE ─────────────────────────────── */
+@media (max-width: 1100px) {
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 4% !important; }
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV DRAWER — inline (fallback if shared.css not loaded) ── */
+.mobile-nav-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,22,40,.5); z-index: 199;
+  backdrop-filter: blur(4px);
+}
+.mobile-nav-overlay.active { display: block; }
+.mobile-nav-drawer {
+  position: fixed !important;
+  top: 0 !important; right: -100% !important; bottom: 0 !important;
+  width: min(320px, 85vw) !important;
+  z-index: 200 !important;
+  background: #fdfcfa !important;
+  padding: 1.5rem 0 !important;
+  box-shadow: -8px 0 40px rgba(10,22,40,.15) !important;
+  transition: right .3s cubic-bezier(.4,0,.2,1) !important;
+  overflow-y: auto !important;
+}
+.mobile-nav-drawer.open { right: 0 !important; }
+.mobile-nav-drawer a {
+  display: block !important;
+  padding: .85rem 5% !important;
+  font-size: 1rem !important;
+  color: #1a2540 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #f0ede8 !important;
+}
+.mobile-nav-drawer a:hover { background: #e0f7f4 !important; color: #00b8a2 !important; }
+.mobile-menu-btn {
+  display: none;
+  width: 44px; height: 44px;
+  background: #0a1628; border-radius: 10px;
+  border: none; cursor: pointer;
+  flex-direction: column; justify-content: center;
+  align-items: center; gap: 5px;
+  margin-left: auto; flex-shrink: 0;
+}
+.mobile-menu-btn span {
+  display: block; width: 20px; height: 2px;
+  background: white; border-radius: 2px;
+}
+/* ───────────────────────────────────────────────────────── */
+
+
+/* ══ DESKTOP CONSISTENCY FIX ══════════════════════════
+   Ensures all pages look correct at ≥1200px
+   ══════════════════════════════════════════════════════ */
+
+/* Standardise hero padding — clears fixed nav (64px) + breathing room */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+  padding-bottom: 56px !important;
+}
+
+/* Section padding — desktop gets generous spacing */
+@media (min-width: 1101px) {
+  .section, section.section {
+    padding: 6rem 5% !important;
+  }
+  .calc-section {
+    padding: 5rem 5% !important;
+  }
+  .email-section {
+    padding: 5rem 5% !important;
+  }
+}
+
+/* Fix 100vw causing horizontal scroll on legal pages */
+.legal-wrap, .disclosure-wrap {
+  max-width: 900px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure no element exceeds viewport */
+* { max-width: 100%; box-sizing: border-box; }
+img, table, iframe { max-width: 100%; }
+
+/* Nav links — always visible on desktop */
+@media (min-width: 1101px) {
+  #navLinks {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══ HERO PADDING — FINAL ══════════════════════════════ */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+}
+.has-disc-banner .page-hero,
+.has-disc-banner .post-hero {
+  padding-top: 112px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ── FOOTER WHITESPACE FIX ───────────────────────────── */
+html { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; }
+footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+@media (max-width: 640px) {
+  body { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  .email-section { margin-bottom: 0 !important; }
+  .trust-strip, .faq-section, .method-section { margin-bottom: 0 !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+</style>
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:#0a1628;display:inline-flex;align-items:center;">my<span style="color:#00b8a2;">HSAPath</span></a>
+  <ul class="nav-links" id="navLinks" style="display:none;">
+    <li><a href="/compare">Compare Accounts</a></li>
+    <li><a href="/eligible" class="active">Am I Eligible?</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<script>/*NAV_CONTROL*/
+(function(){
+  var nl = document.getElementById('navLinks');
+  var btn = document.getElementById('mobileMenuBtn');
+  function setNav(){
+    var w = window.innerWidth;
+    if(nl) nl.style.display = w > 1100 ? '' : 'none';
+    if(btn) btn.style.display = w <= 1100 ? 'flex' : 'none';
+  }
+  setNav();
+  window.addEventListener('resize', setNav);
+  window.addEventListener('orientationchange', function(){ setTimeout(setNav,50); });
+})();
+</script>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,22,40,.5);z-index:199;"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer" style="position:fixed;top:0;right:-100%;bottom:0;width:min(320px,85vw);z-index:200;background:#fdfcfa;padding:0;box-shadow:-8px 0 40px rgba(10,22,40,.15);transition:right .3s ease;overflow-y:auto;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem 1rem;border-bottom:1px solid #e2ddd6;margin-bottom:.5rem;">
+    <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.2rem;color:#0a1628;">my<span style="color:#00b8a2;">HSAPath</span></span>
+    <button onclick="toggleMobileMenu()" style="background:none;border:none;cursor:pointer;padding:.5rem;color:#505f7a;font-size:1.4rem;line-height:1;" aria-label="Close menu">✕</button>
+  </div>
+  <a href="/compare" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Compare Accounts</a>
+  <a href="/eligible" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#00b8a2;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid #00b8a2;">Am I Eligible?</a>
+  <a href="/calculator" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Calculator</a>
+  <a href="/blog" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Blog</a>
+  <a href="/about" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">About</a>
+  <div style="padding:1rem 1.5rem;">
+    <a href="/eligible" style="display:block;padding:.85rem 1.25rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:#0a1628;text-decoration:none;background:#00b8a2;border-radius:8px;text-align:center;">Find My HSA →</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-eyebrow">
+    <div class="live-dot"></div>
+    Updated for 2026 ACA Changes
+  </div>
+  <h1>Am I <em>HSA Eligible</em> in 2026?</h1>
+  <p>Answer 5 quick questions and find out in 60 seconds. With 2026's ACA changes, millions more Americans now qualify than last year.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">⏱ <strong>60 seconds</strong> to complete</div>
+    <div id="main-content" class="hero-stat">✅ <strong>Updated</strong> for 2026 rules</div>
+    <div class="hero-stat">🔒 <strong>Free</strong> — no signup required</div>
+  </div>
+</section>
+
+<!-- QUIZ WRAPPER -->
+<div class="quiz-wrap">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-top">
+      <span class="progress-label">Your eligibility check</span>
+      <span class="progress-count">Question <span id="q-current">1</span> of 5</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:20%"></div>
+    </div>
+    <div class="step-dots" id="step-dots">
+      <div class="step-dot active" data-step="0"></div>
+      <div class="step-dot" data-step="1"></div>
+      <div class="step-dot" data-step="2"></div>
+      <div class="step-dot" data-step="3"></div>
+      <div class="step-dot" data-step="4"></div>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 1 ========== -->
+  <div class="question-card active" id="q1">
+    <div class="q-number">Question 1 of 5</div>
+    <div class="q-text">What type of health insurance do you currently have?</div>
+    <div class="q-hint">To open an HSA, you must be enrolled in a High Deductible Health Plan (HDHP). In 2026, all ACA Bronze and Catastrophic plans automatically qualify.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q1', 'bronze')" data-value="bronze">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Bronze Plan</span>
+          <span class="opt-sub">Bought on HealthCare.gov or your state marketplace — all qualify in 2026</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'catastrophic')" data-value="catastrophic">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Catastrophic Plan</span>
+          <span class="opt-sub">Available to people under 30 or with hardship exemptions — qualifies in 2026</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'hdhp')" data-value="hdhp">
+        <div class="opt-icon">🟢</div>
+        <div class="opt-content">
+          <span class="opt-label">Employer HDHP (High Deductible Health Plan)</span>
+          <span class="opt-sub">Your employer specifically offers an HDHP option — qualifies</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'silver_gold')" data-value="silver_gold">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">ACA Silver or Gold Plan</span>
+          <span class="opt-sub">These don't automatically qualify — check if your specific plan is HDHP-designated</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'medicare')" data-value="medicare">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Medicare</span>
+          <span class="opt-sub">Medicare enrollment makes you ineligible to contribute to an HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q1', 'none')" data-value="none">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">No insurance / Medicaid / Other</span>
+          <span class="opt-sub">You need an HSA-eligible plan to contribute</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" disabled>← Back</button>
+      <button class="btn-next" id="q1-next" disabled onclick="nextQuestion(1)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 2 ========== -->
+  <div class="question-card" id="q2">
+    <div class="q-number">Question 2 of 5</div>
+    <div class="q-text">Are you also enrolled in any other health coverage?</div>
+    <div class="q-hint">Having a second health plan — even a spouse's — can disqualify you if it covers medical expenses before your HDHP deductible is met.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q2', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, my HDHP is my only health coverage</span>
+          <span class="opt-sub">Good — this is the most common eligible situation</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'dental_vision')" data-value="dental_vision">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, but only dental and/or vision</span>
+          <span class="opt-sub">Dental and vision-only plans don't disqualify you — you're still eligible</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'spouse_hdhp')" data-value="spouse_hdhp">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I'm also on my spouse's HDHP plan</span>
+          <span class="opt-sub">Being covered by another HDHP is fine — you're still eligible</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'spouse_non_hdhp')" data-value="spouse_non_hdhp">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I'm also on my spouse's non-HDHP plan</span>
+          <span class="opt-sub">This typically disqualifies you — a non-HDHP covering medical expenses is a problem</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q2', 'fsa')" data-value="fsa">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I have an FSA (Flexible Spending Account)</span>
+          <span class="opt-sub">A general-purpose FSA typically disqualifies you, but an HSA-compatible "Limited Purpose FSA" is okay</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(2)">← Back</button>
+      <button class="btn-next" id="q2-next" disabled onclick="nextQuestion(2)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 3 ========== -->
+  <div class="question-card" id="q3">
+    <div class="q-number">Question 3 of 5</div>
+    <div class="q-text">Are you currently enrolled in Medicare?</div>
+    <div class="q-hint">Once you enroll in any part of Medicare (Part A, B, C, or D), you can no longer contribute to an HSA. You can still use existing HSA funds.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q3', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, I am not enrolled in Medicare</span>
+          <span class="opt-sub">Great — no issue here</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q3', 'yes')" data-value="yes">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, I am enrolled in Medicare</span>
+          <span class="opt-sub">Unfortunately this disqualifies you from contributing to a new HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q3', 'turning65')" data-value="turning65">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">I'm turning 65 this year and considering Medicare</span>
+          <span class="opt-sub">You can contribute until the month you enroll in Medicare — timing matters here</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(3)">← Back</button>
+      <button class="btn-next" id="q3-next" disabled onclick="nextQuestion(3)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 4 ========== -->
+  <div class="question-card" id="q4">
+    <div class="q-number">Question 4 of 5</div>
+    <div class="q-text">Can someone claim you as a dependent on their tax return?</div>
+    <div class="q-hint">If another person — like a parent — can claim you as a dependent on their taxes, you're not eligible to contribute to your own HSA.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q4', 'no')" data-value="no">
+        <div class="opt-icon">✅</div>
+        <div class="opt-content">
+          <span class="opt-label">No, I file my own taxes independently</span>
+          <span class="opt-sub">No issue here — you're in the clear</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q4', 'yes')" data-value="yes">
+        <div class="opt-icon">🔴</div>
+        <div class="opt-content">
+          <span class="opt-label">Yes, someone else claims me as a dependent</span>
+          <span class="opt-sub">This makes you ineligible to contribute to your own HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q4', 'unsure')" data-value="unsure">
+        <div class="opt-icon">🟡</div>
+        <div class="opt-content">
+          <span class="opt-label">Not sure</span>
+          <span class="opt-sub">If you're under 26 and on a parent's plan, check before opening an HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(4)">← Back</button>
+      <button class="btn-next" id="q4-next" disabled onclick="nextQuestion(4)">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ========== QUESTION 5 ========== -->
+  <div class="question-card" id="q5">
+    <div class="q-number">Question 5 of 5</div>
+    <div class="q-text">What best describes your employment situation?</div>
+    <div class="q-hint">This helps us recommend the right HSA custodian for your situation. It doesn't affect your eligibility.</div>
+    <div class="options">
+      <button class="option" onclick="selectOption(this, 'q5', 'freelance')" data-value="freelance">
+        <div class="opt-icon">💻</div>
+        <div class="opt-content">
+          <span class="opt-label">Freelancer / Independent contractor</span>
+          <span class="opt-sub">Self-employed, pay your own insurance — our most common user</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'self_employed')" data-value="self_employed">
+        <div class="opt-icon">🏢</div>
+        <div class="opt-content">
+          <span class="opt-label">Self-employed / Small business owner</span>
+          <span class="opt-sub">Run your own business, purchase your own insurance</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'employed')" data-value="employed">
+        <div class="opt-icon">👔</div>
+        <div class="opt-content">
+          <span class="opt-label">Employed — my company offers an HDHP</span>
+          <span class="opt-sub">Your employer may also contribute to your HSA</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="option" onclick="selectOption(this, 'q5', 'gig')" data-value="gig">
+        <div class="opt-icon">🚗</div>
+        <div class="opt-content">
+          <span class="opt-label">Gig worker (Uber, DoorDash, Fiverr, etc.)</span>
+          <span class="opt-sub">Independent contractor — you buy your own insurance</span>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="prevQuestion(5)">← Back</button>
+      <button class="btn-next" id="q5-next" disabled onclick="showEmailGate()">See My Results →</button>
+    </div>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="email-gate" id="email-gate">
+    <div class="gate-icon">🎯</div>
+    <div class="gate-title">Your results are ready</div>
+    <div class="gate-sub">Enter your email to see your eligibility result and get your personalized HSA recommendation. We'll also send you biweekly HSA tips and updates.</div>
+    <div class="gate-form">
+      <input class="gate-input" type="email" id="gate-email" placeholder="your@email.com" aria-label="Email address">
+      <button class="gate-btn" onclick="showResults()">Show My Results →</button>
+      <button class="gate-skip" onclick="showResults()">Skip — show results without email</button>
+    </div>
+    <p class="gate-note">🔒 No spam. Unsubscribe anytime.</p>
+  </div>
+
+  <!-- ========== RESULT: ELIGIBLE ========== -->
+  <div class="result-card" id="result-eligible">
+    <div class="result-eligible">
+      <div class="result-hero">
+        <div class="result-badge">✅ Eligibility Confirmed</div>
+        <span class="result-icon">🎉</span>
+        <div class="result-headline">You're <em>HSA Eligible</em> in 2026</div>
+        <p class="result-sub">Based on your answers, you qualify to open and contribute to a Health Savings Account. Here's exactly what to do next.</p>
+        <div class="result-savings">
+          <div class="savings-label">Estimated annual tax savings</div>
+          <div class="savings-num">$1,118 – $2,064</div>
+          <div class="savings-note">At max contribution · Varies by income & filing status</div>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <div class="next-steps-title">Your next 3 steps</div>
+        <div class="step-row">
+          <div class="step-num-circle">1</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Open an HSA account below — it's free</div>
+            <div class="step-row-sub">Fidelity or Lively are the best choices for self-employed Americans. Takes 5–10 minutes online, no minimum balance required.</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-circle">2</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Contribute before the tax deadline</div>
+            <div class="step-row-sub">You can contribute up to $4,300 (individual) or $8,750 (family) for 2026. Contributions made before April 15, 2027 can count toward 2026 taxes.</div>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-circle">3</div>
+          <div class="step-row-content">
+            <div class="step-row-title">Invest your balance for long-term growth</div>
+            <div class="step-row-sub">Once you have $1,000+ in cash, invest in low-cost index funds. HSA growth is completely tax-free — it's the best retirement savings vehicle most people aren't using.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommend-section">
+        <div class="rec-title">Recommended HSA accounts for you</div>
+        <div class="rec-cards">
+          <div class="rec-card top-rec">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#00b8a2;">F</div>
+              <div>
+                <div class="rec-name">Fidelity HSA <span style="background:#00b8a2;color:white;font-size:0.6rem;padding:2px 7px;border-radius:100px;font-weight:700;margin-left:4px;">Best pick</span></div>
+                <div class="rec-reason">$0 fees · Invest from $1 · 1,000+ funds</div>
+              </div>
+            </div>
+            <div class="rec-rating">9.8/10</div>
+            <a href="https://digital.fidelity.com/prgw/digital/aom/hsa/eligibility" target="_blank" rel="noopener" class="rec-cta">Open Free →</a>
+          </div>
+          <div class="rec-card">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#2563eb;">L</div>
+              <div>
+                <div class="rec-name">Lively HSA</div>
+                <div class="rec-reason">$0 fees · Best UX · Built for freelancers</div>
+              </div>
+            </div>
+            <div class="rec-rating">9.4/10</div>
+            <a href="https://livelyme.com/hsa" target="_blank" rel="noopener" class="rec-cta">Open Free →</a>
+          </div>
+          <div class="rec-card">
+            <div class="rec-left">
+              <div class="rec-icon" style="background:#7c3aed;">HE</div>
+              <div>
+                <div class="rec-name">HealthEquity</div>
+                <div class="rec-reason">Best for employer-sponsored HDHPs</div>
+              </div>
+            </div>
+            <div class="rec-rating">8.9/10</div>
+            <a href="https://www.healthequity.com/open-an-hsa" target="_blank" rel="noopener" class="rec-cta">Open →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+  <!-- ========== RESULT: NOT ELIGIBLE ========== -->
+  <div class="result-card" id="result-not-eligible">
+    <div class="result-not-eligible">
+      <div class="not-elig-hero">
+        <span class="not-elig-icon">💡</span>
+        <div class="not-elig-headline">You have great alternatives to an HSA</div>
+        <p class="not-elig-sub">Your current plan may not qualify for an HSA — but there are strong tax-advantaged options that don't require an HDHP. Here's what to consider.</p>
+      </div>
+      <div class="not-elig-body">
+        <div class="not-elig-title">Other tax-advantaged options to consider</div>
+        <div class="alt-option">
+          <div class="alt-icon">💳</div>
+          <div>
+            <div class="alt-name">FSA — Flexible Spending Account</div>
+            <div class="alt-desc">If your employer offers an FSA, you can save up to $3,200 pre-tax for medical expenses in 2026. Unlike an HSA, it doesn't require an HDHP.</div>
+          </div>
+        </div>
+        <div class="alt-option">
+          <div class="alt-icon">📋</div>
+          <div>
+            <div class="alt-name">Switch to an HDHP at next open enrollment</div>
+            <div class="alt-desc">If you're on a Silver or Gold plan, switching to Bronze at your next open enrollment window (November) could make you HSA-eligible in 2027.</div>
+          </div>
+        </div>
+        <div class="alt-option">
+          <div class="alt-icon">🎯</div>
+          <div>
+            <div class="alt-name">IRA contributions</div>
+            <div class="alt-desc">If you can't use an HSA, maximize your IRA instead. You can contribute up to $7,000/year ($8,000 if 50+) to a traditional or Roth IRA in 2026.</div>
+          </div>
+        </div>
+        <button class="not-elig-cta" onclick="window.location.href='/calculator'">Read our guide to alternatives →</button>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+  <!-- ========== RESULT: MAYBE ========== -->
+  <div class="result-card" id="result-maybe">
+    <div class="result-maybe">
+      <div class="maybe-hero">
+        <span class="maybe-icon">🔍</span>
+        <div class="maybe-headline">You might be eligible — but need to verify one thing</div>
+        <p class="maybe-sub">Your answers put you in a gray area. Here's exactly what to check before opening an HSA.</p>
+      </div>
+      <div class="maybe-body">
+        <div class="maybe-title">What to verify before opening an HSA</div>
+        <div class="check-item">
+          <div class="check-icon">📄</div>
+          <div class="check-text"><strong>Check your plan documents.</strong> Look for the words "HDHP" or "High Deductible Health Plan" in your Summary of Benefits. The 2026 minimum individual deductible must be at least $1,650.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">💑</div>
+          <div class="check-text"><strong>Confirm your spouse's plan type.</strong> If you're on your spouse's plan, verify it's also an HDHP. A non-HDHP spousal plan covering medical expenses before your deductible disqualifies you.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">📅</div>
+          <div class="check-text"><strong>Check your Medicare enrollment date.</strong> If you're turning 65 this year, you can contribute to your HSA up until the month you enroll in Medicare — timing your enrollment carefully can save thousands.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">🧾</div>
+          <div class="check-text"><strong>Check with your tax preparer.</strong> If you receive any VA benefits, check whether they cover non-service-related conditions — this can affect eligibility.</div>
+        </div>
+        <button class="maybe-cta" onclick="window.location.href='/blog/hsa-eligibility-guide-2026'">Read our full 2026 eligibility guide →</button>
+      </div>
+    </div>
+    <div class="restart-wrap">
+      <button class="btn-restart" onclick="restartQuiz()">↩ Retake the quiz</button>
+    </div>
+  </div>
+
+</div><!-- end quiz-wrap -->
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">📋</div>
+      <div class="trust-title">Based on IRS rules</div>
+      <div class="trust-desc">Our quiz logic is built on current IRS Publication 969 and 2026 ACA regulatory updates.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-title">Your answers stay private</div>
+      <div class="trust-desc">We don't store your quiz responses. Email is optional and only used to send your results.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚖️</div>
+      <div class="trust-title">Not tax advice</div>
+      <div class="trust-desc">This tool gives general guidance. Consult a tax professional for advice specific to your situation.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- EMAIL CAPTURE -->
+<div style="background:linear-gradient(135deg,#0a1628 0%,#0d2142 100%);padding:5rem 5%;text-align:center;position:relative;overflow:hidden;">
+  <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:white;letter-spacing:-.5px;margin-bottom:1rem;">Get Biweekly HSA Tips — Free</h2>
+  <p style="color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Join 4,200+ freelancers getting biweekly HSA tips, tax strategies, and custodian updates. No fluff, unsubscribe anytime.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:.75rem;max-width:420px;margin:0 auto 1rem;">
+    <input type="email" placeholder="your@email.com" aria-label="Email address"
+      style="flex:1;min-width:0;width:100%;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;box-sizing:border-box;">
+    <button style="background:#00b8a2;color:#0a1628;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;padding:.85rem 1.5rem;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;min-width:160px;width:100%;box-sizing:border-box;">Subscribe Free →</button>
+  </div>
+  <p style="font-size:.78rem;color:rgba(255,255,255,.35);">🔒 No spam. Unsubscribe with one click.</p>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#070f1e;font-family:'DM Sans',Arial,sans-serif;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;padding:2.5rem 5% 0;">
+
+    <!-- TOP ROW: brand full width -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:white;display:inline-block;margin-bottom:.6rem;">my<span style="color:#00b8a2;">HSAPath</span></a>
+      <p style="font-size:.8rem;color:rgba(255,255,255,0.3);line-height:1.6;margin:0;max-width:320px;">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+    </div>
+
+    <!-- NAV COLS: 3 columns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- Legal -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Legal</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/terms" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Terms &amp; Conditions</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/advertiser-disclosure" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Advertiser Disclosure</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/privacy" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <!-- Compare -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Compare</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/compare" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Best HSA Accounts</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/eligible" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Am I Eligible?</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/calculator" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Calculator</a></li>
+        </ul>
+      </div>
+      <!-- Company -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Company</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/about" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">About</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/blog" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP -->
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.25rem 0 1.75rem;">
+      <p style="font-size:.72rem;color:rgba(255,255,255,0.18);margin:0 0 .4rem;">&#169; 2026 myHSAPath. All rights reserved.</p>
+      <p style="font-size:.70rem;color:rgba(255,255,255,0.14);line-height:1.6;margin:0;">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+// ============================================
+//   QUIZ STATE
+// ============================================
+const answers = {};
+let currentQ = 1;
+const TOTAL_Q = 5;
+
+// ============================================
+//   SELECT OPTION
+// ============================================
+function selectOption(btn, qId, value) {
+  // Deselect all in this question
+  btn.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[qId] = value;
+
+  // Enable next button
+  const nextBtn = document.getElementById(qId + '-next');
+  if (nextBtn) nextBtn.disabled = false;
+
+  // Auto-advance after short delay for smooth UX
+  setTimeout(() => {
+    if (nextBtn) nextBtn.click();
+  }, 320);
+}
+
+// ============================================
+//   NAVIGATION
+// ============================================
+function nextQuestion(from) {
+  const nextNum = from + 1;
+  if (nextNum > TOTAL_Q) {
+    showEmailGate();
+    return;
+  }
+  showQuestion(nextNum, 'forward');
+}
+
+function prevQuestion(from) {
+  const prevNum = from - 1;
+  if (prevNum < 1) return;
+  showQuestion(prevNum, 'back');
+}
+
+function showQuestion(num, dir) {
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.remove('active', 'back');
+  });
+  document.getElementById('email-gate').classList.remove('active');
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+
+  currentQ = num;
+  const card = document.getElementById('q' + num);
+  if (dir === 'back') card.classList.add('back');
+  card.classList.add('active');
+  updateProgress(num);
+
+  // Re-apply selected state if answer exists
+  const saved = answers['q' + num];
+  if (saved) {
+    card.querySelectorAll('.option').forEach(o => {
+      if (o.dataset.value === saved) o.classList.add('selected');
+    });
+    const nextBtn = document.getElementById('q' + num + '-next');
+    if (nextBtn) nextBtn.disabled = false;
+  }
+
+  document.getElementById('progress-wrap').style.display = 'block';
+}
+
+// ============================================
+//   PROGRESS
+// ============================================
+function updateProgress(qNum) {
+  const pct = (qNum / TOTAL_Q) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('q-current').textContent = qNum;
+
+  document.querySelectorAll('.step-dot').forEach((dot, i) => {
+    dot.classList.remove('active', 'done');
+    if (i === qNum - 1) dot.classList.add('active');
+    else if (i < qNum - 1) dot.classList.add('done');
+  });
+}
+
+// ============================================
+//   EMAIL GATE
+// ============================================
+function showEmailGate() {
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('email-gate').classList.add('active');
+}
+
+// ============================================
+//   SHOW RESULTS
+// ============================================
+function showResults() {
+  document.getElementById('email-gate').classList.remove('active');
+
+  const result = determineResult();
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+  document.getElementById('result-' + result).classList.add('active');
+
+  // Scroll to results smoothly
+  setTimeout(() => {
+    document.getElementById('result-' + result).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ============================================
+//   ELIGIBILITY LOGIC
+// ============================================
+function determineResult() {
+  const q1 = answers['q1'];
+  const q2 = answers['q2'];
+  const q3 = answers['q3'];
+  const q4 = answers['q4'];
+
+  // Clear disqualifiers
+  if (q1 === 'medicare' || q1 === 'none') return 'not-eligible';
+  if (q2 === 'spouse_non_hdhp') return 'not-eligible';
+  if (q3 === 'yes') return 'not-eligible';
+  if (q4 === 'yes') return 'not-eligible';
+
+  // Gray area — needs verification
+  if (q1 === 'silver_gold') return 'maybe';
+  if (q2 === 'fsa') return 'maybe';
+  if (q3 === 'turning65') return 'maybe';
+  if (q4 === 'unsure') return 'maybe';
+
+  // Eligible
+  if (
+    (q1 === 'bronze' || q1 === 'catastrophic' || q1 === 'hdhp') &&
+    (q2 === 'no' || q2 === 'dental_vision' || q2 === 'spouse_hdhp') &&
+    q3 === 'no' &&
+    q4 === 'no'
+  ) return 'eligible';
+
+  return 'maybe';
+}
+
+// ============================================
+//   RESTART
+// ============================================
+function restartQuiz() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.result-card').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.btn-next').forEach(b => b.disabled = true);
+  document.getElementById('progress-wrap').style.display = 'block';
+  showQuestion(1, 'back');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script type="application/ld+json">
+{
+  color: white !important;
+}},
+    {"@type":"Question","name":"Does having dental or vision insurance disqualify me from an HSA?","acceptedAnswer":{"@type":"Answer","text":"No. Dental-only and vision-only plans do not disqualify you from contributing to an HSA. Only general medical coverage that pays before your HDHP deductible creates an issue."}},
+    {"@type":"Question","name":"Can I open an HSA if I am self-employed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Self-employed individuals and freelancers who purchase their own ACA Bronze plan or other HDHP are fully eligible to open and contribute to an HSA."}},
+    {"@type":"Question","name":"Does Medicare enrollment affect HSA eligibility?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once you enroll in any part of Medicare, you can no longer contribute to an HSA. You can still use existing HSA funds for qualified medical expenses."}},
+    {"@type":"Question","name":"What is the HSA contribution limit for 2026?","acceptedAnswer":{"@type":"Answer","text":"The 2026 HSA contribution limits are $4,400 for self-only coverage and $8,750 for family coverage. People age 55 and older can contribute an additional $1,000 catch-up contribution."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Am I HSA Eligible in 2026?",
+  "description": "A 5-question quiz to determine your HSA eligibility based on 2026 IRS rules and ACA changes",
+  "url": "https://myhsapath.com/eligible",
+  "educationalUse": "self-assessment",
+  "about": {
+    "@type": "Thing",
+    "name": "Health Savings Account eligibility"
+  }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('mobileOverlay');
+
+  if (!btn || !drawer || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  overlay.addEventListener('click', function() {
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
+<script src="/shared.js" defer></script>
+<script>
+function toggleMobileMenu(){
+  var drawer=document.getElementById('mobileDrawer');
+  var overlay=document.getElementById('mobileOverlay');
+  var btn=document.getElementById('mobileMenuBtn');
+  if(!drawer)return;
+  var isOpen=drawer.style.right==='0px'||drawer.style.right==='0';
+  if(isOpen){
+    drawer.style.right='-100%';
+    if(overlay)overlay.style.display='none';
+    document.body.style.overflow='';
+    if(btn)btn.setAttribute('aria-expanded','false');
+  }else{
+    drawer.style.right='0';
+    if(overlay)overlay.style.display='block';
+    document.body.style.overflow='hidden';
+    if(btn)btn.setAttribute('aria-expanded','true');
+  }
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var ov=document.getElementById('mobileOverlay');
+  if(ov)ov.addEventListener('click',function(){
+    var d=document.getElementById('mobileDrawer');
+    if(d)d.style.right='-100%';
+    ov.style.display='none';
+    document.body.style.overflow='';
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      var d=document.getElementById('mobileDrawer');
+      var o=document.getElementById('mobileOverlay');
+      if(d)d.style.right='-100%';
+      if(o)o.style.display='none';
+      document.body.style.overflow='';
+    }
+  });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixEligibleLayout() {
+    var w = window.innerWidth;
+    var isTablet = w <= 1100;
+    // Quiz card stays single column always (it's a form)
+    var quizWrap = document.querySelector('.quiz-wrap');
+    if (quizWrap) quizWrap.style.maxWidth = isTablet ? '100%' : '680px';
+  }
+  fixEligibleLayout();
+  window.addEventListener('resize', fixEligibleLayout);
+  window.addEventListener('orientationchange', function(){ setTimeout(fixEligibleLayout,150); });
+});
+</script>
+
+
+
+<script>
+(function() {
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
+
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  }
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
+</script>
+</body>
+</html>

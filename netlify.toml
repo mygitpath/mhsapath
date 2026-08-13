@@ -1,0 +1,109 @@
+# netlify.toml — myHSAPath configuration
+# Place this file in the ROOT of your site folder alongside index.html
+
+[build]
+  publish = "."
+
+# ============================================
+# REDIRECTS
+# ============================================
+
+# www -> non-www (canonical domain)
+[[redirects]]
+  from = "https://www.myhsapath.com/*"
+  to   = "https://myhsapath.com/:splat"
+  status = 301
+  force  = true
+
+# Clean URLs — /compare instead of /compare.html
+[[redirects]]
+  from = "/compare"
+  to   = "/compare.html"
+  status = 200
+
+[[redirects]]
+  from = "/eligible"
+  to   = "/eligible.html"
+  status = 200
+
+[[redirects]]
+  from = "/calculator"
+  to   = "/calculator.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to   = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to   = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to   = "/terms.html"
+  status = 200
+
+
+[[redirects]]
+  from = "/privacy"
+  to   = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/advertiser-disclosure"
+  to   = "/advertiser-disclosure.html"
+  status = 200
+
+# Blog post clean URLs — /blog/post-slug -> /blog/post-slug.html
+[[redirects]]
+  from = "/blog/*"
+  to   = "/blog/:splat.html"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to   = "/404.html"
+  status = 404
+
+# ============================================
+# SECURITY HEADERS (improves SEO trust signals)
+# ============================================
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# ============================================
+# CACHE CONTROL (faster repeat visits)
+# ============================================
+
+# HTML — short cache so updates show immediately
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Static assets — long cache
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

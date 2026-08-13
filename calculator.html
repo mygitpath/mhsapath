@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSA Tax Savings Calculator 2026 — See Exactly What You Save | myHSAPath</title>
+<meta name="description" content="Calculate your exact HSA tax savings in 2026. Enter your income and contribution amount to see federal savings, self-employment tax savings, and 10-year growth projection.">
+<link rel="canonical" href="https://myhsapath.com/calculator">
+<link rel="stylesheet" href="/shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--teal:#00b8a2;--teal-light:#e0f7f4;--cream:#f7f4ef;--warm-white:#fdfcfa;--gold:#e8a020;--text:#1a2540;--muted:#6b7a99;--border:#e2ddd6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fdfcfa;color:#1a2540;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,252,250,.95);backdrop-filter:blur(14px);border-bottom:1px solid #e2ddd6;height:64px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:#505f7a;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0a1628}
+.nav-links a.active{color:#0a1628;font-weight:600}
+.nav-cta{background:#00b8a2;color:white!important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600!important}
+.mobile-menu-btn{display:none;width:36px;height:36px;background:#0a1628;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:none;cursor:pointer}
+.mobile-menu-btn span{display:block;width:16px;height:2px;background:white;border-radius:2px}
+.page-hero{padding:100px 5% 56px;background:#0a1628;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(0,184,162,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,162,.12);border:1px solid rgba(0,184,162,.25);color:#00b8a2;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1.25rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.page-hero h1 em{font-style:italic;color:#00b8a2}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);max-width:520px;line-height:1.7}
+.calc-main{background:#fdfcfa;padding:3rem 5%;max-width:1100px;margin:0 auto}
+.calc-grid{display:grid;grid-template-columns:1fr minmax(0,380px);gap:2.5rem;align-items:start}
+.calc-card{background:white;border-radius:20px;border:1.5px solid #e2ddd6;padding:2rem;box-shadow:0 4px 24px rgba(10,22,40,.06);position:sticky;top:84px}
+.calc-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#0a1628;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e2ddd6}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.8rem;font-weight:600;color:#1a2540;margin-bottom:5px;letter-spacing:.2px}
+.field input,.field select{width:100%;padding:11px 14px;border:1.5px solid #e2ddd6;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:#1a2540;background:white;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.field input:focus,.field select:focus{border-color:#00b8a2}
+.field .hint{font-size:.73rem;color:#505f7a;margin-top:4px}
+.divider{height:1px;background:#e2ddd6;margin:1.25rem 0}
+.result-block{background:#0a1628;border-radius:12px;padding:1.25rem;margin-bottom:.75rem;text-align:center}
+.result-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px}
+.result-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#00b8a2;line-height:1}
+.result-sub{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:3px}
+.mini-results{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.75rem}
+.mini-result{background:#f7f4ef;border-radius:10px;padding:.85rem;text-align:center}
+.mini-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#505f7a;margin-bottom:3px}
+.mini-num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#0a1628}
+.calc-cta{width:100%;padding:13px;background:#00b8a2;color:white!important;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;margin-top:.75rem;transition:all .2s;text-align:center;text-decoration:none;display:block}
+.calc-cta:hover{background:#009b87;transform:translateY(-1px)}
+.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b8a2;margin-bottom:.6rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#0a1628;letter-spacing:-.5px;line-height:1.15;margin-bottom:.6rem}
+.section-sub{font-size:.9rem;color:#505f7a;line-height:1.7;margin-bottom:2rem}
+.advantage-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem}
+.adv-card{background:white;border:1.5px solid #e2ddd6;border-radius:14px;padding:1.5rem;transition:all .25s}
+.adv-card:hover{border-color:#00b8a2;box-shadow:0 8px 24px rgba(0,184,162,.08);transform:translateY(-3px)}
+.adv-icon{font-size:1.75rem;margin-bottom:.75rem}
+.adv-title{font-weight:700;font-size:.92rem;color:#0a1628;margin-bottom:.4rem}
+.adv-body{font-size:.82rem;color:#505f7a;line-height:1.65}
+.growth-section{background:#f7f4ef;border-radius:20px;padding:2rem;margin-bottom:3rem}
+.growth-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0a1628;margin-bottom:.5rem}
+.growth-sub{font-size:.85rem;color:#505f7a;margin-bottom:1.5rem}
+.growth-bars{display:flex;flex-direction:column;gap:.75rem}
+.bar-row{display:flex;align-items:center;gap:1rem}
+.bar-year{font-size:.82rem;font-weight:600;color:#1a2540;min-width:52px}
+.bar-track{flex:1;height:32px;background:white;border-radius:8px;overflow:hidden;border:1px solid #e2ddd6}
+.bar-fill{height:100%;background:#00b8a2;border-radius:8px;transition:width .8s ease;overflow:hidden}
+.bar-fill-val{display:none}
+.bar-total{font-size:.88rem;font-weight:700;color:#0a1628;min-width:80px;text-align:right}
+.bracket-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-bottom:3rem;background:white;border-radius:14px;border:1.5px solid #e2ddd6;overflow:hidden}
+.bracket-table thead tr{background:#0a1628}
+.bracket-table th{padding:.85rem 1rem;text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.bracket-table tbody tr{border-bottom:1px solid #e2ddd6;transition:background .15s}
+.bracket-table tbody tr:last-child{border-bottom:none}
+.bracket-table tbody tr:hover{background:#fafffe}
+.bracket-table td{padding:.85rem 1rem;color:#1a2540}
+.bracket-table td:first-child{font-weight:600;color:#0a1628}
+.highlight-row{background:rgba(0,184,162,.04)!important;border-left:2px solid #00b8a2}
+.highlight-row td:first-child{color:#00b8a2!important}
+.faq-section{background:#f7f4ef;margin-bottom:3rem}
+.faq-item{border:1.5px solid #e2ddd6;border-radius:12px;margin-bottom:8px;overflow:hidden;cursor:pointer}
+.faq-item:hover{border-color:#00b8a2}
+.faq-q{padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-weight:600;font-size:.9rem;color:#0a1628}
+.faq-toggle{color:#00b8a2;font-size:1.1rem;font-weight:700;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 1.25rem 1rem;font-size:.84rem;color:#505f7a;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.email-section{background:#0a1628;padding:4rem 5%;text-align:center;position:relative;overflow:hidden}
+.email-section::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:400px;height:250px;background:radial-gradient(ellipse,rgba(0,184,162,.15) 0%,transparent 70%);pointer-events:none}
+.email-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:white;letter-spacing:-.5px;margin-bottom:.75rem}
+.email-section p{color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:1.75rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.email-form{display:flex;gap:.75rem;max-width:380px;margin:0 auto 1rem}
+.email-form input{flex:1;padding:.85rem 1.1rem;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none}
+.email-form input::placeholder{color:rgba(255,255,255,.35)}
+.email-form input:focus{border-color:#00b8a2}
+.btn-primary{background:#00b8a2;color:white!important;padding:.85rem 1.4rem;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s}
+.btn-primary:hover{background:#009b87}
+.email-note{font-size:.72rem;color:rgba(255,255,255,.3)}
+
+@media(max-width:768px){nav{padding:0 4%}.nav-links{display:none}.mobile-menu-btn{display:flex}.calc-grid{grid-template-columns:1fr}.calc-card{position:static}.advantage-cards{grid-template-columns:1fr}.email-form{flex-direction:column}.mini-results{grid-template-columns:1fr}..calc-main{background:#fdfcfa;padding:2rem 4%}}
+
+/* ═══════════════════════════════════════════════════════
+   UNIVERSAL BACKGROUND FIX — prevents dark mode bleed
+   ═══════════════════════════════════════════════════════ */
+html, body {
+  background-color: #fdfcfa !important;
+  color: #1a2540 !important;
+}
+
+/* All sections default to warm white unless explicitly dark */
+section, main, article, aside, header, div {
+  color: inherit;
+}
+
+/* Light sections — explicit backgrounds */
+.section,
+.hero,
+.page-hero ~ section,
+.about-wrap,
+.legal-wrap,
+.disclosure-wrap,
+.post-wrap,
+.calc-main,
+.blog-main,
+.method-section,
+.faq-section ~ section,
+.compare-section,
+.trust-strip,
+.steps-section,
+.related-posts,
+.blog-section,
+.not-elig-body,
+.maybe-body,
+.quiz-wrap,
+.calc-text {
+  background-color: #fdfcfa !important;
+}
+
+/* Cream sections */
+.calc-section,
+.reviews-section,
+.cream-section,
+.faq-section,
+.sidebar-newsletter,
+.toc-box {
+  background-color: #f7f4ef !important;
+}
+
+/* Dark sections stay dark */
+.stats-bar,
+.stats-strip,
+.verdict-bar,
+.email-section,
+.result-hero,
+.not-elig-hero,
+.maybe-hero,
+.disc-banner,
+.stats-card,
+.contact-cta,
+.sidebar-calc {
+  background-color: #0a1628 !important;
+}
+
+/* White cards always white */
+.review-card,
+.method-card,
+.step-card,
+.blog-card,
+.post-card,
+.related-card,
+.rec-card,
+.tp-card,
+.value-card,
+.promise-card,
+.right-card,
+.money-row,
+.faq-item,
+.alt-option,
+.check-item,
+.toc,
+.sidebar-card,
+.calc-box,
+.calc-card,
+.hero-card,
+.question-card,
+.email-gate,
+.result-eligible,
+.result-not-eligible,
+.result-maybe {
+  background-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════ */
+
+.page-hero .breadcrumb a { color: #00b8a2 !important; }
+.page-hero .breadcrumb span { color: #505f7a !important; }
+.page-hero .hero-eyebrow { color: #007a6e !important; }
+
+
+@media (max-width: 768px) {
+  .disc-banner,
+  .disclosure-banner {
+    padding: 7px 4% !important;
+    flex-wrap: wrap !important;
+  }
+  .disc-banner p,
+  .banner-text {
+    font-size: .72rem !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+  }
+  /* Shorten the banner text on mobile using CSS truncation */
+  .disc-banner .mobile-hide,
+  .banner-text .mobile-hide {
+    display: none !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+.contact-btn-secondary,
+.contact-btn-secondary:hover {
+  color: white !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1.5px solid rgba(255,255,255,.3) !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════
+   WCAG 2.2 COMPLIANCE FIXES
+   ══════════════════════════════════════════════════════
+
+   1. Teal inline links — darken to #007a6e (4.6:1 on white) ✅
+   2. Focus indicators — visible on all interactive elements
+   3. Min touch target 24x24px (WCAG 2.5.8)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Teal inline links — #007a6e passes AA on white AND cream */
+a:not(a:not(/* Keep teal (#00b8a2) only on dark navy backgrounds where it passes */
+.disc-banner a,
+.email-section a,
+.stats-bar a,
+.verdict-bar a,
+.post-hero a,
+.page-hero a,
+.result-hero a,
+nav a:hover,
+.mobile-nav-drawer a:hover,
+.toc ul a,
+.toc-box ol a {
+  color: #00b8a2 !important;
+}
+
+/* 2. Focus indicators — WCAG 2.4.11 (Focus Appearance) */
+*:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+  border-radius: 3px !important;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #007a6e !important;
+  outline-offset: 3px !important;
+}
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 3. Minimum touch target size — WCAG 2.5.8 (24x24px minimum) */
+button,
+.nav-cta,
+.contact-btn,
+.review-cta,
+.inline-cta-btn,
+.jump-link,
+.mob-cta,
+.faq-item,
+.related-card,
+.mob-card,
+.sc-row {
+  min-height: 44px;
+}
+nav .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.mobile-nav-drawer a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 4. Don't rely solely on color for information */
+a:not([class]):not(.logo) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════ */
+
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 5%;
+  background: #007a6e;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0 !important;
+}
+
+.trust-strip {
+  background-color: #f7f4ef !important;
+  border-top: 1.5px solid #e2ddd6 !important;
+  border-bottom: none !important;
+}
+.trust-strip * {
+  color: inherit !important;
+}
+.trust-title {
+  color: #0a1628 !important;
+  font-weight: 700 !important;
+}
+.trust-desc {
+  color: #505f7a !important;
+}
+.trust-icon {
+  color: inherit !important;
+}
+
+.email-section {
+  background-color: #0a1628 !important;
+  border-bottom: 3px solid #00b8a2 !important;
+}
+
+/* ────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  
+
+  
+
+}
+/* ────────────────────────────────────────────────────── */
+
+nav a.logo,
+nav a.logo:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+/* Brand col */
+
+/* Nav columns */
+
+/* Copyright strip — spans ALL columns, sits in row 2 */
+
+@media (max-width: 768px) {
+}
+/* ════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+}
+
+/* ═══ FOOTER ═══ */
+.footer-brand .logo,
+footer .logo,
+footer a.logo,
+.footer-brand a.logo,
+.footer-brand .logo:hover,
+footer .logo:hover,
+footer a.logo:hover,
+.footer-brand a.logo:hover {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  display: block !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  margin-bottom: 0.6rem !important;
+}
+footer .logo span,
+.footer-brand .logo span { color: #00b8a2 !important; }
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.3) !important;
+  line-height: 1.6 !important;
+}
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  font-size: .8rem !important;
+  color: rgba(255,255,255,.35) !important;
+  transition: color .2s !important;
+}
+.footer-col ul a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+footer {
+  background-color: #070f1e !important;
+  padding: 3rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  border-top: 3px solid #00b8a2 !important;
+  overflow: hidden !important;
+}
+.footer-brand { grid-column: 1 !important; }
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background-color: #070f1e !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.5rem !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,.2) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,.15) !important;
+  line-height: 1.6 !important;
+  max-width: 560px !important;
+}
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 2rem 5% 0 !important;
+    gap: 1.75rem 1.5rem !important;
+  }
+  .footer-brand { grid-column: 1 / -1 !important; }
+  .footer-bottom {
+    grid-column: 1 / -1 !important;
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.25rem !important;
+  }
+  .footer-copy,
+  .footer-disclaimer {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+/* ═══ END FOOTER ═══ */
+
+/* ═══ LOGO BASE — ALWAYS LAST ═══ */
+/* Covers nav logo on light bg and footer logo on dark bg */
+a.logo,
+a.logo:link,
+a.logo:visited,
+a.logo:hover,
+a.logo:active,
+.logo,
+nav .logo,
+nav a.logo,
+.footer-brand .logo,
+footer a.logo {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  -webkit-text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.5px !important;
+  cursor: pointer !important;
+}
+
+/* Nav logo — navy on light background */
+nav a.logo,
+nav .logo {
+  color: #0a1628 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Footer logo — white on dark background */
+footer a.logo,
+footer .logo,
+.footer-brand a.logo,
+.footer-brand .logo {
+  color: white !important;
+  display: block !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Teal span inside logo — both contexts */
+a.logo span,
+.logo span {
+  color: #00b8a2 !important;
+}
+/* ═══ END LOGO BASE ═══ */
+
+/* Footer grid — logo spans full width on its own row */
+footer {
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  padding-bottom: 0 !important;
+}
+
+.footer-brand {
+  grid-column: 1 / -1 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Footer bottom — full-width strip, no card, no border, no box */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 1rem 0 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.22) !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+    padding: 1rem 0 1.5rem !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════
+   COMPREHENSIVE FOOTER FIX — all issues resolved
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Footer background — nuclear override */
+footer,
+footer *:not(a):not(span):not(h4) {
+  box-sizing: border-box !important;
+}
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  padding: 2.5rem 5% 0 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 2.5rem !important;
+  color: rgba(255,255,255,0.3) !important;
+}
+
+/* 2. Footer links — white-ish, no underline, no browser blue */
+footer a,
+footer a:link,
+footer a:visited,
+footer a:hover,
+.footer-col a,
+.footer-col a:link,
+.footer-col a:visited {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+  font-size: .8rem !important;
+  transition: color .2s !important;
+}
+footer a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* 3. Footer logo — white, no underline */
+footer .logo,
+footer a.logo,
+footer .logo:hover,
+.footer-brand .logo,
+.footer-brand a.logo {
+  color: white !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: block !important;
+  margin-bottom: .6rem !important;
+}
+.footer-brand .logo span,
+footer .logo span {
+  color: #00b8a2 !important;
+}
+
+/* 4. Footer section headings */
+.footer-col h4 {
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.5) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+
+/* 5. Footer description text */
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.3) !important;
+  line-height: 1.6 !important;
+}
+
+/* 6. Footer list reset */
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li {
+  margin-bottom: .45rem !important;
+}
+
+/* 7. Footer bottom strip — seamless, no card */
+.footer-bottom {
+  grid-column: 1 / -1 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin: 2rem 0 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+}
+
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.footer-disclaimer {
+  font-size: .7rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+  text-decoration: none !important;
+}
+
+/* 8. Mobile footer */
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1 !important;
+    padding-bottom: 1.25rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+    padding: 1rem 0 1.5rem !important;
+    margin: 1rem 0 0 !important;
+  }
+  .footer-copy {
+    white-space: normal !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════
+   NAV + GLOBAL LINK FIXES
+   ══════════════════════════════════════════════════════ */
+
+/* Nav logo — never underline */
+nav .logo,
+nav a.logo,
+nav .logo:hover,
+nav a.logo:hover {
+  text-decoration: none !important;
+  color: #0a1628 !important;
+}
+nav .logo span { color: #00b8a2 !important; }
+
+/* Nav links — never underline, correct color */
+.nav-links a {
+  text-decoration: none !important;
+  color: #505f7a !important;
+}
+.nav-links a:hover { color: #0a1628 !important; }
+.nav-links a.active { color: #0a1628 !important; font-weight: 600 !important; }
+
+/* Mobile drawer links — never underline */
+.mobile-nav-drawer a {
+  text-decoration: none !important;
+  color: #1a2540 !important;
+}
+.mobile-nav-drawer a:hover {
+  color: #00b8a2 !important;
+  background: #e0f7f4 !important;
+}
+
+/* WCAG underline rule — ONLY for inline body text links, NOT nav/footer/buttons */
+article a:not([class]),
+.legal-content a:not([class]),
+.review-summary a:not([class]),
+p a:not([class]):not(.logo) {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* Buttons and CTAs — never underline */
+a.nav-cta,
+a.contact-btn,
+a.review-cta,
+a.inline-cta-btn,
+a.jump-link,
+a.related-card,
+a.sc-row,
+a.mob-cta,
+a.tp-link,
+a.related-card,
+a.blog-card,
+a.post-card {
+  text-decoration: none !important;
+}
+
+/* Page hero top padding fix — prevent dark banner overlap */
+.page-hero {
+  padding-top: 100px !important;
+}
+.post-hero {
+  padding-top: 96px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+/* ── 1. RESET ALL LINKS to no underline by default ───── */
+a { text-decoration: none !important; }
+a:hover { text-decoration: none !important; }
+
+/* ── 2. BODY INLINE LINKS — underline only in prose ──── */
+.legal-content a,
+article a,
+.review-summary a,
+.privacy-body a,
+.post-content a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  color: #007a6e !important;
+}
+
+/* ── 3. NAV LOGO — navy, no underline ────────────────── */
+nav a.logo,
+nav .logo,
+nav a.logo:link,
+nav a.logo:visited,
+nav a.logo:hover,
+nav a.logo:active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: -.5px !important;
+  display: inline-block !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-text-fill-color: unset !important;
+}
+nav a.logo span,
+nav .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 4. FOOTER LOGO — white, no underline ────────────── */
+footer a.logo,
+footer .logo,
+.footer-brand a,
+.footer-brand a.logo,
+footer a.logo:link,
+footer a.logo:visited,
+footer a.logo:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 900 !important;
+  font-size: 1.35rem !important;
+  background: none !important;
+  border: none !important;
+}
+footer a.logo span,
+footer .logo span,
+.footer-brand .logo span {
+  color: #00b8a2 !important;
+}
+
+/* ── 5. FOOTER LINKS — muted white, no underline ─────── */
+footer a:not(.logo),
+.footer-col ul a,
+.footer-col a {
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+footer a:not(.logo):hover {
+  color: #00b8a2 !important;
+  text-decoration: none !important;
+}
+
+/* ── 6. NAV LINKS ─────────────────────────────────────── */
+.nav-links a {
+  color: #505f7a !important;
+  text-decoration: none !important;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0a1628 !important;
+  text-decoration: none !important;
+}
+.nav-links .nav-cta {
+  color: white !important;
+  background: #00b8a2 !important;
+}
+
+/* ── 7. CTA BUTTONS — never underline ────────────────── */
+a.nav-cta, a.contact-btn, a.review-cta,
+a.inline-cta-btn, a.jump-link, a.sc-row,
+a.mob-cta, a.blog-card, a.post-card,
+a.related-card, a.tp-link, a.step-card,
+.toc a, .toc-box a, .breadcrumb a {
+  text-decoration: none !important;
+}
+
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+/* ╔══════════════════════════════════════════════════════╗
+   ║  FOOTER GRID — FINAL DEFINITIVE                     ║
+   ╚══════════════════════════════════════════════════════╝ */
+footer {
+  background: #070f1e !important;
+  background-color: #070f1e !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-areas:
+    "brand brand brand"
+    "legal compare company"
+    "bottom bottom bottom" !important;
+  gap: 0 2.5rem !important;
+  padding: 2.5rem 5% 0 !important;
+  color: rgba(255,255,255,0.35) !important;
+}
+.footer-brand {
+  grid-area: brand !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  margin-bottom: 1.5rem !important;
+}
+.footer-col:nth-of-type(1) { grid-area: legal !important; }
+.footer-col:nth-of-type(2) { grid-area: compare !important; }
+.footer-col:nth-of-type(3) { grid-area: company !important; }
+.footer-bottom {
+  grid-area: bottom !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 1.25rem 0 1.75rem !important;
+  margin-top: 1.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: .75rem !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.footer-copy {
+  font-size: .72rem !important;
+  color: rgba(255,255,255,0.18) !important;
+}
+.footer-disclaimer {
+  font-size: .70rem !important;
+  color: rgba(255,255,255,0.15) !important;
+  line-height: 1.6 !important;
+  max-width: 520px !important;
+}
+.footer-col h4 {
+  font-size: .70rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+  margin-bottom: .8rem !important;
+  text-decoration: none !important;
+}
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.footer-col ul li { margin-bottom: .45rem !important; }
+.footer-col ul a,
+.footer-col a {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.35) !important;
+  text-decoration: none !important;
+}
+.footer-col ul a:hover,
+.footer-col a:hover {
+  color: #00b8a2 !important;
+}
+.footer-desc {
+  font-size: .8rem !important;
+  color: rgba(255,255,255,0.30) !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 640px) {
+  footer {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "brand brand"
+      "legal compare"
+      "company company"
+      "bottom bottom" !important;
+    gap: 0 1.5rem !important;
+    padding: 2rem 5% 0 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+/* ╚══════════════════════════════════════════════════════╝ */
+
+
+<style>
+@media (max-width: 640px) {
+  footer > div:first-child {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  footer > div:first-child > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  footer > div:last-child {
+    flex-direction: column !important;
+    gap: .4rem !important;
+  }
+}
+
+/* ── CALCULATOR TABLET + IPAD FIX ───────────────────────
+   iPad Pro 11" = 834px, iPad Air = 820px, iPad Mini = 768px
+   ──────────────────────────────────────────────────────── */
+
+/* iPad Pro 11" portrait = 834px, landscape = 1194px
+   Stack to single column at 1100px to cover both orientations */
+@media (max-width: 1100px) {
+  .calc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .calc-card {
+    position: static !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+  }
+  .calc-main {
+    padding: 2.5rem 5% !important;
+  }
+}
+
+/* Ensure calc-card never exceeds viewport */
+.calc-card {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Calc inputs full width */
+.calc-input,
+.calc-select,
+select,
+input[type="number"],
+input[type="text"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Bracket table responsive */
+.bracket-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+.bracket-table th,
+.bracket-table td {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 900px) {
+  .bracket-table {
+    font-size: .78rem !important;
+  }
+  .bracket-table th,
+  .bracket-table td {
+    padding: .6rem .75rem !important;
+  }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+.disc-banner,
+.disclosure-banner {
+  position: sticky !important;
+  top: 64px !important;
+  z-index: 99 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 9px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+.disc-banner,
+.disclosure-banner {
+  position: fixed !important;
+  top: 64px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 98 !important;
+  background: #0d2040 !important;
+  border-bottom: 1px solid rgba(0,184,162,.2) !important;
+  padding: 8px 5% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+}
+/* Page hero must clear nav(64px) + banner(~37px) = 101px min */
+.page-hero,
+section.page-hero {
+  padding-top: 112px !important;
+}
+.post-hero {
+  padding-top: 112px !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── HERO TEXT — ALWAYS WHITE ON DARK HERO ───────────── */
+[style*="background:#0a1628"] h1,
+[style*="background:#0a1628"] h2,
+[style*="background:#0a1628"] p,
+[style*="background:#0a1628"] .hero-sub {
+  color: white !important;
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV OVERRIDE ─────────────────────────────── */
+@media (max-width: 1100px) {
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 4% !important; }
+  .nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+
+/* ── MOBILE NAV DRAWER — inline (fallback if shared.css not loaded) ── */
+.mobile-nav-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,22,40,.5); z-index: 199;
+  backdrop-filter: blur(4px);
+}
+.mobile-nav-overlay.active { display: block; }
+.mobile-nav-drawer {
+  position: fixed !important;
+  top: 0 !important; right: -100% !important; bottom: 0 !important;
+  width: min(320px, 85vw) !important;
+  z-index: 200 !important;
+  background: #fdfcfa !important;
+  padding: 1.5rem 0 !important;
+  box-shadow: -8px 0 40px rgba(10,22,40,.15) !important;
+  transition: right .3s cubic-bezier(.4,0,.2,1) !important;
+  overflow-y: auto !important;
+}
+.mobile-nav-drawer.open { right: 0 !important; }
+.mobile-nav-drawer a {
+  display: block !important;
+  padding: .85rem 5% !important;
+  font-size: 1rem !important;
+  color: #1a2540 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #f0ede8 !important;
+}
+.mobile-nav-drawer a:hover { background: #e0f7f4 !important; color: #00b8a2 !important; }
+.mobile-menu-btn {
+  display: none;
+  width: 44px; height: 44px;
+  background: #0a1628; border-radius: 10px;
+  border: none; cursor: pointer;
+  flex-direction: column; justify-content: center;
+  align-items: center; gap: 5px;
+  margin-left: auto; flex-shrink: 0;
+}
+.mobile-menu-btn span {
+  display: block; width: 20px; height: 2px;
+  background: white; border-radius: 2px;
+}
+/* ───────────────────────────────────────────────────────── */
+
+
+/* ══ DESKTOP CONSISTENCY FIX ══════════════════════════
+   Ensures all pages look correct at ≥1200px
+   ══════════════════════════════════════════════════════ */
+
+/* Standardise hero padding — clears fixed nav (64px) + breathing room */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+  padding-bottom: 56px !important;
+}
+
+/* Section padding — desktop gets generous spacing */
+@media (min-width: 1101px) {
+  .section, section.section {
+    padding: 6rem 5% !important;
+  }
+  .calc-section {
+    padding: 5rem 5% !important;
+  }
+  .email-section {
+    padding: 5rem 5% !important;
+  }
+}
+
+/* Fix 100vw causing horizontal scroll on legal pages */
+.legal-wrap, .disclosure-wrap {
+  max-width: 900px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure no element exceeds viewport */
+* { max-width: 100%; box-sizing: border-box; }
+img, table, iframe { max-width: 100%; }
+
+/* Nav links — always visible on desktop */
+@media (min-width: 1101px) {
+  #navLinks {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ══ HERO PADDING — FINAL ══════════════════════════════ */
+.page-hero, .post-hero, section.page-hero {
+  padding-top: 80px !important;
+}
+.has-disc-banner .page-hero,
+.has-disc-banner .post-hero {
+  padding-top: 112px !important;
+}
+/* ══════════════════════════════════════════════════════ */
+
+
+/* ── FOOTER WHITESPACE FIX ───────────────────────────── */
+html { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; }
+footer { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+@media (max-width: 640px) {
+  body { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  .email-section { margin-bottom: 0 !important; }
+  .trust-strip, .faq-section, .method-section { margin-bottom: 0 !important; }
+}
+/* ────────────────────────────────────────────────────── */
+
+</style>
+
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav>
+  <a href="/" class="logo" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:#0a1628;display:inline-flex;align-items:center;">my<span style="color:#00b8a2;">HSAPath</span></a>
+  <ul class="nav-links" id="navLinks" style="display:none;">
+    <li><a href="/compare">Compare Accounts</a></li>
+    <li><a href="/eligible">Am I Eligible?</a></li>
+    <li><a href="/calculator" class="active">Calculator</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/eligible" class="nav-cta">Find My HSA →</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<script>/*NAV_CONTROL*/
+(function(){
+  var nl = document.getElementById('navLinks');
+  var btn = document.getElementById('mobileMenuBtn');
+  function setNav(){
+    var w = window.innerWidth;
+    if(nl) nl.style.display = w > 1100 ? '' : 'none';
+    if(btn) btn.style.display = w <= 1100 ? 'flex' : 'none';
+  }
+  setNav();
+  window.addEventListener('resize', setNav);
+  window.addEventListener('orientationchange', function(){ setTimeout(setNav,50); });
+})();
+</script>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,22,40,.5);z-index:199;"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer" style="position:fixed;top:0;right:-100%;bottom:0;width:min(320px,85vw);z-index:200;background:#fdfcfa;padding:0;box-shadow:-8px 0 40px rgba(10,22,40,.15);transition:right .3s ease;overflow-y:auto;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem 1rem;border-bottom:1px solid #e2ddd6;margin-bottom:.5rem;">
+    <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.2rem;color:#0a1628;">my<span style="color:#00b8a2;">HSAPath</span></span>
+    <button onclick="toggleMobileMenu()" style="background:none;border:none;cursor:pointer;padding:.5rem;color:#505f7a;font-size:1.4rem;line-height:1;" aria-label="Close menu">✕</button>
+  </div>
+  <a href="/compare" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Compare Accounts</a>
+  <a href="/eligible" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Am I Eligible?</a>
+  <a href="/calculator" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:#00b8a2;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid #00b8a2;">Calculator</a>
+  <a href="/blog" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">Blog</a>
+  <a href="/about" style="display:block;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:#1a2540;text-decoration:none;border-bottom:1px solid #f0ede8;border-left:3px solid transparent;">About</a>
+  <div style="padding:1rem 1.5rem;">
+    <a href="/eligible" style="display:block;padding:.85rem 1.25rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:#0a1628;text-decoration:none;background:#00b8a2;border-radius:8px;text-align:center;">Find My HSA →</a>
+  </div>
+</div>
+
+<div id="main-content" class="page-hero" style="background:#0a1628!important;padding:80px 5% 48px;position:relative;overflow:hidden;">
+  <div class="hero-eyebrow" style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,162,0.15);border:1px solid rgba(0,184,162,0.3);color:#00b8a2;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1.25rem;">🧮 Free Tool — Updated 2026</div>
+  <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem;">HSA Tax Savings <em style="font-style:italic;color:#00b8a2;">Calculator</em></h1>
+  <p class="hero-sub" style="color:rgba(255,255,255,0.65);font-size:.95rem;line-height:1.7;max-width:540px;">See your exact annual tax savings from HSA contributions. Most self-employed Americans are surprised how much they're leaving on the table.</p>
+</div>
+
+<div class="calc-main">
+  <div class="calc-grid">
+
+    <!-- LEFT: CONTENT -->
+    <div>
+      <div style="margin-bottom:2.5rem">
+        <div class="section-eyebrow">Why it matters</div>
+        <div class="section-title">The triple tax advantage — explained</div>
+        <p class="section-sub">An HSA is the only account in the US tax code with three separate tax benefits. Understanding all three shows why it's the most powerful savings tool most freelancers aren't using.</p>
+        <div class="advantage-cards">
+          <div class="adv-card">
+            <div class="adv-icon">1️⃣</div>
+            <div class="adv-title">Contributions are pre-tax</div>
+            <p class="adv-body">Every dollar you contribute reduces your taxable income dollar-for-dollar. At the $4,400 individual limit, someone in the 22% bracket saves $946 in federal taxes alone.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">2️⃣</div>
+            <div class="adv-title">Growth is tax-free</div>
+            <p class="adv-body">Invest your HSA balance in index funds and every dollar of growth — dividends, capital gains, interest — is completely tax-free. Unlike a brokerage account, you never owe taxes on gains.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">3️⃣</div>
+            <div class="adv-title">Withdrawals are tax-free</div>
+            <p class="adv-body">Use your HSA funds for any qualified medical expense — doctor visits, prescriptions, dental, vision — and you pay zero tax on the withdrawal. After 65, withdraw for anything penalty-free.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROWTH PROJECTOR -->
+      <div class="growth-section">
+        <div class="growth-title">📈 10-year HSA growth projection</div>
+        <div class="growth-sub">Assuming $4,400/year contribution, 7% annual investment return (S&P 500 historical average), zero withdrawals</div>
+        <div class="growth-bars" id="growth-bars">
+          <div class="bar-row"><div class="bar-year">Year 1</div><div class="bar-track"><div class="bar-fill" id="b1" style="width:5%"><span class="bar-fill-val" id="bv1">$4,601</span></div></div><div class="bar-total" id="bt1">$4,601</div></div>
+          <div class="bar-row"><div class="bar-year">Year 2</div><div class="bar-track"><div class="bar-fill" id="b2" style="width:10%"><span class="bar-fill-val" id="bv2">$9,544</span></div></div><div class="bar-total" id="bt2">$9,544</div></div>
+          <div class="bar-row"><div class="bar-year">Year 3</div><div class="bar-track"><div class="bar-fill" id="b3" style="width:15%"><span class="bar-fill-val" id="bv3">$14,853</span></div></div><div class="bar-total" id="bt3">$14,853</div></div>
+          <div class="bar-row"><div class="bar-year">Year 5</div><div class="bar-track"><div class="bar-fill" id="b5" style="width:28%"><span class="bar-fill-val" id="bv5">$26,418</span></div></div><div class="bar-total" id="bt5">$26,418</div></div>
+          <div class="bar-row"><div class="bar-year">Year 10</div><div class="bar-track"><div class="bar-fill" id="b10" style="width:60%"><span class="bar-fill-val" id="bv10">$63,105</span></div></div><div class="bar-total" id="bt10">$63,105</div></div>
+          <div class="bar-row"><div class="bar-year">Year 20</div><div class="bar-track"><div class="bar-fill" id="b20" style="width:100%"><span class="bar-fill-val" id="bv20">$187,920</span></div></div><div class="bar-total" id="bt20">$187,920</div></div>
+        </div>
+      </div>
+
+      <!-- TAX BRACKET TABLE -->
+      <div>
+        <div class="section-eyebrow">2026 reference</div>
+        <div class="section-title" style="font-size:1.4rem">Federal tax brackets — single filers</div>
+        <p class="section-sub">Your HSA deduction saves you money at your marginal rate — the bracket your top dollar of income falls into.</p>
+        <table class="bracket-table">
+          <thead><tr><th>Tax bracket</th><th>Taxable income (single)</th><th>HSA savings on $4,400</th></tr></thead>
+          <tbody>
+            <tr><td>10%</td><td>Up to $11,600</td><td>$430</td></tr>
+            <tr><td>12%</td><td>$11,601 – $44,725</td><td>$516</td></tr>
+            <tr class="highlight-row"><td>22% ← most freelancers</td><td>$44,726 – $95,375</td><td>$946</td></tr>
+            <tr><td>24%</td><td>$95,376 – $182,050</td><td>$1,032</td></tr>
+            <tr><td>32%</td><td>$182,051 – $231,250</td><td>$1,376</td></tr>
+            <tr><td>35%</td><td>$231,251 – $578,125</td><td>$1,505</td></tr>
+            <tr><td>37%</td><td>Over $578,125</td><td>$1,591</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <div class="section-eyebrow">Common questions</div>
+        <div class="section-title" style="font-size:1.4rem;margin-bottom:1rem">Calculator FAQ</div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Why does the calculator show two savings amounts? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Self-employed people pay both income tax AND self-employment tax (15.3% — the employer + employee share of Social Security and Medicare). HSA contributions reduce your net self-employment income, saving you both. The calculator shows them separately so you understand exactly where the savings come from.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Does the calculator include state tax savings? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">No — state tax treatment of HSAs varies. Most states follow federal rules and also exempt HSA contributions from state income tax, adding another 3–13% in savings depending on your state. California and New Jersey are notable exceptions — they tax HSA contributions at the state level.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What investment return does the growth calculator assume? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">The 10-year projection assumes 7% annual return, which reflects the S&P 500's historical average after inflation. Actual returns will vary. This projection is for illustrative purposes and not a guarantee of future performance.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Can I contribute to an HSA and an IRA in the same year? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes. HSA contributions and IRA contributions are completely separate limits. You can max out both in the same year. For self-employed people, you can also contribute to a SEP-IRA or Solo 401(k) on top of both.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: CALCULATOR CARD -->
+    <div>
+      <div class="calc-card">
+        <div class="calc-card-title">🧮 Your HSA tax savings</div>
+        <div class="field">
+          <label for="income">Annual gross income</label>
+          <input type="number" id="income" inputmode="numeric" placeholder="85,000" value="85000" oninput="calc()">
+          <div class="hint">Your total income before taxes and deductions</div>
+        </div>
+        <div class="field">
+          <label for="contrib">HSA contribution amount</label>
+          <input type="number" id="contrib" inputmode="numeric" placeholder="4,300" value="4300" oninput="calc()">
+          <div class="hint">Max 2026: $4,400 individual · $8,750 family</div>
+        </div>
+        <div class="field">
+          <label for="status">Filing status</label>
+          <select id="status" onchange="calc()">
+            <option value="single">Single</option>
+            <option value="mfj">Married filing jointly</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="selfemployed">Employment type</label>
+          <select id="selfemployed" onchange="calc()">
+            <option value="yes">Self-employed / Freelancer</option>
+            <option value="no">Employed by a company</option>
+          </select>
+          <div class="hint">Self-employed people save on SE tax too</div>
+        </div>
+        <div class="divider"></div>
+        <div class="result-block">
+          <div class="result-label">Total estimated annual savings</div>
+          <div class="result-num" id="total-savings">$1,553</div>
+          <div class="result-sub">Federal income tax + self-employment tax</div>
+        </div>
+        <div class="mini-results">
+          <div class="mini-result">
+            <div class="mini-label">Federal income tax</div>
+            <div class="mini-num" id="fed-savings">$946</div>
+          </div>
+          <div class="mini-result">
+            <div class="mini-label">SE tax savings</div>
+            <div class="mini-num" id="se-savings">$607</div>
+          </div>
+        </div>
+        <div class="mini-results">
+          <div class="mini-result">
+            <div class="mini-label">Tax bracket</div>
+            <div class="mini-num" id="bracket">22%</div>
+          </div>
+          <div class="mini-result">
+            <div class="mini-label">10-year tax-free growth</div>
+            <div class="mini-num" id="growth10">$63,105</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <a href="/compare" class="calc-cta">Open a free HSA account →</a>
+        <p style="font-size:.72rem;color:#505f7a;text-align:center;margin-top:.6rem">Fidelity and Lively are both $0/month</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="email-section">
+  <h2>Get Biweekly HSA Tips — Free</h2>
+  <p>Join 4,200+ freelancers getting biweekly HSA tips, tax strategies, and custodian updates. No fluff, unsubscribe anytime.</p>
+  <div class="email-form">
+    <input type="email" placeholder="your@email.com" aria-label="Email address">
+    <button class="btn-primary">Subscribe Free →</button>
+  </div>
+  <p class="email-note">🔒 No spam. Unsubscribe with one click.</p>
+</div>
+
+<footer style="background:#070f1e;font-family:'DM Sans',Arial,sans-serif;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;padding:2.5rem 5% 0;">
+
+    <!-- TOP ROW: brand full width -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:-.5px;text-decoration:none;color:white;display:inline-block;margin-bottom:.6rem;">my<span style="color:#00b8a2;">HSAPath</span></a>
+      <p style="font-size:.8rem;color:rgba(255,255,255,0.3);line-height:1.6;margin:0;max-width:320px;">Independent HSA comparison for self-employed Americans. No paid placements. Updated for 2026.</p>
+    </div>
+
+    <!-- NAV COLS: 3 columns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- Legal -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Legal</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/terms" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Terms &amp; Conditions</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/advertiser-disclosure" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Advertiser Disclosure</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/privacy" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <!-- Compare -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Compare</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/compare" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Best HSA Accounts</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/eligible" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Am I Eligible?</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/calculator" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Calculator</a></li>
+        </ul>
+      </div>
+      <!-- Company -->
+      <div>
+        <h4 style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin:0 0 .85rem;padding:0;">Company</h4>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="margin-bottom:.5rem;"><a href="/about" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">About</a></li>
+          <li style="margin-bottom:.5rem;"><a href="/blog" style="font-size:.8rem;color:rgba(255,255,255,0.35);text-decoration:none;line-height:1.4;">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP -->
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.25rem 0 1.75rem;">
+      <p style="font-size:.72rem;color:rgba(255,255,255,0.18);margin:0 0 .4rem;">&#169; 2026 myHSAPath. All rights reserved.</p>
+      <p style="font-size:.70rem;color:rgba(255,255,255,0.14);line-height:1.6;margin:0;">myHSAPath is an independent comparison site. We may earn a referral fee when you open an account through our links, at no cost to you. Content is for informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for advice specific to your situation.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+function calc(){
+  const income=parseFloat(document.getElementById('income').value)||85000;
+  const contrib=Math.min(parseFloat(document.getElementById('contrib').value)||4300,8550);
+  const status=document.getElementById('status').value;
+  const se=document.getElementById('selfemployed').value==='yes';
+  let rate=0.10,bLabel='10%';
+  if(status==='single'){
+    if(income>578125){rate=0.37;bLabel='37%'}
+    else if(income>231250){rate=0.35;bLabel='35%'}
+    else if(income>182050){rate=0.32;bLabel='32%'}
+    else if(income>95375){rate=0.24;bLabel='24%'}
+    else if(income>44725){rate=0.22;bLabel='22%'}
+    else if(income>11600){rate=0.12;bLabel='12%'}
+  }else{
+    if(income>693750){rate=0.37;bLabel='37%'}
+    else if(income>462500){rate=0.35;bLabel='35%'}
+    else if(income>364200){rate=0.32;bLabel='32%'}
+    else if(income>190750){rate=0.24;bLabel='24%'}
+    else if(income>89250){rate=0.22;bLabel='22%'}
+    else if(income>23200){rate=0.12;bLabel='12%'}
+  }
+  const fedSav=Math.round(contrib*rate);
+  const seSav=se?Math.round(contrib*0.1413):0;
+  const total=fedSav+seSav;
+  document.getElementById('fed-savings').textContent='$'+fedSav.toLocaleString();
+  document.getElementById('se-savings').textContent=se?'$'+seSav.toLocaleString():'N/A';
+  document.getElementById('total-savings').textContent='$'+total.toLocaleString();
+  document.getElementById('bracket').textContent=bLabel;
+  let bal=0,maxBal=0;
+  const yearly={};
+  for(let y=1;y<=20;y++){bal=(bal+contrib)*1.07;yearly[y]=Math.round(bal);}
+  maxBal=yearly[20];
+  const gr=document.getElementById('growth10');
+  if(gr)gr.textContent='$'+yearly[10].toLocaleString();
+  [1,2,3,5,10,20].forEach(y=>{
+    const pct=Math.round((yearly[y]/maxBal)*100);
+    const b=document.getElementById('b'+y);
+    const bv=document.getElementById('bv'+y);
+    const bt=document.getElementById('bt'+y);
+    if(b)b.style.width=Math.max(pct,8)+'%';
+    if(bv)bv.textContent='$'+yearly[y].toLocaleString();
+    if(bt)bt.textContent='$'+yearly[y].toLocaleString();
+  });
+}
+function toggleFaq(el){
+  const open=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!open)el.classList.add('open');
+}
+calc();
+</script>
+<script type="application/ld+json">
+{
+  color: white !important;
+}}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  var overlay = document.getElementById('mobileOverlay');
+
+  if (!btn || !drawer || !overlay) return;
+
+  btn.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  overlay.addEventListener('click', function() {
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixCalcPage() {
+    var w = window.innerWidth;
+    var isTablet = w <= 1100;
+    var isMobile = w <= 640;
+
+    // Calc grid collapse
+    var grid = document.querySelector('.calc-grid');
+    if (grid) {
+      if (isTablet) {
+        grid.style.gridTemplateColumns = '1fr';
+        grid.style.gap = '2rem';
+      } else {
+        grid.style.gridTemplateColumns = '';
+        grid.style.gap = '';
+      }
+    }
+
+    // Calc card max-width when stacked
+    var card = document.querySelector('.calc-card');
+    if (card && isTablet) {
+      card.style.maxWidth = '580px';
+      card.style.margin = '0 auto';
+      card.style.width = '100%';
+    } else if (card) {
+      card.style.maxWidth = '';
+      card.style.margin = '';
+    }
+
+    // Calc main padding
+    var main = document.querySelector('.calc-main');
+    if (main) {
+      main.style.padding = isTablet ? '2rem 5% 3rem' : '';
+    }
+
+    // Steps grid (3 cards inside calc left column)
+    var steps = document.querySelector('.steps-grid, .calc-steps');
+    if (steps && isTablet) {
+      steps.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr 1fr';
+      steps.style.gap = '1rem';
+    } else if (steps) {
+      steps.style.gridTemplateColumns = '';
+    }
+
+    // Bracket table
+    var bracketTable = document.querySelector('.bracket-table');
+    if (bracketTable && isTablet) {
+      bracketTable.style.fontSize = '.78rem';
+    }
+
+    // Growth bars section
+    var growthBars = document.querySelector('.growth-bars');
+    if (growthBars && isTablet) {
+      growthBars.style.marginTop = '1.5rem';
+    }
+
+    // FAQ grid on calc page
+    var faqGrid = document.querySelector('.faq-grid');
+    if (faqGrid) {
+      faqGrid.style.gridTemplateColumns = isTablet ? '1fr' : '';
+    }
+
+    // Section padding
+    document.querySelectorAll('.calc-section, .section').forEach(function(el) {
+      el.style.padding = isMobile ? '2rem 5%' : isTablet ? '2.5rem 5%' : '';
+    });
+  }
+
+  fixCalcPage();
+  window.addEventListener('resize', fixCalcPage);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(fixCalcPage, 150);
+  });
+});
+</script>
+
+<script src="/shared.js" defer></script>
+<script>
+function toggleMobileMenu(){
+  var drawer=document.getElementById('mobileDrawer');
+  var overlay=document.getElementById('mobileOverlay');
+  var btn=document.getElementById('mobileMenuBtn');
+  if(!drawer)return;
+  var isOpen=drawer.style.right==='0px'||drawer.style.right==='0';
+  if(isOpen){
+    drawer.style.right='-100%';
+    if(overlay)overlay.style.display='none';
+    document.body.style.overflow='';
+    if(btn)btn.setAttribute('aria-expanded','false');
+  }else{
+    drawer.style.right='0';
+    if(overlay)overlay.style.display='block';
+    document.body.style.overflow='hidden';
+    if(btn)btn.setAttribute('aria-expanded','true');
+  }
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var ov=document.getElementById('mobileOverlay');
+  if(ov)ov.addEventListener('click',function(){
+    var d=document.getElementById('mobileDrawer');
+    if(d)d.style.right='-100%';
+    ov.style.display='none';
+    document.body.style.overflow='';
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      var d=document.getElementById('mobileDrawer');
+      var o=document.getElementById('mobileOverlay');
+      if(d)d.style.right='-100%';
+      if(o)o.style.display='none';
+      document.body.style.overflow='';
+    }
+  });
+});
+</script>
+
+
+
+<script>
+(function() {
+  var KIT_URL = 'https://app.kit.com/forms/9776276/subscriptions';
+
+  function submitToKit(email, btn, input, originalText) {
+    var body = 'email_address=' + encodeURIComponent(email);
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    fetch(KIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body,
+      mode: 'no-cors'
+    }).then(function() {
+      if (input) input.value = '';
+      btn.textContent = '\u2705 You\'re in! Check your inbox.';
+      btn.style.background = '#059669';
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+  }
+
+  function bindBtn(btn, input) {
+    if (!btn || !input || btn.getAttribute('data-kit')) return;
+    btn.setAttribute('data-kit', '1');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        input.style.borderColor = '#e05252';
+        setTimeout(function() { input.style.borderColor = ''; }, 3000);
+        return;
+      }
+      submitToKit(email, btn, input, btn.textContent);
+    });
+  }
+
+  function initKit() {
+    // Class-based forms
+    document.querySelectorAll('.email-form').forEach(function(form) {
+      bindBtn(form.querySelector('button'), form.querySelector('input[type="email"]'));
+    });
+
+    // Inline flex forms + sidebar cards — find all subscribe buttons
+    document.querySelectorAll('button').forEach(function(btn) {
+      if (btn.getAttribute('data-kit')) return;
+      var text = (btn.textContent || '').toLowerCase();
+      if (text.indexOf('subscribe') < 0 && text.indexOf('subscribe free') < 0) return;
+      var parent = btn.parentElement;
+      var input = parent && parent.querySelector('input[type="email"]');
+      if (!input) {
+        // Look one level up
+        parent = parent && parent.parentElement;
+        input = parent && parent.querySelector('input[type="email"]');
+      }
+      if (input) bindBtn(btn, input);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKit);
+  } else {
+    initKit();
+  }
+})();
+</script>
+</body>
+</html>
