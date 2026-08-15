@@ -68,7 +68,12 @@
   from = "/*"
   to   = "/404.html"
   status = 404
-
+# subscribed page
+[[redirects]]
+  from = "/subscribed"
+  to = "/subscribed.html"
+  status = 200
+  
 # ============================================
 # SECURITY HEADERS (improves SEO trust signals)
 # ============================================
